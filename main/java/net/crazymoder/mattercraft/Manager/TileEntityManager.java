@@ -1,15 +1,13 @@
 package net.crazymoder.mattercraft.Manager;
 
-import net.crazymoder.mattercraft.TileEntity.EnergyCoreTile;
+import net.crazymoder.mattercraft.TileEntity.EnergyPowerCoreTile;
+import net.crazymoder.mattercraft.TileEntity.NormalBlockTile;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class TileEntityManager {
 	public TileEntityManager(){
-<<<<<<< HEAD
-		GameRegistry.registerTileEntity(EnergyCollectorTile.class, "energycollector");
-		GameRegistry.registerTileEntity(EnergyCollectorTile.class, "normalblock");
-=======
-		GameRegistry.registerTileEntity(EnergyCoreTile.class, "energycollector");
->>>>>>> origin/master
+		GameRegistry.registerTileEntity(EnergyPowerCoreTile.class, "energyPowerCoreTile");
+		GameRegistry.registerTileEntity(NormalBlockTile.class, "normalBlockTile");
+
 	}
 }

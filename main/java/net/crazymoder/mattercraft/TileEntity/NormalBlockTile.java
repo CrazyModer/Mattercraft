@@ -9,12 +9,7 @@ public class NormalBlockTile extends TileEntity{
 
 	public NormalBlockTile() {
 		super();
-		System.out.println("Epic");
+		System.out.println("NormalBlockTile");
 	}
 	
-	@Override
-	public void updateEntity() {
-		System.out.println("X: "+xCoord+" Y: "+yCoord+" Z: "+zCoord+" Updates: ");
-		super.updateEntity();
-	}
 }

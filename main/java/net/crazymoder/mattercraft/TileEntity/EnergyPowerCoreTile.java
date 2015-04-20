@@ -5,16 +5,17 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class EnergyCoreTile extends TileEntity{
+public class EnergyPowerCoreTile extends TileEntity{
 
-	public EnergyCoreTile() {
+	public EnergyPowerCoreTile() {
 		super();
+		System.out.println("EnergyPowerCore");
 	}
 	
-	@Override
+	/*@Override
 	public void updateEntity() {
 		super.updateEntity();
 		World world = worldObj;
 		
-	}
+	}*/
 }
