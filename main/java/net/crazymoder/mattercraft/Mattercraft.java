@@ -16,8 +16,11 @@ public class Mattercraft
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-		    
+		// some example code
+    	for (int i = 0; i < 1000; i++) {
+    		 System.out.println("DIAMOND BLOCK >> "+Blocks.diamond_block.getUnlocalizedName());
+		}    
     	BlockManager blockManager = new BlockManager();
-    	//TileEntityManager tileEntityManger = new TileEntityManager();
+    	TileEntityManager tileEntityManger = new TileEntityManager();
     }
 }

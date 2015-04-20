@@ -5,9 +5,9 @@ import com.sun.javafx.geom.Vec3d;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 
-public class NormalBlockTile extends TileEntity{
+public class EnergyCollectorTile extends TileEntity{
 
-	public NormalBlockTile() {
+	public EnergyCollectorTile() {
 		super();
 		System.out.println("Epic");
 	}
