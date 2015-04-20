@@ -1,6 +1,7 @@
 package net.crazymoder.mattercraft;
 
 import net.crazymoder.mattercraft.Manager.BlockManager;
+import net.crazymoder.mattercraft.Manager.TileEntityManager;
 import net.minecraft.init.Blocks;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -20,5 +21,6 @@ public class Mattercraft
     		 System.out.println("DIAMOND BLOCK >> "+Blocks.diamond_block.getUnlocalizedName());
 		}    
     	BlockManager blockManager = new BlockManager();
+    	TileEntityManager tileEntityManger = new TileEntityManager();
     }
 }
