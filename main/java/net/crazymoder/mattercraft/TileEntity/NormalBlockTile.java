@@ -6,15 +6,18 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 
 public class NormalBlockTile extends TileEntity{
-
+	public boolean visibility;
 	public NormalBlockTile() {
 		super();
-		System.out.println("Epic");
+		visibility = false;
 	}
-	
-	@Override
-	public void updateEntity() {
-		System.out.println("X: "+xCoord+" Y: "+yCoord+" Z: "+zCoord+" Updates: ");
-		super.updateEntity();
+	public void setvisibility(boolean state){
+		if(visibility != state){
+			visibility = state;
+			update();
+		}
+	}
+	private void update(){
+		
 	}
 }
