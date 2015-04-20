@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "mattercraft",
+  "name": "Mattercraft",
+  "description": "Masive RF producing mod",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["daniel-freak-main","Zarbator"],
+  "credits": "",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
