@@ -21,7 +21,7 @@ public class EnergyPowerCoreTile extends TileEntity{
 		World world = this.worldObj;
 		Block b1 = world.getBlock(xCoord, yCoord+1, zCoord);
 		if(b1.getUnlocalizedName().equals("tile.normalBlock")){
-				System.out.println("X");
+				System.out.println("Y");
 		}
 	}
 }
