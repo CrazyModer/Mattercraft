@@ -1,7 +1,7 @@
-package net.crazymoder.mattercraft.Manager;
+package net.crazymoder.mattercraft.manager;
 
-import net.crazymoder.mattercraft.TileEntity.EnergyPowerCoreTile;
-import net.crazymoder.mattercraft.TileEntity.NormalBlockTile;
+import net.crazymoder.mattercraft.tileentity.EnergyPowerCoreTile;
+import net.crazymoder.mattercraft.tileentity.NormalBlockTile;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class TileEntityManager {

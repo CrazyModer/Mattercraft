@@ -1,4 +1,4 @@
-package net.crazymoder.mattercraft.TileEntity;
+package net.crazymoder.mattercraft.tileentity;
 
 import java.util.List;
 
@@ -14,20 +14,14 @@ public class EnergyPowerCoreTile extends TileEntity{
 
 	public EnergyPowerCoreTile() {
 		super();
-		count = 0;
 	}
-	private int count;
 	@Override
 	public void updateEntity() {
-		count++;
 		super.updateEntity();
-		if(count > 9){
-			count = 0;
-			World world = this.worldObj;
-			Block b1 = world.getBlock(xCoord, yCoord+1, zCoord);
-			if(b1.getUnlocalizedName().equals("tile.blockdiamond")){
-				
-			}
+		World world = this.worldObj;
+		Block b1 = world.getBlock(xCoord, yCoord+1, zCoord);
+		if(b1.getUnlocalizedName().equals("tile.normalBlock")){
+				System.out.println("X");
 		}
 	}
 }

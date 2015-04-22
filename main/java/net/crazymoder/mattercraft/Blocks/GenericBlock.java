@@ -1,4 +1,4 @@
-package net.crazymoder.mattercraft.Blocks;
+package net.crazymoder.mattercraft.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

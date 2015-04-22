@@ -1,6 +1,6 @@
-package net.crazymoder.mattercraft.BlockContainer;
+package net.crazymoder.mattercraft.blockcontainer;
 
-import net.crazymoder.mattercraft.TileEntity.EnergyPowerCoreTile;
+import net.crazymoder.mattercraft.tileentity.EnergyPowerCoreTile;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;

@@ -1,6 +1,6 @@
-package net.crazymoder.mattercraft.BlockContainer;
+package net.crazymoder.mattercraft.blockcontainer;
 
-import net.crazymoder.mattercraft.TileEntity.NormalBlockTile;
+import net.crazymoder.mattercraft.tileentity.NormalBlockTile;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -17,20 +17,5 @@ public class NormalBlock extends BlockContainer{
 	public TileEntity createNewTileEntity(World arg0, int arg1) {
 		return new NormalBlockTile();
 	}
-	@Override
-    public int getRenderType() {
-            return -1;
-    }
-   
-    //It's not an opaque cube, so you need this.
-    @Override
-    public boolean isOpaqueCube() {
-            return false;
-    }
-   
-    //It's not a normal block, so you need this too.
-    public boolean renderAsNormalBlock() {
-            return false;
-    }
 }
 

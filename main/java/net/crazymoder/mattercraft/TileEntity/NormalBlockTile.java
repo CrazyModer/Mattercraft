@@ -1,4 +1,4 @@
-package net.crazymoder.mattercraft.TileEntity;
+package net.crazymoder.mattercraft.tileentity;
 
 import com.sun.javafx.geom.Vec3d;
 

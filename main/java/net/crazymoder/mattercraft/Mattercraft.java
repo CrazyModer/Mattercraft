@@ -1,7 +1,8 @@
 package net.crazymoder.mattercraft;
 
-import net.crazymoder.mattercraft.Manager.BlockManager;
-import net.crazymoder.mattercraft.Manager.TileEntityManager;
+import net.crazymoder.mattercraft.craftingmanager.ExternalCraftingManager;
+import net.crazymoder.mattercraft.manager.BlockManager;
+import net.crazymoder.mattercraft.manager.TileEntityManager;
 import net.minecraft.init.Blocks;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -15,12 +16,9 @@ public class Mattercraft
     
     @EventHandler
     public void init(FMLInitializationEvent event)
-    {
-		// some example code
-    	for (int i = 0; i < 1000; i++) {
-    		 System.out.println("DIAMOND BLOCK >> "+Blocks.diamond_block.getUnlocalizedName());
-		}    
+    {  
     	BlockManager blockManager = new BlockManager();
     	TileEntityManager tileEntityManger = new TileEntityManager();
+    	ExternalCraftingManager extenalCM = new ExternalCraftingManager();
     }
 }

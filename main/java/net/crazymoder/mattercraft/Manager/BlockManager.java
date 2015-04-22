@@ -1,10 +1,10 @@
-package net.crazymoder.mattercraft.Manager;
+package net.crazymoder.mattercraft.manager;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import net.crazymoder.mattercraft.BlockContainer.EnergyPowerCore;
-import net.crazymoder.mattercraft.BlockContainer.NormalBlock;
-import net.crazymoder.mattercraft.Blocks.GenericBlock;
-import net.crazymoder.mattercraft.TileEntity.EnergyPowerCoreTile;
+import net.crazymoder.mattercraft.blockcontainer.EnergyPowerCore;
+import net.crazymoder.mattercraft.blockcontainer.NormalBlock;
+import net.crazymoder.mattercraft.blocks.GenericBlock;
+import net.crazymoder.mattercraft.tileentity.EnergyPowerCoreTile;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
