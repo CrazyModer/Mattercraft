@@ -41,6 +41,9 @@ public class BlockManager {
 		plasmaExtractor = new MultiTextureBlock(Material.piston);
 		wormHoleStabilizer = new MultiTextureBlock(Material.piston);
 		matterInjector = new MultiTextureBlock(Material.piston);
+		
+		//Initialize Block Containers
+		
 		//Configure Blocks
 		groundPlating.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("groundPlating").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
 		reinforcedPlating.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("reinforcedPlating").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
@@ -52,6 +55,9 @@ public class BlockManager {
 		plasmaExtractor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("plasmaExtractor").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
 		wormHoleStabilizer.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("wormHoleStabilizer").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
 		matterInjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("matterInjector").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
+		
+		//Configure Block Containers
+		
 		//Single Texture Blocks
 		groundPlating.setBlockTextureName("mattercraft:groundPlating");
 		reinforcedPlating.setBlockTextureName("mattercraft:reinforcedPlating");
@@ -59,11 +65,17 @@ public class BlockManager {
 		osmiumPlating.setBlockTextureName("mattercraft:osmiumPlating");
 		stabilizer.setBlockTextureName("mattercraft:stabilizer");
 		forceFieldEmitter.setBlockTextureName("mattercraft:forceFieldEmitter");
+		
 		//Multi Texture Blocks
 		stabilizerPillar.setBlockTextureName("mattercraft:stabilizerPillar");
 		plasmaExtractor.setBlockTextureName("mattercraft:plasmaExtractor");
 		wormHoleStabilizer.setBlockTextureName("mattercraft:wormHoleStabilizer");
 		matterInjector.setBlockTextureName("mattercraft:matterInjector");
+		
+		//Single Texture Block Container
+		
+		//Multi Texture Block Container
+		
 		//Register Blocks
 		GameRegistry.registerBlock(groundPlating, "groundPlating");
 		GameRegistry.registerBlock(reinforcedPlating, "reinforcedPlating");
@@ -75,6 +87,8 @@ public class BlockManager {
 		GameRegistry.registerBlock(plasmaExtractor, "plasmaExtractor");
 		GameRegistry.registerBlock(wormHoleStabilizer, "wormHoleStabilizer");
 		GameRegistry.registerBlock(matterInjector, "matterInjector");
+		
+		//Register Block Container
 		
 	}
 }
