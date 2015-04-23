@@ -52,10 +52,25 @@ public class BlockManager {
 		plasmaExtractor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("plasmaExtractor").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
 		wormHoleStabilizer.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("wormHoleStabilizer").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
 		matterInjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("matterInjector").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
-		//Texture Blocks
+		//Single Texture Blocks
 		groundPlating.setBlockTextureName("mattercraft:groundPlating");
+		reinforcedPlating.setBlockTextureName("mattercraft:reinforcedPlating");
+		iridiumPalting.setBlockTextureName("mattercraft:iridiumPalting");
+		osmiumPlating.setBlockTextureName("mattercraft:osmiumPlating");
+		stabilizer.setBlockTextureName("mattercraft:stabilizer");
+		forceFieldEmitter.setBlockTextureName("mattercraft:forceFieldEmitter");
 		//Register Blocks
 		GameRegistry.registerBlock(groundPlating, "groundPlating");
+		GameRegistry.registerBlock(reinforcedPlating, "reinforcedPlating");
+		GameRegistry.registerBlock(iridiumPalting, "iridiumPalting");
+		GameRegistry.registerBlock(osmiumPlating, "osmiumPlating");
+		GameRegistry.registerBlock(stabilizer, "stabilizer");
+		GameRegistry.registerBlock(forceFieldEmitter, "forceFieldEmitter");
+		GameRegistry.registerBlock(stabilizerPillar, "stabilizerPillar");
+		GameRegistry.registerBlock(plasmaExtractor, "plasmaExtractor");
+		GameRegistry.registerBlock(wormHoleStabilizer, "wormHoleStabilizer");
+		GameRegistry.registerBlock(matterInjector, "matterInjector");
+		
 	}
 }
 
