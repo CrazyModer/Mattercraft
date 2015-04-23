@@ -1,3 +1,12 @@
-tile.energyPowerCore.name=Energy Power Core
-tile.normalBlock.name=Normal Block
 tile.groundPlating.name=Ground Plating
+tile.reinforcedPlating.name=Reinforced Plating
+tile.iridiumPalting.name=Iridium Plating
+tile.osmiumPlating.name=Osmium Plating
+tile.stabilizer.name=Stabilizer
+tile.forceFieldEmitter.name=Forcefield Emitter
+tile.stabilizerPillar.name=Pillar 
+tile.plasmaExtractor.name=Plasma Extractor
+tile.wormHoleStabilizer.name=Wormhole Stabilizer
+tile.matterInjector.name=Matter Injector
+
+itemGroup.blocks=Matter Blocks
