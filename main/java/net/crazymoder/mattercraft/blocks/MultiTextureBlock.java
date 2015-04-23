@@ -15,7 +15,16 @@ public class MultiTextureBlock extends Block{
 	@Override
 	public void registerBlockIcons(IIconRegister reg) {
 	    for (int i = 0; i < 6; i ++) {
-	        this.icons[i] = reg.registerIcon(this.textureName + "_" + i);
+	    	if(i == 0){
+	    		//bottom
+	    		this.icons[i] = reg.registerIcon(this.textureName + "_B");
+	    	}else if(i == 1){
+	    		//top
+	    		this.icons[i] = reg.registerIcon(this.textureName + "_T");
+	    	}else{
+	    		//side
+	    		this.icons[i] = reg.registerIcon(this.textureName + "_S");
+	    	}
 	    }
 	}
 	

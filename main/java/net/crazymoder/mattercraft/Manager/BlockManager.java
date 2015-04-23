@@ -59,6 +59,11 @@ public class BlockManager {
 		osmiumPlating.setBlockTextureName("mattercraft:osmiumPlating");
 		stabilizer.setBlockTextureName("mattercraft:stabilizer");
 		forceFieldEmitter.setBlockTextureName("mattercraft:forceFieldEmitter");
+		//Multi Texture Blocks
+		stabilizerPillar.setBlockTextureName("mattercraft:stabilizerPillar");
+		plasmaExtractor.setBlockTextureName("mattercraft:plasmaExtractor");
+		wormHoleStabilizer.setBlockTextureName("mattercraft:wormHoleStabilizer");
+		matterInjector.setBlockTextureName("mattercraft:matterInjector");
 		//Register Blocks
 		GameRegistry.registerBlock(groundPlating, "groundPlating");
 		GameRegistry.registerBlock(reinforcedPlating, "reinforcedPlating");
