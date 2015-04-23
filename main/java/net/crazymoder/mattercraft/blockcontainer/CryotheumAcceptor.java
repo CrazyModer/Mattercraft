@@ -7,29 +7,26 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class CryotheumAcceptor extends BlockContainer
 {	
-	protected CryotheumAcceptor(Material matereal) {
+	public CryotheumAcceptor() {
 		super(Material.iron);
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 	}
 	
-    public int getRenderType()
-    {
-    	return -1;
-    }
-   
-    public boolean isOpaqueCube()
-    {
-    	return false;
-    }
+	public boolean shouldSideBeRendered(IBlockAccess iblockaccess, int i, int j, int k, int l)
+	{
+	   return false;
+	}
 
-    public boolean renderAsNormalBlock()
-    {
-    	return false;
-    }
+	//And this tell it that you can see through this block, and neighbor blocks should be rendered.
+	public boolean isOpaqueCube()
+	{
+	   return false;
+	}
    
     @Override
     public void onBlockPlacedBy(World world, int i, int j, int k, EntityLivingBase entityliving, ItemStack itemStack)

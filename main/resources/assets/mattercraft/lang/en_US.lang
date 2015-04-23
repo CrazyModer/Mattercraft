@@ -8,5 +8,6 @@ tile.stabilizerPillar.name=Pillar
 tile.plasmaExtractor.name=Plasma Extractor
 tile.wormHoleStabilizer.name=Wormhole Stabilizer
 tile.matterInjector.name=Matter Injector
+tile.cryotheumAcceptor.name=Cryotheum Acceptor
 
 itemGroup.blocks=Matter Blocks

@@ -1,7 +1,9 @@
 package net.crazymoder.mattercraft.manager;
 
+import net.crazymoder.mattercraft.blockcontainer.CryotheumAcceptor;
 import net.crazymoder.mattercraft.blocks.BasicBlock;
 import net.crazymoder.mattercraft.blocks.MultiTextureBlock;
+import net.crazymoder.mattercraft.tileentity.CryotheumAcceptorTile;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -21,6 +23,9 @@ public class BlockManager {
 	public static Block plasmaExtractor;//mst
 	public static Block wormHoleStabilizer;//mst
 	public static Block matterInjector;//mst
+	
+	//declarate Block Container
+	CryotheumAcceptor cryotheumAcceptor;
 	
 	//Creativ tab
 	public static CreativeTabs tab = new CreativeTabs("blocks") {
@@ -43,6 +48,7 @@ public class BlockManager {
 		matterInjector = new MultiTextureBlock(Material.piston);
 		
 		//Initialize Block Containers
+		cryotheumAcceptor = new CryotheumAcceptor();
 		
 		//Configure Blocks
 		groundPlating.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("groundPlating").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
@@ -57,6 +63,8 @@ public class BlockManager {
 		matterInjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("matterInjector").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
 		
 		//Configure Block Containers
+		cryotheumAcceptor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("cryotheumAcceptor").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
+		
 		
 		//Single Texture Blocks
 		groundPlating.setBlockTextureName("mattercraft:groundPlating");
@@ -87,6 +95,7 @@ public class BlockManager {
 		GameRegistry.registerBlock(plasmaExtractor, "plasmaExtractor");
 		GameRegistry.registerBlock(wormHoleStabilizer, "wormHoleStabilizer");
 		GameRegistry.registerBlock(matterInjector, "matterInjector");
+		GameRegistry.registerBlock(cryotheumAcceptor, "cryotheumAcceptor");
 		
 		//Register Block Container
 		
