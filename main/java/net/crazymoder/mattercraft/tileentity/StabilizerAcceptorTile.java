@@ -12,9 +12,9 @@ import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidHandler;
 import net.minecraftforge.fluids.IFluidTank;
 
-public class CryotheumAcceptorTile extends TileEntity implements IFluidHandler{
+public class StabilizerAcceptorTile extends TileEntity implements IFluidHandler{
 	public FluidTank tank = new FluidTank(50000);
-	public CryotheumAcceptorTile() {
+	public StabilizerAcceptorTile() {
 	}
 	
 	public void updateEntity() {
