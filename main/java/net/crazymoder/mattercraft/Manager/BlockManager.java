@@ -27,12 +27,6 @@ public class BlockManager {
 	//declarate Block Container
 	CryotheumAcceptor cryotheumAcceptor;
 	
-	//Creativ tab
-	public static CreativeTabs tab = new CreativeTabs("blocks") {
-	    public Item getTabIconItem() {
-	        return Item.getItemFromBlock(groundPlating);
-	    }
-	};
 	
 	public BlockManager(){
 		//Initialize Blocks
@@ -51,19 +45,19 @@ public class BlockManager {
 		cryotheumAcceptor = new CryotheumAcceptor();
 		
 		//Configure Blocks
-		groundPlating.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("groundPlating").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
-		reinforcedPlating.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("reinforcedPlating").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
-		iridiumPalting.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("iridiumPalting").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
-		osmiumPlating.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("osmiumPlating").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
-		stabilizer.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("stabilizer").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
-		forceFieldEmitter.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("forceFieldEmitter").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
-		stabilizerPillar.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("stabilizerPillar").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
-		plasmaExtractor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("plasmaExtractor").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
-		wormHoleStabilizer.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("wormHoleStabilizer").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
-		matterInjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("matterInjector").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
+		groundPlating.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.groundPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		reinforcedPlating.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.reinforcedPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		iridiumPalting.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.iridiumPalting").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		osmiumPlating.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.osmiumPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		stabilizer.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.stabilizer").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		forceFieldEmitter.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.forceFieldEmitter").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		stabilizerPillar.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.stabilizerPillar").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		plasmaExtractor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.plasmaExtractor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		wormHoleStabilizer.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.wormHoleStabilizer").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		matterInjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.matterInjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		
 		//Configure Block Containers
-		cryotheumAcceptor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("cryotheumAcceptor").setCreativeTab(tab).setHarvestLevel("pickaxe",3);
+		cryotheumAcceptor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.cryotheumAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		
 		
 		//Single Texture Blocks
@@ -85,17 +79,17 @@ public class BlockManager {
 		//Multi Texture Block Container
 		
 		//Register Blocks
-		GameRegistry.registerBlock(groundPlating, "groundPlating");
-		GameRegistry.registerBlock(reinforcedPlating, "reinforcedPlating");
-		GameRegistry.registerBlock(iridiumPalting, "iridiumPalting");
-		GameRegistry.registerBlock(osmiumPlating, "osmiumPlating");
-		GameRegistry.registerBlock(stabilizer, "stabilizer");
-		GameRegistry.registerBlock(forceFieldEmitter, "forceFieldEmitter");
-		GameRegistry.registerBlock(stabilizerPillar, "stabilizerPillar");
-		GameRegistry.registerBlock(plasmaExtractor, "plasmaExtractor");
-		GameRegistry.registerBlock(wormHoleStabilizer, "wormHoleStabilizer");
-		GameRegistry.registerBlock(matterInjector, "matterInjector");
-		GameRegistry.registerBlock(cryotheumAcceptor, "cryotheumAcceptor");
+		GameRegistry.registerBlock(groundPlating, "mtc.groundPlating");
+		GameRegistry.registerBlock(reinforcedPlating, "mtc.reinforcedPlating");
+		GameRegistry.registerBlock(iridiumPalting, "mtc.iridiumPalting");
+		GameRegistry.registerBlock(osmiumPlating, "mtc.osmiumPlating");
+		GameRegistry.registerBlock(stabilizer, "mtc.stabilizer");
+		GameRegistry.registerBlock(forceFieldEmitter, "mtc.forceFieldEmitter");
+		GameRegistry.registerBlock(stabilizerPillar, "mtc.stabilizerPillar");
+		GameRegistry.registerBlock(plasmaExtractor, "mtc.plasmaExtractor");
+		GameRegistry.registerBlock(wormHoleStabilizer, "mtc.wormHoleStabilizer");
+		GameRegistry.registerBlock(matterInjector, "mtc.matterInjector");
+		GameRegistry.registerBlock(cryotheumAcceptor, "mtc.cryotheumAcceptor");
 		
 		//Register Block Container
 		

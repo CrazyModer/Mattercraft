@@ -1,13 +1,14 @@
-tile.groundPlating.name=Ground Plating
-tile.reinforcedPlating.name=Reinforced Plating
-tile.iridiumPalting.name=Iridium Plating
-tile.osmiumPlating.name=Osmium Plating
-tile.stabilizer.name=Stabilizer
-tile.forceFieldEmitter.name=Forcefield Emitter
-tile.stabilizerPillar.name=Pillar 
-tile.plasmaExtractor.name=Plasma Extractor
-tile.wormHoleStabilizer.name=Wormhole Stabilizer
-tile.matterInjector.name=Matter Injector
-tile.cryotheumAcceptor.name=Cryotheum Acceptor
+tile.mtc.groundPlating.name=Ground Plating
+tile.mtc.reinforcedPlating.name=Reinforced Plating
+tile.mtc.iridiumPalting.name=Iridium Plating
+tile.mtc.osmiumPlating.name=Osmium Plating
+tile.mtc.stabilizer.name=Stabilizer
+tile.mtc.forceFieldEmitter.name=Forcefield Emitter
+tile.mtc.stabilizerPillar.name=Pillar 
+tile.mtc.plasmaExtractor.name=Plasma Extractor
+tile.mtc.wormHoleStabilizer.name=Wormhole Stabilizer
+tile.mtc.matterInjector.name=Matter Injector
+tile.mtc.cryotheumAcceptor.name=Cryotheum Acceptor
+tile.mtc.ionizedPlasma.name=Ionized Plasma
 
-itemGroup.blocks=Matter Blocks
+itemGroup.mtc.blocks=Matter Blocks

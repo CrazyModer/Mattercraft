@@ -2,6 +2,7 @@ package net.crazymoder.mattercraft;
 
 import net.crazymoder.mattercraft.craftingmanager.ExternalCraftingManager;
 import net.crazymoder.mattercraft.manager.BlockManager;
+import net.crazymoder.mattercraft.manager.FluidManager;
 import net.crazymoder.mattercraft.manager.TileEntityManager;
 import net.crazymoder.mattercraft.manager.TileEntityRenderingManager;
 import net.minecraft.init.Blocks;
@@ -21,6 +22,7 @@ public class Mattercraft
     	BlockManager blockManager = new BlockManager();
     	TileEntityManager tileEntityManger = new TileEntityManager();
     	ExternalCraftingManager extenalCM = new ExternalCraftingManager();
+    	FluidManager fluidManager = new FluidManager();
     	TileEntityRenderingManager tileEntityRenderingManager = new TileEntityRenderingManager();
     }
 }
