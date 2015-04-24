@@ -1,11 +1,11 @@
 package net.crazymoder.mattercraft.fluids;
-
 import net.crazymoder.mattercraft.blocks.BasicFluidBlock;
 import net.crazymoder.mattercraft.manager.BucketManager;
 import net.crazymoder.mattercraft.manager.CreativeTabManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBucket;

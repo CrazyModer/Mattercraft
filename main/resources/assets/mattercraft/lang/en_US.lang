@@ -16,3 +16,4 @@ fluid.mtc.ionizedPlasma=Ionized Plasma
 item.mtc.ionizedPlasmaBucket.name=Ionized Plasma Bucket
 
 itemGroup.mtc.blocks=Matter Blocks
+itemGroup.mtc.items=Matter Items

@@ -13,15 +13,15 @@ import net.minecraftforge.fluids.Fluid;
 
 public class BasicFluidBlock extends BlockFluidClassic {
 
-    @SideOnly(Side.CLIENT)
     protected IIcon stillIcon;
-    @SideOnly(Side.CLIENT)
     protected IIcon flowingIcon;
     
     private String textureName;
+    private Fluid fluid;
    
     public BasicFluidBlock(Fluid fluid, Material material,String texture) {
             super(fluid, material);
+            this.fluid = fluid;
             textureName = texture;
     }
    
@@ -30,11 +30,11 @@ public class BasicFluidBlock extends BlockFluidClassic {
             return (side == 0 || side == 1)? stillIcon : flowingIcon;
     }
    
-    @SideOnly(Side.CLIENT)
     @Override
     public void registerBlockIcons(IIconRegister register) {
             stillIcon = register.registerIcon(textureName+"_S");
             flowingIcon = register.registerIcon(textureName+"_F");
+            fluid.setIcons(flowingIcon);
     }
    
     @Override
@@ -47,6 +47,14 @@ public class BasicFluidBlock extends BlockFluidClassic {
     public boolean displaceIfPossible(World world, int x, int y, int z) {
             if (world.getBlock(x,  y,  z).getMaterial().isLiquid()) return false;
             return super.displaceIfPossible(world, x, y, z);
+    }
+    
+    public IIcon getIcon1(){
+		return stillIcon;
+    }
+    
+    public IIcon getIcon2(){
+    	return flowingIcon;
     }
    
 }
