@@ -2,6 +2,7 @@ package net.crazymoder.mattercraft.fluids;
 
 import net.crazymoder.mattercraft.blocks.BasicFluidBlock;
 import net.crazymoder.mattercraft.manager.BucketManager;
+import net.crazymoder.mattercraft.manager.CreativeTabManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -22,11 +23,11 @@ public class IonizedPlasma {
 			ionizedPlasma = new Fluid("mtc.ionizedPlasma");
 			ionizedPlasma.setTemperature(100000).setDensity(1).setLuminosity(15).setViscosity(50).setGaseous(true).setUnlocalizedName("mtc.ionizedPlasma");
 			FluidRegistry.registerFluid(ionizedPlasma);
-			ionizedPlasmaBlock = new BasicFluidBlock(ionizedPlasma, Material.lava, "mattercraft:ionizedPlasma");
+			ionizedPlasmaBlock = new BasicFluidBlock(ionizedPlasma, Material.lava, "mattercraft:ionizedPlasma").setLightLevel(15);
 			ionizedPlasmaBlock.setBlockName("mtc.ionizedPlasma");
 			GameRegistry.registerBlock(ionizedPlasmaBlock, "mtc.ionizedPlasma");
 			ionizedPlasmaBucket = new ItemBucket(ionizedPlasmaBlock);
-			ionizedPlasmaBucket.setUnlocalizedName("mtc.ionizedPlasmaBucket").setTextureName("mattercraft:ionizedPlasmaBucket").setContainerItem(Items.bucket).setCreativeTab(CreativeTabs.tabMisc);
+			ionizedPlasmaBucket.setUnlocalizedName("mtc.ionizedPlasmaBucket").setTextureName("mattercraft:ionizedPlasmaBucket").setContainerItem(Items.bucket).setCreativeTab(CreativeTabManager.tabItems);
 			GameRegistry.registerItem(ionizedPlasmaBucket, "mtc.ionizedPlasmaBucket");
 			FluidContainerRegistry.registerFluidContainer(ionizedPlasma, new ItemStack(ionizedPlasmaBucket), new ItemStack(Items.bucket));
 			BucketManager.INSTANCE.buckets.put(ionizedPlasmaBlock, ionizedPlasmaBucket);

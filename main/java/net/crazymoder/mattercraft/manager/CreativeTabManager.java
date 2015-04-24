@@ -11,4 +11,9 @@ public class CreativeTabManager {
 	        return Item.getItemFromBlock(GameRegistry.findBlock("mattercraft", "mtc.groundPlating"));
 	    }
 	};
+	public static CreativeTabs tabItems = new CreativeTabs("mtc.items") {
+	    public Item getTabIconItem() {
+	    	return GameRegistry.findItem("mattercraft", "mtc.ionizedPlasmaBucket");
+	    }
+	};
 }

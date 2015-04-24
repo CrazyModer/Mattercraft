@@ -77,6 +77,7 @@ public class BlockManager {
 		//Single Texture Block Container
 		
 		//Multi Texture Block Container
+		cryotheumAcceptor.setBlockTextureName("mattercraft:cryotheumAcceptor");
 		
 		//Register Blocks
 		GameRegistry.registerBlock(groundPlating, "mtc.groundPlating");
