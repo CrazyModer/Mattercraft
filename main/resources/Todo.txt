@@ -1,6 +1,4 @@
 @Domi
-toxic waste
-hydrogen
 stabilizer
 heated cryotium
 @Sven
