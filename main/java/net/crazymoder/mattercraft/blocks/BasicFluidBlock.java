@@ -23,7 +23,6 @@ public class BasicFluidBlock extends BlockFluidClassic {
     public BasicFluidBlock(Fluid fluid, Material material,String texture) {
             super(fluid, material);
             textureName = texture;
-            setCreativeTab(CreativeTabs.tabMisc);
     }
    
     @Override

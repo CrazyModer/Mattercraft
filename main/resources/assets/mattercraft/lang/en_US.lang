@@ -11,4 +11,8 @@ tile.mtc.matterInjector.name=Matter Injector
 tile.mtc.cryotheumAcceptor.name=Cryotheum Acceptor
 tile.mtc.ionizedPlasma.name=Ionized Plasma
 
+fluid.mtc.ionizedPlasma=Ionized Plasma
+
+item.mtc.ionizedPlasmaBucket.name=Ionized Plasma Bucket
+
 itemGroup.mtc.blocks=Matter Blocks
