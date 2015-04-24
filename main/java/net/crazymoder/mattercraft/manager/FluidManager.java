@@ -4,7 +4,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.crazymoder.mattercraft.blocks.BasicFluidBlock;
+import net.crazymoder.mattercraft.fluids.Hydrogen;
 import net.crazymoder.mattercraft.fluids.IonizedPlasma;
+import net.crazymoder.mattercraft.fluids.ToxicWaste;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -20,6 +22,8 @@ import net.minecraftforge.fluids.FluidRegistry;
 public class FluidManager {
 	public FluidManager(){
 		IonizedPlasma ionizedPlasma = new IonizedPlasma();
+		ToxicWaste toxicWaste = new ToxicWaste();
+		Hydrogen hydrogen = new Hydrogen();
 		MinecraftForge.EVENT_BUS.register(BucketManager.INSTANCE);
 	}
 }
