@@ -12,14 +12,20 @@ tile.mtc.cryotheumAcceptor.name=Cryotheum Acceptor
 tile.mtc.ionizedPlasma.name=Ionized Plasma
 tile.mtc.toxicWaste.name=Toxic Waste
 tile.mtc.hydrogen.name=Hydrogen
+tile.mtc.heatedCryotheum.name=Heated Cryotheum
+tile.mtc.stabilizer.name=stabilizer
 
 fluid.mtc.ionizedPlasma=Ionized Plasma
 fluid.mtc.toxicWaste=Toxic Waste
 fluid.mtc.hydrogen=Hydrogen
+fluid.mtc.heatedCryotheum=Heated Cryotheum
+fluid.mtc.stabilizer=Stabilizer
 
 item.mtc.ionizedPlasmaBucket.name=Ionized Plasma Bucket
 item.mtc.toxicWasteBucket.name=Toxic Waste Bucket
 item.mtc.hydrogenBucket.name=Hydrogen Bucket
+item.mtc.heatedCryotheumBucket.name=Heated Cryotheum Bucket
+item.mtc.stabilizerBucket.name=Stabilizer Bucket
 
 itemGroup.mtc.blocks=Matter Blocks
 itemGroup.mtc.items=Matter Items
