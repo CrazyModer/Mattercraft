@@ -11,6 +11,7 @@ tile.mtc.matterInjector.name=Matter Injector
 tile.mtc.cryotheumAcceptor.name=Cryotheum Acceptor
 tile.mtc.hydrogenAcceptor.name=Hydrogen Acceptor
 tile.mtc.stabilizerAcceptor.name=Stabilizer Acceptor
+tile.mtc.plasmaEjector.name=Plasma Ejector
 tile.mtc.ionizedPlasma.name=Ionized Plasma
 tile.mtc.toxicWaste.name=Toxic Waste
 tile.mtc.hydrogen.name=Hydrogen

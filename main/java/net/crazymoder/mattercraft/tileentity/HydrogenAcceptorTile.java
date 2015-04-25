@@ -33,12 +33,12 @@ public class HydrogenAcceptorTile extends TileEntity implements IFluidHandler{
 
 	public FluidStack drain(ForgeDirection from, FluidStack resource, boolean doDrain)
 	{
-		return this.tank.drain(resource.amount, doDrain);
+		return new FluidStack(new Fluid("mtc.hydrogen"),0);
 	}
 
 	public FluidStack drain(ForgeDirection from, int maxDrain, boolean doDrain)
 	{
-		return this.tank.drain(maxDrain, doDrain);
+		return new FluidStack(new Fluid("mtc.hydrogen"),0);
 	}
 
 	public boolean canFill(ForgeDirection from, Fluid fluid)

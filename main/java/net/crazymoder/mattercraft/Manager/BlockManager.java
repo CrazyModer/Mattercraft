@@ -2,10 +2,13 @@ package net.crazymoder.mattercraft.manager;
 
 import net.crazymoder.mattercraft.blockcontainer.CryotheumAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.HydrogenAcceptor;
+import net.crazymoder.mattercraft.blockcontainer.PlasmaEjector;
 import net.crazymoder.mattercraft.blockcontainer.StabilizerAcceptor;
+import net.crazymoder.mattercraft.blockcontainer.ToxicWasteEjector;
 import net.crazymoder.mattercraft.blocks.BasicBlock;
 import net.crazymoder.mattercraft.blocks.MultiTextureBlock;
 import net.crazymoder.mattercraft.tileentity.CryotheumAcceptorTile;
+import net.crazymoder.mattercraft.tileentity.ToxicWasteEjectorTile;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -30,6 +33,8 @@ public class BlockManager {
 	CryotheumAcceptor cryotheumAcceptor;
 	HydrogenAcceptor hydrogenAcceptor;
 	StabilizerAcceptor stabilizerAcceptor;
+	PlasmaEjector plasmaEjector;
+	ToxicWasteEjector toxicWasteEjector;
 	
 	
 	public BlockManager(){
@@ -49,6 +54,8 @@ public class BlockManager {
 		cryotheumAcceptor = new CryotheumAcceptor();
 		hydrogenAcceptor = new HydrogenAcceptor();
 		stabilizerAcceptor = new StabilizerAcceptor();
+		plasmaEjector = new PlasmaEjector();
+		toxicWasteEjector = new ToxicWasteEjector();
 		
 		//Configure Blocks
 		groundPlating.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.groundPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
@@ -66,7 +73,8 @@ public class BlockManager {
 		cryotheumAcceptor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.cryotheumAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		hydrogenAcceptor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.hydrogenAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		stabilizerAcceptor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.stabilizerAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		
+		plasmaEjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.plasmaEjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		toxicWasteEjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.toxicWasteEjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		
 		//Single Texture Blocks
 		groundPlating.setBlockTextureName("mattercraft:groundPlating");
@@ -88,6 +96,8 @@ public class BlockManager {
 		cryotheumAcceptor.setBlockTextureName("mattercraft:cryotheumAcceptor");
 		hydrogenAcceptor.setBlockTextureName("mattercraft:hydrogenAcceptor");
 		stabilizerAcceptor.setBlockTextureName("mattercraft:stabilizerAcceptor");
+		plasmaEjector.setBlockTextureName("mattercraft:plasmaEjector");
+		toxicWasteEjector.setBlockTextureName("mattercraft:toxicWasteEjector");
 		
 		//Register Blocks
 		GameRegistry.registerBlock(groundPlating, "mtc.groundPlating");
@@ -105,6 +115,8 @@ public class BlockManager {
 		GameRegistry.registerBlock(cryotheumAcceptor, "mtc.cryotheumAcceptor");
 		GameRegistry.registerBlock(hydrogenAcceptor, "mtc.hydrogenAcceptor");
 		GameRegistry.registerBlock(stabilizerAcceptor, "mtc.stabilizerAcceptor");
+		GameRegistry.registerBlock(plasmaEjector, "mtc.plasmaEjector");
+		GameRegistry.registerBlock(toxicWasteEjector, "mtc.toxicWasteEjector");
 		
 	}
 }
