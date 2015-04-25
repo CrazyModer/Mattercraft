@@ -1,5 +1,7 @@
 package net.crazymoder.mattercraft.tileentity;
 
+import com.sun.org.apache.xml.internal.security.Init;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -12,9 +14,10 @@ import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidHandler;
 import net.minecraftforge.fluids.IFluidTank;
 
-public class StabilizerAcceptorTile extends TileEntity implements IFluidHandler{
+public class PlasmaEjectorTile extends TileEntity implements IFluidHandler{
 	public FluidTank tank = new FluidTank(50000);
-	public StabilizerAcceptorTile() {
+	public PlasmaEjectorTile() {
+		tank.fill(new FluidStack(new Fluid("mtc.ionizedPlasma"), 50000), true);
 	}
 	
 	public void updateEntity() {
@@ -26,29 +29,27 @@ public class StabilizerAcceptorTile extends TileEntity implements IFluidHandler{
 
 	public int fill(ForgeDirection from, FluidStack resource, boolean doFill)
 	{
-		if(resource.getFluid().getUnlocalizedName().equals("fluid.mtc.stabilizer"))
-			return this.tank.fill(resource, doFill);
 		return 0;
 	}
 
 	public FluidStack drain(ForgeDirection from, FluidStack resource, boolean doDrain)
 	{
-		return new FluidStack(new Fluid("mtc.stabilizer"),0);
+		return this.tank.drain(resource.amount, doDrain);
 	}
 
 	public FluidStack drain(ForgeDirection from, int maxDrain, boolean doDrain)
 	{
-		return new FluidStack(new Fluid("mtc.stabilizer"),0);
+		return this.tank.drain(maxDrain, doDrain);
 	}
 
 	public boolean canFill(ForgeDirection from, Fluid fluid)
 	{
-		return true;
+		return false;
 	}
 
 	public boolean canDrain(ForgeDirection from, Fluid fluid)
 	{
-		return false;
+		return true;
 	}
 
 	public FluidTankInfo[] getTankInfo(ForgeDirection from)

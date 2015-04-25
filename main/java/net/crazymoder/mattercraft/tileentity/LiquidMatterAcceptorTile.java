@@ -12,9 +12,9 @@ import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidHandler;
 import net.minecraftforge.fluids.IFluidTank;
 
-public class StabilizerAcceptorTile extends TileEntity implements IFluidHandler{
+public class LiquidMatterAcceptorTile extends TileEntity implements IFluidHandler{
 	public FluidTank tank = new FluidTank(50000);
-	public StabilizerAcceptorTile() {
+	public LiquidMatterAcceptorTile() {
 	}
 	
 	public void updateEntity() {
@@ -26,19 +26,19 @@ public class StabilizerAcceptorTile extends TileEntity implements IFluidHandler{
 
 	public int fill(ForgeDirection from, FluidStack resource, boolean doFill)
 	{
-		if(resource.getFluid().getUnlocalizedName().equals("fluid.mtc.stabilizer"))
+		if(resource.getFluid().getUnlocalizedName().equals("fluid.mtc.liquidMatter"))
 			return this.tank.fill(resource, doFill);
 		return 0;
 	}
 
 	public FluidStack drain(ForgeDirection from, FluidStack resource, boolean doDrain)
 	{
-		return new FluidStack(new Fluid("mtc.stabilizer"),0);
+		return new FluidStack(new Fluid("mtc.liquidMatter"),0);
 	}
 
 	public FluidStack drain(ForgeDirection from, int maxDrain, boolean doDrain)
 	{
-		return new FluidStack(new Fluid("mtc.stabilizer"),0);
+		return new FluidStack(new Fluid("mtc.liquidMatter"),0);
 	}
 
 	public boolean canFill(ForgeDirection from, Fluid fluid)
