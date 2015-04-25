@@ -6,6 +6,7 @@ import net.crazymoder.mattercraft.fluids.IonizedPlasma;
 import net.crazymoder.mattercraft.fluids.LiquidMatter;
 import net.crazymoder.mattercraft.fluids.LiquidStabilizer;
 import net.crazymoder.mattercraft.fluids.ToxicWaste;
+import net.crazymoder.mattercraft.fluids.ToxicWaste;
 import net.minecraftforge.common.MinecraftForge;
 
 public class FluidManager {
