@@ -26,7 +26,7 @@ public class HydrogenAcceptorTile extends TileEntity implements IFluidHandler{
 
 	public int fill(ForgeDirection from, FluidStack resource, boolean doFill)
 	{
-		if(resource.getFluid().getUnlocalizedName().equals("fluid.cryotheum"))
+		if(resource.getFluid().getUnlocalizedName().equals("fluid.mtc.hydrogen"))
 			return this.tank.fill(resource, doFill);
 		return 0;
 	}

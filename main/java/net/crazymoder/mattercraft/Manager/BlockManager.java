@@ -1,6 +1,8 @@
 package net.crazymoder.mattercraft.manager;
 
 import net.crazymoder.mattercraft.blockcontainer.CryotheumAcceptor;
+import net.crazymoder.mattercraft.blockcontainer.HydrogenAcceptor;
+import net.crazymoder.mattercraft.blockcontainer.StabilizerAcceptor;
 import net.crazymoder.mattercraft.blocks.BasicBlock;
 import net.crazymoder.mattercraft.blocks.MultiTextureBlock;
 import net.crazymoder.mattercraft.tileentity.CryotheumAcceptorTile;
@@ -26,6 +28,8 @@ public class BlockManager {
 	
 	//declarate Block Container
 	CryotheumAcceptor cryotheumAcceptor;
+	HydrogenAcceptor hydrogenAcceptor;
+	StabilizerAcceptor stabilizerAcceptor;
 	
 	
 	public BlockManager(){
@@ -43,6 +47,8 @@ public class BlockManager {
 		
 		//Initialize Block Containers
 		cryotheumAcceptor = new CryotheumAcceptor();
+		hydrogenAcceptor = new HydrogenAcceptor();
+		stabilizerAcceptor = new StabilizerAcceptor();
 		
 		//Configure Blocks
 		groundPlating.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.groundPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
@@ -58,6 +64,8 @@ public class BlockManager {
 		
 		//Configure Block Containers
 		cryotheumAcceptor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.cryotheumAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		hydrogenAcceptor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.hydrogenAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		stabilizerAcceptor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.stabilizerAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		
 		
 		//Single Texture Blocks
@@ -78,6 +86,8 @@ public class BlockManager {
 		
 		//Multi Texture Block Container
 		cryotheumAcceptor.setBlockTextureName("mattercraft:cryotheumAcceptor");
+		hydrogenAcceptor.setBlockTextureName("mattercraft:hydrogenAcceptor");
+		stabilizerAcceptor.setBlockTextureName("mattercraft:stabilizerAcceptor");
 		
 		//Register Blocks
 		GameRegistry.registerBlock(groundPlating, "mtc.groundPlating");
@@ -90,9 +100,11 @@ public class BlockManager {
 		GameRegistry.registerBlock(plasmaExtractor, "mtc.plasmaExtractor");
 		GameRegistry.registerBlock(wormHoleStabilizer, "mtc.wormHoleStabilizer");
 		GameRegistry.registerBlock(matterInjector, "mtc.matterInjector");
-		GameRegistry.registerBlock(cryotheumAcceptor, "mtc.cryotheumAcceptor");
 		
 		//Register Block Container
+		GameRegistry.registerBlock(cryotheumAcceptor, "mtc.cryotheumAcceptor");
+		GameRegistry.registerBlock(hydrogenAcceptor, "mtc.hydrogenAcceptor");
+		GameRegistry.registerBlock(stabilizerAcceptor, "mtc.stabilizerAcceptor");
 		
 	}
 }
