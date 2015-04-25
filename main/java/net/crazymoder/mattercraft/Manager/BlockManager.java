@@ -5,6 +5,7 @@ import net.crazymoder.mattercraft.blockcontainer.HeatedCryotheumEjector;
 import net.crazymoder.mattercraft.blockcontainer.HydrogenAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.LiquidMatterAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.PlasmaEjector;
+import net.crazymoder.mattercraft.blockcontainer.ReactorPowerAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.StabilizerAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.ToxicWasteEjector;
 import net.crazymoder.mattercraft.blocks.BasicBlock;
@@ -40,6 +41,7 @@ public class BlockManager {
 	public static Block plasmaEjector;
 	public static Block toxicWasteEjector;
 	public static Block heatedCryotheumEjector;
+	public static Block reactorPowerAcceptor;
 	
 	
 	public BlockManager(){
@@ -63,6 +65,7 @@ public class BlockManager {
 		plasmaEjector = new PlasmaEjector();
 		toxicWasteEjector = new ToxicWasteEjector();
 		heatedCryotheumEjector = new HeatedCryotheumEjector();
+		reactorPowerAcceptor = new ReactorPowerAcceptor();
 		
 		//Configure Blocks
 		groundPlating.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.groundPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
@@ -84,6 +87,7 @@ public class BlockManager {
 		plasmaEjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.plasmaEjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		toxicWasteEjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.toxicWasteEjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		heatedCryotheumEjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.heatedCryotheumEjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		reactorPowerAcceptor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.reactorPowerAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		
 		//Single Texture Blocks
 		groundPlating.setBlockTextureName("mattercraft:groundPlating");
@@ -109,6 +113,7 @@ public class BlockManager {
 		plasmaEjector.setBlockTextureName("mattercraft:plasmaEjector");
 		toxicWasteEjector.setBlockTextureName("mattercraft:toxicWasteEjector");
 		heatedCryotheumEjector.setBlockTextureName("mattercraft:heatedCryotheumEjector");
+		reactorPowerAcceptor.setBlockTextureName("mattercraft:reactorPowerAcceptor");
 		
 		//Register Blocks
 		GameRegistry.registerBlock(groundPlating, "mtc.groundPlating");
@@ -130,6 +135,7 @@ public class BlockManager {
 		GameRegistry.registerBlock(plasmaEjector, "mtc.plasmaEjector");
 		GameRegistry.registerBlock(toxicWasteEjector, "mtc.toxicWasteEjector");
 		GameRegistry.registerBlock(heatedCryotheumEjector, "mtc.heatedCryotheumEjector");
+		GameRegistry.registerBlock(reactorPowerAcceptor, "mtc.reactorPowerAcceptor");
 	}
 }
 

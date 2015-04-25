@@ -7,7 +7,7 @@ import net.crazymoder.mattercraft.blocks.BasicFluidBlock;
 import net.crazymoder.mattercraft.fluids.HeatedCryotheum;
 import net.crazymoder.mattercraft.fluids.Hydrogen;
 import net.crazymoder.mattercraft.fluids.IonizedPlasma;
-import net.crazymoder.mattercraft.fluids.Stabilizer;
+import net.crazymoder.mattercraft.fluids.LiquidStabilizer;
 import net.crazymoder.mattercraft.fluids.ToxicWaste;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -26,7 +26,7 @@ public class FluidManager {
 		IonizedPlasma ionizedPlasma = new IonizedPlasma();
 		ToxicWaste toxicWaste = new ToxicWaste();
 		Hydrogen hydrogen = new Hydrogen();
-		Stabilizer stabilizer = new Stabilizer();
+		LiquidStabilizer stabilizer = new LiquidStabilizer();
 		HeatedCryotheum heatedCryotheum = new HeatedCryotheum();
 		MinecraftForge.EVENT_BUS.register(BucketManager.INSTANCE);
 	}

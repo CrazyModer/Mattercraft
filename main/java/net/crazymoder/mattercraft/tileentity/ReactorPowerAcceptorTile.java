@@ -3,6 +3,7 @@ package net.crazymoder.mattercraft.tileentity;
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyReceiver;
 import cofh.api.transport.IEnderEnergyHandler;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
@@ -17,7 +18,9 @@ public class ReactorPowerAcceptorTile extends TileEntity implements IEnergyRecei
 	@Override
 	public void updateEntity() {
 		super.updateEntity();
-		System.out.println(energyStorage.getEnergyStored());
+		if(!worldObj.isRemote){
+			System.out.println(energyStorage.getEnergyStored());
+		}
 	}
 	
 	@Override
@@ -38,6 +41,18 @@ public class ReactorPowerAcceptorTile extends TileEntity implements IEnergyRecei
 	@Override
 	public int getMaxEnergyStored(ForgeDirection from) {
 		return energyStorage.getEnergyStored();
+	}
+	
+	public void readFromNBT(NBTTagCompound tag)
+	{
+		super.readFromNBT(tag);
+		energyStorage.readFromNBT(tag);
+	}
+
+	public void writeToNBT(NBTTagCompound tag)
+	{
+		super.writeToNBT(tag);
+		energyStorage.writeToNBT(tag);
 	}
 
 }
