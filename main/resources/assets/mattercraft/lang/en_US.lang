@@ -22,36 +22,24 @@ tile.mtc.ionizedPlasma.name=Ionized Plasma
 tile.mtc.toxicWaste.name=Toxic Waste
 tile.mtc.hydrogen.name=Hydrogen
 tile.mtc.heatedCryotheum.name=Heated Cryotheum
-<<<<<<< HEAD
 tile.mtc.liquidStabilizer.name=Liquid Stabilizer
-=======
-tile.mtc.stabilizer.name=Stabilizer
 tile.mtc.liquidMatter.name=Liquid Matter
->>>>>>> origin/master
 
 
 fluid.mtc.ionizedPlasma=Ionized Plasma
 fluid.mtc.toxicWaste=Toxic Waste
 fluid.mtc.hydrogen=Hydrogen
 fluid.mtc.heatedCryotheum=Heated Cryotheum
-<<<<<<< HEAD
 fluid.mtc.liquidStabilizer=Liquid Stabilizer
-=======
-fluid.mtc.stabilizer=Stabilizer
 fluid.mtc.liquidMatter=Liquid Matter
->>>>>>> origin/master
 
 
 item.mtc.ionizedPlasmaBucket.name=Ionized Plasma Bucket
 item.mtc.toxicWasteBucket.name=Toxic Waste Bucket
 item.mtc.hydrogenBucket.name=Hydrogen Bucket
 item.mtc.heatedCryotheumBucket.name=Heated Cryotheum Bucket
-<<<<<<< HEAD
 item.mtc.liquidStabilizerBucket.name=Liquid Stabilizer Bucket
-=======
-item.mtc.stabilizerBucket.name=Stabilizer Bucket
 item.mtc.liquidMatterBucket.name=Liquid Matter Bucket
->>>>>>> origin/master
 
 
 itemGroup.mtc.blocks=Matter Blocks
