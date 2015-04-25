@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 
 public class ReactorTerminal extends BlockContainer{
 
-	 protected ReactorTerminal() {
+	public ReactorTerminal() {
 		super(Material.iron);
 	}
 

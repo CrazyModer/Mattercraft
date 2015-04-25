@@ -1,12 +1,11 @@
 package net.crazymoder.mattercraft.manager;
 
-import cpw.mods.fml.client.registry.ClientRegistry;
-import net.crazymoder.mattercraft.tileentity.CryotheumAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.ReactorTerminalTile;
 import net.crazymoder.mattercraft.tileentity.renderer.ReactorTermianlTileRenderer;
+import cpw.mods.fml.client.registry.ClientRegistry;
 
-public class TileEntityRenderingManager {
-	public TileEntityRenderingManager(){
+public class TileRenderingManager {
+	public TileRenderingManager(){
 		ClientRegistry.bindTileEntitySpecialRenderer(ReactorTerminalTile.class, new ReactorTermianlTileRenderer());
 	}
 }

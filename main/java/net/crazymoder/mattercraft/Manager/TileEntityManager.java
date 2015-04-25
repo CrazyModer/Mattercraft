@@ -7,6 +7,7 @@ import net.crazymoder.mattercraft.tileentity.HydrogenAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.LiquidMatterAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.PlasmaEjectorTile;
 import net.crazymoder.mattercraft.tileentity.ReactorPowerAcceptorTile;
+import net.crazymoder.mattercraft.tileentity.ReactorTerminalTile;
 import net.crazymoder.mattercraft.tileentity.StabilizerAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.ToxicWasteEjectorTile;
 
@@ -21,5 +22,6 @@ public class TileEntityManager {
 		GameRegistry.registerTileEntity(ToxicWasteEjectorTile.class, "mtc.toxicWasteEjectorTile");
 		GameRegistry.registerTileEntity(HeatedCryotheumEjectorTile.class, "mtc.heatedCryotheumEjectorTile");
 		GameRegistry.registerTileEntity(ReactorPowerAcceptorTile.class, "mtc.reactorPowerAcceptorTile");
+		GameRegistry.registerTileEntity(ReactorTerminalTile.class, "mtc.reactorTerminalTile");
 	}
 }

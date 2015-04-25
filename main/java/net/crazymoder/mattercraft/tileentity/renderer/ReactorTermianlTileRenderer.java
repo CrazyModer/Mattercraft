@@ -7,7 +7,7 @@ public class ReactorTermianlTileRenderer extends TileEntitySpecialRenderer{
 
 	@Override
 	public void renderTileEntityAt(TileEntity te, double x, double y,double z, float scale) {
-		System.out.println("X");
+
 	}
 
 }
