@@ -8,6 +8,7 @@ tile.mtc.stabilizerPillar.name=Pillar
 tile.mtc.plasmaExtractor.name=Plasma Extractor
 tile.mtc.wormHoleStabilizer.name=Wormhole Stabilizer
 tile.mtc.matterInjector.name=Matter Injector
+
 tile.mtc.cryotheumAcceptor.name=Cryotheum Acceptor
 tile.mtc.hydrogenAcceptor.name=Hydrogen Acceptor
 tile.mtc.stabilizerAcceptor.name=Stabilizer Acceptor
@@ -15,17 +16,22 @@ tile.mtc.liquidMatterAcceptor.name=Liquid Matter Acceptor
 tile.mtc.plasmaEjector.name=Plasma Ejector
 tile.mtc.toxicWasteEjector.name=Toxic Waste Ejector
 tile.mtc.heatedCryotheumEjector.name=Heated Cryotheum Ejector
+tile.mtc.reactorPowerAcceptor.name=Reactor Power Acceptor
+
 tile.mtc.ionizedPlasma.name=Ionized Plasma
 tile.mtc.toxicWaste.name=Toxic Waste
 tile.mtc.hydrogen.name=Hydrogen
+
 
 fluid.mtc.ionizedPlasma=Ionized Plasma
 fluid.mtc.toxicWaste=Toxic Waste
 fluid.mtc.hydrogen=Hydrogen
 
+
 item.mtc.ionizedPlasmaBucket.name=Ionized Plasma Bucket
 item.mtc.toxicWasteBucket.name=Toxic Waste Bucket
 item.mtc.hydrogenBucket.name=Hydrogen Bucket
+
 
 itemGroup.mtc.blocks=Matter Blocks
 itemGroup.mtc.items=Matter Items
