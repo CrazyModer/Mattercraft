@@ -8,6 +8,8 @@ import net.crazymoder.mattercraft.fluids.HeatedCryotheum;
 import net.crazymoder.mattercraft.fluids.Hydrogen;
 import net.crazymoder.mattercraft.fluids.IonizedPlasma;
 import net.crazymoder.mattercraft.fluids.LiquidStabilizer;
+import net.crazymoder.mattercraft.fluids.LiquidMatter;
+import net.crazymoder.mattercraft.fluids.Stabilizer;
 import net.crazymoder.mattercraft.fluids.ToxicWaste;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -24,6 +26,7 @@ import net.minecraftforge.fluids.FluidRegistry;
 public class FluidManager {
 	public FluidManager(){
 		IonizedPlasma ionizedPlasma = new IonizedPlasma();
+		LiquidMatter liquidMatter = new LiquidMatter();
 		ToxicWaste toxicWaste = new ToxicWaste();
 		Hydrogen hydrogen = new Hydrogen();
 		LiquidStabilizer stabilizer = new LiquidStabilizer();
