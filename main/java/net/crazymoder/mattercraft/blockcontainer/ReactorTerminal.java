@@ -2,8 +2,10 @@ package net.crazymoder.mattercraft.blockcontainer;
 
 import javax.swing.Icon;
 
+import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.crazymoder.mattercraft.Mattercraft;
 import net.crazymoder.mattercraft.gui.ReactorTerminalGui;
 import net.crazymoder.mattercraft.tileentity.ReactorTerminalTile;
 import net.minecraft.block.BlockContainer;
@@ -68,13 +70,9 @@ public class ReactorTerminal extends BlockContainer{
 	public TileEntity createNewTileEntity(World arg0, int arg1) {
 		return new ReactorTerminalTile();
 	}
-	
 	public boolean onBlockActivated(World world, int x, int y, int z,EntityPlayer player, int arg5, float arg6, float arg7, float arg8) {
 		if(!world.isRemote){
-			System.out.println("Hallo");
-			super.onBlockClicked(world, x, y, z, player);
-			ReactorTerminalTile te = (ReactorTerminalTile) world.getTileEntity(x, y, z);
-			Minecraft.getMinecraft().displayGuiScreen(new ReactorTerminalGui(te));
+			FMLNetworkHandler.openGui(player, Mattercraft.INSTANCE, 0, world, x, y, z);
 		}
 		return true;
 	}
