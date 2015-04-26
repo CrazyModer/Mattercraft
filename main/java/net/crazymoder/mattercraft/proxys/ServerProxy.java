@@ -15,7 +15,6 @@ public class ServerProxy extends CommonProxy{
 	
 	public void init(FMLInitializationEvent e){
 		super.init(e);
-		NetworkRegistry.INSTANCE.registerGuiHandler(Mattercraft.INSTANCE, new GuiManager());
 	}
 	
 	public void postInit(FMLPostInitializationEvent e){
