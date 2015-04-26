@@ -21,7 +21,7 @@ public class LiquidStabilizer {
 		Item liquidStabilizerBucket;
 		public LiquidStabilizer(){
 			liquidStabilizer = new Fluid("mtc.liquidStabilizer");
-			liquidStabilizer.setTemperature(1).setDensity(1).setViscosity(500).setGaseous(true).setUnlocalizedName("mtc.liquidStabilizer");
+			liquidStabilizer.setTemperature(1).setDensity(1).setViscosity(500).setGaseous(false).setUnlocalizedName("mtc.liquidStabilizer");
 			FluidRegistry.registerFluid(liquidStabilizer);
 			liquidStabilizerBlock = new BasicFluidBlock(liquidStabilizer, Material.water, "mattercraft:liquidStabilizer");
 			liquidStabilizerBlock.setBlockName("mtc.liquidStabilizer");

@@ -21,7 +21,7 @@ public class LiquidMatter {
 		Item liquidMatterBucket;
 		public LiquidMatter(){
 			liquidMatter = new Fluid("mtc.liquidMatter");
-			liquidMatter.setTemperature(100000).setDensity(1).setViscosity(50).setGaseous(true).setUnlocalizedName("mtc.liquidMatter");
+			liquidMatter.setTemperature(100000).setDensity(1).setViscosity(50).setGaseous(false).setUnlocalizedName("mtc.liquidMatter");
 			FluidRegistry.registerFluid(liquidMatter);
 			liquidMatterBlock = new BasicFluidBlock(liquidMatter, Material.water, "mattercraft:liquidMatter");
 			liquidMatterBlock.setBlockName("mtc.liquidMatter");
