@@ -91,7 +91,7 @@ public class BlockManager {
 		toxicWasteEjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.toxicWasteEjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		heatedCryotheumEjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.heatedCryotheumEjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		reactorPowerAcceptor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.reactorPowerAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		reactorTerminal.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.reactotTerminal").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		reactorTerminal.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.reactorTerminal").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		
 		//Single Texture Blocks
 		groundPlating.setBlockTextureName("mattercraft:groundPlating");
@@ -118,6 +118,7 @@ public class BlockManager {
 		toxicWasteEjector.setBlockTextureName("mattercraft:toxicWasteEjector");
 		heatedCryotheumEjector.setBlockTextureName("mattercraft:heatedCryotheumEjector");
 		reactorPowerAcceptor.setBlockTextureName("mattercraft:reactorPowerAcceptor");
+		reactorTerminal.setBlockTextureName("mattercraft:reactorTerminal");
 		
 		//Register Blocks
 		GameRegistry.registerBlock(groundPlating, "mtc.groundPlating");

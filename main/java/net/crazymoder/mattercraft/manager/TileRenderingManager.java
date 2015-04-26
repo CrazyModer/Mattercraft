@@ -1,11 +1,11 @@
 package net.crazymoder.mattercraft.manager;
 
 import net.crazymoder.mattercraft.tileentity.ReactorTerminalTile;
-import net.crazymoder.mattercraft.tileentity.renderer.ReactorTermianlTileRenderer;
+import net.crazymoder.mattercraft.tileentity.renderer.ReactorCoreTileRenderer;
 import cpw.mods.fml.client.registry.ClientRegistry;
 
 public class TileRenderingManager {
 	public TileRenderingManager(){
-		ClientRegistry.bindTileEntitySpecialRenderer(ReactorTerminalTile.class, new ReactorTermianlTileRenderer());
+		//ClientRegistry.bindTileEntitySpecialRenderer(ReactorCoreTile.class, new ReactorCoreTileRenderer());
 	}
 }

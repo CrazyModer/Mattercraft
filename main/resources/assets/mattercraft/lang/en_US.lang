@@ -17,6 +17,7 @@ tile.mtc.plasmaEjector.name=Plasma Ejector
 tile.mtc.toxicWasteEjector.name=Toxic Waste Ejector
 tile.mtc.heatedCryotheumEjector.name=Heated Cryotheum Ejector
 tile.mtc.reactorPowerAcceptor.name=Reactor Power Acceptor
+tile.mtc.reactorTerminal.name=Reactor Terminal
 
 tile.mtc.ionizedPlasma.name=Ionized Plasma
 tile.mtc.toxicWaste.name=Toxic Waste
