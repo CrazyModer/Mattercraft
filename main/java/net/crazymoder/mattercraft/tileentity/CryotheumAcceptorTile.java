@@ -59,6 +59,7 @@ public class CryotheumAcceptorTile extends TileEntity implements IFluidHandler{
 
 	public void readFromNBT(NBTTagCompound tag)
 	{
+		System.out.println("read");
 		super.readFromNBT(tag);
 		tank.readFromNBT(tag);
 	}
