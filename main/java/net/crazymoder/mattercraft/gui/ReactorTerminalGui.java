@@ -25,6 +25,11 @@ public class ReactorTerminalGui extends GuiScreen{
 	private String string;
 	
 	@Override
+	public boolean doesGuiPauseGame() {
+		return false;
+	}
+	
+	@Override
 	public void drawScreen(int x, int y, float tick) {
 		guiinfo = tile.guiinfo;
 		if(guiinfo.isEmpty()){
