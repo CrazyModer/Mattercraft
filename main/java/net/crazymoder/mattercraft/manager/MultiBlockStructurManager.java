@@ -62,6 +62,18 @@ public class MultiBlockStructurManager {
 		x = 2;
 		z = 4;
 		if(!isBlock("tile.mtc.reinforcedPlating"))return false;
+		x = -2;
+		z = 4;
+		if(!isBlock("tile.mtc.reinforcedPlating"))return false;
+		x = 2;
+		z = -4;
+		if(!isBlock("tile.mtc.reinforcedPlating"))return false;
+		z = -2;
+		x = 4;
+		if(!isBlock("tile.mtc.reinforcedPlating"))return false;
+		z = 2;
+		x = -4;
+		if(!isBlock("tile.mtc.reinforcedPlating"))return false;
 		return true;
 	 }
 	//
