@@ -22,7 +22,13 @@ public class MultiBlockStructurManager {
 	
 	public static boolean checkReactorCoreMBS(){
 		y-= 2;
-		if(!isBlock("tile.mtc.groundPlating"))return false;
+		x-= 13;
+		z-=	13;
+		for ( x=-13; x < 14; x++) {
+			for ( z=-13; z < 14; z++) {
+				if(!isBlock("tile.mtc.groundPlating"))return false;
+			}
+		}
 		
 		return true;
 	}
