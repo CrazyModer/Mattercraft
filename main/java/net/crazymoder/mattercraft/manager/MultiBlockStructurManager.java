@@ -10,22 +10,20 @@ public class MultiBlockStructurManager {
 	private static int x,y,z;//Offsetwerte
 	public static void init(World w_,int x_,int y_,int z_){
 		w = w_;
-		x = x_;
-		y = y_;
-		z = z_;
-		xC = 0;
-		yC = 0;
-		zC = 0;
+		xC = x_;
+		yC = y_;
+		zC = z_;
+		x = 0;
+		y = 0;
+		z = 0;
 	}
 	//if(!isBlock("tile.mtc.groundPlating"))return false; CheckBlock
 	//x y z Offset cords
 	
 	public static boolean checkReactorCoreMBS(){
-		y-= 2;
-		x-= 13;
-		z-=	13;
-		for ( x=-13; x < 14; x++) {
-			for ( z=-13; z < 14; z++) {
+		y = -2;
+		for ( x=-13; x <= 13; x++) {
+			for ( z=-13; z <= 13; z++) {
 				if(!isBlock("tile.mtc.groundPlating"))return false;
 			}
 		}
