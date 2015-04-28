@@ -2,6 +2,7 @@ package net.crazymoder.mattercraft.tileentity;
 
 import java.util.ArrayList;
 
+import net.crazymoder.mattercraft.manager.MultiBlockStructurManager;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
@@ -24,7 +25,7 @@ public class ReactorCoreTile extends TileEntity{
 	public ReactorCoreTile(){
 		mbsOK = false;
 		guiinfo = new ArrayList<Object>();
-		guiinfo.add("Hallo");
+		guiinfo.add("MBS: false");
 	}
 	
 	@Override
@@ -35,27 +36,28 @@ public class ReactorCoreTile extends TileEntity{
 				updatembstick = 40;
 				updatembs();
 			}
+			updateGui();
 		}
 		super.updateEntity();
 	}
 	
+	private void updateGui(){
+		guiinfo.set(0, "MBS: " + mbsOK);
+	}
 	
 	private void updatembs(){
-		mbsOK = checkmbs();
+		MultiBlockStructurManager.init(worldObj, xCoord, yCoord, zCoord);
+		mbsOK = MultiBlockStructurManager.checkReactorCoreMBS();
 		addInterfaces();
 	}
-	
-	private boolean checkmbs(){
-		resetCords();
-		return true;
-	}
+
 	
 	
 	private ReactorTerminalTile reactorTerminalTile;
 	
 	private void addInterfaces(){
 		resetCords();
-		yO++;
+		yO+=3;
 		if(isBlock("tile.mtc.reactorTerminal")){
 			ReactorTerminalTile te = (ReactorTerminalTile) getTile();
 			te.setCore(this);
