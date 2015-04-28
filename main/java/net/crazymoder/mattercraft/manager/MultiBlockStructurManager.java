@@ -49,16 +49,13 @@ public class MultiBlockStructurManager {
 		x = -2;
 		z = -4;
 		if(!isBlock("tile.mtc.reinforcedPlating"))return false;
-		
 		y = -1;
 		x = -4;
 		z = -2;
 		if(!isBlock("tile.mtc.reinforcedPlating"))return false;
-
 		x = 4;
 		z = 2;
 		if(!isBlock("tile.mtc.reinforcedPlating"))return false;
-		
 		x = 2;
 		z = 4;
 		if(!isBlock("tile.mtc.reinforcedPlating"))return false;
@@ -74,8 +71,98 @@ public class MultiBlockStructurManager {
 		z = 2;
 		x = -4;
 		if(!isBlock("tile.mtc.reinforcedPlating"))return false;
+		y = 0;
+		z = -1;
+		x = -1;
+		if(!isBlock("tile.mtc.osmiumPlating"))return false;
+		z = 1;
+		x = 1;
+		if(!isBlock("tile.mtc.osmiumPlating"))return false;		
+		z = -1;
+		x = 1;
+		if(!isBlock("tile.mtc.osmiumPlating"))return false;
+		z = 1;
+		x = -1;
+		if(!isBlock("tile.mtc.osmiumPlating"))return false;
+		z = 2;
+		x = 0;
+		if(!isBlock("tile.mtc.osmiumPlating"))return false;
+		z = -2;
+		x = 0;
+		if(!isBlock("tile.mtc.osmiumPlating"))return false;
+		z = 0;
+		x = 2;
+		if(!isBlock("tile.mtc.osmiumPlating"))return false;
+		z = 0;
+		x = -2;
+		if(!isBlock("tile.mtc.osmiumPlating"))return false;
+		z = 3;
+		x = -1;
+		if(!isBlock("tile.mtc.osmiumPlating"))return false;
+		z = -3;
+		x = -1;
+		if(!isBlock("tile.mtc.osmiumPlating"))return false;
+		z = 3;
+		x = 1;
+		if(!isBlock("tile.mtc.osmiumPlating"))return false;
+		z = -3;
+		x = 1;
+		if(!isBlock("tile.mtc.osmiumPlating"))return false;
+		z = -1;
+		x = -3;
+		if(!isBlock("tile.mtc.osmiumPlating"))return false;
+		z = 1;
+		x = -3;
+		if(!isBlock("tile.mtc.osmiumPlating"))return false;
+		z = 1;
+		x = 3;
+		if(!isBlock("tile.mtc.osmiumPlating"))return false;
+		z = -1;
+		x = 3;
+		if(!isBlock("tile.mtc.osmiumPlating"))return false;
+		z = 0;
+		x = 4;
+		if(!isBlock("tile.mtc.forceFieldEmitter"))return false;
+		z = 0;
+		x = -4;
+		if(!isBlock("tile.mtc.forceFieldEmitter"))return false;
+		z = 4;
+		x = 0;
+		if(!isBlock("tile.mtc.forceFieldEmitter"))return false;
+		z = -4;
+		x = 0;
+		if(!isBlock("tile.mtc.forceFieldEmitter"))return false;
+		z = 2;
+		x = 2;
+		if(!isBlock("tile.mtc.forceFieldEmitter"))return false;
+		z = -2;
+		x = 2;
+		if(!isBlock("tile.mtc.forceFieldEmitter"))return false;
+		z = 2;
+		x = -2;
+		if(!isBlock("tile.mtc.forceFieldEmitter"))return false;
+		z = -2;
+		x = -2;
+		if(!isBlock("tile.mtc.forceFieldEmitter"))return false;
+		
+		
+		
+		int xa = -5;
+		  int za = 0;
+		  
+		  for (int i = 0; i < 5; i++) {
+		   xa++;
+		   za--;
+		   x = xa;
+		   z = za;
+		   for (int j = 0; j < 5; j++) {
+		    x++;
+		    z++;
+		    if(!isBlock("tile.mtc.iridiumPalting"))return false;
+		   }
+		  }
 		return true;
-	 }
+	}
 	//
 	private static boolean isBlock(String name){
 		Block block = w.getBlock(x + xC, y + yC, z + zC);
