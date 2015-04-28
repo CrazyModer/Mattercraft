@@ -30,10 +30,13 @@ public class ReactorCoreTile extends TileEntity{
 		mbsOK = false;
 		guiinfo = new ArrayList<Object>();
 		guiinfo.add("MBS: false");
+		render = false;
 	}
 	
 	@Override
 	public void updateEntity() {
+		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+		markDirty();
 		if(!worldObj.isRemote){
 			updatembstick--;
 			if(updatembstick == 0){
@@ -41,12 +44,17 @@ public class ReactorCoreTile extends TileEntity{
 				updatembs();
 			}
 			updateGui();
+			updateRenderer();
 		}
 		super.updateEntity();
 	}
 	
 	private void updateGui(){
 		guiinfo.set(0, "MBS: " + mbsOK);
+	}
+	
+	private void updateRenderer(){
+		render = mbsOK;
 	}
 	
 	private void updatembs(){
@@ -91,6 +99,7 @@ public class ReactorCoreTile extends TileEntity{
 		zO = 0;
 	}
 	
+	public boolean render;
 	
 	@Override
 	public void writeToNBT(NBTTagCompound tagCompound)
@@ -100,7 +109,7 @@ public class ReactorCoreTile extends TileEntity{
 	}
 
 	private void writeSyncableDataToNBT(NBTTagCompound tagCompound) {
-		
+		tagCompound.setBoolean("render", render);
 	}
 
 	@Override
@@ -112,7 +121,7 @@ public class ReactorCoreTile extends TileEntity{
 
 	private void readSyncableDataFromNBT(NBTTagCompound tagCompound) {
 		if(!tagCompound.hasNoTags()){
-			
+			render = tagCompound.getBoolean("render");
 		}
 	}
 

@@ -25,18 +25,16 @@ public class ReactorCoreTileRenderer extends TileEntitySpecialRenderer{
 	private IModelCustom iner_model;
 
 	public ReactorCoreTileRenderer(){
-		//iner_model = AdvancedModelLoader.loadModel(new ResourceLocation("mattercraft", "models/power_sphere_layer_1.obj"));
+		iner_model = AdvancedModelLoader.loadModel(new ResourceLocation("mattercraft", "models/power_sphere_layer_1.obj"));
 	}
 	@Override
 	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float timeSinceLastTick) {
-		boolean xy = true;
-		if(xy)return;
+		y+=12;
 		if (tile == null || !(tile instanceof ReactorCoreTile)) return;
 		ReactorCoreTile core = (ReactorCoreTile) tile;
-		float scale = 0;
+		if(!core.render)return;
+		float scale = 8.5f;
 		float rotation = (timeSinceLastTick / 2F);
-
-		scale = 5.5F;
 
 		GL11.glPushMatrix();
 		GL11.glColor4f(1F, 1F, 1F, 1F);
