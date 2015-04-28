@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 import net.crazymoder.mattercraft.manager.MultiBlockStructurManager;
 import net.minecraft.block.Block;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
@@ -57,7 +61,11 @@ public class ReactorCoreTile extends TileEntity{
 	
 	private void addInterfaces(){
 		resetCords();
-		yO+=3;
+		yO=3;
+		addinterface();
+	}
+	
+	private void addinterface(){
 		if(isBlock("tile.mtc.reactorTerminal")){
 			ReactorTerminalTile te = (ReactorTerminalTile) getTile();
 			te.setCore(this);
@@ -81,6 +89,45 @@ public class ReactorCoreTile extends TileEntity{
 		xO = 0;//Offset
 		yO = 0;
 		zO = 0;
+	}
+	
+	
+	@Override
+	public void writeToNBT(NBTTagCompound tagCompound)
+	{
+		super.writeToNBT(tagCompound);
+		writeSyncableDataToNBT(tagCompound);
+	}
+
+	private void writeSyncableDataToNBT(NBTTagCompound tagCompound) {
+		
+	}
+
+	@Override
+	public void readFromNBT(NBTTagCompound tagCompound)
+	{
+		super.readFromNBT(tagCompound);
+		readSyncableDataFromNBT(tagCompound);
+	}
+
+	private void readSyncableDataFromNBT(NBTTagCompound tagCompound) {
+		if(!tagCompound.hasNoTags()){
+			
+		}
+	}
+
+	@Override
+	public Packet getDescriptionPacket()
+	{
+		NBTTagCompound syncData = new NBTTagCompound();
+		writeSyncableDataToNBT(syncData);
+		return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, syncData);
+	}
+
+	@Override
+	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt)
+	{
+		readSyncableDataFromNBT(pkt.func_148857_g());
 	}
 	
 }
