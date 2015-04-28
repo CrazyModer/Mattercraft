@@ -27,9 +27,43 @@ public class MultiBlockStructurManager {
 				if(!isBlock("tile.mtc.groundPlating"))return false;
 			}
 		}
+		y = -1;
+		for ( x=-1; x <= 1; x++) {
+			for ( z=-12; z <= 12; z++) {
+				if(!isBlock("tile.mtc.reinforcedPlating"))return false;
+			}
+		}
+		y = -1;
+		for ( z=-1; z <= 1; z++) {
+			for ( x=-12; x <= 12; x++) {
+				if(!isBlock("tile.mtc.reinforcedPlating"))return false;
+			}
+		}
+		y = -1;
+		for ( z=-3; z <= 3; z++) {
+			for ( x=-3; x <= 3; x++) {
+				if(!isBlock("tile.mtc.reinforcedPlating"))return false;
+			}
+		}
+		y = -1;
+		x = -2;
+		z = -4;
+		if(!isBlock("tile.mtc.reinforcedPlating"))return false;
 		
+		y = -1;
+		x = -4;
+		z = -2;
+		if(!isBlock("tile.mtc.reinforcedPlating"))return false;
+
+		x = 4;
+		z = 2;
+		if(!isBlock("tile.mtc.reinforcedPlating"))return false;
+		
+		x = 2;
+		z = 4;
+		if(!isBlock("tile.mtc.reinforcedPlating"))return false;
 		return true;
-	}
+	 }
 	//
 	private static boolean isBlock(String name){
 		Block block = w.getBlock(x + xC, y + yC, z + zC);
