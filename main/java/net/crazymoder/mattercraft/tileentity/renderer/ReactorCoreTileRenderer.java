@@ -1,5 +1,6 @@
 package net.crazymoder.mattercraft.tileentity.renderer;
 
+
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
@@ -7,36 +8,89 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.glu.GLU;
 import org.lwjgl.util.glu.Sphere;
 
+import cpw.mods.fml.client.FMLClientHandler;
+import net.crazymoder.mattercraft.tileentity.ReactorCoreTile;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.AdvancedModelLoader;
+import net.minecraftforge.client.model.IModelCustom;
 
 public class ReactorCoreTileRenderer extends TileEntitySpecialRenderer{
 
-	int sphereId;
+	private static final ResourceLocation iner_model_texture = new ResourceLocation("mattercraft", "textures/models/power_sphere_layer_1.png");
+	private static final ResourceLocation outer_model_texture = new ResourceLocation("mattercraft", "textures/models/power_sphere_layer_2.png");
+	private IModelCustom iner_model;
+
 	public ReactorCoreTileRenderer(){
-		
+		//iner_model = AdvancedModelLoader.loadModel(new ResourceLocation("mattercraft", "models/power_sphere_layer_1.obj"));
 	}
 	@Override
-	public void renderTileEntityAt(TileEntity core, double x, double y,double z, float scale) {
-		
-		System.out.println("x");
-		Sphere pumpkin = new Sphere();
-        pumpkin.setDrawStyle(GLU.GLU_FILL);
-        pumpkin.setNormals(GLU.GLU_SMOOTH);
-        pumpkin.setOrientation(GLU.GLU_OUTSIDE);
+	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float timeSinceLastTick) {
+		boolean xy = true;
+		if(xy)return;
+		if (tile == null || !(tile instanceof ReactorCoreTile)) return;
+		ReactorCoreTile core = (ReactorCoreTile) tile;
+		float scale = 0;
+		float rotation = (timeSinceLastTick / 2F);
 
-       // BufferedImage bi = new BufferedImage(1, 1 /*change these to 32, 32 eventually*/, BufferedImage.TYPE_INT_ARGB_PRE);
-        //bi.setRGB(0, 0, Color.red.getRGB());
-        sphereId = GL11.glGenLists(1);
-        GL11.glNewList(sphereId, GL11.GL_COMPILE);
-        GL11.glTranslatef(1.5F, 1.5F, 1.5F);
-        pumpkin.draw(0.5F, 32, 32);
-        GL11.glEndList();
-		
+		scale = 5.5F;
+
 		GL11.glPushMatrix();
-        GL11.glTranslatef((float) x, (float) y, (float) z);
-        GL11.glCallList(sphereId);
-        GL11.glPopMatrix();
+		GL11.glColor4f(1F, 1F, 1F, 1F);
+		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 150f, 150f);
+		GL11.glDisable(GL11.GL_LIGHTING);
+		GL11.glDisable(GL11.GL_CULL_FACE);
+		GL11.glTranslated(x+0.5, y+0.5, z+0.5);
+		FMLClientHandler.instance().getClient().getTextureManager().bindTexture(iner_model_texture);
+
+
+		//float colour = (float)(Minecraft.getSystemTime()%10000) / 10000f;
+		//double colour = Math.sin((float)Minecraft.getSystemTime() / 10000f);
+		double colour = Math.sin((float)Minecraft.getSystemTime() / 10000f);
+		float brightness = (float)Math.abs(Math.sin((float) Minecraft.getSystemTime() / 3000f) * 100f);
+
+		colour = 1f - colour;
+		//LogHelper.info(colour + " " + ((TileEnergyStorageCore) tile).getEnergyStored() +" "+ ((TileEnergyStorageCore) tile).getMaxEnergyStored());
+		//GL11.glColor4d(1F, 0.3F, 0.7f, 1F);
+		GL11.glScalef(scale, scale, scale);
+		GL11.glPushMatrix();
+		GL11.glRotatef(rotation, 0F, 1F, 0.5F);
+		GL11.glColor4d(1F, colour * 0.3f, colour * 0.7f, 1F);
+		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 80f + brightness, 80f + brightness);
+		iner_model.renderAll();
+		GL11.glPopMatrix();
+
+		GL11.glPushMatrix();
+		GL11.glScalef(0.8F, 0.8F, 0.8F);
+		GL11.glColor4d(1F, 1f, 0.2f, 1F);
+		GL11.glRotatef(rotation, 0F, 1F, 0.5F);
+		iner_model.renderAll();
+		GL11.glPopMatrix();
+
+		GL11.glPushMatrix();
+		GL11.glScalef(0.9F, 0.9F, 0.9F);
+		GL11.glColor4d(1F, 0f, 0.2f, 1F);
+		GL11.glRotatef(rotation, 0F, 1F, 0.5F);
+		iner_model.renderAll();
+		GL11.glPopMatrix();
+
+		GL11.glScalef(1.1F, 1.1F, 1.1F);
+		GL11.glDepthMask(false);
+		FMLClientHandler.instance().getClient().getTextureManager().bindTexture(outer_model_texture);
+		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 200F, 200F);
+		GL11.glEnable(GL11.GL_BLEND);
+		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+		GL11.glRotatef(rotation*0.5F, 0F, -1F, -0.5F);
+		GL11.glColor4f(0.5F, 2F, 2F, 0.7F);
+		iner_model.renderAll();
+		GL11.glDisable(GL11.GL_BLEND);
+		GL11.glDepthMask(true);
+
+
+		GL11.glPopMatrix();
 	}
 
 }
