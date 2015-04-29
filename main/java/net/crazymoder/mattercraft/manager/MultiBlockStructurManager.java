@@ -144,94 +144,25 @@ public class MultiBlockStructurManager {
 		z = -2;
 		x = -2;
 		if(!isBlock("tile.mtc.forceFieldEmitter"))return false;
-		
-		int xa = -5;
-		int za = 0;
-		  
-		for (int i = 0; i < 5; i++) {
-			xa++;
-			za--;
-			x = xa;
-			z = za;
-			for (int j = 0; j < 5; j++) {
-				x++;
-				z++;
-				if(!isBlock("tile.mtc.iridiumPalting"))return false;
-			}
-		}
-
 		y = 1;
 		z = 1;
 		x = 1;
 		if(!isBlock("tile.mtc.wormHoleStabilizer"))return false;
-		z = -1;
-		x = 1;
-		if(!isBlock("tile.mtc.wormHoleStabilizer"))return false;
-		z = 1;
-		x = -1;
-		if(!isBlock("tile.mtc.wormHoleStabilizer"))return false;
-		z = -1;
-		x = -1;
-		if(!isBlock("tile.mtc.wormHoleStabilizer"))return false;
-		z = 1;
-		x = 0;
-		if(!isBlock("tile.mtc.iridiumPalting"))return false;
-		z = 0;
-		x = 0;
-		if(!isBlock("tile.mtc.iridiumPalting"))return false;
-		z = -1;
-		x = 0;
-		if(!isBlock("tile.mtc.iridiumPalting"))return false;
-		z = 0;
-		x = 1;
-		if(!isBlock("tile.mtc.iridiumPalting"))return false;
-		z = 0;
-		x = -1;
-		if(!isBlock("tile.mtc.iridiumPalting"))return false;
-		y = 2;
-		z = 0;
-		x = 0;
-		if(!isBlock("tile.mtc.plasmaExtractor"))return false;
-		
-		z = 10;
-		x = 0;
-		for ( y= 0; y <= 12; y++) {
-		   if(!isBlock("tile.mtc.stabilizerPillar"))return false;
-		}
-		z = -10;
-		x = 0;
-		for ( y= 0; y <= 12; y++) {
-		   if(!isBlock("tile.mtc.stabilizerPillar"))return false;
-		}
-		z = 0;
-		x = 10;
-		for ( y= 0; y <= 12; y++) {
-		   if(!isBlock("tile.mtc.stabilizerPillar"))return false;
-		}
-		z = 0;
-		x = -10;
-		for ( y= 0; y <= 12; y++) {
-		   if(!isBlock("tile.mtc.stabilizerPillar"))return false;
-		}
-		y = 13;
-		x = 10;
-		z = 0;
-		 if(!isBlock("tile.mtc.stabilizer"))return false;
-		y = 13;
-		x = -10;
-		z = 0;
-		 if(!isBlock("tile.mtc.stabilizer"))return false;
-		y = 13;
-		x = 0;
-		z = 10;
-		 if(!isBlock("tile.mtc.stabilizer"))return false;
-		y = 13;
-		x = 0;
-		z = -10;
-		 if(!isBlock("tile.mtc.stabilizer"))return false;
 
-		
-		
+		int xa = -5;
+		  int za = 0;
+		  
+		  for (int i = 0; i < 5; i++) {
+		   xa++;
+		   za--;
+		   x = xa;
+		   z = za;
+		   for (int j = 0; j < 5; j++) {
+		    x++;
+		    z++;
+		    if(!isBlock("tile.mtc.iridiumPalting"))return false;
+		   }
+		  }
 		return true;
 	}
 	//
