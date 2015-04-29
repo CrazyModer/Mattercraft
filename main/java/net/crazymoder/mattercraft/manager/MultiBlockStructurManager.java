@@ -45,7 +45,6 @@ public class MultiBlockStructurManager {
 				if(!isBlock("tile.mtc.reinforcedPlating"))return false;
 			}
 		}
-		System.out.println("A");
 		y = -1;
 		x = -2;
 		z = -4;
@@ -145,7 +144,6 @@ public class MultiBlockStructurManager {
 		z = -2;
 		x = -2;
 		if(!isBlock("tile.mtc.forceFieldEmitter"))return false;
-		System.out.println("B");
 		int xa = -5;
 		int za = 0;
 		  
@@ -160,7 +158,6 @@ public class MultiBlockStructurManager {
 				if(!isBlock("tile.mtc.iridiumPalting"))return false;
 			}
 		}
-		System.out.println("C");
 		y = 1;
 		z = 1;
 		x = 1;
@@ -193,45 +190,42 @@ public class MultiBlockStructurManager {
 		z = 0;
 		x = 0;
 		if(!isBlock("tile.mtc.plasmaExtractor"))return false;
-		System.out.println("D");
 		z = 11;
 		x = 0;
-		for ( y= 0; y <= 12; y++) {
+		for ( y= 0; y <= 11; y++) {
 		   if(!isBlock("tile.mtc.stabilizerPillar"))return false;
 		}
 		z = -11;
 		x = 0;
-		for ( y= 0; y <= 12; y++) {
+		for ( y= 0; y <= 11; y++) {
 		   if(!isBlock("tile.mtc.stabilizerPillar"))return false;
 		}
 		z = 0;
 		x = 11;
-		for ( y= 0; y <= 12; y++) {
+		for ( y= 0; y <= 11; y++) {
 		   if(!isBlock("tile.mtc.stabilizerPillar"))return false;
 		}
 		z = 0;
 		x = -11;
-		for ( y= 0; y <= 12; y++) {
+		for ( y= 0; y <= 11; y++) {
 		   if(!isBlock("tile.mtc.stabilizerPillar"))return false;
 		}
-		System.out.println("E");
-		y = 13;
+		y = 12;
 		x = 11;
 		z = 0;
 		 if(!isBlock("tile.mtc.stabilizer"))return false;
-		y = 13;
+		y = 12;
 		x = -11;
 		z = 0;
 		 if(!isBlock("tile.mtc.stabilizer"))return false;
-		y = 13;
+		y = 12;
 		x = 0;
 		z = 11;
 		 if(!isBlock("tile.mtc.stabilizer"))return false;
-		y = 13;
+		y = 12;
 		x = 0;
     	z = -11;
 		if(!isBlock("tile.mtc.stabilizer"))return false;
-		System.out.println("F");
 		y = 23;
 		x = 0;
 		z = 0;  
@@ -275,6 +269,7 @@ public class MultiBlockStructurManager {
 		 y = 25;
 			for ( x=-2; x <= 2; x++) {
 				for ( z=-2; z <= 2; z++) {
+					if(!(z == 0 && x ==0))
 					if(!isBlock("tile.mtc.reinforcedPlating"))return false;
 				}
 			}																
