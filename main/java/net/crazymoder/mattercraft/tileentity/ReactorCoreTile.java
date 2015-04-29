@@ -13,6 +13,11 @@ import net.minecraft.world.World;
 
 public class ReactorCoreTile extends TileEntity{
 	
+	
+	//Renderer
+		public float rotation = 0f;
+	//********
+	
 	private int updatembstick = 40;
 	private boolean mbsOK;
 	

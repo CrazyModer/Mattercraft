@@ -10,6 +10,7 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
 public class ReactorTerminalTile extends TileEntity{
+
 	
 	public ReactorCoreTile core;
 	public ArrayList<Object> guiinfo;
