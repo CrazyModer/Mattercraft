@@ -65,6 +65,7 @@ public class ReactorCoreTile extends TileEntity{
 	private void updatembs(){
 		MultiBlockStructurManager.init(worldObj, xCoord, yCoord, zCoord);
 		mbsOK = MultiBlockStructurManager.checkReactorCoreMBS();
+		mbsOK = true;
 		addInterfaces();
 	}
 
