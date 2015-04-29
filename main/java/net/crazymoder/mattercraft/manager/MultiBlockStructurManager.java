@@ -193,45 +193,84 @@ public class MultiBlockStructurManager {
 		x = 0;
 		if(!isBlock("tile.mtc.plasmaExtractor"))return false;
 		
-		z = 10;
+		z = 11;
 		x = 0;
 		for ( y= 0; y <= 12; y++) {
 		   if(!isBlock("tile.mtc.stabilizerPillar"))return false;
 		}
-		z = -10;
+		z = -11;
 		x = 0;
 		for ( y= 0; y <= 12; y++) {
 		   if(!isBlock("tile.mtc.stabilizerPillar"))return false;
 		}
 		z = 0;
-		x = 10;
+		x = 11;
 		for ( y= 0; y <= 12; y++) {
 		   if(!isBlock("tile.mtc.stabilizerPillar"))return false;
 		}
 		z = 0;
-		x = -10;
+		x = -11;
 		for ( y= 0; y <= 12; y++) {
 		   if(!isBlock("tile.mtc.stabilizerPillar"))return false;
 		}
 		y = 13;
-		x = 10;
+		x = 11;
 		z = 0;
 		 if(!isBlock("tile.mtc.stabilizer"))return false;
 		y = 13;
-		x = -10;
+		x = -11;
 		z = 0;
 		 if(!isBlock("tile.mtc.stabilizer"))return false;
 		y = 13;
 		x = 0;
-		z = 10;
+		z = 11;
 		 if(!isBlock("tile.mtc.stabilizer"))return false;
 		y = 13;
 		x = 0;
-		z = -10;
-		 if(!isBlock("tile.mtc.stabilizer"))return false;
+    	z = -11;
+		if(!isBlock("tile.mtc.stabilizer"))return false;
 
-		
-		
+		y = 23;
+		x = 0;
+		z = 0;  
+	     if(!isBlock("tile.mtc.matterInjector"))return false;
+		y = 24;
+		x = 0;
+		z = 0;  
+		 if(!isBlock("tile.mtc.liquidMatterAcceptor"))return false;
+		y = 24;
+		x = 1;
+		z = 0;  
+		 if(!isBlock("tile.mtc.iridiumPalting"))return false;
+		y = 24;
+		x = -1;
+		z = 0;  
+		 if(!isBlock("tile.mtc.iridiumPalting"))return false;	 	 
+		y = 24;
+		x = 0;
+		z = 1;  
+		 if(!isBlock("tile.mtc.iridiumPalting"))return false;	 	 
+		y = 24;
+		x = 0;
+		z = -1;  
+		 if(!isBlock("tile.mtc.iridiumPalting"))return false;	 	 
+		y = 24;
+		x = -1;
+		z = -1;  
+		 if(!isBlock("tile.mtc.wormHoleStabilizer"))return false;	 	 
+		y = 24;
+		x = 1;
+		z = -1;  
+		 if(!isBlock("tile.mtc.wormHoleStabilizer"))return false;	 	 	 
+		y = 24;
+		x = -1;
+		z = 1;  
+		 if(!isBlock("tile.mtc.wormHoleStabilizer"))return false;	 	 
+		y = 24;
+		x = 1;
+		z = 1;  
+		 if(!isBlock("tile.mtc.wormHoleStabilizer"))return false;	 	 
+																		
 		return true;
 	}
 	//
