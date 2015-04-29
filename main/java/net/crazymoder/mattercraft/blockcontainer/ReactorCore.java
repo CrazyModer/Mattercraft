@@ -21,9 +21,4 @@ public class ReactorCore extends BlockContainer{
 		return new ReactorCoreTile();
 	}
 	
-	@SideOnly(Side.CLIENT)
-	public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side) {
-		return true;
-	}
-
 }

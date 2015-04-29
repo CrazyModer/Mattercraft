@@ -9,6 +9,7 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
 public class ReactorCoreTile extends TileEntity{
@@ -65,7 +66,6 @@ public class ReactorCoreTile extends TileEntity{
 	private void updatembs(){
 		MultiBlockStructurManager.init(worldObj, xCoord, yCoord, zCoord);
 		mbsOK = MultiBlockStructurManager.checkReactorCoreMBS();
-		mbsOK = true;
 		addInterfaces();
 	}
 
@@ -143,6 +143,11 @@ public class ReactorCoreTile extends TileEntity{
 	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt)
 	{
 		readSyncableDataFromNBT(pkt.func_148857_g());
+	}
+	
+	@Override
+	public AxisAlignedBB getRenderBoundingBox() {
+		return INFINITE_EXTENT_AABB;
 	}
 	
 }
