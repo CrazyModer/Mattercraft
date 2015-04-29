@@ -144,9 +144,11 @@ public class MultiBlockStructurManager {
 		z = -2;
 		x = -2;
 		if(!isBlock("tile.mtc.forceFieldEmitter"))return false;
-		
-		
-		
+		y = 1;
+		z = 1;
+		x = 1;
+		if(!isBlock("tile.mtc.wormHoleStabilizer"))return false;
+
 		int xa = -5;
 		  int za = 0;
 		  
