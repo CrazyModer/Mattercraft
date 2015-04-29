@@ -270,8 +270,14 @@ public class MultiBlockStructurManager {
 		x = 1;
 		z = 1;  
 		 if(!isBlock("tile.mtc.wormHoleStabilizer"))return false;	 	 
-																		
-		return true;
+		 y = 25;
+			for ( x=-2; x <= 2; x++) {
+				for ( z=-2; z <= 2; z++) {
+					if(!isBlock("tile.mtc.reinforcedPlating"))return false;
+				}
+			}																
+		
+		 return true;
 	}
 	//
 	private static boolean isBlock(String name){
