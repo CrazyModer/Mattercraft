@@ -1,8 +1,8 @@
-package net.crazymoder.mattercraft.tileentity;
+package net.crazymoder.mattercraft.tileentity.core;
 
 import java.util.ArrayList;
 
-import net.crazymoder.mattercraft.manager.MultiBlockStructurManager;
+import net.crazymoder.mattercraft.tileentity.ReactorTerminalTile;
 import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -18,6 +18,10 @@ public class ReactorCoreTile extends TileEntity{
 	//Renderer
 		public float rotation = 0f;
 	//********
+		
+	//declaration
+		public GuiHandler guiHandler;
+	//
 	
 	private int updatembstick = 40;
 	private boolean mbsOK;
@@ -30,13 +34,11 @@ public class ReactorCoreTile extends TileEntity{
 	private int yO = 0;
 	private int zO = 0;
 	
-	public ArrayList<Object> guiinfo;
 	
 	public ReactorCoreTile(){
 		mbsOK = false;
-		guiinfo = new ArrayList<Object>();
-		guiinfo.add("MBS: false");
 		render = false;
+		guiHandler = new GuiHandler();
 	}
 	
 	@Override
@@ -56,7 +58,8 @@ public class ReactorCoreTile extends TileEntity{
 	}
 	
 	private void updateGui(){
-		guiinfo.set(0, "MBS: " + mbsOK);
+		guiHandler.status = mbsOK ? 2 : 1;
+		guiHandler.update();
 	}
 	
 	private void updateRenderer(){

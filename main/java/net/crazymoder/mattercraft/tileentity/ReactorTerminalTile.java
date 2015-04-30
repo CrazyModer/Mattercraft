@@ -2,6 +2,8 @@ package net.crazymoder.mattercraft.tileentity;
 
 import java.util.ArrayList;
 
+import net.crazymoder.mattercraft.tileentity.core.GuiHandler;
+import net.crazymoder.mattercraft.tileentity.core.ReactorCoreTile;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -11,47 +13,24 @@ import net.minecraft.tileentity.TileEntity;
 
 public class ReactorTerminalTile extends TileEntity{
 
+	public int status;
+	public int cryotheum;
 	
 	public ReactorCoreTile core;
-	public ArrayList<Object> guiinfo;
-	
 	public ReactorTerminalTile(){
 		core = null;
-		guiinfo = new ArrayList<Object>();
 	}
 
-
-	@Override
-	public void writeToNBT(NBTTagCompound tagCompound)
-	{
-		super.writeToNBT(tagCompound);
-		writeSyncableDataToNBT(tagCompound);
-	}
 
 	private void writeSyncableDataToNBT(NBTTagCompound tagCompound) {
-		if(guiinfo.size() == 1){
-			tagCompound.setBoolean("connected",true);
-			tagCompound.setString("_0", (String) guiinfo.get(0));
-		}else{
-			tagCompound.setBoolean("connected",false);
-		}
+		tagCompound.setInteger("status", status);
+		tagCompound.setInteger("cryotheum", cryotheum);
 		
 	}
 
-	@Override
-	public void readFromNBT(NBTTagCompound tagCompound)
-	{
-		super.readFromNBT(tagCompound);
-		readSyncableDataFromNBT(tagCompound);
-	}
-
 	private void readSyncableDataFromNBT(NBTTagCompound tagCompound) {
-		if(!tagCompound.hasNoTags()){
-			guiinfo = new ArrayList<Object>();
-			if(tagCompound.getBoolean("connected")){
-				guiinfo.add(tagCompound.getString("_0"));
-			}
-		}
+		status = tagCompound.getInteger("status");
+	    cryotheum = tagCompound.getInteger("cryotheum");
 	}
 
 	@Override
@@ -78,14 +57,20 @@ public class ReactorTerminalTile extends TileEntity{
 			markDirty();
 			if(core != null){
 				if(!core.isInvalid()){
-					guiinfo = (ArrayList<Object>) core.guiinfo.clone();
+					GuiHandler guih = core.guiHandler;
+					extractvalues(guih);
 				}else{
 					core = null;
 				}
 			}else{
-				guiinfo = new ArrayList<Object>();
+				status = 0;
 			}
 		}
+	}
+	
+	private void extractvalues(GuiHandler guih){
+		status = guih.status;
+		cryotheum = guih.cryotheum;
 	}
 	
 	public void setCore(ReactorCoreTile rcore){

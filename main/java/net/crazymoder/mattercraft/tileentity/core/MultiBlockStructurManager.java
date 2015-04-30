@@ -1,4 +1,4 @@
-package net.crazymoder.mattercraft.manager;
+package net.crazymoder.mattercraft.tileentity.core;
 
 import scala.reflect.internal.Trees.This;
 import net.minecraft.block.Block;
@@ -147,16 +147,16 @@ public class MultiBlockStructurManager {
 		int xa = -5;
 		int za = 0;
 		  
-		for (int i = 0; i < 5; i++) {
-			xa++;
-			za--;
+		for (int i = 0; i < 6; i++) {	
 			x = xa;
 			z = za;
-			for (int j = 0; j < 5; j++) {
+			for (int j = 0; j < 6; j++) {
+				if(!isBlock("tile.mtc.iridiumPalting"))return false;
 				x++;
 				z++;
-				if(!isBlock("tile.mtc.iridiumPalting"))return false;
 			}
+			xa++;
+			za--;
 		}
 		y = 1;
 		z = 1;

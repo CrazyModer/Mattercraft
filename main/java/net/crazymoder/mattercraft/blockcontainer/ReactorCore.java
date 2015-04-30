@@ -2,7 +2,7 @@ package net.crazymoder.mattercraft.blockcontainer;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.crazymoder.mattercraft.tileentity.ReactorCoreTile;
+import net.crazymoder.mattercraft.tileentity.core.ReactorCoreTile;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;

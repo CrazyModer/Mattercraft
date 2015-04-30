@@ -9,7 +9,7 @@ import org.lwjgl.util.glu.GLU;
 import org.lwjgl.util.glu.Sphere;
 
 import cpw.mods.fml.client.FMLClientHandler;
-import net.crazymoder.mattercraft.tileentity.ReactorCoreTile;
+import net.crazymoder.mattercraft.tileentity.core.ReactorCoreTile;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -34,7 +34,7 @@ public class ReactorCoreTileRenderer extends TileEntitySpecialRenderer{
 		ReactorCoreTile core = (ReactorCoreTile) tile;
 		if(!core.render)return;
 		float scale = 8.5f;
-		core.rotation += (timeSinceLastTick / 2F)*15f;
+		core.rotation += (timeSinceLastTick / 2F)*9001f;
 		float rotation = core.rotation;
 
 		GL11.glPushMatrix();
@@ -46,7 +46,7 @@ public class ReactorCoreTileRenderer extends TileEntitySpecialRenderer{
 		FMLClientHandler.instance().getClient().getTextureManager().bindTexture(iner_model_texture);
 
 
-		double colour = Math.sin((float)Minecraft.getSystemTime() / 10000f);
+		double colour = Math.sin((float)Minecraft.getSystemTime() / 1f);
 		float brightness = (float)Math.abs(Math.sin((float) Minecraft.getSystemTime() / 3000f) * 100f);
 
 		colour = 1f - colour;
