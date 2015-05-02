@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import net.crazymoder.mattercraft.tileentity.core.GuiHandler;
 import net.crazymoder.mattercraft.tileentity.core.ReactorCoreTile;
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -12,9 +13,15 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
 public class ReactorTerminalTile extends TileEntity{
-
+	public ReactorTerminalTile(){
+		
+	}
+	/*
 	public int status;
 	public int cryotheum;
+	public int liquidMatter;
+	public int stabilizer;
+	public int hydrogen;
 	
 	public ReactorCoreTile core;
 	public ReactorTerminalTile(){
@@ -25,12 +32,18 @@ public class ReactorTerminalTile extends TileEntity{
 	private void writeSyncableDataToNBT(NBTTagCompound tagCompound) {
 		tagCompound.setInteger("status", status);
 		tagCompound.setInteger("cryotheum", cryotheum);
+		tagCompound.setInteger("liquidMatter", liquidMatter);
+		tagCompound.setInteger("stabilizer", stabilizer);
+		tagCompound.setInteger("hydrogen", hydrogen);
 		
 	}
 
 	private void readSyncableDataFromNBT(NBTTagCompound tagCompound) {
 		status = tagCompound.getInteger("status");
 	    cryotheum = tagCompound.getInteger("cryotheum");
+	    liquidMatter = tagCompound.getInteger("liquidMatter");
+	    stabilizer = tagCompound.getInteger("stabilizer");
+	    hydrogen = tagCompound.getInteger("hydrogen");
 	}
 
 	@Override
@@ -64,6 +77,7 @@ public class ReactorTerminalTile extends TileEntity{
 				}
 			}else{
 				status = 0;
+				getCore();
 			}
 		}
 	}
@@ -71,9 +85,10 @@ public class ReactorTerminalTile extends TileEntity{
 	private void extractvalues(GuiHandler guih){
 		status = guih.status;
 		cryotheum = guih.cryotheum;
+		liquidMatter = guih.liquidMatter;
+		stabilizer = guih.stabilizer;
+		hydrogen = guih.hydrogen;
 	}
+	*/
 	
-	public void setCore(ReactorCoreTile rcore){
-		core = rcore;
-	}
 }

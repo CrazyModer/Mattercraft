@@ -17,13 +17,6 @@ public class LiquidMatterAcceptorTile extends TileEntity implements IFluidHandle
 	public LiquidMatterAcceptorTile() {
 	}
 	
-	public void updateEntity() {
-		super.updateEntity();
-		if(!worldObj.isRemote){
-			System.out.println(tank.getFluidAmount());
-		}
-	}
-
 	public int fill(ForgeDirection from, FluidStack resource, boolean doFill)
 	{
 		if(resource.getFluid().getUnlocalizedName().equals("fluid.mtc.liquidMatter"))

@@ -17,28 +17,21 @@ public class StabilizerAcceptorTile extends TileEntity implements IFluidHandler{
 	public StabilizerAcceptorTile() {
 	}
 	
-	public void updateEntity() {
-		super.updateEntity();
-		if(!worldObj.isRemote){
-			System.out.println(tank.getFluidAmount());
-		}
-	}
-
 	public int fill(ForgeDirection from, FluidStack resource, boolean doFill)
 	{
-		if(resource.getFluid().getUnlocalizedName().equals("fluid.mtc.stabilizer"))
+		if(resource.getFluid().getUnlocalizedName().equals("fluid.mtc.liquidStabilizer"))
 			return this.tank.fill(resource, doFill);
 		return 0;
 	}
 
 	public FluidStack drain(ForgeDirection from, FluidStack resource, boolean doDrain)
 	{
-		return new FluidStack(new Fluid("mtc.stabilizer"),0);
+		return new FluidStack(new Fluid("mtc.liquidStabilizer"),0);
 	}
 
 	public FluidStack drain(ForgeDirection from, int maxDrain, boolean doDrain)
 	{
-		return new FluidStack(new Fluid("mtc.stabilizer"),0);
+		return new FluidStack(new Fluid("mtc.liquidStabilizer"),0);
 	}
 
 	public boolean canFill(ForgeDirection from, Fluid fluid)

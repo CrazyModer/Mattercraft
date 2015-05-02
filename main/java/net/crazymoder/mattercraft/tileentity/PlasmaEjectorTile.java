@@ -17,14 +17,6 @@ import net.minecraftforge.fluids.IFluidTank;
 public class PlasmaEjectorTile extends TileEntity implements IFluidHandler{
 	public FluidTank tank = new FluidTank(50000);
 	public PlasmaEjectorTile() {
-		tank.fill(new FluidStack(new Fluid("mtc.ionizedPlasma"), 50000), true);
-	}
-	
-	public void updateEntity() {
-		super.updateEntity();
-		if(!worldObj.isRemote){
-			System.out.println(tank.getFluidAmount());
-		}
 	}
 
 	public int fill(ForgeDirection from, FluidStack resource, boolean doFill)

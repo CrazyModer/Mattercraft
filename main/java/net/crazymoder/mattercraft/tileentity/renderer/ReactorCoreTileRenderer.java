@@ -34,7 +34,7 @@ public class ReactorCoreTileRenderer extends TileEntitySpecialRenderer{
 		ReactorCoreTile core = (ReactorCoreTile) tile;
 		if(!core.render)return;
 		float scale = 8.5f;
-		core.rotation += (timeSinceLastTick / 2F)*9001f;
+		core.rotation += (timeSinceLastTick / 2F)*3f;
 		float rotation = core.rotation;
 
 		GL11.glPushMatrix();

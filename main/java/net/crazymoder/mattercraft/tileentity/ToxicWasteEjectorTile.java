@@ -15,14 +15,6 @@ import net.minecraftforge.fluids.IFluidTank;
 public class ToxicWasteEjectorTile extends TileEntity implements IFluidHandler{
 	public FluidTank tank = new FluidTank(50000);
 	public ToxicWasteEjectorTile() {
-		tank.fill(new FluidStack(new Fluid("mtc.toxicWaste"), 50000), true);
-	}
-	
-	public void updateEntity() {
-		super.updateEntity();
-		if(!worldObj.isRemote){
-			System.out.println(tank.getFluidAmount());
-		}
 	}
 
 	public int fill(ForgeDirection from, FluidStack resource, boolean doFill)

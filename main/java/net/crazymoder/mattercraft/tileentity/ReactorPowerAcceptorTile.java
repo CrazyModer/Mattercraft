@@ -11,16 +11,9 @@ public class ReactorPowerAcceptorTile extends TileEntity implements IEnergyRecei
 	
 	public EnergyStorage energyStorage = new EnergyStorage(100000000, 5000000);
 	
+	
 	public ReactorPowerAcceptorTile(){
 		
-	}
-	
-	@Override
-	public void updateEntity() {
-		super.updateEntity();
-		if(!worldObj.isRemote){
-			System.out.println(energyStorage.getEnergyStored());
-		}
 	}
 	
 	@Override

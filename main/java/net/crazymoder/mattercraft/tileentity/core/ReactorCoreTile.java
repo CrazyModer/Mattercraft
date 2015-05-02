@@ -13,18 +13,21 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
 public class ReactorCoreTile extends TileEntity{
-	
-	
+
 	//Renderer
 		public float rotation = 0f;
 	//********
 		
 	//declaration
 		public GuiHandler guiHandler;
-	//
+		public LogisticHandler logisticHandler;
+	//**************
+		
+	//atributes
+		public int state;
+	//*****************
 	
 	private int updatembstick = 40;
-	private boolean mbsOK;
 	
 	private int x = xCoord;
 	private int y = yCoord;
@@ -36,9 +39,10 @@ public class ReactorCoreTile extends TileEntity{
 	
 	
 	public ReactorCoreTile(){
-		mbsOK = false;
+		state = 1;
 		render = false;
-		guiHandler = new GuiHandler();
+		logisticHandler = new LogisticHandler();
+		guiHandler = new GuiHandler(logisticHandler);
 	}
 	
 	@Override
@@ -46,6 +50,11 @@ public class ReactorCoreTile extends TileEntity{
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		markDirty();
 		if(!worldObj.isRemote){
+			if(state >= 2){
+				boolean logOK = logisticHandler.checkLogistic(this);
+				if(state < 3 && logOK)state = 3;
+				if(!logOK)state = 2;
+			}
 			updatembstick--;
 			if(updatembstick == 0){
 				updatembstick = 40;
@@ -58,73 +67,40 @@ public class ReactorCoreTile extends TileEntity{
 	}
 	
 	private void updateGui(){
-		guiHandler.status = mbsOK ? 2 : 1;
+		guiHandler.status = state;
 		guiHandler.update();
 	}
 	
 	private void updateRenderer(){
-		render = mbsOK;
+		render = state == 3;
 	}
 	
 	private void updatembs(){
 		MultiBlockStructurManager.init(worldObj, xCoord, yCoord, zCoord);
-		mbsOK = MultiBlockStructurManager.checkReactorCoreMBS();
-		addInterfaces();
+		boolean mbsOK = MultiBlockStructurManager.checkReactorCoreMBS();
+		if(state < 2 && mbsOK)state = 2;
+		if(!mbsOK)state = 1;
 	}
-
-	
-	
-	private ReactorTerminalTile reactorTerminalTile;
-	
-	private void addInterfaces(){
-		resetCords();
-		yO=3;
-		addinterface();
-	}
-	
-	private void addinterface(){
-		if(isBlock("tile.mtc.reactorTerminal")){
-			ReactorTerminalTile te = (ReactorTerminalTile) getTile();
-			te.setCore(this);
-		}
-	}
-	
-	private TileEntity getTile(){
-		return w.getTileEntity(x + xO, y + yO, z + zO);
-	}
-	//tile.mtc.
-	private boolean isBlock(String name){
-		Block block = w.getBlock(x + xO, y + yO, z + zO);
-		return(block.getUnlocalizedName().equals(name));
-	}
-	
-	private void resetCords(){
-		x = xCoord;
-		y = yCoord;
-		z = zCoord;
-		w = worldObj;
-		xO = 0;//Offset
-		yO = 0;
-		zO = 0;
-	}
-	
 	public boolean render;
 	
 	@Override
 	public void writeToNBT(NBTTagCompound tagCompound)
 	{
 		super.writeToNBT(tagCompound);
+		logisticHandler.writeNBT(tagCompound);
 		writeSyncableDataToNBT(tagCompound);
 	}
 
 	private void writeSyncableDataToNBT(NBTTagCompound tagCompound) {
 		tagCompound.setBoolean("render", render);
+		guiHandler.writeSyncableDataToNBT(tagCompound);
 	}
 
 	@Override
 	public void readFromNBT(NBTTagCompound tagCompound)
 	{
 		super.readFromNBT(tagCompound);
+		logisticHandler.readNBT(tagCompound);
 		readSyncableDataFromNBT(tagCompound);
 	}
 
@@ -132,6 +108,7 @@ public class ReactorCoreTile extends TileEntity{
 		if(!tagCompound.hasNoTags()){
 			render = tagCompound.getBoolean("render");
 		}
+		guiHandler.readSyncableDataFromNBT(tagCompound);
 	}
 
 	@Override

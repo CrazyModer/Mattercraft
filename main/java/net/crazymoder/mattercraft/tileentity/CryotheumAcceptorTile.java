@@ -17,13 +17,6 @@ public class CryotheumAcceptorTile extends TileEntity implements IFluidHandler{
 	public CryotheumAcceptorTile() {
 	}
 	
-	public void updateEntity() {
-		super.updateEntity();
-		if(!worldObj.isRemote){
-			System.out.println(tank.getFluidAmount());
-		}
-	}
-
 	public int fill(ForgeDirection from, FluidStack resource, boolean doFill)
 	{
 		if(resource.getFluid().getUnlocalizedName().equals("fluid.cryotheum"))

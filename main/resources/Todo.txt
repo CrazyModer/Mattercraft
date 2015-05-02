@@ -1,10 +1,5 @@
 @Domi
-<<<<<<< HEAD
-=======
-stabilizer
-heated cryotium
-liquidMatter
->>>>>>> origin/master
+
 @Sven
 
 @Daniel
