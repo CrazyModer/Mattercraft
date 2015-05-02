@@ -19,6 +19,10 @@ public class ReactorTerminalGui extends GuiScreen{
 	private int liquidMatter;
 	private int stabilizer;
 	private int hydrogen;
+	private int plasma;
+	private int toxicWaste;
+	private int heatedCryotheum;
+	private int energy;
 	
 	private GuiHandler guiH;
 	private ReactorCoreTile core;
@@ -63,21 +67,26 @@ public class ReactorTerminalGui extends GuiScreen{
 	@Override
 	public void drawScreen(int x, int y, float tick) {
 		getCore();
+		status = 0;
 		if(core != null && !core.isInvalid())status = 1;
 		if(status == 1){
 			guiH = core.guiHandler;
-			System.out.println(guiH.status);
 			status = guiH.status;
 			cryotheum = guiH.cryotheum;
 			liquidMatter = guiH.liquidMatter;
 			stabilizer = guiH.stabilizer;
 			hydrogen = guiH.hydrogen;
+			plasma = guiH.plasma;
+			toxicWaste = guiH.toxicWaste;
+			heatedCryotheum = guiH.heatedCryotheum;
+			energy = guiH.energy;
 		}
 		
 		if(status == 0)statusString = "Not Con";
 		if(status == 1)statusString = "MBS NOT OK";
 		if(status == 2)statusString = "MBS OK";
 		if(status == 3)statusString = "Logistics OK";
+		if(status == 4)statusString = "Running";
 
 		mc.renderEngine.bindTexture(new ResourceLocation("mattercraft", "textures/gui/Terminal.png"));
 		drawDefaultBackground();
@@ -100,13 +109,13 @@ public class ReactorTerminalGui extends GuiScreen{
         this.drawTexturedModalRect(k+97, l+158-temp, 97, 173, 29, temp);
         
         //plasma
-        temp = (int) (cryotheum*0.71f);
+        temp = (int) (plasma*0.71f);
         this.drawTexturedModalRect(k+158, l+158-temp, 158, 173, 29, temp);
         //toxicwaste
-        temp = (int) (cryotheum*0.71f);
+        temp = (int) (toxicWaste*0.71f);
         this.drawTexturedModalRect(k+188, l+158-temp, 188, 173, 29, temp);
         //heatedcryotheum
-        temp = (int) (cryotheum*0.71f);
+        temp = (int) (heatedCryotheum*0.71f);
         this.drawTexturedModalRect(k+218, l+158-temp, 218, 173, 29, temp);
         
         //status

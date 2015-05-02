@@ -27,6 +27,8 @@ tile.mtc.heatedCryotheum.name=Heated Cryotheum
 tile.mtc.liquidStabilizer.name=Liquid Stabilizer
 tile.mtc.liquidMatter.name=Liquid Matter
 
+item.mtc.key.name=Key
+
 
 fluid.mtc.ionizedPlasma=Ionized Plasma
 fluid.mtc.toxicWaste=Toxic Waste

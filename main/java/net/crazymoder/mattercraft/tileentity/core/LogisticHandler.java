@@ -24,15 +24,19 @@ public class LogisticHandler {
 	public int toxicWaste_a = 0;
 	public int plasma_a = 0;
 	public int energy_a = 0;
+	public int matter_a = 0;
+	public int antiMatter_a = 0;
 	
-	public int cryotheum_m = 1000000;
-	public int hydrogen_m = 10000000;
-	public int stabilizer_m = 1000000;
-	public int liquidMatter_m = 500000;
-	public int heatedCryotheum_m = 1000000;
-	public int toxicWaste_m = 1000000;
-	public int plasma_m =640000000;
-	public int energy_m = 1000000000;
+	public static int cryotheum_m = 1000000;
+	public static int hydrogen_m = 10000000;
+	public static int stabilizer_m = 1000000;
+	public static int liquidMatter_m = 500000;
+	public static int heatedCryotheum_m = 1000000;
+	public static int toxicWaste_m = 1000000;
+	public static int plasma_m =640000000;
+	public static int energy_m = 1000000000;
+	public static int matter_m = 100000;
+	public static int antiMatter_m = 100000;
 	
 	private CryotheumAcceptorTile cryotheumAcceptorTile;
 	private HydrogenAcceptorTile hydrogenAcceptorTile;
@@ -163,6 +167,8 @@ public class LogisticHandler {
 		tag.setInteger("toxicWaste_a", toxicWaste_a);
 		tag.setInteger("plasma_a", plasma_a);
 		tag.setInteger("energy_a", energy_a);
+		tag.setInteger("matter_a", matter_a);
+		tag.setInteger("antiMatter_a", antiMatter_a);
 	}
 	public void readNBT(NBTTagCompound tag){
 		cryotheum_a = tag.getInteger("cryotheum_a");
@@ -173,5 +179,7 @@ public class LogisticHandler {
 		toxicWaste_a = tag.getInteger("toxicWaste_a");
 		plasma_a = tag.getInteger("plasma_a");
 		energy_a = tag.getInteger("energy_a");
+		matter_a = tag.getInteger("matter_a");
+		antiMatter_a = tag.getInteger("antiMatter_a");
 	}
 }

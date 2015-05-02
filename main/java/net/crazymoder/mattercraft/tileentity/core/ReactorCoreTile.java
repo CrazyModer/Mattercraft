@@ -2,8 +2,11 @@ package net.crazymoder.mattercraft.tileentity.core;
 
 import java.util.ArrayList;
 
+import org.lwjgl.Sys;
+
 import net.crazymoder.mattercraft.tileentity.ReactorTerminalTile;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
@@ -14,35 +17,28 @@ import net.minecraft.world.World;
 
 public class ReactorCoreTile extends TileEntity{
 
-	//Renderer
-		public float rotation = 0f;
-	//********
 		
 	//declaration
 		public GuiHandler guiHandler;
 		public LogisticHandler logisticHandler;
+		public RenderingHandler renderingHandler;
+		public Calculator calculator;
 	//**************
 		
 	//atributes
 		public int state;
+		public int oldstate;
 	//*****************
-	
 	private int updatembstick = 40;
 	
-	private int x = xCoord;
-	private int y = yCoord;
-	private int z = zCoord;
-	private World w = worldObj;
-	private int xO = 0;//Offset
-	private int yO = 0;
-	private int zO = 0;
 	
 	
 	public ReactorCoreTile(){
 		state = 1;
-		render = false;
 		logisticHandler = new LogisticHandler();
-		guiHandler = new GuiHandler(logisticHandler);
+		guiHandler = new GuiHandler(this);
+		renderingHandler = new RenderingHandler(this);
+		calculator = new Calculator(this);
 	}
 	
 	@Override
@@ -50,6 +46,7 @@ public class ReactorCoreTile extends TileEntity{
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		markDirty();
 		if(!worldObj.isRemote){
+			oldstate = state;
 			if(state >= 2){
 				boolean logOK = logisticHandler.checkLogistic(this);
 				if(state < 3 && logOK)state = 3;
@@ -58,42 +55,51 @@ public class ReactorCoreTile extends TileEntity{
 			updatembstick--;
 			if(updatembstick == 0){
 				updatembstick = 40;
-				updatembs();
+				MultiBlockStructurManager.init(worldObj, xCoord, yCoord, zCoord);
+				boolean mbsOK = MultiBlockStructurManager.checkReactorCoreMBS();
+				if(state < 2 && mbsOK)state = 2;
+				if(!mbsOK)state = 1;
 			}
-			updateGui();
-			updateRenderer();
+			if(state == 3)
+				activate();
+			if(oldstate == 4 && state < 4)
+				deactivate();
+			if(state == 4)
+				calculator.calculate();
+			guiHandler.update();
+			renderingHandler.update();
 		}
 		super.updateEntity();
 	}
 	
-	private void updateGui(){
-		guiHandler.status = state;
-		guiHandler.update();
+	
+	private void activate(){
+		Block b1 = worldObj.getBlock(xCoord, yCoord+12, zCoord);
+		Block b2 = worldObj.getBlock(xCoord, yCoord+13, zCoord);
+		if(b1.getUnlocalizedName().equals("tile.blockEmerald")&&b2.getUnlocalizedName().equals("tile.fire")&&calculator.canactivate()){
+			worldObj.setBlock(xCoord, yCoord+12, zCoord, Blocks.air);
+			state = 4;
+			calculator.activate();
+			worldObj.createExplosion(null, xCoord, yCoord+12, zCoord, 50f, false);
+			System.out.println("activate");
+		}
 	}
 	
-	private void updateRenderer(){
-		render = state == 3;
+	public void deactivate(){
+		worldObj.createExplosion(null, xCoord, yCoord+12, zCoord, 6f, true);
+		worldObj.createExplosion(null, xCoord, yCoord+12, zCoord, 150f, false);
+		state = 1;
+		calculator.deactivate();
+		System.out.println("deactivate");
 	}
 	
-	private void updatembs(){
-		MultiBlockStructurManager.init(worldObj, xCoord, yCoord, zCoord);
-		boolean mbsOK = MultiBlockStructurManager.checkReactorCoreMBS();
-		if(state < 2 && mbsOK)state = 2;
-		if(!mbsOK)state = 1;
-	}
-	public boolean render;
 	
 	@Override
 	public void writeToNBT(NBTTagCompound tagCompound)
 	{
 		super.writeToNBT(tagCompound);
 		logisticHandler.writeNBT(tagCompound);
-		writeSyncableDataToNBT(tagCompound);
-	}
-
-	private void writeSyncableDataToNBT(NBTTagCompound tagCompound) {
-		tagCompound.setBoolean("render", render);
-		guiHandler.writeSyncableDataToNBT(tagCompound);
+		tagCompound.setInteger("main_state", state);
 	}
 
 	@Override
@@ -101,28 +107,26 @@ public class ReactorCoreTile extends TileEntity{
 	{
 		super.readFromNBT(tagCompound);
 		logisticHandler.readNBT(tagCompound);
-		readSyncableDataFromNBT(tagCompound);
+		state = tagCompound.getInteger("main_state");
 	}
-
-	private void readSyncableDataFromNBT(NBTTagCompound tagCompound) {
-		if(!tagCompound.hasNoTags()){
-			render = tagCompound.getBoolean("render");
-		}
-		guiHandler.readSyncableDataFromNBT(tagCompound);
-	}
-
+	
 	@Override
 	public Packet getDescriptionPacket()
 	{
-		NBTTagCompound syncData = new NBTTagCompound();
-		writeSyncableDataToNBT(syncData);
-		return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, syncData);
+		NBTTagCompound tagCompound = new NBTTagCompound();
+		calculator.writeSyncableDataToNBT(tagCompound);
+		guiHandler.writeSyncableDataToNBT(tagCompound);
+		renderingHandler.writeSyncableDataToNBT(tagCompound);
+		return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, tagCompound);
 	}
 
 	@Override
 	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt)
 	{
-		readSyncableDataFromNBT(pkt.func_148857_g());
+		NBTTagCompound tagCompound = pkt.func_148857_g();
+		calculator.readSyncableDataFromNBT(tagCompound);
+		guiHandler.readSyncableDataFromNBT(tagCompound);
+		renderingHandler.readSyncableDataFromNBT(tagCompound);
 	}
 	
 	@Override
