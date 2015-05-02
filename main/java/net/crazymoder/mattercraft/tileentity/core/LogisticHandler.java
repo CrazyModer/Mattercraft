@@ -27,12 +27,12 @@ public class LogisticHandler {
 	public int matter_a = 0;
 	public int antiMatter_a = 0;
 	
-	public static int cryotheum_m = 1000000;
-	public static int hydrogen_m = 10000000;
-	public static int stabilizer_m = 1000000;
+	public static int cryotheum_m = 50000;
+	public static int hydrogen_m = 500000;
+	public static int stabilizer_m = 50000;
 	public static int liquidMatter_m = 500000;
-	public static int heatedCryotheum_m = 1000000;
-	public static int toxicWaste_m = 1000000;
+	public static int heatedCryotheum_m = 50000;
+	public static int toxicWaste_m = 500000;
 	public static int plasma_m =640000000;
 	public static int energy_m = 1000000000;
 	public static int matter_m = 100000;
