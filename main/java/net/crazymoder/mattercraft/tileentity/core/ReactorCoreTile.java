@@ -6,6 +6,7 @@ import org.lwjgl.Sys;
 
 import net.crazymoder.mattercraft.tileentity.ReactorTerminalTile;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -43,6 +44,7 @@ public class ReactorCoreTile extends TileEntity{
 	
 	@Override
 	public void updateEntity() {
+		float time = Minecraft.getSystemTime();
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		markDirty();
 		if(!worldObj.isRemote){
@@ -69,7 +71,6 @@ public class ReactorCoreTile extends TileEntity{
 			guiHandler.update();
 			renderingHandler.update();
 		}
-		super.updateEntity();
 	}
 	
 	

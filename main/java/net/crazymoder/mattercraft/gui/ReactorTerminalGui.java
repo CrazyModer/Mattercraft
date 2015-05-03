@@ -96,26 +96,26 @@ public class ReactorTerminalGui extends GuiScreen{
         this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
         
         //liquidmatter
-        temp = (int) (liquidMatter*0.71f);
+        temp = (int) (((float)(liquidMatter)/LogisticHandler.liquidMatter_m)*100f*0.71f);
         this.drawTexturedModalRect(k+7, l+158-temp, 7, 173, 29, temp);
         //cryotheum
-        temp = (int) (cryotheum*0.71f);
+        temp = (int) (((float)(cryotheum)/LogisticHandler.cryotheum_m)*100f*0.71f);
         this.drawTexturedModalRect(k+37, l+158-temp, 37, 173, 29, temp);
         //stabilizer
-        temp = (int) (stabilizer*0.71f);
+        temp = (int) (((float)(stabilizer)/LogisticHandler.stabilizer_m)*100f*0.71f);
         this.drawTexturedModalRect(k+67, l+158-temp, 67, 173, 29, temp);
         //hydrogen
-        temp = (int) (hydrogen*0.71f);
+        temp = (int) (((float)(hydrogen)/LogisticHandler.hydrogen_m)*100f*0.71f);
         this.drawTexturedModalRect(k+97, l+158-temp, 97, 173, 29, temp);
         
         //plasma
-        temp = (int) (plasma*0.71f);
+        temp = (int) (((float)(plasma)/LogisticHandler.plasma_m)*100f*0.71f);
         this.drawTexturedModalRect(k+158, l+158-temp, 158, 173, 29, temp);
         //toxicwaste
-        temp = (int) (toxicWaste*0.71f);
+        temp = (int) (((float)(toxicWaste)/LogisticHandler.toxicWaste_m)*100f*0.71f);
         this.drawTexturedModalRect(k+188, l+158-temp, 188, 173, 29, temp);
         //heatedcryotheum
-        temp = (int) (heatedCryotheum*0.71f);
+        temp = (int) (((float)(heatedCryotheum)/LogisticHandler.heatedCryotheum_m)*100f*0.71f);
         this.drawTexturedModalRect(k+218, l+158-temp, 218, 173, 29, temp);
         
         //status

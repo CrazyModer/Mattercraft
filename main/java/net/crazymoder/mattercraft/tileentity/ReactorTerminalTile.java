@@ -16,5 +16,4 @@ public class ReactorTerminalTile extends TileEntity{
 	public ReactorTerminalTile(){
 		
 	}
-	public boolean activate;
 }

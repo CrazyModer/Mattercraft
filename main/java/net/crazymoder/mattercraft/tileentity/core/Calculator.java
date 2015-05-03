@@ -11,8 +11,9 @@ public class Calculator {
 	public int topower;
 	public int matterInjectionRate;
 	public int antiMatterInjectionRate;
-	
-	private float effitiency;
+	public float effitiency;
+	public int productionrate;
+	public int power;
 	
 	public Calculator(ReactorCoreTile core){
 		this.core = core;
@@ -25,9 +26,10 @@ public class Calculator {
 	
 	public void calculate(){
 		topower = (int) (1000000f * (1f - (float)(log.plasma_a)/log.plasma_m));
+		if(log.hydrogen_a < 10000)topower = 100;
 		int stab = 0;
 		int min = log.matter_a < log.antiMatter_a ? log.matter_a : log.antiMatter_a;
-		int power = (int) ((Math.pow(min/10d, 2))/10d);
+		power = (int) ((Math.pow(min/10d, 2))/10d);
 		if(power < topower){
 			if(log.matter_a > log.antiMatter_a){
 				if(log.antiMatter_a+2 < log.antiMatter_m)
@@ -57,6 +59,7 @@ public class Calculator {
 		if(log.hydrogen_a >= power/5000f && log.plasma_a < log.plasma_m + power/5000f){
 			log.hydrogen_a -= power/5000f;
 			log.plasma_a += power/100f;
+			productionrate = (int) (power/100f);
 		}
 		if(log.cryotheum_a < 1000){
 			core.deactivate();
@@ -78,26 +81,24 @@ public class Calculator {
 		log.antiMatter_a += antiMatterInjectionRate;
 		log.antiMatter_a -= power/1000f;
 		log.matter_a -= power/1000f;
-		System.out.println("min "+ min);
 		System.out.println("power:" + power);
+		System.out.println("topower:"+topower);
+		System.out.println("production: "+productionrate);
 		System.out.println("effitiency: "+effitiency);
 		System.out.println("matter: "+log.matter_a);
 		System.out.println("anti:" +log.antiMatter_a);
 		System.out.println("matterrate: "+matterInjectionRate);
 		System.out.println("antirate:" +antiMatterInjectionRate);
-		System.out.println("topower:"+topower);
 		System.out.println();
 	}
 	
 	
 	public void writeSyncableDataToNBT(NBTTagCompound tagCompound) {
-		tagCompound.setInteger("calc_topower",topower);
 		tagCompound.setInteger("calc_matterInjectionRate", matterInjectionRate);
 		tagCompound.setInteger("calc_antiMatterInjectionRate", antiMatterInjectionRate);
 	}
 
 	public void readSyncableDataFromNBT(NBTTagCompound tagCompound) {
-		topower = tagCompound.getInteger("calc_topower");
 		matterInjectionRate = tagCompound.getInteger("calc_matterInjectionRate");
 		antiMatterInjectionRate = tagCompound.getInteger("calc_antiMatterInjectionRate");
 	}
