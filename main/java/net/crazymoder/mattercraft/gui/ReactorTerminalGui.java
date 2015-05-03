@@ -23,7 +23,15 @@ public class ReactorTerminalGui extends GuiScreen{
 	private int plasma;
 	private int toxicWaste;
 	private int heatedCryotheum;
+	private int matter;
+	private int antiMatter;
 	private int energy;
+	private int power;
+	private int topower;
+	private float efficiency;
+	private int production;
+	private int matterRate;
+	private int antiRate;
 	
 	private GuiHandler guiH;
 	private ReactorCoreTile core;
@@ -83,7 +91,15 @@ public class ReactorTerminalGui extends GuiScreen{
 			plasma = guiH.plasma;
 			toxicWaste = guiH.toxicWaste;
 			heatedCryotheum = guiH.heatedCryotheum;
+			matter = guiH.matter;
+			antiMatter = guiH.antiMatter;
 			energy = guiH.energy;
+			power = guiH.power;
+			topower = guiH.topower;
+			efficiency = guiH.efficiency;
+			production = guiH.production;
+			matterRate = guiH.matterRate;
+			antiRate = guiH.antiMatter;
 		}
 		
 		if(status == 0)statusString = "Reactor Terminal: Not Connected";
@@ -124,6 +140,12 @@ public class ReactorTerminalGui extends GuiScreen{
         //heatedcryotheum
         temp = (int) (((float)(heatedCryotheum)/LogisticHandler.heatedCryotheum_m)*100f*0.71f);
         this.drawTexturedModalRect(k+218, l+158-temp, 218, 173, 29, temp);
+        
+        //power
+    	temp = (int) (((float)(power)/1100000)*100f*1.18f);
+    	this.drawTexturedModalRect(8+k, 70+l, 0, 0, temp, 12);
+    	
+    	
         //tooltips
         if(x > 7 + k && x < k + 247 && y > 87 + l && y < l + 158){
         	List list = new ArrayList();
@@ -156,5 +178,8 @@ public class ReactorTerminalGui extends GuiScreen{
         }
         //status
     	this.fontRendererObj.drawString(statusString, (k + this.xSize / 2) - this.fontRendererObj.getStringWidth(statusString)/2, l - 75 + this.ySize/2, 0);
+    	//power
+    	String st = topower/1000f + "kW > " + power/1000f + "kW";
+    	this.fontRendererObj.drawString(st, k+12, l + 60, 0);
 	}
 }

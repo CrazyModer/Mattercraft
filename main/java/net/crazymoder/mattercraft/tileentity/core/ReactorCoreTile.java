@@ -30,7 +30,7 @@ public class ReactorCoreTile extends TileEntity{
 		public int state;
 		public int oldstate;
 	//*****************
-	private int updatembstick = 40;
+	private int updateMbsTick = 40;
 	
 	
 	
@@ -44,7 +44,6 @@ public class ReactorCoreTile extends TileEntity{
 	
 	@Override
 	public void updateEntity() {
-		float time = Minecraft.getSystemTime();
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		markDirty();
 		if(!worldObj.isRemote){
@@ -54,9 +53,9 @@ public class ReactorCoreTile extends TileEntity{
 				if(state < 3 && logOK)state = 3;
 				if(!logOK)state = 2;
 			}
-			updatembstick--;
-			if(updatembstick == 0){
-				updatembstick = 40;
+			updateMbsTick--;
+			if(updateMbsTick == 0){
+				updateMbsTick = 40;
 				MultiBlockStructurManager.init(worldObj, xCoord, yCoord, zCoord);
 				boolean mbsOK = MultiBlockStructurManager.checkReactorCoreMBS();
 				if(state < 2 && mbsOK)state = 2;

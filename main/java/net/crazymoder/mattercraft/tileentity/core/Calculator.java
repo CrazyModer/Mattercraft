@@ -37,12 +37,13 @@ public class Calculator {
 		power = (int) ((Math.pow(min/10d, 2))/10d);
 		if(power < topower){
 			if(log.matter_a > log.antiMatter_a){
-				if(log.antiMatter_a+2 < log.antiMatter_m)
-				antiMatterInjectionRate += 2;
-				stab = 2;
+				if(log.antiMatter_a+2 < log.antiMatter_m){
+					antiMatterInjectionRate += 2;
+					stab = 2;
+				}
 			}else{
 				if(log.matter_a+2 < log.matter_m)
-				matterInjectionRate += 2;
+					matterInjectionRate += 2;
 			}	
 		}else{
 			if(antiMatterInjectionRate - 1 > -1)
@@ -50,9 +51,8 @@ public class Calculator {
 			stab = 1;
 		}
 		effitiency = 1;
-		if(log.antiMatter_a*2 < log.matter_a && log.antiMatter_a > 0 && log.matter_a >0){
-			float effi1 = 1f - (((float)log.matter_a - (float)log.antiMatter_a*2f) / (float)log.matter_m)/2f;
-			effitiency = effi1;
+		if(log.antiMatter_a < log.matter_a && log.antiMatter_a > 0 && log.matter_a >0){
+			effitiency = 1f - (((float)log.matter_a - (float)log.antiMatter_a) / (float)log.matter_m)/2f;
 		}
 		if(log.liquidMatter_a > matterInjectionRate/10f && log.matter_a + matterInjectionRate < log.matter_m){
 			log.matter_a += matterInjectionRate;
@@ -72,8 +72,8 @@ public class Calculator {
 			log.cryotheum_a-=50;
 			if(log.heatedCryotheum_a+50 < log.heatedCryotheum_m)
 				log.heatedCryotheum_a+=45;
-			if(log.toxicWaste_a + 10 < log.toxicWaste_m)
-				log.toxicWaste_a += 10;
+			if(log.toxicWaste_a + 5 < log.toxicWaste_m)
+				log.toxicWaste_a += 5;
 		}
 		if(log.stabilizer_a < 1000){
 			core.deactivate();
@@ -82,7 +82,13 @@ public class Calculator {
 			if(log.toxicWaste_a + 20 + stab*100 < log.toxicWaste_m)
 				log.toxicWaste_a += 20 + stab*100;
 		}
-		
+		if(log.energy_a > 1000000){
+			log.energy_a -= 20000;
+			log.energy_a -= power/400f;
+			log.energy_a -= stab*20000;
+		}else{
+			core.deactivate();
+		}
 		log.antiMatter_a += antiMatterInjectionRate;
 		log.antiMatter_a -= power/1000f;
 		log.matter_a -= power/1000f;
@@ -116,11 +122,15 @@ public class Calculator {
 		antiMatterInjectionRate = 0;
 		log.antiMatter_a = 0;
 		log.matter_a = 0;
+		power = 0;
+		topower = 0;
 	}
 	public void deactivate(){
 		matterInjectionRate = 0;
 		antiMatterInjectionRate = 0;
 		log.antiMatter_a = 0;
 		log.matter_a = 0;
+		power = 0;
+		topower = 0;
 	}
 }
