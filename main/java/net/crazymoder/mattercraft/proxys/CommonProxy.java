@@ -12,12 +12,14 @@ import net.crazymoder.mattercraft.manager.GuiManager;
 import net.crazymoder.mattercraft.manager.ItemManager;
 import net.crazymoder.mattercraft.manager.TileEntityManager;
 import net.crazymoder.mattercraft.manager.TileRenderingManager;
+import net.crazymoder.mattercraft.manager.WorldGenManager;
 
 public class CommonProxy {
 	
 	public void preInit(FMLPreInitializationEvent e){
 		BlockManager blockManager = new BlockManager();
 		ItemManager itemManager = new ItemManager();
+		WorldGenManager worldGenManager = new WorldGenManager();
     	TileEntityManager tileEntityManger = new TileEntityManager();
     	ExternalCraftingManager extenalCM = new ExternalCraftingManager();
     	FluidManager fluidManager = new FluidManager();

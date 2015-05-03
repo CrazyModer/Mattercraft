@@ -1,6 +1,11 @@
 @Domi
 
 @Sven
+BlockManager
+//WorldGenManager
+
+IriduimOre
+OsmiumOre
 
 @Daniel
 NBT
