@@ -13,7 +13,7 @@ import net.minecraftforge.fluids.IFluidHandler;
 import net.minecraftforge.fluids.IFluidTank;
 
 public class HydrogenAcceptorTile extends TileEntity implements IFluidHandler{
-	public FluidTank tank = new FluidTank(100000);
+	public FluidTank tank = new FluidTank(50000);
 	public HydrogenAcceptorTile() {
 	}
 	

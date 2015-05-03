@@ -78,6 +78,7 @@ public class GuiHandler {
 		tagCompound.setInteger("gui_plasma", plasma);
 		tagCompound.setInteger("gui_toxicWaste", toxicWaste);
 		tagCompound.setInteger("gui_heatedCryotheum", heatedCryotheum);
+		tagCompound.setInteger("gui_energy", energy);
 		tagCompound.setInteger("gui_matter", matter);
 		tagCompound.setInteger("gui_antiMatter", antiMatter);
 		tagCompound.setInteger("gui_power", power);

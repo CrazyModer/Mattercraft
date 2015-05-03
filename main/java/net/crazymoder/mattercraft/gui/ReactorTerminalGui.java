@@ -1,6 +1,7 @@
 package net.crazymoder.mattercraft.gui;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import net.crazymoder.mattercraft.tileentity.ReactorTerminalTile;
 import net.crazymoder.mattercraft.tileentity.core.GuiHandler;
@@ -32,10 +33,13 @@ public class ReactorTerminalGui extends GuiScreen{
 	
 	private String statusString;
 	
-	private final ResourceLocation furnaceGuiTextures = new ResourceLocation("textures/gui/container/furnace.png");
+	private ResourceLocation texture1,texture2;
+	
 	
 	public ReactorTerminalGui(ReactorTerminalTile tile) {
 		this.tile = tile;
+		texture1 = new ResourceLocation("mattercraft", "textures/gui/Terminal1.png");
+		texture2 = new ResourceLocation("mattercraft", "textures/gui/Terminal2.png");
 	}
 	
 	
@@ -82,19 +86,20 @@ public class ReactorTerminalGui extends GuiScreen{
 			energy = guiH.energy;
 		}
 		
-		if(status == 0)statusString = "Not Con";
-		if(status == 1)statusString = "MBS NOT OK";
-		if(status == 2)statusString = "MBS OK";
-		if(status == 3)statusString = "Logistics OK";
-		if(status == 4)statusString = "Running";
-
-		mc.renderEngine.bindTexture(new ResourceLocation("mattercraft", "textures/gui/Terminal.png"));
-		drawDefaultBackground();
+		if(status == 0)statusString = "Reactor Terminal: Not Connected";
+		if(status == 1)statusString = "Reactor Terminal: Multiblockstructure Error";
+		if(status == 2)statusString = "Reactor Terminal: No Logistics";
+		if(status == 3)statusString = "Reactor Terminal: Ready to Activate";
+		if(status == 4)statusString = "Reactor Terminal: Core Running";
+		
 		int k = (this.width - this.xSize) / 2;
         int l = (this.height - this.ySize) / 2;
-        int temp = 0;
+        drawDefaultBackground();
+		mc.renderEngine.bindTexture(texture1);
         this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
-        
+        mc.renderEngine.bindTexture(texture2);
+        //fluids
+        int temp;
         //liquidmatter
         temp = (int) (((float)(liquidMatter)/LogisticHandler.liquidMatter_m)*100f*0.71f);
         this.drawTexturedModalRect(k+7, l+158-temp, 7, 173, 29, temp);
@@ -107,7 +112,9 @@ public class ReactorTerminalGui extends GuiScreen{
         //hydrogen
         temp = (int) (((float)(hydrogen)/LogisticHandler.hydrogen_m)*100f*0.71f);
         this.drawTexturedModalRect(k+97, l+158-temp, 97, 173, 29, temp);
-        
+        //energy
+        temp = (int) (((float)(energy)/LogisticHandler.energy_m)*100f*0.71f);
+        this.drawTexturedModalRect(k+127, l+158-temp, 127, 173, 30, temp);
         //plasma
         temp = (int) (((float)(plasma)/LogisticHandler.plasma_m)*100f*0.71f);
         this.drawTexturedModalRect(k+158, l+158-temp, 158, 173, 29, temp);
@@ -117,8 +124,37 @@ public class ReactorTerminalGui extends GuiScreen{
         //heatedcryotheum
         temp = (int) (((float)(heatedCryotheum)/LogisticHandler.heatedCryotheum_m)*100f*0.71f);
         this.drawTexturedModalRect(k+218, l+158-temp, 218, 173, 29, temp);
-        
+        //tooltips
+        if(x > 7 + k && x < k + 247 && y > 87 + l && y < l + 158){
+        	List list = new ArrayList();
+        	if(x > k+218){
+        		list.add("Heated Cryotheum:");
+        		list.add(heatedCryotheum/1000f+ "B/"+ LogisticHandler.heatedCryotheum_m/1000f+"B");
+        	}else if(x > k+188){
+        		list.add("Toxic Waste:");
+        		list.add(toxicWaste/1000f+ "B/"+ LogisticHandler.toxicWaste_m/1000f+"B");
+        	}else if(x > k+158){
+        		list.add("Plasma:");
+        		list.add(plasma/1000000f+ "KB/"+ LogisticHandler.plasma_m/1000000f+"KB");
+        	}else if(x > k+125){
+        		list.add("RF:");
+        		list.add(energy/1000000f+ "MRF/"+ LogisticHandler.energy_m/1000000f+"MRF");
+        	}else if(x > k+97){
+        		list.add("Hydrogen:");
+        		list.add(hydrogen/1000f+ "B/"+ LogisticHandler.hydrogen_m/1000f+"B");
+        	}else if(x > k+67){
+        		list.add("Stabilizer:");
+        		list.add(stabilizer/1000f+ "B/"+ LogisticHandler.stabilizer_m/1000f+"B");
+        	}else if(x > k+37){
+        		list.add("Cryotheum:");
+        		list.add(cryotheum/1000f+ "B/"+ LogisticHandler.cryotheum_m/1000f+"B");
+        	}else {
+        		list.add("Liquid Matter:");
+        		list.add(liquidMatter/1000f+ "B/"+ LogisticHandler.liquidMatter_m/1000f+"B");
+        	}
+        	this.drawHoveringText(list, (int)x, (int)y, this.fontRendererObj);
+        }
         //status
-    	this.fontRendererObj.drawString(statusString, (k + this.xSize / 2) - this.fontRendererObj.getStringWidth(statusString), l - 50 + this.ySize/2, 4210752);
+    	this.fontRendererObj.drawString(statusString, (k + this.xSize / 2) - this.fontRendererObj.getStringWidth(statusString)/2, l - 75 + this.ySize/2, 0);
 	}
 }

@@ -6,15 +6,13 @@ import net.minecraft.item.Item;
 
 public class ItemManager {
 	//declarate
-	Item key;
 	public ItemManager(){
 		//initialize
-		key = new Item();
+		
 		//configure
-		key.setUnlocalizedName("mtc.key").setCreativeTab(CreativeTabManager.tabItems);
+		
 		//texture
-		key.setTextureName("mattercraft:key");
+		
 		//register
-		GameRegistry.registerItem(key, "mtc.key");
 	}
 }

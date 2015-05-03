@@ -37,9 +37,9 @@ public class ReactorCoreTile extends TileEntity{
 	public ReactorCoreTile(){
 		state = 1;
 		logisticHandler = new LogisticHandler();
+		calculator = new Calculator(this);
 		guiHandler = new GuiHandler(this);
 		renderingHandler = new RenderingHandler(this);
-		calculator = new Calculator(this);
 	}
 	
 	@Override

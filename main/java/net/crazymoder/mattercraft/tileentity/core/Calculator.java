@@ -21,6 +21,11 @@ public class Calculator {
 		guiH = core.guiHandler;
 		ren = core.renderingHandler;
 		topower = 0;
+		matterInjectionRate = 0;
+		antiMatterInjectionRate = 0;
+		effitiency = 1;
+		productionrate = 0;
+		power = 0;
 	}
 	
 	
