@@ -145,6 +145,9 @@ public class ReactorTerminalGui extends GuiScreen{
     	temp = (int) (((float)(power)/1100000)*100f*1.18f);
     	this.drawTexturedModalRect(8+k, 70+l, 0, 0, temp, 12);
     	
+    	//topower
+    	temp = (int) (((float)(topower)/1100000)*100f*1.18f);
+    	this.drawTexturedModalRect(8+k+temp, 68+l, 118, 0, 2, 16);
     	
         //tooltips
         if(x > 7 + k && x < k + 247 && y > 87 + l && y < l + 158){
