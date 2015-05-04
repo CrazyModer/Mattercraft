@@ -8,6 +8,8 @@ tile.mtc.stabilizerPillar.name=Pillar
 tile.mtc.plasmaExtractor.name=Plasma Extractor
 tile.mtc.wormHoleStabilizer.name=Wormhole Stabilizer
 tile.mtc.matterInjector.name=Matter Injector
+tile.mtc.osmiumOre.name=Osmium Ore
+tile.mtc.iridiumOre.name=Iridium Ore
 
 tile.mtc.cryotheumAcceptor.name=Cryotheum Acceptor
 tile.mtc.hydrogenAcceptor.name=Hydrogen Acceptor

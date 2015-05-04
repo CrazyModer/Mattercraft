@@ -34,6 +34,8 @@ public class BlockManager {
 	public static Block plasmaExtractor;//mst
 	public static Block wormHoleStabilizer;//mst
 	public static Block matterInjector;//mst
+	public static Block osmiumOre;
+	public static Block iridiumOre;
 	
 	//declarate Block Container
 	public static Block cryotheumAcceptor;
@@ -60,6 +62,8 @@ public class BlockManager {
 		plasmaExtractor = new MultiTextureBlock(Material.piston);
 		wormHoleStabilizer = new MultiTextureBlock(Material.piston);
 		matterInjector = new MultiTextureBlock(Material.piston);
+		osmiumOre = new BasicBlock(Material.iron);
+		iridiumOre =new BasicBlock(Material.iron);
 		
 		//Initialize Block Containers
 		cryotheumAcceptor = new CryotheumAcceptor();
@@ -84,6 +88,8 @@ public class BlockManager {
 		plasmaExtractor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.plasmaExtractor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		wormHoleStabilizer.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.wormHoleStabilizer").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		matterInjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.matterInjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		osmiumOre.setHardness(1.5F).setStepSound(Block.soundTypeStone).setBlockName("mtc.osmiumOre").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		iridiumOre.setHardness(1.5F).setStepSound(Block.soundTypeStone).setBlockName("mtc.iridiumOre").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		
 		//Configure Block Containers
 		cryotheumAcceptor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.cryotheumAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
@@ -104,6 +110,8 @@ public class BlockManager {
 		osmiumPlating.setBlockTextureName("mattercraft:osmiumPlating");
 		stabilizer.setBlockTextureName("mattercraft:stabilizer");
 		forceFieldEmitter.setBlockTextureName("mattercraft:forceFieldEmitter");
+		osmiumOre.setBlockTextureName("mattercraft:osmiumOre");
+		iridiumOre.setBlockTextureName("mattercraft:iridiumOre");
 		
 		//Multi Texture Blocks
 		stabilizerPillar.setBlockTextureName("mattercraft:stabilizerPillar");
@@ -136,6 +144,8 @@ public class BlockManager {
 		GameRegistry.registerBlock(plasmaExtractor, "mtc.plasmaExtractor");
 		GameRegistry.registerBlock(wormHoleStabilizer, "mtc.wormHoleStabilizer");
 		GameRegistry.registerBlock(matterInjector, "mtc.matterInjector");
+		GameRegistry.registerBlock(osmiumOre, "mtc.osmiumOre");
+		GameRegistry.registerBlock(iridiumOre, "mtc.iridiumOre");
 		
 		//Register Block Container
 		GameRegistry.registerBlock(cryotheumAcceptor, "mtc.cryotheumAcceptor");
