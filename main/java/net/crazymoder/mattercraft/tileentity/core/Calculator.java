@@ -69,9 +69,9 @@ public class Calculator {
 		if(log.cryotheum_a < 1000){
 			core.deactivate();
 		}else{
-			log.cryotheum_a-=50;
-			if(log.heatedCryotheum_a+50 < log.heatedCryotheum_m)
-				log.heatedCryotheum_a+=45;
+			log.cryotheum_a-=30;
+			if(log.heatedCryotheum_a+30 < log.heatedCryotheum_m)
+				log.heatedCryotheum_a+=25;
 			if(log.toxicWaste_a + 5 < log.toxicWaste_m)
 				log.toxicWaste_a += 5;
 		}
