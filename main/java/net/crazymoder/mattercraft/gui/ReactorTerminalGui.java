@@ -142,11 +142,11 @@ public class ReactorTerminalGui extends GuiScreen{
         this.drawTexturedModalRect(k+218, l+158-temp, 218, 173, 29, temp);
         
         //power
-    	temp = Math.round(((float)(power)/1100000)*100f*1.18f);
+    	temp = Math.round(((float)(power)/1000000)*100f*1.18f);
     	this.drawTexturedModalRect(8+k, 70+l, 0, 0, temp, 12);
     	
     	//topower
-    	temp = Math.round(((float)(topower)/1100000)*100f*1.18f);
+    	temp = Math.round(((float)(topower)/1000000)*100f*1.18f);
     	this.drawTexturedModalRect(8+k+temp, 68+l, 118, 0, 2, 16);
     	
     	//matter
