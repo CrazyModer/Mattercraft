@@ -99,6 +99,7 @@ public class ReactorCoreTile extends TileEntity{
 	{
 		super.writeToNBT(tagCompound);
 		logisticHandler.writeNBT(tagCompound);
+		calculator.writeSyncableDataToNBT(tagCompound);
 		tagCompound.setInteger("main_state", state);
 	}
 
@@ -107,6 +108,7 @@ public class ReactorCoreTile extends TileEntity{
 	{
 		super.readFromNBT(tagCompound);
 		logisticHandler.readNBT(tagCompound);
+		calculator.readSyncableDataFromNBT(tagCompound);
 		state = tagCompound.getInteger("main_state");
 	}
 	
