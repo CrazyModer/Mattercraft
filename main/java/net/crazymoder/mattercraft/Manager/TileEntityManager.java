@@ -1,7 +1,9 @@
 package net.crazymoder.mattercraft.manager;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.crazymoder.mattercraft.tileentity.CoolerTile;
 import net.crazymoder.mattercraft.tileentity.CryotheumAcceptorTile;
+import net.crazymoder.mattercraft.tileentity.ElectrolizerTile;
 import net.crazymoder.mattercraft.tileentity.HeatedCryotheumEjectorTile;
 import net.crazymoder.mattercraft.tileentity.HydrogenAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.LiquidMatterAcceptorTile;
@@ -25,5 +27,8 @@ public class TileEntityManager {
 		GameRegistry.registerTileEntity(ReactorPowerAcceptorTile.class, "mtc.reactorPowerAcceptorTile");
 		GameRegistry.registerTileEntity(ReactorTerminalTile.class, "mtc.reactorTerminalTile");
 		GameRegistry.registerTileEntity(ReactorCoreTile.class, "mtc.reactorCoreTile");
+		GameRegistry.registerTileEntity(CoolerTile.class, "mtc.coolerTile");
+		GameRegistry.registerTileEntity(ElectrolizerTile.class, "mtc.ElectrolizerTile");
+		
 	}
 }

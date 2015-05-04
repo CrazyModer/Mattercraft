@@ -21,6 +21,8 @@ tile.mtc.heatedCryotheumEjector.name=Heated Cryotheum Ejector
 tile.mtc.reactorPowerAcceptor.name=Reactor Power Acceptor
 tile.mtc.reactorTerminal.name=Reactor Terminal
 tile.mtc.reactorCore.name=Reactor Core
+tile.mtc.cooler.name=Cooler
+tile.mtc.electrolizer.name=Electrolizer
 
 tile.mtc.ionizedPlasma.name=Ionized Plasma
 tile.mtc.toxicWaste.name=Toxic Waste
