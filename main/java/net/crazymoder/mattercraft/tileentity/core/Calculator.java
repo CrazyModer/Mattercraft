@@ -93,6 +93,7 @@ public class Calculator {
 		}else{
 			core.deactivate();
 		}
+		if(log.antiMatter_a + antiMatterInjectionRate < log.antiMatter_m)
 		log.antiMatter_a += antiMatterInjectionRate;
 		log.antiMatter_a -= power/1000f;
 		log.matter_a -= power/1000f;
@@ -128,6 +129,9 @@ public class Calculator {
 		antiMatterInjectionRate = 0;
 		log.antiMatter_a = 0;
 		log.matter_a = 0;
+		productionrate = 0;
+		matterIO = 0;
+		antiMatterIO = 0;
 		power = 0;
 		topower = 0;
 	}
@@ -136,6 +140,9 @@ public class Calculator {
 		antiMatterInjectionRate = 0;
 		log.antiMatter_a = 0;
 		log.matter_a = 0;
+		productionrate = 0;
+		matterIO = 0;
+		antiMatterIO = 0;
 		power = 0;
 		topower = 0;
 	}
