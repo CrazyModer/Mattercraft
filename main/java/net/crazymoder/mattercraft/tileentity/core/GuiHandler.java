@@ -19,8 +19,8 @@ public class GuiHandler {
 	public int topower;
 	public float efficiency;
 	public int production;
-	public int matterRate;
-	public int antiRate;
+	public int matterIO;
+	public int antiMatterIO;
 	
 	private LogisticHandler log;
 	private ReactorCoreTile core;
@@ -45,8 +45,8 @@ public class GuiHandler {
 		topower = 0;
 		efficiency = 0;
 		production = 0;
-		matterRate = 0;
-		antiRate = 0;
+		matterIO = 0;
+		antiMatterIO = 0;
 	}
 	
 	public void update(){
@@ -65,8 +65,8 @@ public class GuiHandler {
 		topower = calc.topower;
 		efficiency = calc.effitiency;
 		production = calc.productionrate;
-		matterRate = calc.matterInjectionRate;
-		antiRate = calc.antiMatterInjectionRate;
+		matterIO = calc.matterIO;
+		antiMatterIO = calc.antiMatterIO;
 	}
 	
 	public void writeSyncableDataToNBT(NBTTagCompound tagCompound) {
@@ -85,8 +85,8 @@ public class GuiHandler {
 		tagCompound.setInteger("gui_topower", topower);
 		tagCompound.setFloat("gui_efficiency", efficiency);
 		tagCompound.setInteger("gui_production", production);
-		tagCompound.setInteger("gui_matterRate", matterRate);
-		tagCompound.setInteger("gui_antiRate", antiRate);
+		tagCompound.setInteger("gui_matterIO", matterIO);
+		tagCompound.setInteger("gui_antiMatterIO", antiMatterIO);
 	}
 
 	public void readSyncableDataFromNBT(NBTTagCompound tagCompound) {
@@ -105,8 +105,8 @@ public class GuiHandler {
 		topower = tagCompound.getInteger("gui_topower");;
 		efficiency = tagCompound.getFloat("gui_efficiency");;
 		production = tagCompound.getInteger("gui_production");;
-		matterRate = tagCompound.getInteger("gui_matterRate");;
-		antiRate = tagCompound.getInteger("gui_antiRate");;
+		matterIO = tagCompound.getInteger("gui_matterIO");;
+		antiMatterIO = tagCompound.getInteger("gui_antiMatterIO");;
 	}
 	
 }

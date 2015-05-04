@@ -14,6 +14,8 @@ public class Calculator {
 	public float effitiency;
 	public int productionrate;
 	public int power;
+	public int matterIO;
+	public int antiMatterIO;
 	
 	public Calculator(ReactorCoreTile core){
 		this.core = core;
@@ -30,11 +32,13 @@ public class Calculator {
 	
 	
 	public void calculate(){
+		matterIO = log.matter_a;
+		antiMatterIO = log.antiMatter_a;
 		topower = (int) (1000000f * (1f - (float)(log.plasma_a)/log.plasma_m));
 		if(log.hydrogen_a < 10000)topower = 100;
 		int stab = 0;
 		int min = log.matter_a < log.antiMatter_a ? log.matter_a : log.antiMatter_a;
-		power = (int) ((Math.pow(min/10d, 2))/10d);
+		power = (int) ((Math.pow(min/10d, 2))/100d);
 		if(power < topower){
 			if(log.matter_a > log.antiMatter_a){
 				if(log.antiMatter_a+2 < log.antiMatter_m){
@@ -92,7 +96,9 @@ public class Calculator {
 		log.antiMatter_a += antiMatterInjectionRate;
 		log.antiMatter_a -= power/1000f;
 		log.matter_a -= power/1000f;
-		System.out.println("power:" + power);
+		antiMatterIO = log.antiMatter_a - antiMatterIO;
+		matterIO = log.matter_a - matterIO;
+		/*System.out.println("power:" + power);
 		System.out.println("topower:"+topower);
 		System.out.println("production: "+productionrate);
 		System.out.println("effitiency: "+effitiency);
@@ -100,7 +106,7 @@ public class Calculator {
 		System.out.println("anti:" +log.antiMatter_a);
 		System.out.println("matterrate: "+matterInjectionRate);
 		System.out.println("antirate:" +antiMatterInjectionRate);
-		System.out.println();
+		System.out.println();*/
 	}
 	
 	
@@ -115,7 +121,7 @@ public class Calculator {
 	}
 	
 	public boolean canactivate(){
-		return(log.cryotheum_a > 25000 && log.stabilizer_a > 25000);
+		return(log.cryotheum_a > 25000 && log.stabilizer_a > 25000 && log.energy_a > 50000000);
 	}
 	public void activate(){
 		matterInjectionRate = 0;

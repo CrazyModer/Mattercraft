@@ -30,8 +30,8 @@ public class ReactorTerminalGui extends GuiScreen{
 	private int topower;
 	private float efficiency;
 	private int production;
-	private int matterRate;
-	private int antiRate;
+	private int matterIO;
+	private int antiMatterIO;
 	
 	private GuiHandler guiH;
 	private ReactorCoreTile core;
@@ -98,8 +98,8 @@ public class ReactorTerminalGui extends GuiScreen{
 			topower = guiH.topower;
 			efficiency = guiH.efficiency;
 			production = guiH.production;
-			matterRate = guiH.matterRate;
-			antiRate = guiH.antiMatter;
+			matterIO = guiH.matterIO;
+			antiMatterIO = guiH.antiMatterIO;
 		}
 		
 		if(status == 0)statusString = "Reactor Terminal: Not Connected";
@@ -117,38 +117,45 @@ public class ReactorTerminalGui extends GuiScreen{
         //fluids
         int temp;
         //liquidmatter
-        temp = (int) (((float)(liquidMatter)/LogisticHandler.liquidMatter_m)*100f*0.71f);
+        temp = Math.round(((float)(liquidMatter)/LogisticHandler.liquidMatter_m)*100f*0.71f);
         this.drawTexturedModalRect(k+7, l+158-temp, 7, 173, 29, temp);
         //cryotheum
-        temp = (int) (((float)(cryotheum)/LogisticHandler.cryotheum_m)*100f*0.71f);
+        temp = Math.round(((float)(cryotheum)/LogisticHandler.cryotheum_m)*100f*0.71f);
         this.drawTexturedModalRect(k+37, l+158-temp, 37, 173, 29, temp);
         //stabilizer
-        temp = (int) (((float)(stabilizer)/LogisticHandler.stabilizer_m)*100f*0.71f);
+        temp = Math.round(((float)(stabilizer)/LogisticHandler.stabilizer_m)*100f*0.71f);
         this.drawTexturedModalRect(k+67, l+158-temp, 67, 173, 29, temp);
         //hydrogen
-        temp = (int) (((float)(hydrogen)/LogisticHandler.hydrogen_m)*100f*0.71f);
+        temp = Math.round(((float)(hydrogen)/LogisticHandler.hydrogen_m)*100f*0.71f);
         this.drawTexturedModalRect(k+97, l+158-temp, 97, 173, 29, temp);
         //energy
-        temp = (int) (((float)(energy)/LogisticHandler.energy_m)*100f*0.71f);
+        temp = Math.round(((float)(energy)/LogisticHandler.energy_m)*100f*0.71f);
         this.drawTexturedModalRect(k+127, l+158-temp, 127, 173, 30, temp);
         //plasma
-        temp = (int) (((float)(plasma)/LogisticHandler.plasma_m)*100f*0.71f);
+        temp = Math.round(((float)(plasma)/LogisticHandler.plasma_m)*100f*0.71f);
         this.drawTexturedModalRect(k+158, l+158-temp, 158, 173, 29, temp);
         //toxicwaste
-        temp = (int) (((float)(toxicWaste)/LogisticHandler.toxicWaste_m)*100f*0.71f);
+        temp = Math.round(((float)(toxicWaste)/LogisticHandler.toxicWaste_m)*100f*0.71f);
         this.drawTexturedModalRect(k+188, l+158-temp, 188, 173, 29, temp);
         //heatedcryotheum
-        temp = (int) (((float)(heatedCryotheum)/LogisticHandler.heatedCryotheum_m)*100f*0.71f);
+        temp = Math.round(((float)(heatedCryotheum)/LogisticHandler.heatedCryotheum_m)*100f*0.71f);
         this.drawTexturedModalRect(k+218, l+158-temp, 218, 173, 29, temp);
         
         //power
-    	temp = (int) (((float)(power)/1100000)*100f*1.18f);
+    	temp = Math.round(((float)(power)/1100000)*100f*1.18f);
     	this.drawTexturedModalRect(8+k, 70+l, 0, 0, temp, 12);
     	
     	//topower
-    	temp = (int) (((float)(topower)/1100000)*100f*1.18f);
+    	temp = Math.round(((float)(topower)/1100000)*100f*1.18f);
     	this.drawTexturedModalRect(8+k+temp, 68+l, 118, 0, 2, 16);
     	
+    	//matter
+    	int temp1 = Math.round(((float)(matter)/100000)*100f*1.19f);
+    	int temp2 = Math.round(((float)(antiMatter)/100000)*100f*1.19f);
+    	int temp3 = (temp1 - temp2)/2;
+    	this.drawTexturedModalRect(8+k+119-temp1+temp3, 19+l, 0, 20, temp1, 20);
+    	this.drawTexturedModalRect(8+k+120+temp3, 19+l, 0, 40, temp2, 20);
+    	this.drawTexturedModalRect(8+k+119+temp3, 18+l, 0, 60, 1, 22);
         //tooltips
         if(x > 7 + k && x < k + 247 && y > 87 + l && y < l + 158){
         	List list = new ArrayList();
@@ -184,5 +191,25 @@ public class ReactorTerminalGui extends GuiScreen{
     	//power
     	String st = topower/1000f + "kW > " + power/1000f + "kW";
     	this.fontRendererObj.drawString(st, k+12, l + 60, 0);
+    	//matter
+    	st = "Matter: "+matter/1000f + "kU";
+    	this.fontRendererObj.drawString(st, k+12, l + 43, 0);
+    	//antiMatter
+    	st = "Antimatter: "+antiMatter/1000f + "kU";
+    	this.fontRendererObj.drawString(st, k+146, l + 43, 0);
+    	//IOMatter
+    	if(matterIO > 0)st = "+"; else st = "";
+    	st = st + matterIO;
+    	this.fontRendererObj.drawString(st, k+123 + temp3 - this.fontRendererObj.getStringWidth(st), l + 25, 0);
+    	//IOAntiMatter
+    	if(antiMatterIO > 0)st = "+"; else st = "";
+    	st = st + antiMatterIO;
+    	this.fontRendererObj.drawString(st, k+133 + temp3, l + 25, 0);
+    	//Efficenty
+    	st = "Efficiency: " + Math.round((1+(0.5 + (efficiency - 0.5)*-1f)*2)*100) + "%";
+    	this.fontRendererObj.drawString(st, k+133, l + 58, 0);
+    	//PRate
+    	st = "Plasma out: " + production + "mB/t";
+    	this.fontRendererObj.drawString(st, k+133, l + 71, 0);
 	}
 }
