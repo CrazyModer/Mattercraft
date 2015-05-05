@@ -38,21 +38,21 @@ public class Calculator {
 		if(log.hydrogen_a < 10000)topower = 100;
 		int stab = 0;
 		int min = log.matter_a < log.antiMatter_a ? log.matter_a : log.antiMatter_a;
-		power = (int) ((Math.pow(min/10d, 2))/100d);
+		power = (int) (Math.pow(min/100d, 2));
 		if(power < topower){
 			if(log.matter_a > log.antiMatter_a){
-				if(log.antiMatter_a+2 < log.antiMatter_m){
-					antiMatterInjectionRate += 2;
-					stab = 2;
+				if(log.antiMatter_a+1 < log.antiMatter_m){
+					antiMatterInjectionRate += 1;
+					stab = 1;
 				}
 			}else{
-				if(log.matter_a+2 < log.matter_m)
-					matterInjectionRate += 2;
+				if(log.matter_a+1 < log.matter_m)
+					matterInjectionRate += 1;
 			}	
 		}else{
 			if(antiMatterInjectionRate - 1 > -1)
 			antiMatterInjectionRate -= 1;
-			stab = 1;
+			stab = 2;
 		}
 		effitiency = 1;
 		if(log.antiMatter_a < log.matter_a && log.antiMatter_a > 0 && log.matter_a >0){

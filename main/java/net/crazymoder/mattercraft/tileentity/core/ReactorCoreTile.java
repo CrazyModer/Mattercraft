@@ -69,6 +69,8 @@ public class ReactorCoreTile extends TileEntity{
 				calculator.calculate();
 			guiHandler.update();
 			renderingHandler.update();
+		}else{
+			renderingHandler.clientUpdate();
 		}
 	}
 	
