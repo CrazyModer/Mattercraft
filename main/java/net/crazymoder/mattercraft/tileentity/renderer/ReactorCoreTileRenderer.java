@@ -34,34 +34,32 @@ public class ReactorCoreTileRenderer extends TileEntitySpecialRenderer{
 		if (tile == null || !(tile instanceof ReactorCoreTile)) return;
 		ReactorCoreTile core = (ReactorCoreTile) tile;
 		if(!core.renderingHandler.render)return;
-		
 		float capacity = (float)(core.renderingHandler.antiMatter) / (float)(LogisticHandler.antiMatter_m*2) + (float)(core.renderingHandler.matter) / (float)(LogisticHandler.matter_m*2);
-		float inScale = 8.5f*capacity;
+		float inScale = 7f*capacity+1.5f;
 		float outScale = 9.2f/inScale;
-		float rotation = core.renderingHandler.rotation + (timeSinceLastTick / 2F);
-		double colour = Math.sin((float)Minecraft.getSystemTime() / 1f);
-		float brightness = (float)Math.abs(Math.sin((float) Minecraft.getSystemTime() / 3000f) * 100f);
-
+		float rotation = core.renderingHandler.rotation + (timeSinceLastTick / 2F)*(core.renderingHandler.production/5000)*4f;
+		double colour = (1f + (float)(core.renderingHandler.antiMatter - core.renderingHandler.matter) / 100000f)/2;
+		
+		
 		GL11.glPushMatrix();
 		GL11.glColor4f(1F, 1F, 1F, 1F);
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 150f, 150f);
 		GL11.glDisable(GL11.GL_LIGHTING);
 		GL11.glDisable(GL11.GL_CULL_FACE);
 		GL11.glTranslated(x, y, z);
-		
 		GL11.glScalef(inScale, inScale, inScale);
 		FMLClientHandler.instance().getClient().getTextureManager().bindTexture(iner_model_texture);
 		colour = 1f - colour;
 		GL11.glPushMatrix();
-		GL11.glRotatef(rotation, 0F, 1F, 0.5F);
-		GL11.glColor4d(1F, colour * 0.3f, colour * 0.7f, 1F);
-		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 80f + brightness, 80f + brightness);
+		GL11.glRotatef(rotation*0.5f, -0.5F, 1F, 0F);
+		GL11.glColor4d(colour,1-colour ,0, 1F);
+		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 200f, 200f);
 		innercore.renderAll();
 		GL11.glPopMatrix();
 
 		GL11.glScalef(outScale, outScale, outScale);
 		GL11.glDepthMask(false);
-		GL11.glColor4f(1F, 1F, 0.7F, 0.5F);
+		GL11.glColor4f(0.5F, 0.8F, 1F, 0.4F);
 		FMLClientHandler.instance().getClient().getTextureManager().bindTexture(outer_model_texture);
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 200F, 200F);
 		GL11.glEnable(GL11.GL_BLEND);

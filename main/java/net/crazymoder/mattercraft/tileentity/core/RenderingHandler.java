@@ -10,7 +10,7 @@ public class RenderingHandler {
 	public boolean render;
 	public int matter;
 	public int antiMatter;
-	public int power;
+	public int production;
 	public int matterin;
 	
 	ReactorCoreTile core;
@@ -27,7 +27,7 @@ public class RenderingHandler {
 		render = core.state == 4;
 		matter = core.logisticHandler.matter_a;
 		antiMatter = core.logisticHandler.antiMatter_a;
-		power = core.calculator.power;
+		production = core.calculator.productionrate;
 		matterin = core.calculator.matterInjectionRate;
 	}
 	
@@ -35,7 +35,7 @@ public class RenderingHandler {
 		tagCompound.setBoolean("ter_render",render);
 		tagCompound.setInteger("ter_matter",matter);
 		tagCompound.setInteger("ter_antiMatter",antiMatter);
-		tagCompound.setInteger("ter_power",power);
+		tagCompound.setInteger("ter_production",production);
 		tagCompound.setInteger("ter_matterin",matterin);
 	}
 
@@ -43,7 +43,7 @@ public class RenderingHandler {
 		render = tagCompound.getBoolean("ter_render");
 		matter = tagCompound.getInteger("ter_matter");
 		antiMatter = tagCompound.getInteger("ter_antiMatter");
-		power = tagCompound.getInteger("ter_power");
+		production = tagCompound.getInteger("ter_production");
 		matterin = tagCompound.getInteger("ter_matterin");
 	}
 }
