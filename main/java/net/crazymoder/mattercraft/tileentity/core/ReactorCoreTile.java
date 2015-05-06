@@ -24,6 +24,7 @@ public class ReactorCoreTile extends TileEntity{
 		public LogisticHandler logisticHandler;
 		public RenderingHandler renderingHandler;
 		public Calculator calculator;
+		public ParticelRenderer particelRenderer;
 	//**************
 		
 	//atributes
@@ -40,6 +41,7 @@ public class ReactorCoreTile extends TileEntity{
 		calculator = new Calculator(this);
 		guiHandler = new GuiHandler(this);
 		renderingHandler = new RenderingHandler(this);
+		particelRenderer = new ParticelRenderer(this);
 	}
 	
 	@Override
@@ -65,12 +67,16 @@ public class ReactorCoreTile extends TileEntity{
 				activate();
 			if(oldstate == 4 && state < 4)
 				deactivate();
-			if(state == 4)
+			if(state == 4){
 				calculator.calculate();
+				particelRenderer.render();
+			}
 			guiHandler.update();
 			renderingHandler.update();
 		}else{
 			renderingHandler.clientUpdate();
+			if(renderingHandler.render)
+			particelRenderer.render();
 		}
 	}
 	

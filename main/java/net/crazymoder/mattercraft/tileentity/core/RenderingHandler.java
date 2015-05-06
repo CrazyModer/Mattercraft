@@ -11,7 +11,6 @@ public class RenderingHandler {
 	public int matter;
 	public int antiMatter;
 	public int production;
-	public int matterin;
 	
 	ReactorCoreTile core;
 	
@@ -20,7 +19,7 @@ public class RenderingHandler {
 	}
 	
 	public void clientUpdate(){
-		rotation++;
+		//rotation++;
 	}
 	
 	public void update(){
@@ -28,7 +27,6 @@ public class RenderingHandler {
 		matter = core.logisticHandler.matter_a;
 		antiMatter = core.logisticHandler.antiMatter_a;
 		production = core.calculator.productionrate;
-		matterin = core.calculator.matterInjectionRate;
 	}
 	
 	public void writeSyncableDataToNBT(NBTTagCompound tagCompound) {
@@ -36,7 +34,6 @@ public class RenderingHandler {
 		tagCompound.setInteger("ter_matter",matter);
 		tagCompound.setInteger("ter_antiMatter",antiMatter);
 		tagCompound.setInteger("ter_production",production);
-		tagCompound.setInteger("ter_matterin",matterin);
 	}
 
 	public void readSyncableDataFromNBT(NBTTagCompound tagCompound) {
@@ -44,6 +41,5 @@ public class RenderingHandler {
 		matter = tagCompound.getInteger("ter_matter");
 		antiMatter = tagCompound.getInteger("ter_antiMatter");
 		production = tagCompound.getInteger("ter_production");
-		matterin = tagCompound.getInteger("ter_matterin");
 	}
 }

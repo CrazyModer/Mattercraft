@@ -213,7 +213,7 @@ public class ReactorTerminalGui extends GuiScreen{
     	this.fontRendererObj.drawString(st, k+133, l + 71, 0);
     	if(x > k+133 && y > l+71 && x < k + 240 && y < l + 76 && production > 9000){
     		List list = new ArrayList();
-    		list.add("IT'S OVER 9000");
+    		list.add("IT'S OVER 9000!!!!!!!!!!!!");
     		this.drawHoveringText(list, (int)x, (int)y, this.fontRendererObj);
     	}
 	}

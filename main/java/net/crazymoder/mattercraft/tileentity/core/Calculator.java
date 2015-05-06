@@ -63,7 +63,7 @@ public class Calculator {
 			log.liquidMatter_a -= (matterInjectionRate/10f)*effitiency;
 		}else{
 			if(matterInjectionRate >= 10)
-			matterInjectionRate -= 10;
+			matterInjectionRate -= 5;
 		}
 		if(log.hydrogen_a >= power/5000f && log.plasma_a < log.plasma_m + power/5000f){
 			log.hydrogen_a -= power/5000f;
@@ -94,7 +94,9 @@ public class Calculator {
 			core.deactivate();
 		}
 		if(log.antiMatter_a + antiMatterInjectionRate < log.antiMatter_m)
-		log.antiMatter_a += antiMatterInjectionRate;
+			log.antiMatter_a += antiMatterInjectionRate;
+		else
+			antiMatterInjectionRate-=5;
 		log.antiMatter_a -= power/1000f;
 		log.matter_a -= power/1000f;
 		antiMatterIO = log.antiMatter_a - antiMatterIO;
