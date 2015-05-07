@@ -20,12 +20,33 @@ public class ParticelRenderer {
 		float move2 = (float) rnd.nextGaussian()/50;
 		float move3 = (float) rnd.nextGaussian()/30;
 		Minecraft.getMinecraft().effectRenderer.addEffect(new CoreParticel(w, x+4, y+1, z, 0.0f+move1, 0.2f+move1, 0.0f+move1, 3.0f));
+		move1 = (float) rnd.nextGaussian()/30;
+		move2 = (float) rnd.nextGaussian()/50;
+		move3 = (float) rnd.nextGaussian()/30;
 		Minecraft.getMinecraft().effectRenderer.addEffect(new CoreParticel(w, x, y+1, z+4, 0.0f+move1, 0.2f+move1, 0.0f+move1, 3.0f));
+		move1 = (float) rnd.nextGaussian()/30;
+		move2 = (float) rnd.nextGaussian()/50;
+		move3 = (float) rnd.nextGaussian()/30;
 		Minecraft.getMinecraft().effectRenderer.addEffect(new CoreParticel(w, x-4, y+1, z, 0.0f+move1, 0.2f+move1, 0.0f+move1, 3.0f));
+		move1 = (float) rnd.nextGaussian()/30;
+		move2 = (float) rnd.nextGaussian()/50;
+		move3 = (float) rnd.nextGaussian()/30;
 		Minecraft.getMinecraft().effectRenderer.addEffect(new CoreParticel(w, x, y+1, z-4, 0.0f+move1, 0.2f+move1, 0.0f+move1, 3.0f));
+		move1 = (float) rnd.nextGaussian()/30;
+		move2 = (float) rnd.nextGaussian()/50;
+		move3 = (float) rnd.nextGaussian()/30;
 		Minecraft.getMinecraft().effectRenderer.addEffect(new CoreParticel(w, x+2, y+1, z+2, 0.0f+move1, 0.14f+move1, 0.0f+move1, 3.0f));
+		move1 = (float) rnd.nextGaussian()/30;
+		move2 = (float) rnd.nextGaussian()/50;
+		move3 = (float) rnd.nextGaussian()/30;
 		Minecraft.getMinecraft().effectRenderer.addEffect(new CoreParticel(w, x+2, y+1, z-2, 0.0f+move1, 0.14f+move1, 0.0f+move1, 3.0f));
+		move1 = (float) rnd.nextGaussian()/30;
+		move2 = (float) rnd.nextGaussian()/50;
+		move3 = (float) rnd.nextGaussian()/30;
 		Minecraft.getMinecraft().effectRenderer.addEffect(new CoreParticel(w, x-2, y+1, z+2, 0.0f+move1, 0.14f+move1, 0.0f+move1, 3.0f));
+		move1 = (float) rnd.nextGaussian()/30;
+		move2 = (float) rnd.nextGaussian()/50;
+		move3 = (float) rnd.nextGaussian()/30;
 		Minecraft.getMinecraft().effectRenderer.addEffect(new CoreParticel(w, x-2, y+1, z-2, 0.0f+move1, 0.14f+move1, 0.0f+move1, 3.0f));
 	}
 }
