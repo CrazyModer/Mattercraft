@@ -13,52 +13,68 @@ import net.minecraftforge.fluids.IFluidHandler;
 import net.minecraftforge.fluids.IFluidTank;
 
 public class ElectrolizerTile extends TileEntity implements IFluidHandler{
-	public FluidTank tank = new FluidTank(500000000);
+	
+	private FluidTank fluidTank1 = new FluidTank(30000);
+	private FluidTank fluidTank2 = new FluidTank(20000);
+	
 	public ElectrolizerTile() {
 	}
 	
-	public int fill(ForgeDirection from, FluidStack resource, boolean doFill)
-	{
-		if(resource.getFluid().getUnlocalizedName().equals("fluid.water"))
-			return this.tank.fill(resource, doFill);
-		return 0;
-	}
-
-	public FluidStack drain(ForgeDirection from, FluidStack resource, boolean doDrain)
-	{
-		return new FluidStack(new Fluid("water"),0);
-	}
-
-	public FluidStack drain(ForgeDirection from, int maxDrain, boolean doDrain)
-	{
-		return new FluidStack(new Fluid("water"),0);
-	}
-
-	public boolean canFill(ForgeDirection from, Fluid fluid)
-	{
-		return true;
-	}
-
-	public boolean canDrain(ForgeDirection from, Fluid fluid)
-	{
-		return false;
-	}
-
-	public FluidTankInfo[] getTankInfo(ForgeDirection from)
-	{
-		return new FluidTankInfo[] {this.tank.getInfo()};
+	@Override
+	public void updateEntity() {
+		if(!worldObj.isRemote){
+			System.out.println(fluidTank1.getFluidAmount());
+		}
+		super.updateEntity();
 	}
 	
-
 	public void readFromNBT(NBTTagCompound tag)
 	{
 		super.readFromNBT(tag);
-		tank.readFromNBT(tag);
+		
 	}
 
 	public void writeToNBT(NBTTagCompound tag)
 	{
 		super.writeToNBT(tag);
-		tank.writeToNBT(tag);
+		
+	}
+
+	@Override
+	public boolean canDrain(ForgeDirection arg0, Fluid arg1) {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean canFill(ForgeDirection arg0, Fluid arg1) {
+		
+		return true;
+	}
+
+	@Override
+	public FluidStack drain(ForgeDirection arg0, FluidStack arg1, boolean arg2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public FluidStack drain(ForgeDirection arg0, int arg1, boolean arg2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int fill(ForgeDirection arg0, FluidStack resource, boolean doFill) {
+		System.out.println(resource.getFluid().getUnlocalizedName());
+		if(resource.getFluid().getUnlocalizedName().equals("fluid.tile.water"))
+			return this.fluidTank1.fill(resource, doFill);
+		return 0;
+	}
+
+	@Override
+	public FluidTankInfo[] getTankInfo(ForgeDirection arg0) {
+		return new FluidTankInfo[] {this.fluidTank1.getInfo(),this.fluidTank2.getInfo()};
 	}
 }
+

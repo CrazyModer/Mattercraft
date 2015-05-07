@@ -68,7 +68,7 @@ public class CoolerTile extends TileEntity implements IFluidHandler{
 	@Override
 	public int fill(ForgeDirection arg0, FluidStack resource, boolean doFill) {
 		System.out.println(resource.getFluid().getUnlocalizedName());
-		if(resource.getFluid().getUnlocalizedName().equals("fluid.tile.water"))
+		if(resource.getFluid().getUnlocalizedName().equals("fluid.mtc.heatedCryotheum"))
 			return this.fluidTank1.fill(resource, doFill);
 		return 0;
 	}
