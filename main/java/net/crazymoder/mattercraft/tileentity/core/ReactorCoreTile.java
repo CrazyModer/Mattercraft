@@ -1,19 +1,23 @@
 package net.crazymoder.mattercraft.tileentity.core;
 
 import java.util.ArrayList;
+import java.util.ListIterator;
 
 import org.lwjgl.Sys;
 
 import net.crazymoder.mattercraft.tileentity.ReactorTerminalTile;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class ReactorCoreTile extends TileEntity{
@@ -69,6 +73,7 @@ public class ReactorCoreTile extends TileEntity{
 				deactivate();
 			if(state == 4){
 				calculator.calculate();
+				killPlayers();
 			}
 			guiHandler.update();
 			renderingHandler.update();
@@ -140,6 +145,23 @@ public class ReactorCoreTile extends TileEntity{
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		return INFINITE_EXTENT_AABB;
+	}
+	
+	private void killPlayers(){
+		ListIterator itl = worldObj.playerEntities.listIterator();
+		double x = xCoord;
+		double y = yCoord + 12;
+		double z = zCoord;
+			while(itl.hasNext()){
+				EntityPlayerMP player = (EntityPlayerMP) itl.next();
+				double posX = player.posX;
+				double posY = player.posY;
+				double posZ = player.posZ;
+				double dist = Math.sqrt(Math.pow(x-posX, 2)+Math.pow(y-posY, 2)+Math.pow(z-posZ, 2));
+				if(dist < 11.5f && !player.theItemInWorldManager.isCreative()){
+					player.setPositionAndUpdate(posX+12, 400, posZ+12);
+				}
+			}
 	}
 	
 }
