@@ -30,12 +30,21 @@ public class ReactorCoreTileRenderer extends TileEntitySpecialRenderer{
 	private static final ResourceLocation beaconBeamTexture = new ResourceLocation("textures/entity/beacon_beam.png");
 	private static final ResourceLocation stabilizerBeamTexture = new ResourceLocation("mattercraft", "textures/models/stabilizerBeam.png");
 	private IModelCustom innerCore;
+	
+	double lastTime = 0;
+	float rotation;
 
 	public ReactorCoreTileRenderer(){
 		innerCore = AdvancedModelLoader.loadModel(new ResourceLocation("mattercraft", "models/core1.obj"));
 	}
 	@Override
 	public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float timeSinceLastTick) {
+		double time = System.nanoTime();
+		double deltaTime = 0;
+		if(lastTime != 0)
+			deltaTime = time - lastTime;
+		lastTime = time;
+		
 		x+=0.5f;
 		z+=0.5f;
 		y+=12.5f;
@@ -45,10 +54,9 @@ public class ReactorCoreTileRenderer extends TileEntitySpecialRenderer{
 		if(!core.renderingHandler.render)return;
 		float capacity = (float)(core.renderingHandler.antiMatter) / (float)(LogisticHandler.antiMatter_m*2) + (float)(core.renderingHandler.matter) / (float)(LogisticHandler.matter_m*2);
 		float inScale = 7f*capacity+1.5f;
-		core.renderingHandler.rotation += timeSinceLastTick*((core.renderingHandler.production/7000)+1f);
-		if(core.renderingHandler.rotation > 10000000)
-			core.renderingHandler.rotation = 0;
-		float rotation = core.renderingHandler.rotation;
+	    rotation += (float) ((deltaTime/10000000f)*((core.renderingHandler.production/7000)+1f));
+	    if(rotation > 100000000)
+	    	rotation = 0;
 		float outScale = 9.2f/inScale;
 		float beamScale = 1.0f/outScale;
 		double colour = (1f + (float)(core.renderingHandler.antiMatter - core.renderingHandler.matter) / 100000f)/2;
@@ -64,7 +72,7 @@ public class ReactorCoreTileRenderer extends TileEntitySpecialRenderer{
 		FMLClientHandler.instance().getClient().getTextureManager().bindTexture(iner_model_texture);
 		colour = 1f - colour;
 		GL11.glPushMatrix();
-		GL11.glRotatef(rotation*0.5f, -0.5F, 1F, 0F);
+		GL11.glRotatef(rotation/2f, 1, 1F, 1F);
 		GL11.glColor4d(colour,1-colour ,0, 1F);
 		innerCore.renderAll();
 		GL11.glPopMatrix();
@@ -75,7 +83,7 @@ public class ReactorCoreTileRenderer extends TileEntitySpecialRenderer{
 		FMLClientHandler.instance().getClient().getTextureManager().bindTexture(outer_model_texture);
 		GL11.glEnable(GL11.GL_BLEND);
 		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-		GL11.glRotatef(-rotation, 0F, -1F, -0.4F);
+		GL11.glRotatef(-rotation/4, 0F, 1F, 0F);
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 200f, 200f);
 		innerCore.renderAll();
 		GL11.glDisable(GL11.GL_BLEND);
@@ -152,7 +160,7 @@ public class ReactorCoreTileRenderer extends TileEntitySpecialRenderer{
 		GL11.glRotatef((float) (-Math.atan2(distFlat, wayY)) * 180.0F / (float) Math.PI - 90.0F, 1.0F, 0.0F, 0.0F);
 		Tessellator tessellator = Tessellator.instance;
 		RenderHelper.disableStandardItemLighting();
-		GL11.glScalef(1.4f, 1.4f, 1f);
+		GL11.glScalef(1.7f, 1.7f, 1f);
 		GL11.glDisable(GL11.GL_CULL_FACE);
 		this.bindTexture(enderDragonCrystalBeamTextures);
 		GL11.glShadeModel(GL11.GL_SMOOTH);
@@ -203,9 +211,9 @@ public class ReactorCoreTileRenderer extends TileEntitySpecialRenderer{
 			float f11 = 0.2F * (MathHelper.sin(i % b0 * (float) Math.PI * 2.0F / b0) * 0.75F);
 			float f12 = 0.2F * (MathHelper.cos(i % b0 * (float) Math.PI * 2.0F / b0) * 0.75F);
 			float f13 = i % b0 * 1.0F / b0;
-			tessellator.setColorOpaque(80, 120, 0);
+			tessellator.setColorOpaque(50, 120, 50);
 			tessellator.addVertexWithUV((f11), (f12), 0.0D, f13, f10);
-			tessellator.setColorOpaque(150, 120, 50);
+			tessellator.setColorOpaque(255, 0, 0);
 			tessellator.addVertexWithUV(f11, f12, dist, f13, f9);
 		}
 

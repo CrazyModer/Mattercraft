@@ -3,9 +3,6 @@ package net.crazymoder.mattercraft.tileentity.core;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class RenderingHandler {
-	//Render
-	public float rotation;
-	//
 	
 	public boolean render;
 	public int matter;
@@ -16,10 +13,6 @@ public class RenderingHandler {
 	
 	public RenderingHandler(ReactorCoreTile core){
 		this.core = core;
-	}
-	
-	public void clientUpdate(){
-		//rotation++;
 	}
 	
 	public void update(){

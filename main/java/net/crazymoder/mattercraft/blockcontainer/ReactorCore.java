@@ -1,5 +1,7 @@
 package net.crazymoder.mattercraft.blockcontainer;
 
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.crazymoder.mattercraft.tileentity.core.ReactorCoreTile;
