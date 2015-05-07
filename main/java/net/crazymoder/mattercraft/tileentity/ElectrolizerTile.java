@@ -15,7 +15,6 @@ import net.minecraftforge.fluids.IFluidTank;
 public class ElectrolizerTile extends TileEntity implements IFluidHandler{
 	
 	private FluidTank fluidTank1 = new FluidTank(30000);
-	private FluidTank fluidTank2 = new FluidTank(20000);
 	
 	public ElectrolizerTile() {
 	}
@@ -74,7 +73,7 @@ public class ElectrolizerTile extends TileEntity implements IFluidHandler{
 
 	@Override
 	public FluidTankInfo[] getTankInfo(ForgeDirection arg0) {
-		return new FluidTankInfo[] {this.fluidTank1.getInfo(),this.fluidTank2.getInfo()};
+		return new FluidTankInfo[] {this.fluidTank1.getInfo()};
 	}
 }
 

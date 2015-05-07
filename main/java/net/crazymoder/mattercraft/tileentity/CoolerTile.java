@@ -16,7 +16,6 @@ public class CoolerTile extends TileEntity implements IFluidHandler{
     
 
 	private FluidTank fluidTank1 = new FluidTank(20000);
-	private FluidTank fluidTank2 = new FluidTank(20000);
 	
 	public CoolerTile() {
 	}
@@ -53,21 +52,18 @@ public class CoolerTile extends TileEntity implements IFluidHandler{
 		return true;
 	}
 
-	@Override
-	public FluidStack drain(ForgeDirection arg0, FluidStack arg1, boolean arg2) {
-		// TODO Auto-generated method stub
-		return null;
+	public FluidStack drain(ForgeDirection from, FluidStack resource, boolean doDrain)
+	{
+		return this.fluidTank1.drain(resource.amount, doDrain);
 	}
 
-	@Override
-	public FluidStack drain(ForgeDirection arg0, int arg1, boolean arg2) {
-		// TODO Auto-generated method stub
-		return null;
+	public FluidStack drain(ForgeDirection from, int maxDrain, boolean doDrain)
+	{
+		return this.fluidTank1.drain(maxDrain, doDrain);
 	}
-
+	
 	@Override
 	public int fill(ForgeDirection arg0, FluidStack resource, boolean doFill) {
-		System.out.println(resource.getFluid().getUnlocalizedName());
 		if(resource.getFluid().getUnlocalizedName().equals("fluid.mtc.heatedCryotheum"))
 			return this.fluidTank1.fill(resource, doFill);
 		return 0;
@@ -75,6 +71,6 @@ public class CoolerTile extends TileEntity implements IFluidHandler{
 
 	@Override
 	public FluidTankInfo[] getTankInfo(ForgeDirection arg0) {
-		return new FluidTankInfo[] {this.fluidTank1.getInfo(),this.fluidTank2.getInfo()};
+		return new FluidTankInfo[] {this.fluidTank1.getInfo()};
 	}
 }
