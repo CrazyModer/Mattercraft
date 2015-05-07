@@ -272,14 +272,16 @@ public class MultiBlockStructurManager {
 					if(!(z == 0 && x ==0))
 					if(!isBlock("tile.mtc.reinforcedPlating"))return false;
 				}
-			}																
-			//for ( z=-10; z <= 10; z++) {
-				//for ( x=-10; x <= 10; x++) {
-					//for ( y=3; y <= 22; y++) {
-						//if(!isBlock("tile.air"))return false;
-					//}
-				//}
-			//}
+			}		
+			
+			for ( z=-10; z <= 10; z++) {
+				for ( x=-10; x <= 10; x++) {
+					for ( y=3; y <= 22; y++) {
+						if(!((y== 12) && z == 0 && x == 0))
+						if(!isBlock("tile.air")&& !isBlock("tile.bedrock"))return false;
+					}
+				}
+			}
 
 			
 			
