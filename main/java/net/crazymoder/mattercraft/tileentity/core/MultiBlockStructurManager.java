@@ -194,7 +194,7 @@ public class MultiBlockStructurManager {
 		z = 0;
 		x = -1;
 		if(!isBlock("tile.mtc.iridiumPalting"))return false;
-		System.out.println("Iridium2");
+		//System.out.println("Iridium2");
 		y = 2;
 		z = 0;
 		x = 0;
@@ -289,7 +289,7 @@ public class MultiBlockStructurManager {
 				if(!isBlock("tile.mtc.reinforcedPlating"))return false;
 			}
 		}		
-		System.out.println("reinforcedPlating2");
+		//System.out.println("reinforcedPlating2");
 			
 		for ( z=-10; z <= 10; z++) {
 			for ( x=-10; x <= 10; x++) {
