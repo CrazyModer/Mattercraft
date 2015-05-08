@@ -5,6 +5,7 @@ import java.util.ListIterator;
 
 import org.lwjgl.Sys;
 
+import net.crazymoder.mattercraft.Mattercraft;
 import net.crazymoder.mattercraft.tileentity.ReactorTerminalTile;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -28,7 +29,6 @@ public class ReactorCoreTile extends TileEntity{
 		public LogisticHandler logisticHandler;
 		public RenderingHandler renderingHandler;
 		public Calculator calculator;
-		public ParticelRenderer particelRenderer;
 	//**************
 		
 	//atributes
@@ -45,7 +45,6 @@ public class ReactorCoreTile extends TileEntity{
 		calculator = new Calculator(this);
 		guiHandler = new GuiHandler(this);
 		renderingHandler = new RenderingHandler(this);
-		particelRenderer = new ParticelRenderer();
 	}
 	
 	@Override
@@ -79,7 +78,7 @@ public class ReactorCoreTile extends TileEntity{
 			renderingHandler.update();
 		}else{
 			if(renderingHandler.render)
-				particelRenderer.render(worldObj, xCoord, yCoord, zCoord);
+				Mattercraft.proxy.render(worldObj, xCoord, yCoord, zCoord);
 		}
 	}
 	

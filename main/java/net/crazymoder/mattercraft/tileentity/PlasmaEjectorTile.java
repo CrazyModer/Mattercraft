@@ -1,7 +1,5 @@
 package net.crazymoder.mattercraft.tileentity;
 
-import com.sun.org.apache.xml.internal.security.Init;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;

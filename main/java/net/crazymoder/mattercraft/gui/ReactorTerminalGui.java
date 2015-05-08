@@ -105,7 +105,7 @@ public class ReactorTerminalGui extends GuiScreen{
 		if(status == 0)statusString = "Reactor Terminal: Not Connected";
 		if(status == 1)statusString = "Reactor Terminal: Multiblockstructure Error";
 		if(status == 2)statusString = "Reactor Terminal: No Logistics";
-		if(status == 3)statusString = "Reactor Terminal: Ready to Activate";
+		if(status == 3)statusString = "Reactor Terminal: Logistics OK";
 		if(status == 4)statusString = "Reactor Terminal: Core Running";
 		
 		int k = (this.width - this.xSize) / 2;

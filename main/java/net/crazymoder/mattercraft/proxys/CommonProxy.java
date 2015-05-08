@@ -7,16 +7,19 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import net.crazymoder.mattercraft.Mattercraft;
 import net.crazymoder.mattercraft.craftingmanager.ExternalCraftingManager;
 import net.crazymoder.mattercraft.manager.BlockManager;
+import net.crazymoder.mattercraft.manager.ConfigurationManager;
 import net.crazymoder.mattercraft.manager.FluidManager;
 import net.crazymoder.mattercraft.manager.GuiManager;
 import net.crazymoder.mattercraft.manager.ItemManager;
 import net.crazymoder.mattercraft.manager.TileEntityManager;
 import net.crazymoder.mattercraft.manager.TileRenderingManager;
 import net.crazymoder.mattercraft.manager.WorldGenManager;
+import net.minecraft.world.World;
 
 public class CommonProxy {
 	
 	public void preInit(FMLPreInitializationEvent e){
+		ConfigurationManager configurationManager = new ConfigurationManager(e);
 		BlockManager blockManager = new BlockManager();
 		ItemManager itemManager = new ItemManager();
 		WorldGenManager worldGenManager = new WorldGenManager();
@@ -30,7 +33,9 @@ public class CommonProxy {
 	}
 	
 	public void postInit(FMLPostInitializationEvent e){
-		
+		System.out.println("Mattercraft loaded!");
 	}
+	
+	public void render(World w,float x,float y,float z){}
 	
 }
