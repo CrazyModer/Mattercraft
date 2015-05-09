@@ -3,6 +3,7 @@ package net.crazymoder.mattercraft.manager;
 import net.crazymoder.mattercraft.blockcontainer.Cooler;
 import net.crazymoder.mattercraft.blockcontainer.CryotheumAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.Electrolizer;
+import net.crazymoder.mattercraft.blockcontainer.GeneratorController;
 import net.crazymoder.mattercraft.blockcontainer.HeatedCryotheumEjector;
 import net.crazymoder.mattercraft.blockcontainer.HydrogenAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.LiquidMatterAcceptor;
@@ -53,8 +54,7 @@ public class BlockManager {
 	public static Block reactorCore;
 	public static Block cooler; //mst
 	public static Block electrolizer; //mst
-
-	
+	public static Block generatorController;
 	
 	public BlockManager(){
 		//Initialize Blocks
@@ -85,6 +85,7 @@ public class BlockManager {
 		reactorCore = new ReactorCore();
 		cooler = new Cooler();
 		electrolizer = new Electrolizer();
+		generatorController = new GeneratorController();
 		
 		//Configure Blocks
 		groundPlating.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.groundPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
@@ -114,6 +115,7 @@ public class BlockManager {
 		reactorCore.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.reactorCore").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		cooler.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.cooler").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		electrolizer.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.electrolizer").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		generatorController.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.generatorController").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		
 		//Single Texture Blocks
 		groundPlating.setBlockTextureName("mattercraft:groundPlating");
@@ -147,6 +149,7 @@ public class BlockManager {
 		reactorTerminal.setBlockTextureName("mattercraft:reactorTerminal");
 		cooler.setBlockTextureName("mattercraft:cooler");
 		electrolizer.setBlockTextureName("mattercraft:electrolizer");
+		generatorController.setBlockTextureName("mattercraft:generatorController");
 		
 		//Register Blocks
 		GameRegistry.registerBlock(groundPlating, "mtc.groundPlating");
@@ -176,6 +179,7 @@ public class BlockManager {
 		GameRegistry.registerBlock(reactorCore, "mtc.reactorCore");
 		GameRegistry.registerBlock(cooler, "mtc.cooler");
 		GameRegistry.registerBlock(electrolizer, "mtc.electrolizer");
+		GameRegistry.registerBlock(generatorController, "mtc.generatorController");
 	}
 }
 

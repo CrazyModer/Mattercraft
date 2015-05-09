@@ -13,6 +13,7 @@ import net.crazymoder.mattercraft.tileentity.ReactorTerminalTile;
 import net.crazymoder.mattercraft.tileentity.StabilizerAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.ToxicWasteEjectorTile;
 import net.crazymoder.mattercraft.tileentity.core.ReactorCoreTile;
+import net.crazymoder.mattercraft.tileentity.generator.GeneratorControllerTile;
 
 
 public class TileEntityManager {
@@ -29,6 +30,6 @@ public class TileEntityManager {
 		GameRegistry.registerTileEntity(ReactorCoreTile.class, "mtc.reactorCoreTile");
 		GameRegistry.registerTileEntity(CoolerTile.class, "mtc.coolerTile");
 		GameRegistry.registerTileEntity(ElectrolizerTile.class, "mtc.electrolizerTile");
-		
+		GameRegistry.registerTileEntity(GeneratorControllerTile.class, "mtc.generatorControllerTile");
 	}
 }

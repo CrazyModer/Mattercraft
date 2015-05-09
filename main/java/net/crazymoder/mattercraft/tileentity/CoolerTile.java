@@ -31,8 +31,6 @@ public class CoolerTile extends TileEntity implements IFluidHandler , IEnergyRec
 	public int tankOutDisplay = 0;
 	
 	public CoolerTile(){
-		Random rnd = new Random();
-		tankOut.fill(new FluidStack(new Fluid("cryotheum"),(int) (rnd.nextFloat()*10000f)), true);
 	}
 	
 	@Override

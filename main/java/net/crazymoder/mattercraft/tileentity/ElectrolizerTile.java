@@ -30,8 +30,6 @@ public class ElectrolizerTile extends TileEntity implements IFluidHandler , IEne
 	public int tankOutDisplay = 0;
 	
 	public ElectrolizerTile(){
-		Random rnd = new Random();
-		tankOut.fill(new FluidStack(new Fluid("mtc.hydrogen"),(int) (rnd.nextFloat()*10000f)), true);
 	}
 	
 	@Override
