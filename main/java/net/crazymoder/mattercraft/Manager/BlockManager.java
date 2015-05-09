@@ -44,7 +44,7 @@ public class BlockManager {
 	public static Block heatSink;
 	public static Block exhaustPipe;	
 	public static Block waterInjector;
-//	https://www.youtube.com/watch?v=8Nwh8yWh5WU
+//https://www.youtube.com/watch?v=8Nwh8yWh5WU
 	public static Block plasmaInjector;
 	
 	
@@ -198,9 +198,9 @@ public class BlockManager {
 		GameRegistry.registerBlock(iridiumOre, "mtc.iridiumOre");
 		GameRegistry.registerBlock(unstableMatter, "mtc.unstableMatter");
 		GameRegistry.registerBlock(generatorPlating, "mtc.generatorPlating");
-		GameRegistry.registerBlock(heatSink, "mtc.heatSink");
-		
-		
+		GameRegistry.registerBlock(exhaustPipe, "mtc.exhaustPipe");
+		GameRegistry.registerBlock(waterInjector, "mtc.waterInjector");
+		GameRegistry.registerBlock(plasmaInjector, "mtc.plasmaInjector");
 		//Register Block Container
 		GameRegistry.registerBlock(cryotheumAcceptor, "mtc.cryotheumAcceptor");
 		GameRegistry.registerBlock(hydrogenAcceptor, "mtc.hydrogenAcceptor");
