@@ -21,7 +21,7 @@ public class IonizedPlasma {
 		Item ionizedPlasmaBucket;
 		public IonizedPlasma(){
 			ionizedPlasma = new Fluid("mtc.ionizedPlasma");
-			ionizedPlasma.setTemperature(100000).setDensity(1).setViscosity(50000000).setGaseous(true).setUnlocalizedName("mtc.ionizedPlasma");
+			ionizedPlasma.setTemperature(100000).setDensity(1).setViscosity(5000).setGaseous(true).setUnlocalizedName("mtc.ionizedPlasma");
 			FluidRegistry.registerFluid(ionizedPlasma);
 			ionizedPlasmaBlock = new BasicFluidBlock(ionizedPlasma, Material.water, "mattercraft:ionizedPlasma");
 			ionizedPlasmaBlock.setBlockName("mtc.ionizedPlasma");
