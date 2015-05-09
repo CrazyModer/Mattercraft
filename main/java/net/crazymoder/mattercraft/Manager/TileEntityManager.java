@@ -28,7 +28,7 @@ public class TileEntityManager {
 		GameRegistry.registerTileEntity(ReactorTerminalTile.class, "mtc.reactorTerminalTile");
 		GameRegistry.registerTileEntity(ReactorCoreTile.class, "mtc.reactorCoreTile");
 		GameRegistry.registerTileEntity(CoolerTile.class, "mtc.coolerTile");
-		GameRegistry.registerTileEntity(ElectrolizerTile.class, "mtc.ElectrolizerTile");
+		GameRegistry.registerTileEntity(ElectrolizerTile.class, "mtc.electrolizerTile");
 		
 	}
 }

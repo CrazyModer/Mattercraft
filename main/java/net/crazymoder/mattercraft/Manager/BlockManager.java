@@ -52,7 +52,7 @@ public class BlockManager {
 	public static Block reactorTerminal;
 	public static Block reactorCore;
 	public static Block cooler; //mst
-	//public static Block electrolizer; //mst
+	public static Block electrolizer; //mst
 
 	
 	
@@ -84,7 +84,7 @@ public class BlockManager {
 		reactorTerminal = new ReactorTerminal();
 		reactorCore = new ReactorCore();
 		cooler = new Cooler();
-		//electrolizer = new Electrolizer();
+		electrolizer = new Electrolizer();
 		
 		//Configure Blocks
 		groundPlating.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.groundPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
@@ -113,7 +113,7 @@ public class BlockManager {
 		reactorTerminal.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.reactorTerminal").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		reactorCore.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.reactorCore").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		cooler.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.cooler").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		//electrolizer.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.electrolizer").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		electrolizer.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.electrolizer").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		
 		//Single Texture Blocks
 		groundPlating.setBlockTextureName("mattercraft:groundPlating");
@@ -146,7 +146,7 @@ public class BlockManager {
 		reactorPowerAcceptor.setBlockTextureName("mattercraft:reactorPowerAcceptor");
 		reactorTerminal.setBlockTextureName("mattercraft:reactorTerminal");
 		cooler.setBlockTextureName("mattercraft:cooler");
-		//electrolizer.setBlockTextureName("mattercraft:electrolizer");
+		electrolizer.setBlockTextureName("mattercraft:electrolizer");
 		
 		//Register Blocks
 		GameRegistry.registerBlock(groundPlating, "mtc.groundPlating");
@@ -175,7 +175,7 @@ public class BlockManager {
 		GameRegistry.registerBlock(reactorTerminal, "mtc.reactorTerminal");
 		GameRegistry.registerBlock(reactorCore, "mtc.reactorCore");
 		GameRegistry.registerBlock(cooler, "mtc.cooler");
-		//GameRegistry.registerBlock(electrolizer, "mtc.electrolizer");
+		GameRegistry.registerBlock(electrolizer, "mtc.electrolizer");
 	}
 }
 

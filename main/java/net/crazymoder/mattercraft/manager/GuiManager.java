@@ -1,8 +1,11 @@
 package net.crazymoder.mattercraft.manager;
 
+import net.crazymoder.mattercraft.blockcontainer.Electrolizer;
 import net.crazymoder.mattercraft.gui.CoolerGui;
+import net.crazymoder.mattercraft.gui.ElectrolizerGui;
 import net.crazymoder.mattercraft.gui.ReactorTerminalGui;
 import net.crazymoder.mattercraft.tileentity.CoolerTile;
+import net.crazymoder.mattercraft.tileentity.ElectrolizerTile;
 import net.crazymoder.mattercraft.tileentity.ReactorTerminalTile;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -24,6 +27,10 @@ public class GuiManager implements IGuiHandler {
 		if(ID == 1){
 			CoolerTile coolerTile = (CoolerTile) world.getTileEntity(x, y, z);
 			return new CoolerGui(coolerTile);
+		}
+		if(ID == 2){
+			ElectrolizerTile electrolizerTile = (ElectrolizerTile) world.getTileEntity(x, y, z);
+			return new ElectrolizerGui(electrolizerTile);
 		}
 		return null;
 	}
