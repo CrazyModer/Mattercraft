@@ -3,11 +3,12 @@ package net.crazymoder.mattercraft.tileentity.generator;
 import net.minecraft.tileentity.TileEntity;
 
 public class GeneratorControllerTile extends TileEntity{
-	public boolean isMbsOK;
 	private boolean init = true;
-	private int count = 0;
 	private int x,y,z;
 	private int direction;
+	private GeneratorEnergyPortTile energyPortTile;
+	private GeneratorFluidPortTile fluidPortTile1;
+	private GeneratorFluidPortTile fluidPortTile2;
 	public GeneratorControllerTile(){
 		
 	}
@@ -19,17 +20,18 @@ public class GeneratorControllerTile extends TileEntity{
 				init = false;
 				direction = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
 			}
-			count++;
-			if(count >= 100){
-				count = 0;
-				checkMbs();
+			if(checkMbs()){
+				
 			}
 		}
 	}
 	
 	
-	private void checkMbs(){
+	private boolean checkMbs(){
+		boolean OK = true;
 		System.out.println(xCoord+" "+yCoord+" "+zCoord+" "+direction);
+		
+		return OK;
 	}
 	
 }
