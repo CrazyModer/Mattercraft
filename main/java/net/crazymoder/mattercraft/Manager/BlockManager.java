@@ -40,6 +40,14 @@ public class BlockManager {
 	public static Block osmiumOre;
 	public static Block iridiumOre;
 	public static Block unstableMatter;
+	public static Block generatorPlating;
+	public static Block heatSink;
+	public static Block exhaustPipe;	
+	public static Block waterInjector;
+//https://www.youtube.com/watch?v=8Nwh8yWh5WU
+	public static Block plasmaInjector;
+	
+	
 	
 	//declarate Block Container
 	public static Block cryotheumAcceptor;
@@ -71,6 +79,12 @@ public class BlockManager {
 		osmiumOre = new BasicBlock(Material.iron);
 		iridiumOre =new BasicBlock(Material.iron);
 		unstableMatter = new BasicBlock(Material.iron);
+		generatorPlating = new BasicBlock(Material.iron);		
+		heatSink = new BasicBlock(Material.iron);
+		exhaustPipe = new BasicBlock(Material.iron);
+		waterInjector = new BasicBlock(Material.iron);
+		plasmaInjector = new BasicBlock(Material.iron);
+		
 		
 		//Initialize Block Containers
 		cryotheumAcceptor = new CryotheumAcceptor();
@@ -101,6 +115,16 @@ public class BlockManager {
 		osmiumOre.setHardness(1.5F).setStepSound(Block.soundTypeStone).setBlockName("mtc.osmiumOre").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		iridiumOre.setHardness(1.5F).setStepSound(Block.soundTypeStone).setBlockName("mtc.iridiumOre").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		unstableMatter.setHardness(1.5F).setStepSound(Block.soundTypeStone).setBlockName("mtc.unstableMatter").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		generatorPlating.setHardness(3.0F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.generatorPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",4);
+		heatSink.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.heatSink").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		exhaustPipe.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.exhaustPipe").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		waterInjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.waterInjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		plasmaInjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.plasmaInjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		
+		
+		
+		
+		
 		
 		//Configure Block Containers
 		cryotheumAcceptor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.cryotheumAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
@@ -127,12 +151,20 @@ public class BlockManager {
 		osmiumOre.setBlockTextureName("mattercraft:osmiumOre");
 		iridiumOre.setBlockTextureName("mattercraft:iridiumOre");
 		unstableMatter.setBlockTextureName("mattercraft:unstableMatter");
+		generatorPlating.setBlockTextureName("mattercraft:generatorPlating");
+		heatSink.setBlockTextureName("mattercraft:heatSink");
+		
+		
 		
 		//Multi Texture Blocks
 		stabilizerPillar.setBlockTextureName("mattercraft:stabilizerPillar");
 		plasmaExtractor.setBlockTextureName("mattercraft:plasmaExtractor");
 		wormHoleStabilizer.setBlockTextureName("mattercraft:wormHoleStabilizer");
 		matterInjector.setBlockTextureName("mattercraft:matterInjector");
+		exhaustPipe.setBlockTextureName("mattercraft:exhaustPipe");
+		waterInjector.setBlockTextureName("mattercraft:waterInjector");
+		plasmaInjector.setBlockTextureName("mattercraft:plasmaInjector");
+		
 		
 		//Single Texture Block Container
 		reactorCore.setBlockTextureName("mattercraft:reactorCore");
@@ -165,7 +197,10 @@ public class BlockManager {
 		GameRegistry.registerBlock(osmiumOre, "mtc.osmiumOre");
 		GameRegistry.registerBlock(iridiumOre, "mtc.iridiumOre");
 		GameRegistry.registerBlock(unstableMatter, "mtc.unstableMatter");
-		
+		GameRegistry.registerBlock(generatorPlating, "mtc.generatorPlating");
+		GameRegistry.registerBlock(exhaustPipe, "mtc.exhaustPipe");
+		GameRegistry.registerBlock(waterInjector, "mtc.waterInjector");
+		GameRegistry.registerBlock(plasmaInjector, "mtc.plasmaInjector");
 		//Register Block Container
 		GameRegistry.registerBlock(cryotheumAcceptor, "mtc.cryotheumAcceptor");
 		GameRegistry.registerBlock(hydrogenAcceptor, "mtc.hydrogenAcceptor");
