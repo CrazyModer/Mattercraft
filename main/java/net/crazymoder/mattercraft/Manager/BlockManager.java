@@ -44,7 +44,6 @@ public class BlockManager {
 	public static Block heatSink;
 	public static Block exhaustPipe;	
 	public static Block waterInjector;
-//https://www.youtube.com/watch?v=8Nwh8yWh5WU
 	public static Block plasmaInjector;
 	
 	
