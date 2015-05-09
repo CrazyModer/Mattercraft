@@ -32,7 +32,7 @@ public class ElectrolizerGui extends GuiScreen{
         temp = Math.round((electrolizerTile.tankOutDisplay/10000f)*65f);
         this.drawTexturedModalRect(k+70, l+80-temp, 70, 100, 20, temp);
 		String st = "Electrolizer";
-    	this.fontRendererObj.drawString(st, k+35, l + 5, 0);
+    	this.fontRendererObj.drawString(st, k+22, l + 5, 0);
     	if(x > k+15 && y > l+15 && x < k+35 && y < l + 80){
     		List list = new ArrayList();
     		list.add("Water:");
