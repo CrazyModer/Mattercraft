@@ -1,5 +1,7 @@
 package net.crazymoder.mattercraft.tileentity.generator;
 
-public class GeneratorEnergyPortTile {
+import net.minecraft.tileentity.TileEntity;
+
+public class GeneratorEnergyPortTile extends TileEntity{
 	
 }

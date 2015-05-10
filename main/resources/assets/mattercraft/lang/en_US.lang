@@ -11,9 +11,12 @@ tile.mtc.matterInjector.name=Matter Injector
 tile.mtc.osmiumOre.name=Osmium Ore
 tile.mtc.iridiumOre.name=Iridium Ore
 tile.mtc.unstableMatter.name=Unstable Matter
-tile.mtc.generatorController.name=Generator Controller
 tile.mtc.generatorPlating.name=Generator Plating
 tile.mtc.heatSink.name=Heat Sink
+tile.mtc.exhaustPipe.name=Exhaust Pipe
+tile.mtc.waterInjector.name=Water Injector
+tile.mtc.plasmaInjector.name=Plasma Injector
+tile.mtc.peltier.name=Peltier
 
 tile.mtc.cryotheumAcceptor.name=Cryotheum Acceptor
 tile.mtc.hydrogenAcceptor.name=Hydrogen Acceptor
@@ -27,9 +30,9 @@ tile.mtc.reactorTerminal.name=Reactor Terminal
 tile.mtc.reactorCore.name=Reactor Core
 tile.mtc.cooler.name=Cooler
 tile.mtc.electrolizer.name=Electrolyzer
-tile.mtc.exhaustPipe.name=Exhaust Pipe
-tile.mtc.waterInjector.name=Water Injector
-tile.mtc.plasmaInjector.name=Plasma Injector
+tile.mtc.generatorController.name=Generator Controller
+tile.mtc.generatorEnergyPort.name=Generator Energy Port
+tile.mtc.generatorFluidPort.name=Generator Fluid Port
 
 tile.mtc.ionizedPlasma.name=Ionized Plasma
 tile.mtc.toxicWaste.name=Toxic Waste

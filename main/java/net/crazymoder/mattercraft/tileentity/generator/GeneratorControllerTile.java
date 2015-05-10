@@ -11,7 +11,8 @@ public class GeneratorControllerTile extends TileEntity{
 	private GeneratorFluidPortTile fluidPortTile1;
 	private GeneratorFluidPortTile fluidPortTile2;
 	public GeneratorControllerTile(){
-		a=0;b=0;y=0;x=0;z=0;
+		System.out.println("A");
+		a=b=y=x=z=0;
 	}
 	
 	@Override
@@ -21,17 +22,51 @@ public class GeneratorControllerTile extends TileEntity{
 				init = false;
 				direction = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
 			}
-			if(checkMbs()){
-				
-			}
+			System.out.println(checkMbs());
 		}
 	}
 	
 	
 	private boolean checkMbs(){
 		System.out.println(xCoord+" "+yCoord+" "+zCoord+" "+direction);
-		
-		isBlock("tile.air");
+		b = y = 0;
+		a = -1;
+		if(!isBlock("tile.mtc.generatorPlating"))return false;
+		a += 2;
+		if(!isBlock("tile.mtc.generatorPlating"))return false;
+		b = 1;
+		a = -2;
+		if(!isBlock("tile.mtc.generatorPlating"))return false;
+		a++;
+		if(!isBlock("tile.mtc.waterInjector"))return false;
+		a++;
+		if(!isBlock("tile.mtc.generatorPlating"))return false;
+		a++;
+		if(!isBlock("tile.mtc.waterInjector"))return false;
+		a++;
+		if(!isBlock("tile.mtc.generatorPlating"))return false;
+		b++;
+		a = -2;
+		if(!isBlock("tile.mtc.generatorPlating"))return false;
+		a++;
+		if(!isBlock("tile.mtc.generatorPlating"))return false;
+		a++;
+		if(!isBlock("tile.mtc.plasmaInjector"))return false;
+		a++;
+		if(!isBlock("tile.mtc.generatorPlating"))return false;
+		a++;
+		if(!isBlock("tile.mtc.generatorPlating"))return false;
+		b++;
+		a = -2;
+		if(!isBlock("tile.mtc.generatorPlating"))return false;
+		a++;
+		if(!isBlock("tile.mtc.waterInjector"))return false;
+		a++;
+		if(!isBlock("tile.mtc.generatorPlating"))return false;
+		a++;
+		if(!isBlock("tile.mtc.waterInjector"))return false;
+		a++;
+		if(!isBlock("tile.mtc.generatorPlating"))return false;
 		return true;
 	}
 	
@@ -46,7 +81,7 @@ public class GeneratorControllerTile extends TileEntity{
 		}
 		if(direction == 5){
 			x = -b;
-			z = a;
+			z = -a;
 		}
 		if(direction == 3){
 			x = a;

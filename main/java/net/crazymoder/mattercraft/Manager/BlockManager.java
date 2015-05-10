@@ -4,6 +4,8 @@ import net.crazymoder.mattercraft.blockcontainer.Cooler;
 import net.crazymoder.mattercraft.blockcontainer.CryotheumAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.Electrolizer;
 import net.crazymoder.mattercraft.blockcontainer.GeneratorController;
+import net.crazymoder.mattercraft.blockcontainer.GeneratorEnergyPort;
+import net.crazymoder.mattercraft.blockcontainer.GeneratorFluidPort;
 import net.crazymoder.mattercraft.blockcontainer.HeatedCryotheumEjector;
 import net.crazymoder.mattercraft.blockcontainer.HydrogenAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.LiquidMatterAcceptor;
@@ -18,6 +20,8 @@ import net.crazymoder.mattercraft.blocks.MultiTextureBlock;
 import net.crazymoder.mattercraft.tileentity.CryotheumAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.HeatedCryotheumEjectorTile;
 import net.crazymoder.mattercraft.tileentity.ToxicWasteEjectorTile;
+import net.crazymoder.mattercraft.tileentity.generator.GeneratorEnergyPortTile;
+import net.crazymoder.mattercraft.tileentity.generator.GeneratorFluidPortTile;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -42,6 +46,7 @@ public class BlockManager {
 	public static Block unstableMatter;
 	public static Block generatorPlating;
 	public static Block heatSink;
+	public static Block peltier;
 	public static Block exhaustPipe;	
 	public static Block waterInjector;
 	public static Block plasmaInjector;
@@ -62,6 +67,8 @@ public class BlockManager {
 	public static Block cooler; //mst
 	public static Block electrolizer; //mst
 	public static Block generatorController;
+	public static Block generatorFluidPort;
+	public static Block generatorEnergyPort;
 	
 	public BlockManager(){
 		//Initialize Blocks
@@ -80,9 +87,10 @@ public class BlockManager {
 		unstableMatter = new BasicBlock(Material.iron);
 		generatorPlating = new BasicBlock(Material.iron);		
 		heatSink = new BasicBlock(Material.iron);
-		exhaustPipe = new BasicBlock(Material.iron);
-		waterInjector = new BasicBlock(Material.iron);
-		plasmaInjector = new BasicBlock(Material.iron);
+		peltier = new MultiTextureBlock(Material.iron);
+		exhaustPipe = new MultiTextureBlock(Material.iron);
+		waterInjector = new MultiTextureBlock(Material.iron);
+		plasmaInjector = new MultiTextureBlock(Material.iron);
 		
 		
 		//Initialize Block Containers
@@ -99,6 +107,8 @@ public class BlockManager {
 		cooler = new Cooler();
 		electrolizer = new Electrolizer();
 		generatorController = new GeneratorController();
+		generatorEnergyPort = new GeneratorEnergyPort();
+		generatorFluidPort = new GeneratorFluidPort();
 		
 		//Configure Blocks
 		groundPlating.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.groundPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
@@ -116,13 +126,10 @@ public class BlockManager {
 		unstableMatter.setHardness(1.5F).setStepSound(Block.soundTypeStone).setBlockName("mtc.unstableMatter").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		generatorPlating.setHardness(3.0F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.generatorPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",4);
 		heatSink.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.heatSink").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		peltier.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.peltier").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		exhaustPipe.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.exhaustPipe").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		waterInjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.waterInjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		plasmaInjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.plasmaInjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		
-		
-		
-		
 		
 		
 		//Configure Block Containers
@@ -139,6 +146,8 @@ public class BlockManager {
 		cooler.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.cooler").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		electrolizer.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.electrolizer").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		generatorController.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.generatorController").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		generatorEnergyPort.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.generatorEnergyPort").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		generatorFluidPort.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.generatorFluidPort").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		
 		//Single Texture Blocks
 		groundPlating.setBlockTextureName("mattercraft:groundPlating");
@@ -160,6 +169,7 @@ public class BlockManager {
 		plasmaExtractor.setBlockTextureName("mattercraft:plasmaExtractor");
 		wormHoleStabilizer.setBlockTextureName("mattercraft:wormHoleStabilizer");
 		matterInjector.setBlockTextureName("mattercraft:matterInjector");
+		peltier.setBlockTextureName("mattercraft:peltier");
 		exhaustPipe.setBlockTextureName("mattercraft:exhaustPipe");
 		waterInjector.setBlockTextureName("mattercraft:waterInjector");
 		plasmaInjector.setBlockTextureName("mattercraft:plasmaInjector");
@@ -181,6 +191,8 @@ public class BlockManager {
 		cooler.setBlockTextureName("mattercraft:cooler");
 		electrolizer.setBlockTextureName("mattercraft:electrolizer");
 		generatorController.setBlockTextureName("mattercraft:generatorController");
+		generatorEnergyPort.setBlockTextureName("mattercraft:generatorEnergyPort");
+		generatorFluidPort.setBlockTextureName("mattercraft:generatorFluidPort");
 		
 		//Register Blocks
 		GameRegistry.registerBlock(groundPlating, "mtc.groundPlating");
@@ -197,9 +209,12 @@ public class BlockManager {
 		GameRegistry.registerBlock(iridiumOre, "mtc.iridiumOre");
 		GameRegistry.registerBlock(unstableMatter, "mtc.unstableMatter");
 		GameRegistry.registerBlock(generatorPlating, "mtc.generatorPlating");
+		GameRegistry.registerBlock(heatSink, "mtc.heatSink");
+		GameRegistry.registerBlock(peltier, "mtc.peltier");
 		GameRegistry.registerBlock(exhaustPipe, "mtc.exhaustPipe");
 		GameRegistry.registerBlock(waterInjector, "mtc.waterInjector");
 		GameRegistry.registerBlock(plasmaInjector, "mtc.plasmaInjector");
+		
 		//Register Block Container
 		GameRegistry.registerBlock(cryotheumAcceptor, "mtc.cryotheumAcceptor");
 		GameRegistry.registerBlock(hydrogenAcceptor, "mtc.hydrogenAcceptor");
@@ -214,6 +229,8 @@ public class BlockManager {
 		GameRegistry.registerBlock(cooler, "mtc.cooler");
 		GameRegistry.registerBlock(electrolizer, "mtc.electrolizer");
 		GameRegistry.registerBlock(generatorController, "mtc.generatorController");
+		GameRegistry.registerBlock(generatorEnergyPort, "mtc.generatorEnergyPort");
+		GameRegistry.registerBlock(generatorFluidPort, "mtc.generatorFluidPort");
 	}
 }
 
