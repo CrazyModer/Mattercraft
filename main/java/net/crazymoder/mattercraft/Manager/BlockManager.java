@@ -4,15 +4,18 @@ import net.crazymoder.mattercraft.blockcontainer.Cooler;
 import net.crazymoder.mattercraft.blockcontainer.CryotheumAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.Electrolizer;
 import net.crazymoder.mattercraft.blockcontainer.GeneratorController;
+import net.crazymoder.mattercraft.blockcontainer.HeatSink;
 import net.crazymoder.mattercraft.blockcontainer.HeatedCryotheumEjector;
 import net.crazymoder.mattercraft.blockcontainer.HydrogenAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.LiquidMatterAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.PlasmaEjector;
+import net.crazymoder.mattercraft.blockcontainer.PlasmaInjector;
 import net.crazymoder.mattercraft.blockcontainer.ReactorCore;
 import net.crazymoder.mattercraft.blockcontainer.ReactorPowerAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.ReactorTerminal;
 import net.crazymoder.mattercraft.blockcontainer.StabilizerAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.ToxicWasteEjector;
+import net.crazymoder.mattercraft.blockcontainer.WaterInjector;
 import net.crazymoder.mattercraft.blocks.BasicBlock;
 import net.crazymoder.mattercraft.blocks.MultiTextureBlock;
 import net.crazymoder.mattercraft.tileentity.CryotheumAcceptorTile;
@@ -43,9 +46,6 @@ public class BlockManager {
 	public static Block generatorPlating;
 	public static Block heatSink;
 	public static Block exhaustPipe;	
-	public static Block waterInjector;
-//https://www.youtube.com/watch?v=8Nwh8yWh5WU
-	public static Block plasmaInjector;
 	
 	
 	
@@ -62,7 +62,9 @@ public class BlockManager {
 	public static Block reactorCore;
 	public static Block cooler; //mst
 	public static Block electrolizer; //mst
-	public static Block generatorController;
+	public static Block generatorController;//mst
+	public static Block plasmaInjector;//mst
+	public static Block waterInjector;//mst
 	
 	public BlockManager(){
 		//Initialize Blocks
@@ -80,13 +82,10 @@ public class BlockManager {
 		iridiumOre =new BasicBlock(Material.iron);
 		unstableMatter = new BasicBlock(Material.iron);
 		generatorPlating = new BasicBlock(Material.iron);		
-		heatSink = new BasicBlock(Material.iron);
 		exhaustPipe = new BasicBlock(Material.iron);
-		waterInjector = new BasicBlock(Material.iron);
-		plasmaInjector = new BasicBlock(Material.iron);
 		
 		
-		//Initialize Block Containers
+	    //Initialize Block Containers
 		cryotheumAcceptor = new CryotheumAcceptor();
 		hydrogenAcceptor = new HydrogenAcceptor();
 		stabilizerAcceptor = new StabilizerAcceptor();
@@ -100,6 +99,9 @@ public class BlockManager {
 		cooler = new Cooler();
 		electrolizer = new Electrolizer();
 		generatorController = new GeneratorController();
+		heatSink = new HeatSink();
+		waterInjector = new WaterInjector();
+		plasmaInjector = new PlasmaInjector();
 		
 		//Configure Blocks
 		groundPlating.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.groundPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
@@ -116,12 +118,7 @@ public class BlockManager {
 		iridiumOre.setHardness(1.5F).setStepSound(Block.soundTypeStone).setBlockName("mtc.iridiumOre").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		unstableMatter.setHardness(1.5F).setStepSound(Block.soundTypeStone).setBlockName("mtc.unstableMatter").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		generatorPlating.setHardness(3.0F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.generatorPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",4);
-		heatSink.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.heatSink").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		exhaustPipe.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.exhaustPipe").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		waterInjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.waterInjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		plasmaInjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.plasmaInjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		
-		
 		
 		
 		
@@ -140,6 +137,9 @@ public class BlockManager {
 		cooler.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.cooler").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		electrolizer.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.electrolizer").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		generatorController.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.generatorController").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		waterInjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.waterInjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		heatSink.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.heatSink").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		plasmaInjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.plasmaInjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		
 		//Single Texture Blocks
 		groundPlating.setBlockTextureName("mattercraft:groundPlating");
@@ -152,7 +152,6 @@ public class BlockManager {
 		iridiumOre.setBlockTextureName("mattercraft:iridiumOre");
 		unstableMatter.setBlockTextureName("mattercraft:unstableMatter");
 		generatorPlating.setBlockTextureName("mattercraft:generatorPlating");
-		heatSink.setBlockTextureName("mattercraft:heatSink");
 		
 		
 		
@@ -162,12 +161,11 @@ public class BlockManager {
 		wormHoleStabilizer.setBlockTextureName("mattercraft:wormHoleStabilizer");
 		matterInjector.setBlockTextureName("mattercraft:matterInjector");
 		exhaustPipe.setBlockTextureName("mattercraft:exhaustPipe");
-		waterInjector.setBlockTextureName("mattercraft:waterInjector");
-		plasmaInjector.setBlockTextureName("mattercraft:plasmaInjector");
 		
 		
 		//Single Texture Block Container
 		reactorCore.setBlockTextureName("mattercraft:reactorCore");
+		heatSink.setBlockTextureName("mattercraft:heatSink");
 		
 		//Multi Texture Block Container
 		cryotheumAcceptor.setBlockTextureName("mattercraft:cryotheumAcceptor");
@@ -182,6 +180,8 @@ public class BlockManager {
 		cooler.setBlockTextureName("mattercraft:cooler");
 		electrolizer.setBlockTextureName("mattercraft:electrolizer");
 		generatorController.setBlockTextureName("mattercraft:generatorController");
+		waterInjector.setBlockTextureName("mattercraft:waterInjector");
+		plasmaInjector.setBlockTextureName("mattercraft:plasmaInjector");
 		
 		//Register Blocks
 		GameRegistry.registerBlock(groundPlating, "mtc.groundPlating");
@@ -199,8 +199,7 @@ public class BlockManager {
 		GameRegistry.registerBlock(unstableMatter, "mtc.unstableMatter");
 		GameRegistry.registerBlock(generatorPlating, "mtc.generatorPlating");
 		GameRegistry.registerBlock(exhaustPipe, "mtc.exhaustPipe");
-		GameRegistry.registerBlock(waterInjector, "mtc.waterInjector");
-		GameRegistry.registerBlock(plasmaInjector, "mtc.plasmaInjector");
+		
 		//Register Block Container
 		GameRegistry.registerBlock(cryotheumAcceptor, "mtc.cryotheumAcceptor");
 		GameRegistry.registerBlock(hydrogenAcceptor, "mtc.hydrogenAcceptor");
@@ -215,6 +214,9 @@ public class BlockManager {
 		GameRegistry.registerBlock(cooler, "mtc.cooler");
 		GameRegistry.registerBlock(electrolizer, "mtc.electrolizer");
 		GameRegistry.registerBlock(generatorController, "mtc.generatorController");
+		GameRegistry.registerBlock(waterInjector, "mtc.waterInjector");
+		GameRegistry.registerBlock(heatSink, "mtc.heatSink");
+		GameRegistry.registerBlock(plasmaInjector, "mtc.plasmaInjector");
 	}
 }
 

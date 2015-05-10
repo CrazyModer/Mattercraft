@@ -1,8 +1,4 @@
 @Domi
-Textures:
-heatsink
-generatorPlating
-Electrolizer zentrieren
 
 
 @Sven
