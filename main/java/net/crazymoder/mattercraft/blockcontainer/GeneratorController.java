@@ -61,7 +61,8 @@ public class GeneratorController extends BlockContainer
 	}
 
 	public boolean onBlockActivated(World world, int x, int y, int z,EntityPlayer player, int arg5, float arg6, float arg7, float arg8) {
-		//player.openGui(Mattercraft.INSTANCE, 3, world, x, y, z);
+		TileEntity tile = world.getTileEntity(x, y, z);
+		player.openGui(Mattercraft.INSTANCE, 3, world, x, y, z);
 		return true;
 	}
 

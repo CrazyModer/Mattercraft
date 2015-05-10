@@ -1,10 +1,11 @@
 package net.crazymoder.mattercraft.tileentity.generator;
 
+import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyReceiver;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class GeneratorEnergyPortTile extends TileEntity implements IEnergyReceiver{
+public class GeneratorEnergyPortTile extends TileEntity implements IEnergyProvider{
 	
 	private GeneratorControllerTile master;
 	
@@ -14,9 +15,11 @@ public class GeneratorEnergyPortTile extends TileEntity implements IEnergyReceiv
 	
 	@Override
 	public void updateEntity() {
-		if(!worldObj.isRemote){
-			if(hasMaster()){
-				//System.out.println("EnergyX: "+xCoord);
+		super.updateEntity();
+		if(!worldObj.isRemote && hasMaster()){
+			if(worldObj.getTileEntity(xCoord, yCoord-1, zCoord) instanceof IEnergyReceiver){
+				IEnergyReceiver te = (IEnergyReceiver) worldObj.getTileEntity(xCoord, yCoord-1, zCoord);
+				//System.out.println(te.receiveEnergy(ForgeDirection.UP, master.energyStorage.extractEnergy(master.energyStorage.getMaxExtract(), false), false));
 			}
 		}
 	}
@@ -34,15 +37,7 @@ public class GeneratorEnergyPortTile extends TileEntity implements IEnergyReceiv
 
 	@Override
 	public boolean canConnectEnergy(ForgeDirection from) {
-		return hasMaster();
-	}
-
-	@Override
-	public int receiveEnergy(ForgeDirection from, int maxReceive,boolean simulate) {
-		if(hasMaster()){
-			master.energyStorage.receiveEnergy(maxReceive, simulate);
-		}
-		return 0;
+		return true;
 	}
 
 	@Override
@@ -57,6 +52,14 @@ public class GeneratorEnergyPortTile extends TileEntity implements IEnergyReceiv
 	public int getMaxEnergyStored(ForgeDirection from) {
 		if(hasMaster()){
 			return master.energyStorage.getMaxEnergyStored();
+		}
+		return 0;
+	}
+
+	@Override
+	public int extractEnergy(ForgeDirection from, int maxExtract,boolean simulate) {
+		if(hasMaster()){
+			master.energyStorage.extractEnergy(maxExtract, simulate);
 		}
 		return 0;
 	}

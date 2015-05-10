@@ -3,6 +3,9 @@ package net.crazymoder.mattercraft.tileentity.generator;
 import cofh.api.energy.EnergyStorage;
 import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.fluids.FluidTank;
 
@@ -14,8 +17,14 @@ public class GeneratorControllerTile extends TileEntity{
 	private GeneratorFluidPortTile fluidPortTile1;
 	private GeneratorFluidPortTile fluidPortTile2;
 	
-	public FluidTank watertank = new FluidTank(200000);
-	public FluidTank plasmaTank = new FluidTank(200000);
+	public int energyStorageDisplay = 0;
+	public int tank1Display = 0;
+	public int tank2Display = 0;
+	
+	public int productionRate = 0;
+	
+	public FluidTank watertank = new FluidTank(2500000);
+	public FluidTank plasmaTank = new FluidTank(250000);
 	public EnergyStorage energyStorage = new EnergyStorage(2000000000,10000000);
 	
 	public GeneratorControllerTile(){
@@ -24,6 +33,8 @@ public class GeneratorControllerTile extends TileEntity{
 	
 	@Override
 	public void updateEntity() {
+		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+		markDirty();
 		if(!worldObj.isRemote){
 			if(init){
 				init = false;
@@ -34,6 +45,17 @@ public class GeneratorControllerTile extends TileEntity{
 				energyPortTile.setMaster(this);
 				fluidPortTile1.setMaster(this);
 				fluidPortTile2.setMaster(this);
+				if(energyStorage.getEnergyStored() + 10000000< energyStorage.getMaxEnergyStored() && watertank.getFluidAmount() >= 25000 && plasmaTank.getFluidAmount() >= 2500){
+					productionRate = (int) (Math.min(watertank.getFluidAmount()/10f, plasmaTank.getFluidAmount())/100f);
+					energyStorage.receiveEnergy(productionRate * 1000, false);
+					watertank.drain(productionRate * 10, true);
+					plasmaTank.drain(productionRate, true);
+				}else{
+					productionRate = 0;
+				}
+				energyStorageDisplay = energyStorage.getEnergyStored();
+				tank1Display = watertank.getFluidAmount();
+				tank2Display = plasmaTank.getFluidAmount();
 			}
 		}
 	}
@@ -63,8 +85,28 @@ public class GeneratorControllerTile extends TileEntity{
 		super.readFromNBT(tag);
 	}
 	
+	@Override
+	public Packet getDescriptionPacket()
+	{
+		NBTTagCompound tagCompound = new NBTTagCompound();
+		tagCompound.setInteger("energy",energyStorageDisplay);
+		tagCompound.setInteger("tank1",tank1Display);
+		tagCompound.setInteger("tank2",tank2Display);
+		tagCompound.setInteger("rate",productionRate);
+		return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, tagCompound);
+	}
+
+	@Override
+	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt)
+	{
+		NBTTagCompound tagCompound = pkt.func_148857_g();
+		energyStorageDisplay = tagCompound.getInteger("energy");
+		tank1Display = tagCompound.getInteger("tank1");
+		tank2Display = tagCompound.getInteger("tank2");
+		productionRate = tagCompound.getInteger("rate");
+	}
 	
-	private boolean checkMbs(){
+	public boolean checkMbs(){
 		b = y = 0;
 		a = -1;
 		if(!isBlock("tile.mtc.generatorPlating"))return false;

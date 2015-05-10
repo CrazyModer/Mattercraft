@@ -14,15 +14,6 @@ public class GeneratorFluidPortTile extends TileEntity implements IFluidHandler{
 		
 	}
 	
-	@Override
-	public void updateEntity() {
-		if(!worldObj.isRemote){
-			if(hasMaster()){
-				System.out.println("FluidX: "+xCoord);
-			}
-		}
-	}
-	
 	public void setMaster(GeneratorControllerTile tile){
 		master = tile;
 	}
@@ -38,11 +29,9 @@ public class GeneratorFluidPortTile extends TileEntity implements IFluidHandler{
 	public int fill(ForgeDirection from, FluidStack resource, boolean doFill) {
 		if(hasMaster()){
 			if(resource.getUnlocalizedName().equals("fluid.mtc.ionizedPlasma")){
-				System.out.println("plasma");
 				return master.plasmaTank.fill(resource, doFill);
 			}
 			if(resource.getUnlocalizedName().equals("fluid.tile.water")){
-				System.out.println("water");
 				return master.watertank.fill(resource, doFill);
 			}
 		}
@@ -61,15 +50,12 @@ public class GeneratorFluidPortTile extends TileEntity implements IFluidHandler{
 
 	@Override
 	public boolean canFill(ForgeDirection from, Fluid fluid) {
-		if(hasMaster()){
-			return true;
-		}
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean canDrain(ForgeDirection from, Fluid fluid) {
-		return false;
+		return true;
 	}
 
 	@Override
