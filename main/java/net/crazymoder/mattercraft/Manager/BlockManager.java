@@ -46,6 +46,9 @@ public class BlockManager {
 	public static Block generatorPlating;
 	public static Block heatSink;
 	public static Block exhaustPipe;	
+	public static Block waterInjector;
+	public static Block plasmaInjector;
+
 	
 	
 	
@@ -63,8 +66,6 @@ public class BlockManager {
 	public static Block cooler; //mst
 	public static Block electrolizer; //mst
 	public static Block generatorController;//mst
-	public static Block plasmaInjector;//mst
-	public static Block waterInjector;//mst
 	
 	public BlockManager(){
 		//Initialize Blocks

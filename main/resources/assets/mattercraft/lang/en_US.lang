@@ -11,15 +11,9 @@ tile.mtc.matterInjector.name=Matter Injector
 tile.mtc.osmiumOre.name=Osmium Ore
 tile.mtc.iridiumOre.name=Iridium Ore
 tile.mtc.unstableMatter.name=Unstable Matter
-<<<<<<< HEAD
 tile.mtc.generatorController.name=Generator Controller
-=======
 tile.mtc.generatorPlating.name=Generator Plating
 tile.mtc.heatSink.name=Heat Sink
-
-
-
->>>>>>> origin/master
 
 tile.mtc.cryotheumAcceptor.name=Cryotheum Acceptor
 tile.mtc.hydrogenAcceptor.name=Hydrogen Acceptor
