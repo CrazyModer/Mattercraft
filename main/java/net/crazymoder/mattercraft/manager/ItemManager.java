@@ -9,10 +9,14 @@ public class ItemManager {
 	public ItemManager(){
 		//initialize
 		
+		
 		//configure
+		
 		
 		//texture
 		
+		
 		//register
+		
 	}
 }
