@@ -16,7 +16,6 @@ public class MultiTextureBlock extends Block{
 	}
 
 	public void registerBlockIcons(IIconRegister reg) {
-		System.out.println("X");
 	    for (int i = 0; i < 6; i ++) {
 	    	if(i == 0){
 	    		//bottom

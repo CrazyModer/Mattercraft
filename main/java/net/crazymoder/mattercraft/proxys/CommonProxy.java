@@ -4,6 +4,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.crazymoder.mattercraft.Mattercraft;
 import net.crazymoder.mattercraft.craftingmanager.ExternalCraftingManager;
 import net.crazymoder.mattercraft.manager.BlockManager;
@@ -22,10 +23,10 @@ public class CommonProxy {
 		ConfigurationManager configurationManager = new ConfigurationManager(e);
 		BlockManager blockManager = new BlockManager();
 		ItemManager itemManager = new ItemManager();
-		WorldGenManager worldGenManager = new WorldGenManager();
     	TileEntityManager tileEntityManger = new TileEntityManager();
     	ExternalCraftingManager extenalCM = new ExternalCraftingManager();
     	FluidManager fluidManager = new FluidManager();
+    	GameRegistry.registerWorldGenerator(new WorldGenManager(), 0);
 	}
 	
 	public void init(FMLInitializationEvent e){
