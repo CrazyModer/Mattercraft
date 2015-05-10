@@ -10,18 +10,19 @@ import net.crazymoder.mattercraft.blockcontainer.HeatedCryotheumEjector;
 import net.crazymoder.mattercraft.blockcontainer.HydrogenAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.LiquidMatterAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.PlasmaEjector;
+import net.crazymoder.mattercraft.blockcontainer.PlasmaInjector;
 import net.crazymoder.mattercraft.blockcontainer.ReactorCore;
 import net.crazymoder.mattercraft.blockcontainer.ReactorPowerAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.ReactorTerminal;
 import net.crazymoder.mattercraft.blockcontainer.StabilizerAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.ToxicWasteEjector;
+import net.crazymoder.mattercraft.blockcontainer.WaterInjector;
 import net.crazymoder.mattercraft.blocks.BasicBlock;
 import net.crazymoder.mattercraft.blocks.MultiTextureBlock;
 import net.crazymoder.mattercraft.tileentity.CryotheumAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.HeatedCryotheumEjectorTile;
 import net.crazymoder.mattercraft.tileentity.ToxicWasteEjectorTile;
 import net.crazymoder.mattercraft.tileentity.generator.GeneratorEnergyPortTile;
-import net.crazymoder.mattercraft.tileentity.generator.GeneratorFluidPortTile;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -50,6 +51,7 @@ public class BlockManager {
 	public static Block exhaustPipe;	
 	public static Block waterInjector;
 	public static Block plasmaInjector;
+
 	
 	
 	
@@ -66,9 +68,9 @@ public class BlockManager {
 	public static Block reactorCore;
 	public static Block cooler; //mst
 	public static Block electrolizer; //mst
-	public static Block generatorController;
 	public static Block generatorFluidPort;
 	public static Block generatorEnergyPort;
+	public static Block generatorController;//mst
 	
 	public BlockManager(){
 		//Initialize Blocks
@@ -93,7 +95,7 @@ public class BlockManager {
 		plasmaInjector = new MultiTextureBlock(Material.iron);
 		
 		
-		//Initialize Block Containers
+	    //Initialize Block Containers
 		cryotheumAcceptor = new CryotheumAcceptor();
 		hydrogenAcceptor = new HydrogenAcceptor();
 		stabilizerAcceptor = new StabilizerAcceptor();
@@ -171,8 +173,8 @@ public class BlockManager {
 		matterInjector.setBlockTextureName("mattercraft:matterInjector");
 		peltier.setBlockTextureName("mattercraft:peltier");
 		exhaustPipe.setBlockTextureName("mattercraft:exhaustPipe");
-		waterInjector.setBlockTextureName("mattercraft:waterInjector");
 		plasmaInjector.setBlockTextureName("mattercraft:plasmaInjector");
+		waterInjector.setBlockTextureName("mattercraft:waterInjector");
 		
 		
 		//Single Texture Block Container
