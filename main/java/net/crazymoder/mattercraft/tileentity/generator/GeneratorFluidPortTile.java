@@ -64,6 +64,7 @@ public class GeneratorFluidPortTile extends TileEntity implements IFluidHandler{
 			FluidTankInfo[] info = {master.watertank.getInfo(),master.plasmaTank.getInfo()};
 			return info;
 		}
-		return null;
+		FluidTankInfo[] info = {new FluidTankInfo(null, 250000)};
+		return info;
 	}
 }

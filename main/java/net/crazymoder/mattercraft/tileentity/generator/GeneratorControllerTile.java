@@ -20,10 +20,11 @@ public class GeneratorControllerTile extends TileEntity{
 	public int energyStorageDisplay = 0;
 	public int tank1Display = 0;
 	public int tank2Display = 0;
+	public boolean showGuiDisplay = false;
 	
 	public int productionRate = 0;
 	
-	public FluidTank watertank = new FluidTank(2500000);
+	public FluidTank watertank = new FluidTank(250000);
 	public FluidTank plasmaTank = new FluidTank(250000);
 	public EnergyStorage energyStorage = new EnergyStorage(2000000000,10000000);
 	
@@ -41,14 +42,13 @@ public class GeneratorControllerTile extends TileEntity{
 				direction = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
 			}
 			if(checkMbs()){
-				System.out.println("MBS OK");
 				energyPortTile.setMaster(this);
 				fluidPortTile1.setMaster(this);
 				fluidPortTile2.setMaster(this);
-				if(energyStorage.getEnergyStored() + 10000000< energyStorage.getMaxEnergyStored() && watertank.getFluidAmount() >= 25000 && plasmaTank.getFluidAmount() >= 2500){
-					productionRate = (int) (Math.min(watertank.getFluidAmount()/10f, plasmaTank.getFluidAmount())/100f);
+				if(energyStorage.getEnergyStored() + 10000000< energyStorage.getMaxEnergyStored() && watertank.getFluidAmount() >= 2500 && plasmaTank.getFluidAmount() >= 2500){
+					productionRate = (int) (Math.min(watertank.getFluidAmount()/10f, plasmaTank.getFluidAmount())/10f);
 					energyStorage.receiveEnergy(productionRate * 1000, false);
-					watertank.drain(productionRate * 10, true);
+					watertank.drain(productionRate , true);
 					plasmaTank.drain(productionRate, true);
 				}else{
 					productionRate = 0;
@@ -56,10 +56,12 @@ public class GeneratorControllerTile extends TileEntity{
 				energyStorageDisplay = energyStorage.getEnergyStored();
 				tank1Display = watertank.getFluidAmount();
 				tank2Display = plasmaTank.getFluidAmount();
+				showGuiDisplay = true;
+			}else{
+				showGuiDisplay = false;
 			}
 		}
 	}
-	
 	@Override
 	public void writeToNBT(NBTTagCompound tag) {
 		NBTTagCompound tankCompaund1 = new NBTTagCompound();
@@ -89,10 +91,11 @@ public class GeneratorControllerTile extends TileEntity{
 	public Packet getDescriptionPacket()
 	{
 		NBTTagCompound tagCompound = new NBTTagCompound();
-		tagCompound.setInteger("energy",energyStorageDisplay);
-		tagCompound.setInteger("tank1",tank1Display);
-		tagCompound.setInteger("tank2",tank2Display);
-		tagCompound.setInteger("rate",productionRate);
+		tagCompound.setInteger("energy_gui",energyStorageDisplay);
+		tagCompound.setInteger("tank1_gui",tank1Display);
+		tagCompound.setInteger("tank2_gui",tank2Display);
+		tagCompound.setInteger("rate_gui",productionRate);
+		tagCompound.setBoolean("show_gui",showGuiDisplay);
 		return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, tagCompound);
 	}
 
@@ -100,10 +103,11 @@ public class GeneratorControllerTile extends TileEntity{
 	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt)
 	{
 		NBTTagCompound tagCompound = pkt.func_148857_g();
-		energyStorageDisplay = tagCompound.getInteger("energy");
-		tank1Display = tagCompound.getInteger("tank1");
-		tank2Display = tagCompound.getInteger("tank2");
-		productionRate = tagCompound.getInteger("rate");
+		energyStorageDisplay = tagCompound.getInteger("energy_gui");
+		tank1Display = tagCompound.getInteger("tank1_gui");
+		tank2Display = tagCompound.getInteger("tank2_gui");
+		productionRate = tagCompound.getInteger("rate_gui");
+		showGuiDisplay = tagCompound.getBoolean("show_gui");
 	}
 	
 	public boolean checkMbs(){
@@ -158,7 +162,7 @@ public class GeneratorControllerTile extends TileEntity{
 		energyPortTile = (GeneratorEnergyPortTile) worldObj.getTileEntity(x + xCoord, y + yCoord, z + zCoord);
 		a++;
 		if(!isBlock("tile.mtc.generatorPlating"))return false;
-		for(y=1;y<16;y++){
+		for(y=1;y<15;y++){
 			b=0;
 			for(a=-1;a<2;a++)
 				if(!isBlock("tile.mtc.generatorPlating"))return false;
@@ -191,9 +195,9 @@ public class GeneratorControllerTile extends TileEntity{
 			a++;
 			if(!isBlock("tile.mtc.peltier"))return false;
 			a++;
-			if(!isBlock("tile.mtc.heatSink"))return false;			
+			if(!isBlock("tile.mtc.heatSink"))return false;		
 		}
-		y=16;
+		y=15;
 		a=-1;
 		b=1;
 		if(!isBlock("tile.mtc.exhaustPipe"))return false;

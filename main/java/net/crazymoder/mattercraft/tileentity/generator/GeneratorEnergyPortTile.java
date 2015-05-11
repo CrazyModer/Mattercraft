@@ -19,7 +19,27 @@ public class GeneratorEnergyPortTile extends TileEntity implements IEnergyProvid
 		if(!worldObj.isRemote && hasMaster()){
 			if(worldObj.getTileEntity(xCoord, yCoord-1, zCoord) instanceof IEnergyReceiver){
 				IEnergyReceiver te = (IEnergyReceiver) worldObj.getTileEntity(xCoord, yCoord-1, zCoord);
-				//System.out.println(te.receiveEnergy(ForgeDirection.UP, master.energyStorage.extractEnergy(master.energyStorage.getMaxExtract(), false), false));
+				master.energyStorage.extractEnergy(te.receiveEnergy(ForgeDirection.UP, master.energyStorage.extractEnergy(master.energyStorage.getMaxExtract(), true), false), false);
+			}
+			if(worldObj.getBlockMetadata(xCoord, yCoord, zCoord) == 2 && worldObj.getTileEntity(xCoord, yCoord, zCoord-1) instanceof IEnergyReceiver){
+				System.out.println("2");
+				IEnergyReceiver te = (IEnergyReceiver) worldObj.getTileEntity(xCoord, yCoord, zCoord-1);
+				master.energyStorage.extractEnergy(te.receiveEnergy(ForgeDirection.SOUTH, master.energyStorage.extractEnergy(master.energyStorage.getMaxExtract(), true), false), false);
+			}
+			if(worldObj.getBlockMetadata(xCoord, yCoord, zCoord) == 3 && worldObj.getTileEntity(xCoord, yCoord, zCoord+1) instanceof IEnergyReceiver){
+				System.out.println("3");
+				IEnergyReceiver te = (IEnergyReceiver) worldObj.getTileEntity(xCoord, yCoord, zCoord+1);
+				master.energyStorage.extractEnergy(te.receiveEnergy(ForgeDirection.NORTH, master.energyStorage.extractEnergy(master.energyStorage.getMaxExtract(), true), false), false);
+			}
+			if(worldObj.getBlockMetadata(xCoord, yCoord, zCoord) == 4 && worldObj.getTileEntity(xCoord-1, yCoord, zCoord) instanceof IEnergyReceiver){
+				System.out.println("4");
+				IEnergyReceiver te = (IEnergyReceiver) worldObj.getTileEntity(xCoord-1, yCoord, zCoord);
+				master.energyStorage.extractEnergy(te.receiveEnergy(ForgeDirection.EAST, master.energyStorage.extractEnergy(master.energyStorage.getMaxExtract(), true), false), false);
+			}
+			if(worldObj.getBlockMetadata(xCoord, yCoord, zCoord) == 5 && worldObj.getTileEntity(xCoord+1, yCoord, zCoord) instanceof IEnergyReceiver){
+				System.out.println("5");
+				IEnergyReceiver te = (IEnergyReceiver) worldObj.getTileEntity(xCoord+1, yCoord, zCoord);
+				master.energyStorage.extractEnergy(te.receiveEnergy(ForgeDirection.WEST, master.energyStorage.extractEnergy(master.energyStorage.getMaxExtract(), true), false), false);
 			}
 		}
 	}
