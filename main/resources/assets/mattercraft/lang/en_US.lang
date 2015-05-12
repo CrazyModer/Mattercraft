@@ -41,7 +41,6 @@ tile.mtc.heatedCryotheum.name=Heated Cryotheum
 tile.mtc.liquidStabilizer.name=Liquid Stabilizer
 tile.mtc.liquidMatter.name=Liquid Matter
 
-item.mtc.key.name=Key
 
 
 fluid.mtc.ionizedPlasma=Ionized Plasma
@@ -58,6 +57,10 @@ item.mtc.hydrogenBucket.name=Hydrogen Bucket
 item.mtc.heatedCryotheumBucket.name=Heated Cryotheum Bucket
 item.mtc.liquidStabilizerBucket.name=Liquid Stabilizer Bucket
 item.mtc.liquidMatterBucket.name=Liquid Matter Bucket
+item.mtc.absorber.name=Absorber
+item.mtc.absorbedToxicWaste.name=Absorbed Toxic Waste
+item.mtc.stabilizerDust.name=Stabilizer Dust
+item.mtc.enrichedStabilizerDust.name=Enriched Stabilizer Dust 
 
 
 itemGroup.mtc.blocks=Matter Blocks
