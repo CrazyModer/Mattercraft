@@ -7,6 +7,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.crazymoder.mattercraft.Mattercraft;
 import net.crazymoder.mattercraft.craftingmanager.ThermalExpansionCraftingManager;
+import net.crazymoder.mattercraft.craftingmanager.VanillaCraftingManager;
 import net.crazymoder.mattercraft.manager.BlockManager;
 import net.crazymoder.mattercraft.manager.ConfigurationManager;
 import net.crazymoder.mattercraft.manager.FluidManager;
@@ -26,13 +27,14 @@ public class CommonProxy {
 		ItemManager itemManager = new ItemManager();
 		ItemBlockManager itemBlockManager = new ItemBlockManager();
     	TileEntityManager tileEntityManger = new TileEntityManager();
-    	ThermalExpansionCraftingManager extenalCM = new ThermalExpansionCraftingManager();
     	FluidManager fluidManager = new FluidManager();
     	GameRegistry.registerWorldGenerator(new WorldGenManager(), 0);
 	}
 	
 	public void init(FMLInitializationEvent e){
 		NetworkRegistry.INSTANCE.registerGuiHandler(Mattercraft.INSTANCE, new GuiManager());
+		ThermalExpansionCraftingManager thermalExpansionCraftingManager = new ThermalExpansionCraftingManager();
+		VanillaCraftingManager vanillaCraftingManager = new VanillaCraftingManager();
 	}
 	
 	public void postInit(FMLPostInitializationEvent e){
