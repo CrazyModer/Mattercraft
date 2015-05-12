@@ -33,6 +33,11 @@ tile.mtc.electrolizer.name=Electrolyzer
 tile.mtc.generatorController.name=Generator Controller
 tile.mtc.generatorEnergyPort.name=Generator Energy Port
 tile.mtc.generatorFluidPort.name=Generator Fluid Port
+tile.mtc.reactorFrame.name=Reactor Frame
+tile.mtc.advancedReactorFrame.name=Advanced Reactor Frame
+tile.mtc.stoneWool.name=Stone Wool
+tile.mtc.matterBlock.name=Block of Matter
+
 
 tile.mtc.ionizedPlasma.name=Ionized Plasma
 tile.mtc.toxicWaste.name=Toxic Waste
