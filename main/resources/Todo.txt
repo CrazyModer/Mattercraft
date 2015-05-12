@@ -1,14 +1,14 @@
 @Domi
-
+Absorber
+Absorbed Toxic Waste
+Stabilizer Dust
+Enriched Stabilizer Dust
 
 @Sven
-BlockManager
-//WorldGenManager
-
-IriduimOre
-OsmiumOre
+Reactor Frame
+Advanced Reactor Frame
 
 @Daniel
-NBT
+
 
 Kommentare
