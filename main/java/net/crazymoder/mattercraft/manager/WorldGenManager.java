@@ -31,18 +31,14 @@ public class WorldGenManager implements IWorldGenerator {
 	}
 
 	private void generateEnd(World world, Random random, int x, int z) {
-		generateBlock(BlockManager.osmiumOre, world, random, x, z, 200, 20, 100);
-		generateBlock(BlockManager.iridiumOre, world, random, x, z, 200, 20, 100);
 	}
 
 	private void generateSurface(World world, Random random, int x, int z) {
-		generateBlock(BlockManager.osmiumOre, world, random, x, z, 5, 2, 2);
-		generateBlock(BlockManager.iridiumOre, world, random, x, z, 5, 2, 2);
+		generateBlock(BlockManager.osmiumOre, world, random, x, z, 10, 10, 2);
+		generateBlock(BlockManager.iridiumOre, world, random, x, z, 10, 10, 2);
 	}
 
 	private void generateNether(World world, Random random, int x, int z) {
-		generateBlock(BlockManager.osmiumOre, world, random, x, z, 10, 10, 10);
-		generateBlock(BlockManager.iridiumOre, world, random, x, z, 10, 10, 10);
 	}
 	
 	private void generateBlock(Block block,World world,Random random,int x,int z,int maxY,int size,int rate){

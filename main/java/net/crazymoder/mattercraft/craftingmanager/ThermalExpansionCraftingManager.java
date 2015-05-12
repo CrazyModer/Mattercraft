@@ -7,8 +7,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 
-public class ExternalCraftingManager {
-	public ExternalCraftingManager(){
+public class ThermalExpansionCraftingManager {
+	public ThermalExpansionCraftingManager(){
 		ItemStack diablock = new ItemStack(Blocks.diamond_block);
 		ItemStack diaitem = new ItemStack(Items.diamond,9);
 		ItemStack emerald = new ItemStack(Items.emerald,1);

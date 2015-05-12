@@ -1,6 +1,6 @@
 package net.crazymoder.mattercraft;
 
-import net.crazymoder.mattercraft.craftingmanager.ExternalCraftingManager;
+import net.crazymoder.mattercraft.craftingmanager.ThermalExpansionCraftingManager;
 import net.crazymoder.mattercraft.manager.BlockManager;
 import net.crazymoder.mattercraft.manager.FluidManager;
 import net.crazymoder.mattercraft.manager.TileEntityManager;
