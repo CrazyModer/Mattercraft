@@ -66,6 +66,7 @@ item.mtc.absorber.name=Absorber
 item.mtc.absorbedToxicWaste.name=Absorbed Toxic Waste
 item.mtc.stabilizerDust.name=Stabilizer Dust
 item.mtc.enrichedStabilizerDust.name=Enriched Stabilizer Dust 
+item.mtc.glasDust.name=Glass Dust
 
 
 itemGroup.mtc.blocks=Matter Blocks
