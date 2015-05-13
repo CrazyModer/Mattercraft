@@ -12,25 +12,28 @@ public class ItemManager {
 	public static Item absorbedToxicWaste; 
 	public static Item stabilizerDust;
 	public static Item enrichedStabilizerDust; 
-	
+	public static Item glasDust;
+
 	public ItemManager(){
 		//initialize
 		absorber = new BasicItem("mtc.absorber");
 		absorbedToxicWaste = new BasicItem("mtc.absorbedToxicWaste");
 		stabilizerDust = new BasicItem("mtc.stabilizerDust");
 		enrichedStabilizerDust = new BasicItem("mtc.enrichedStabilizerDust");
+		glasDust = new BasicItem("mtc.glasDust");
 		
 		//texture
 		absorber.setTextureName("mattercraft:absorber");
 		absorbedToxicWaste.setTextureName("mattercraft:absorbedToxicWaste");
 		stabilizerDust.setTextureName("mattercraft:stabilizerDust"); 
 		enrichedStabilizerDust.setTextureName("mattercraft:enrichedStabilizerDust");
+		glasDust.setTextureName("mattercraft:glasDust");
 		
 		//register
 		GameRegistry.registerItem(absorber, "mtc.absorber");
 		GameRegistry.registerItem(absorbedToxicWaste, "mtc.absorbedToxicWaste");
 		GameRegistry.registerItem(stabilizerDust, "mtc.stabilizerDust");
 		GameRegistry.registerItem(enrichedStabilizerDust, "mtc.enrichedStabilizerDust");
-		
+		GameRegistry.registerItem(glasDust, "mtc.glasDust");
 	}
 }
