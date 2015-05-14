@@ -1,7 +1,9 @@
 package net.crazymoder.mattercraft.tileentity.generator;
 
 import cofh.api.energy.EnergyStorage;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;

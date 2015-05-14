@@ -16,21 +16,21 @@ import net.minecraftforge.fluids.FluidRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class LiquidMatter {
-		Fluid liquidMatter;
-		Block liquidMatterBlock;
-		Item liquidMatterBucket;
-		public LiquidMatter(){
-			liquidMatter = new Fluid("mtc.liquidMatter");
-			liquidMatter.setTemperature(100000).setDensity(1).setViscosity(50).setGaseous(false).setUnlocalizedName("mtc.liquidMatter");
-			FluidRegistry.registerFluid(liquidMatter);
-			liquidMatterBlock = new BasicFluidBlock(liquidMatter, Material.water, "mattercraft:liquidMatter");
-			liquidMatterBlock.setBlockName("mtc.liquidMatter");
-			GameRegistry.registerBlock(liquidMatterBlock, "mtc.liquidMatter");
-			liquidMatterBucket = new ItemBucket(liquidMatterBlock);
-			liquidMatterBucket.setUnlocalizedName("mtc.liquidMatterBucket").setTextureName("mattercraft:liquidMatterBucket").setContainerItem(Items.bucket).setCreativeTab(CreativeTabManager.tabItems);
-			GameRegistry.registerItem(liquidMatterBucket, "mtc.liquidMatterBucket");
-			FluidContainerRegistry.registerFluidContainer(liquidMatter, new ItemStack(liquidMatterBucket), new ItemStack(Items.bucket));
-			BucketManager.INSTANCE.buckets.put(liquidMatterBlock, liquidMatterBucket);
-		}
+	public static Fluid liquidMatter;
+	public static Block liquidMatterBlock;
+	public static Item liquidMatterBucket;
+	public LiquidMatter(){
+		liquidMatter = new Fluid("mtc.liquidMatter");
+		liquidMatter.setTemperature(100000).setDensity(1).setViscosity(50).setGaseous(false).setUnlocalizedName("mtc.liquidMatter");
+		FluidRegistry.registerFluid(liquidMatter);
+		liquidMatterBlock = new BasicFluidBlock(liquidMatter, Material.water, "mattercraft:liquidMatter");
+		liquidMatterBlock.setBlockName("mtc.liquidMatter");
+		GameRegistry.registerBlock(liquidMatterBlock, "mtc.liquidMatter");
+		liquidMatterBucket = new ItemBucket(liquidMatterBlock);
+		liquidMatterBucket.setUnlocalizedName("mtc.liquidMatterBucket").setTextureName("mattercraft:liquidMatterBucket").setContainerItem(Items.bucket).setCreativeTab(CreativeTabManager.tabItems);
+		GameRegistry.registerItem(liquidMatterBucket, "mtc.liquidMatterBucket");
+		FluidContainerRegistry.registerFluidContainer(liquidMatter, new ItemStack(liquidMatterBucket), new ItemStack(Items.bucket));
+		BucketManager.INSTANCE.buckets.put(liquidMatterBlock, liquidMatterBucket);
+	}
 			
 }

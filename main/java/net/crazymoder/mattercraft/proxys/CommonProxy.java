@@ -6,6 +6,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.crazymoder.mattercraft.Mattercraft;
+import net.crazymoder.mattercraft.craftingmanager.SmeltingManager;
 import net.crazymoder.mattercraft.craftingmanager.ThermalExpansionCraftingManager;
 import net.crazymoder.mattercraft.craftingmanager.VanillaCraftingManager;
 import net.crazymoder.mattercraft.manager.BlockManager;
@@ -33,11 +34,12 @@ public class CommonProxy {
 	
 	public void init(FMLInitializationEvent e){
 		NetworkRegistry.INSTANCE.registerGuiHandler(Mattercraft.INSTANCE, new GuiManager());
-		ThermalExpansionCraftingManager thermalExpansionCraftingManager = new ThermalExpansionCraftingManager();
-		VanillaCraftingManager vanillaCraftingManager = new VanillaCraftingManager();
 	}
 	
 	public void postInit(FMLPostInitializationEvent e){
+		ThermalExpansionCraftingManager thermalExpansionCraftingManager = new ThermalExpansionCraftingManager();
+		SmeltingManager smeltingManager = new SmeltingManager();
+		VanillaCraftingManager vanillaCraftingManager = new VanillaCraftingManager();
 		System.out.println("Mattercraft loaded!");
 	}
 	

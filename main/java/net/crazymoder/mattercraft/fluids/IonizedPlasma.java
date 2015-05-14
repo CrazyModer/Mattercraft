@@ -16,12 +16,12 @@ import net.minecraftforge.fluids.FluidRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class IonizedPlasma {
-		Fluid ionizedPlasma;
-		Block ionizedPlasmaBlock;
-		Item ionizedPlasmaBucket;
+	public static Fluid ionizedPlasma;
+	public static Block ionizedPlasmaBlock;
+	public static Item ionizedPlasmaBucket;
 		public IonizedPlasma(){
 			ionizedPlasma = new Fluid("mtc.ionizedPlasma");
-			ionizedPlasma.setTemperature(100000).setDensity(1).setViscosity(5000).setGaseous(true).setUnlocalizedName("mtc.ionizedPlasma");
+			ionizedPlasma.setTemperature(100000).setDensity(1).setViscosity(100).setGaseous(true).setUnlocalizedName("mtc.ionizedPlasma");
 			FluidRegistry.registerFluid(ionizedPlasma);
 			ionizedPlasmaBlock = new BasicFluidBlock(ionizedPlasma, Material.water, "mattercraft:ionizedPlasma");
 			ionizedPlasmaBlock.setBlockName("mtc.ionizedPlasma");

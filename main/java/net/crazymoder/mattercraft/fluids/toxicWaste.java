@@ -16,12 +16,12 @@ import net.minecraftforge.fluids.FluidRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ToxicWaste {
-		Fluid toxicWaste;
-		Block toxicWasteBlock;
-		Item toxicWasteBucket;
+		public static Fluid toxicWaste;
+		public static Block toxicWasteBlock;
+		public static Item toxicWasteBucket;
 		public ToxicWaste(){
 			toxicWaste = new Fluid("mtc.toxicWaste");
-			toxicWaste.setTemperature(317).setDensity(1).setViscosity(7000).setGaseous(false).setUnlocalizedName("mtc.toxicWaste");
+			toxicWaste.setTemperature(317).setDensity(1).setViscosity(5).setGaseous(false).setUnlocalizedName("mtc.toxicWaste");
 			FluidRegistry.registerFluid(toxicWaste);
 			toxicWasteBlock = new BasicFluidBlock(toxicWaste, Material.water, "mattercraft:toxicWaste");
 			toxicWasteBlock.setBlockName("mtc.toxicWaste");

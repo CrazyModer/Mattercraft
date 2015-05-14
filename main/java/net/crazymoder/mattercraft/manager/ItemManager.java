@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 
 public class ItemManager {
 	
+	
 	//declarate
 	public static Item absorber;
 	public static Item absorbedToxicWaste; 
@@ -30,7 +31,7 @@ public class ItemManager {
 		glasDust.setTextureName("mattercraft:glasDust");
 		
 		//register
-		GameRegistry.registerItem(absorber, "mtc.absorber");
+		GameRegistry.registerItem(absorber, "mtc.absorber","mattercraft");
 		GameRegistry.registerItem(absorbedToxicWaste, "mtc.absorbedToxicWaste");
 		GameRegistry.registerItem(stabilizerDust, "mtc.stabilizerDust");
 		GameRegistry.registerItem(enrichedStabilizerDust, "mtc.enrichedStabilizerDust");

@@ -16,9 +16,9 @@ import net.minecraftforge.fluids.FluidRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Hydrogen {
-		Fluid hydrogen;
-		Block hydrogenBlock;
-		Item hydrogenBucket;
+	public static Fluid hydrogen;
+	public static Block hydrogenBlock;
+	public static Item hydrogenBucket;
 		public Hydrogen(){
 			hydrogen = new Fluid("mtc.hydrogen");
 			hydrogen.setTemperature(372).setDensity(1).setViscosity(500).setGaseous(true).setUnlocalizedName("mtc.hydrogen");

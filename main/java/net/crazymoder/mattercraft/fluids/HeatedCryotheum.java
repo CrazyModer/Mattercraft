@@ -16,9 +16,9 @@ import net.minecraftforge.fluids.FluidRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class HeatedCryotheum {
-		Fluid heatedCryotheum;
-		Block heatedCryotheumBlock;
-		Item heatedCryotheumBucket;
+	public static Fluid heatedCryotheum;
+	public static Block heatedCryotheumBlock;
+	public static Item heatedCryotheumBucket;
 		public HeatedCryotheum(){
 			heatedCryotheum = new Fluid("mtc.heatedCryotheum");
 			heatedCryotheum.setTemperature(100000).setDensity(1).setViscosity(50).setGaseous(false).setUnlocalizedName("mtc.heatedCryotheum");

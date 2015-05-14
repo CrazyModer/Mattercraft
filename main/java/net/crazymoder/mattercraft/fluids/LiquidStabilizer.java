@@ -16,9 +16,9 @@ import net.minecraftforge.fluids.FluidRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class LiquidStabilizer {
-		Fluid liquidStabilizer;
-		Block liquidStabilizerBlock;
-		Item liquidStabilizerBucket;
+	public static Fluid liquidStabilizer;
+	public static Block liquidStabilizerBlock;
+	public static Item liquidStabilizerBucket;
 		public LiquidStabilizer(){
 			liquidStabilizer = new Fluid("mtc.liquidStabilizer");
 			liquidStabilizer.setTemperature(1).setDensity(1).setViscosity(500).setGaseous(false).setUnlocalizedName("mtc.liquidStabilizer");
