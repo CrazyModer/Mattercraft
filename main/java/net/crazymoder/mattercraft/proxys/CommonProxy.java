@@ -7,6 +7,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.crazymoder.mattercraft.Mattercraft;
 import net.crazymoder.mattercraft.craftingmanager.SmeltingManager;
+import net.crazymoder.mattercraft.craftingmanager.StaticItemStacks;
 import net.crazymoder.mattercraft.craftingmanager.ThermalExpansionCraftingManager;
 import net.crazymoder.mattercraft.craftingmanager.VanillaCraftingManager;
 import net.crazymoder.mattercraft.manager.BlockManager;
@@ -37,6 +38,7 @@ public class CommonProxy {
 	}
 	
 	public void postInit(FMLPostInitializationEvent e){
+		StaticItemStacks.init();
 		ThermalExpansionCraftingManager thermalExpansionCraftingManager = new ThermalExpansionCraftingManager();
 		SmeltingManager smeltingManager = new SmeltingManager();
 		VanillaCraftingManager vanillaCraftingManager = new VanillaCraftingManager();

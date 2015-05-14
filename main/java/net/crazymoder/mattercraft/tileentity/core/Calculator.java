@@ -82,9 +82,9 @@ public class Calculator {
 		if(log.stabilizer_a < 1000){
 			core.deactivate();
 		}else{
-			log.stabilizer_a -= 20 + stab*100;
-			if(log.toxicWaste_a + 20 + stab*100 < log.toxicWaste_m)
-				log.toxicWaste_a += 20 + stab*100;
+			log.stabilizer_a -= 4 + stab*10;
+			if(log.toxicWaste_a + 4 + stab*10 < log.toxicWaste_m)
+				log.toxicWaste_a += 4 + stab*10;
 		}
 		if(log.energy_a > 1000000){
 			log.energy_a -= 20000;

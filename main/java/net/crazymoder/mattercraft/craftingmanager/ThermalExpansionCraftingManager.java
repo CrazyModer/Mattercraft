@@ -1,6 +1,9 @@
 package net.crazymoder.mattercraft.craftingmanager;
 
 import cofh.api.modhelpers.ThermalExpansionHelper;
+import net.crazymoder.mattercraft.fluids.IonizedPlasma;
+import net.crazymoder.mattercraft.fluids.LiquidMatter;
+import net.crazymoder.mattercraft.fluids.LiquidStabilizer;
 import net.crazymoder.mattercraft.fluids.ToxicWaste;
 import net.crazymoder.mattercraft.manager.ItemBlockManager;
 import net.crazymoder.mattercraft.manager.ItemManager;
@@ -19,10 +22,32 @@ public class ThermalExpansionCraftingManager {
 				new ItemStack(ItemManager.absorber),
 				new ItemStack(Items.string),50);
 		
+		ThermalExpansionHelper.addPulverizerRecipe(1000,
+				new ItemStack(Blocks.glass_pane),
+				new ItemStack(ItemManager.glasDust));
+		
 		ThermalExpansionHelper.addTransposerFill(1000,
 				new ItemStack(ItemManager.absorber),
 				new ItemStack(ItemManager.absorbedToxicWaste),
 				new FluidStack(ToxicWaste.toxicWaste, 1000), false);
+		
+		ThermalExpansionHelper.addTransposerFill(1000,
+				new ItemStack(ItemManager.glasDust),
+				new ItemStack(Items.glowstone_dust),
+				new FluidStack(IonizedPlasma.ionizedPlasma, 8000), false);
+		
+		ThermalExpansionHelper.addTransposerFill(1000,
+				new ItemStack(ItemBlockManager.tripleCommpressedMatterBlock),
+				new ItemStack(ItemBlockManager.superCommpressedMatterBlock),
+				new FluidStack(LiquidMatter.liquidMatter, 1000), false);
+		
+		ThermalExpansionHelper.addChargerRecipe(100000, new ItemStack(ItemManager.stabilizerDust), new ItemStack(ItemManager.enrichedStabilizerDust));
+		
+		ThermalExpansionHelper.addCrucibleRecipe(10000, new ItemStack(ItemManager.enrichedStabilizerDust), new FluidStack(LiquidStabilizer.liquidStabilizer, 1000));
+		
+		ThermalExpansionHelper.addCrucibleRecipe(100000, new ItemStack(ItemBlockManager.tripleCommpressedMatterBlock), new FluidStack(LiquidMatter.liquidMatter, 50));
+		
+		ThermalExpansionHelper.addCrucibleRecipe(100000, new ItemStack(ItemBlockManager.superCommpressedMatterBlock), new FluidStack(LiquidMatter.liquidMatter, 10000));
 		
 	}
 }
