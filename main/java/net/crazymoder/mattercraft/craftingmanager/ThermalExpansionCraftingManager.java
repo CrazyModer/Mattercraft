@@ -47,7 +47,7 @@ public class ThermalExpansionCraftingManager {
 		
 		ThermalExpansionHelper.addCrucibleRecipe(100000, new ItemStack(ItemBlockManager.tripleCommpressedMatterBlock), new FluidStack(LiquidMatter.liquidMatter, 50));
 		
-		ThermalExpansionHelper.addCrucibleRecipe(100000, new ItemStack(ItemBlockManager.superCommpressedMatterBlock), new FluidStack(LiquidMatter.liquidMatter, 10000));
+		ThermalExpansionHelper.addCrucibleRecipe(50000, new ItemStack(ItemBlockManager.superCommpressedMatterBlock), new FluidStack(LiquidMatter.liquidMatter, 20000));
 		
 	}
 }
