@@ -19,6 +19,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.ConfigCategory;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class OreRegistry {
 	
@@ -45,7 +46,10 @@ public class OreRegistry {
 		for (String entry : loadedVal) {
 			String[] entrySplit = entry.split(":");
 			if(entrySplit.length == 2){
-				
+				if(OreDictionary.getOres(entrySplit[1]).size() > 0){
+					ItemStack ore = OreDictionary.getOres(entrySplit[1]).get(0);
+					Ores.add(new WeightedRandomItemStack(ore.copy(), Integer.parseInt(entrySplit[0])));
+				}
 			}
 		}
 	}
