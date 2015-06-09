@@ -1,5 +1,7 @@
 package net.crazymoder.mattercraft.proxys;
 
+import java.io.File;
+
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -19,12 +21,18 @@ import net.crazymoder.mattercraft.manager.ItemManager;
 import net.crazymoder.mattercraft.manager.TileEntityManager;
 import net.crazymoder.mattercraft.manager.TileRenderingManager;
 import net.crazymoder.mattercraft.manager.WorldGenManager;
+import net.crazymoder.mattercraft.transdimensionalMiner.OreRegistry;
 import net.minecraft.world.World;
 
 public class CommonProxy {
 	
 	public void preInit(FMLPreInitializationEvent e){
 		ConfigurationManager configurationManager = new ConfigurationManager(e);
+		String configFile = e.getSuggestedConfigurationFile().getAbsolutePath();
+		System.out.println(configFile);
+		configFile = configFile.substring(0, configFile.length() - 4);
+		configFile += "_VoidMinerOres.cfg";
+		OreRegistry.init(new File(configFile));
 		BlockManager blockManager = new BlockManager();
 		ItemManager itemManager = new ItemManager();
 		ItemBlockManager itemBlockManager = new ItemBlockManager();
