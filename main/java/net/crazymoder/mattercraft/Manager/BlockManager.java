@@ -11,6 +11,7 @@ import net.crazymoder.mattercraft.blockcontainer.HydrogenAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.LiquidMatterAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.PlasmaEjector;
 import net.crazymoder.mattercraft.blockcontainer.PlasmaInjector;
+import net.crazymoder.mattercraft.blockcontainer.Quarry;
 import net.crazymoder.mattercraft.blockcontainer.ReactorCore;
 import net.crazymoder.mattercraft.blockcontainer.ReactorPowerAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.ReactorTerminal;
@@ -71,6 +72,7 @@ public class BlockManager {
 	public static Block generatorFluidPort;
 	public static Block generatorEnergyPort;
 	public static Block generatorController;//mst
+	public static Block quarry;
 	
 	public BlockManager(){
 		//Initialize Blocks
@@ -111,6 +113,7 @@ public class BlockManager {
 		generatorController = new GeneratorController();
 		generatorEnergyPort = new GeneratorEnergyPort();
 		generatorFluidPort = new GeneratorFluidPort();
+		quarry = new Quarry();
 		
 		//Configure Blocks
 		groundPlating.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.groundPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
@@ -150,6 +153,7 @@ public class BlockManager {
 		generatorController.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.generatorController").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		generatorEnergyPort.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.generatorEnergyPort").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		generatorFluidPort.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.generatorFluidPort").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		quarry.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.quarry").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		
 		//Single Texture Blocks
 		groundPlating.setBlockTextureName("mattercraft:groundPlating");
@@ -195,6 +199,7 @@ public class BlockManager {
 		generatorController.setBlockTextureName("mattercraft:generatorController");
 		generatorEnergyPort.setBlockTextureName("mattercraft:generatorEnergyPort");
 		generatorFluidPort.setBlockTextureName("mattercraft:generatorFluidPort");
+		quarry.setBlockTextureName("mattercraft:quarry");
 		
 		//Register Blocks
 		GameRegistry.registerBlock(groundPlating, "mtc.groundPlating");
@@ -233,6 +238,7 @@ public class BlockManager {
 		GameRegistry.registerBlock(generatorController, "mtc.generatorController");
 		GameRegistry.registerBlock(generatorEnergyPort, "mtc.generatorEnergyPort");
 		GameRegistry.registerBlock(generatorFluidPort, "mtc.generatorFluidPort");
+		GameRegistry.registerBlock(quarry, "mtc.quarry");
 	}
 }
 

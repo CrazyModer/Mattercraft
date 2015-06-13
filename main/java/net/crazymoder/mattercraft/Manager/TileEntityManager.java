@@ -8,6 +8,7 @@ import net.crazymoder.mattercraft.tileentity.HeatedCryotheumEjectorTile;
 import net.crazymoder.mattercraft.tileentity.HydrogenAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.LiquidMatterAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.PlasmaEjectorTile;
+import net.crazymoder.mattercraft.tileentity.QuarryTile;
 import net.crazymoder.mattercraft.tileentity.ReactorPowerAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.ReactorTerminalTile;
 import net.crazymoder.mattercraft.tileentity.StabilizerAcceptorTile;
@@ -35,5 +36,6 @@ public class TileEntityManager {
 		GameRegistry.registerTileEntity(GeneratorControllerTile.class, "mtc.generatorControllerTile");
 		GameRegistry.registerTileEntity(GeneratorFluidPortTile.class, "mtc.generatorFluidPortTile");
 		GameRegistry.registerTileEntity(GeneratorEnergyPortTile.class, "mtc.generatorEnergyPortTile");
+		GameRegistry.registerTileEntity(QuarryTile.class, "mtc.quarryTil");
 	}
 }
