@@ -26,7 +26,7 @@ public class CostomInventory {
 					entry.setValue(entry.getValue()+amount);
 					exists = true;
 				}
-			} catch (Exception e) {}
+			} catch (Exception e) {exists = true;}
 		}
 		if(!exists){
 			inv.put(itemStack, amount);
