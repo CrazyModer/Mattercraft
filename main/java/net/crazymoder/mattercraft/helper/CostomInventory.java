@@ -21,11 +21,12 @@ public class CostomInventory {
 		itemStack.stackSize = 1;
 		boolean exists = false;
 		for(Entry<ItemStack, Integer> entry : inv.entrySet()) {
-			if(entry.getKey().getUnlocalizedName() == itemStack.getUnlocalizedName()){
-				System.out.println("exists");
-				entry.setValue(entry.getValue()+amount);
-				exists = true;
-			}
+			try {
+				if(entry.getKey().getUnlocalizedName().equals(itemStack.getUnlocalizedName()) && entry.getKey().getAttributeModifiers().equals(itemStack.getAttributeModifiers()) && entry.getKey().getItemDamage() == itemStack.getItemDamage()){
+					entry.setValue(entry.getValue()+amount);
+					exists = true;
+				}
+			} catch (Exception e) {}
 		}
 		if(!exists){
 			inv.put(itemStack, amount);
@@ -43,12 +44,12 @@ public class CostomInventory {
 	public int getStackCount(){
 		return 0;
 	}
-	public String[][] getInfo(){
-		List<String[]> info = new ArrayList<String[]>();
+	public int getTypeCount(){
+		return 0;
+	}
+	public void Log(){
 		for(Entry<ItemStack, Integer> entry : inv.entrySet()) {
-			String[] entryInfo = {entry.getKey().getUnlocalizedName(),entry.getValue().toString()};
-			info.add(entryInfo);
+			System.out.println("Item: " + entry.getKey().getUnlocalizedName() + " Amount: " + entry.getValue().toString());
 		}
-		return (String[][]) info.toArray();
 	}
 }

@@ -117,7 +117,6 @@ public class ChunkRegistratorTile extends TileEntity{
 		chunk.isTerrainPopulated = false;
 		cps.populate(wld.getChunkProvider(), x, z);
 		cps.recreateStructures(x, z);
-		System.out.println("Chunk "+ x + " "+ z + " populated");
 		for (int i = 0; i < 16; i++) {
 			for (int j = 0; j < 16; j++) {
 				for (int k = 0; k < worldObj.getHeight(); k++) {
@@ -130,16 +129,20 @@ public class ChunkRegistratorTile extends TileEntity{
 							Item item = block.getItemDropped(1, new Random(), worldObj.getBlockMetadata(xCoord, yCoord, zCoord));
 							stack = new ItemStack(item);
 						}
-						System.out.println(stack.getUnlocalizedName());
-						inv.addItemStack(1, stack);
+						if(stack != null)
+							inv.addItemStack(1, stack);
 					}
 				}
 			}
 		}
-		/*String[][] info = inv.getInfo();
-		for (String[] infoSet : info) {
-			System.out.println("Name: "+infoSet[0]+ " Amount: "+ infoSet[1]);
-		}*/
+		inv.Log();
+		System.out.println("Chunk "+ x + " "+ z + " populated");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
 	}
 	
 	private boolean toMine(Block block,String popBlock){
