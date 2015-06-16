@@ -139,10 +139,6 @@ public class ChunkRegistratorTile extends TileEntity{
 		System.out.println("Chunk "+ x + " "+ z + " populated");
 		System.out.println("");
 		System.out.println("");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
 	}
 	
 	private boolean toMine(Block block,String popBlock){

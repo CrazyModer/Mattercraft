@@ -39,17 +39,40 @@ public class CostomInventory {
 		return null;
 	}
 	public int getItemCount(){
-		return 0;
+		int count = 0;
+		for(Entry<ItemStack, Integer> entry : inv.entrySet()) {
+			count += entry.getValue().intValue();
+		}
+		return count;
 	}
 	public int getStackCount(){
-		return 0;
+		int count = 0;
+		for(Entry<ItemStack, Integer> entry : inv.entrySet()) {
+			int icount = entry.getValue().intValue();
+		    int i = (int) (icount/64f);
+		    if(i != icount/64f)i++;
+		    count += i;
+		}
+		return count;
 	}
 	public int getTypeCount(){
-		return 0;
+		int count = 0;
+		for(Entry<ItemStack, Integer> entry : inv.entrySet()) {
+			count++;
+		}
+		return count;
 	}
+	public HashMap<ItemStack, Integer> getMap(){
+		return inv;
+	}
+	
 	public void Log(){
+		int count = 0;
 		for(Entry<ItemStack, Integer> entry : inv.entrySet()) {
 			System.out.println("Item: " + entry.getKey().getUnlocalizedName() + " Amount: " + entry.getValue().toString());
 		}
+		System.out.println("Items: "+getItemCount());
+		System.out.println("Types: "+getTypeCount());
+		System.out.println("Stacks: "+getStackCount());
 	}
 }

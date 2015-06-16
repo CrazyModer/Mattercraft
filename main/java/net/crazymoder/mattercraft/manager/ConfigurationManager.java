@@ -48,7 +48,6 @@ public class ConfigurationManager {
 		Block block = null;
 		try {
 			block = GameRegistry.findBlock(modId, name);
-			System.out.println("Name: "+block.getLocalizedName());
 		} catch (Exception e) {
 			System.out.println("ERROR in Config File");
 		}
