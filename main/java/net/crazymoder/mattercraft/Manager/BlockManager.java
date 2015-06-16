@@ -1,5 +1,6 @@
 package net.crazymoder.mattercraft.manager;
 
+import net.crazymoder.mattercraft.blockcontainer.ChunkRegistrator;
 import net.crazymoder.mattercraft.blockcontainer.Cooler;
 import net.crazymoder.mattercraft.blockcontainer.CryotheumAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.Electrolizer;
@@ -73,6 +74,7 @@ public class BlockManager {
 	public static Block generatorEnergyPort;
 	public static Block generatorController;//mst
 	public static Block quarry;
+	public static Block chunkRegistrator;
 	
 	public BlockManager(){
 		//Initialize Blocks
@@ -114,6 +116,7 @@ public class BlockManager {
 		generatorEnergyPort = new GeneratorEnergyPort();
 		generatorFluidPort = new GeneratorFluidPort();
 		quarry = new Quarry();
+		chunkRegistrator = new ChunkRegistrator();
 		
 		//Configure Blocks
 		groundPlating.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.groundPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
@@ -154,6 +157,7 @@ public class BlockManager {
 		generatorEnergyPort.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.generatorEnergyPort").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		generatorFluidPort.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.generatorFluidPort").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		quarry.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.quarry").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		chunkRegistrator.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.chunkRegistrator").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		
 		//Single Texture Blocks
 		groundPlating.setBlockTextureName("mattercraft:groundPlating");
@@ -200,6 +204,7 @@ public class BlockManager {
 		generatorEnergyPort.setBlockTextureName("mattercraft:generatorEnergyPort");
 		generatorFluidPort.setBlockTextureName("mattercraft:generatorFluidPort");
 		quarry.setBlockTextureName("mattercraft:quarry");
+		chunkRegistrator.setBlockTextureName("mattercraft:chunkRegistrator");
 		
 		//Register Blocks
 		GameRegistry.registerBlock(groundPlating, "mtc.groundPlating");
@@ -239,6 +244,7 @@ public class BlockManager {
 		GameRegistry.registerBlock(generatorEnergyPort, "mtc.generatorEnergyPort");
 		GameRegistry.registerBlock(generatorFluidPort, "mtc.generatorFluidPort");
 		GameRegistry.registerBlock(quarry, "mtc.quarry");
+		GameRegistry.registerBlock(chunkRegistrator, "mtc.chunkRegistrator");
 	}
 }
 

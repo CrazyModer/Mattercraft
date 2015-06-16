@@ -42,6 +42,9 @@ tile.mtc.doubleCommpressedMatterBlock.name=double commpressed Matterblock
 tile.mtc.tripleCommpressedMatterBlock.name=triple commpressed Matterblock
 tile.mtc.superCommpressedMatterBlock.name=super commpressed Matterblock
 
+tile.mtc.quarry.name=Quarry
+tile.mtc.chunkRegistrator.name=ChunkRegistrator
+
 tile.mtc.ionizedPlasma.name=Ionized Plasma
 tile.mtc.toxicWaste.name=Toxic Waste
 tile.mtc.hydrogen.name=Hydrogen

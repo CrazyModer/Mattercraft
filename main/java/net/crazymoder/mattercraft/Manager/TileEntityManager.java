@@ -1,6 +1,7 @@
 package net.crazymoder.mattercraft.manager;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.crazymoder.mattercraft.tileentity.ChunkRegistratorTile;
 import net.crazymoder.mattercraft.tileentity.CoolerTile;
 import net.crazymoder.mattercraft.tileentity.CryotheumAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.ElectrolizerTile;
@@ -37,5 +38,6 @@ public class TileEntityManager {
 		GameRegistry.registerTileEntity(GeneratorFluidPortTile.class, "mtc.generatorFluidPortTile");
 		GameRegistry.registerTileEntity(GeneratorEnergyPortTile.class, "mtc.generatorEnergyPortTile");
 		GameRegistry.registerTileEntity(QuarryTile.class, "mtc.quarryTil");
+		GameRegistry.registerTileEntity(ChunkRegistratorTile.class, "mtc.chunkRegistratorTile");
 	}
 }
