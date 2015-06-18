@@ -35,7 +35,7 @@ public class WorldGenManager implements IWorldGenerator {
 
 	private void generateSurface(World world, Random random, int x, int z) {
 		generateBlock(BlockManager.osmiumOre, world, random, x, z, 10, 10, 2);
-		generateBlock(BlockManager.iridiumOre, world, random, x, z, 10, 10, 2);
+		generateIridium(world, x, z);
 	}
 
 	private void generateNether(World world, Random random, int x, int z) {
@@ -47,6 +47,23 @@ public class WorldGenManager implements IWorldGenerator {
 	    	int firstBlockYCoord = random.nextInt(maxY);
 	    	int firstBlockZCoord = z + random.nextInt(16);
 			new WorldGenMinable(block, size).generate(world, random, firstBlockXCoord, firstBlockYCoord,firstBlockZCoord);	
+		}
+	}
+	private void generateIridium(World world,int x,int z){
+		Random random = new Random();
+		int iter = 500;
+		int rate = 1 + random.nextInt(4);
+		while (iter > 0){
+			iter--;
+			int firstBlockXCoord = x + random.nextInt(16);
+	    	int firstBlockYCoord = random.nextInt(16);
+	    	int firstBlockZCoord = z + random.nextInt(16);
+	    	Block b = world.getBlock(firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
+	    	if(b == BlockManager.osmiumPlating){
+	    		rate--;
+	    		world.setBlock(firstBlockXCoord, firstBlockYCoord, firstBlockZCoord, BlockManager.iridiumOre);
+	    	}
+	    	if(rate == 0)iter = 0;
 		}
 	}
 }

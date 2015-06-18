@@ -1,17 +1,20 @@
 package net.crazymoder.mattercraft.helper;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map.Entry;
 
 import scala.collection.parallel.mutable.ParArray.Map;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraftforge.common.util.Constants;
 
 public class CostomInventory {
-	HashMap<ItemStack, Integer> inv;
+	LinkedHashMap<ItemStack, Integer> inv;
 	public CostomInventory(){
-		inv = new HashMap<ItemStack, Integer>();
+		inv = new LinkedHashMap<ItemStack, Integer>();
 	}
 	public void addItemStack(ItemStack itemStack){
 		addItemStack(itemStack.stackSize, itemStack);
@@ -62,8 +65,39 @@ public class CostomInventory {
 		}
 		return count;
 	}
-	public HashMap<ItemStack, Integer> getMap(){
+	public LinkedHashMap<ItemStack, Integer> getMap(){
 		return inv;
+	}
+	
+	public void setMap(LinkedHashMap<ItemStack, Integer> map){
+		inv = map;
+	}
+	
+	public boolean readNBT(NBTTagCompound compound){
+		if(compound.hasKey("costomInventory")){
+			inv = new LinkedHashMap<ItemStack, Integer>();
+			NBTTagList tagList = compound.getTagList("costomInventory", Constants.NBT.TAG_COMPOUND);
+			for(int i = 0; i < tagList.tagCount(); i++)
+		    {
+			    NBTTagCompound entry = (NBTTagCompound)tagList.getCompoundTagAt(i);
+			    ItemStack stack = ItemStack.loadItemStackFromNBT(entry);
+			    int amount = entry.getInteger("a");
+			    inv.put(stack, amount);
+			}
+			return true;
+		}
+		return false;
+	}
+	
+	public void writeNBT(NBTTagCompound compound){
+		NBTTagList tagList = new NBTTagList();
+		for(Entry<ItemStack, Integer> entry : inv.entrySet()) {
+			NBTTagCompound tagEntry = new NBTTagCompound();
+			entry.getKey().writeToNBT(tagEntry);
+			tagEntry.setInteger("a", entry.getValue());
+			tagList.appendTag(tagEntry);
+		}
+		compound.setTag("costomInventory", tagList);
 	}
 	
 	public void Log(){
@@ -75,4 +109,7 @@ public class CostomInventory {
 		System.out.println("Types: "+getTypeCount());
 		System.out.println("Stacks: "+getStackCount());
 	}
+	
+	
+	
 }

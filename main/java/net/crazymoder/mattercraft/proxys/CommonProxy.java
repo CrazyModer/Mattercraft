@@ -12,6 +12,7 @@ import net.crazymoder.mattercraft.craftingmanager.SmeltingManager;
 import net.crazymoder.mattercraft.craftingmanager.StaticItemStacks;
 import net.crazymoder.mattercraft.craftingmanager.ThermalExpansionCraftingManager;
 import net.crazymoder.mattercraft.craftingmanager.VanillaCraftingManager;
+import net.crazymoder.mattercraft.manager.AdvancedItemManager;
 import net.crazymoder.mattercraft.manager.BlockManager;
 import net.crazymoder.mattercraft.manager.ConfigurationManager;
 import net.crazymoder.mattercraft.manager.FluidManager;
@@ -29,6 +30,7 @@ public class CommonProxy {
 		ConfigurationManager configurationManager = new ConfigurationManager(e);
 		BlockManager blockManager = new BlockManager();
 		ItemManager itemManager = new ItemManager();
+		AdvancedItemManager advancedItemManager = new AdvancedItemManager();
 		ItemBlockManager itemBlockManager = new ItemBlockManager();
     	TileEntityManager tileEntityManger = new TileEntityManager();
     	FluidManager fluidManager = new FluidManager();

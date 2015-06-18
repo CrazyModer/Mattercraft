@@ -53,6 +53,7 @@ public class BlockManager {
 	public static Block exhaustPipe;	
 	public static Block waterInjector;
 	public static Block plasmaInjector;
+	public static Block emptyChunkRegistrator;
 
 	
 	
@@ -97,6 +98,7 @@ public class BlockManager {
 		exhaustPipe = new MultiTextureBlock(Material.iron);
 		waterInjector = new MultiTextureBlock(Material.iron);
 		plasmaInjector = new MultiTextureBlock(Material.iron);
+		emptyChunkRegistrator = new MultiTextureBlock(Material.iron);
 		
 		
 	    //Initialize Block Containers
@@ -138,7 +140,7 @@ public class BlockManager {
 		exhaustPipe.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.exhaustPipe").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		waterInjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.waterInjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
 		plasmaInjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.plasmaInjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		
+		emptyChunkRegistrator.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.emptyChunkRegistrator").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);	
 		
 		//Configure Block Containers
 		cryotheumAcceptor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.cryotheumAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
@@ -183,6 +185,7 @@ public class BlockManager {
 		exhaustPipe.setBlockTextureName("mattercraft:exhaustPipe");
 		plasmaInjector.setBlockTextureName("mattercraft:plasmaInjector");
 		waterInjector.setBlockTextureName("mattercraft:waterInjector");
+		emptyChunkRegistrator.setBlockTextureName("mattercraft:emptyChunkRegistrator");
 		
 		
 		//Single Texture Block Container
@@ -226,6 +229,7 @@ public class BlockManager {
 		GameRegistry.registerBlock(exhaustPipe, "mtc.exhaustPipe");
 		GameRegistry.registerBlock(waterInjector, "mtc.waterInjector");
 		GameRegistry.registerBlock(plasmaInjector, "mtc.plasmaInjector");
+		GameRegistry.registerBlock(emptyChunkRegistrator, "mtc.emptyChunkRegistrator");
 		
 		//Register Block Container
 		GameRegistry.registerBlock(cryotheumAcceptor, "mtc.cryotheumAcceptor");

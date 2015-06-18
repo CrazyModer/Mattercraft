@@ -44,6 +44,7 @@ tile.mtc.superCommpressedMatterBlock.name=super commpressed Matterblock
 
 tile.mtc.quarry.name=Quarry
 tile.mtc.chunkRegistrator.name=ChunkRegistrator
+tile.mtc.emptyChunkRegistrator.name=Empty ChunkRegistrator
 
 tile.mtc.ionizedPlasma.name=Ionized Plasma
 tile.mtc.toxicWaste.name=Toxic Waste
@@ -73,6 +74,8 @@ item.mtc.absorbedToxicWaste.name=Absorbed Toxic Waste
 item.mtc.stabilizerDust.name=Stabilizer Dust
 item.mtc.enrichedStabilizerDust.name=Enriched Stabilizer Dust 
 item.mtc.glasDust.name=Glass Dust
+
+item.mtc.chunkMemoryCard.name=ChunkMemoryCard
 
 
 itemGroup.mtc.blocks=Matter Blocks
