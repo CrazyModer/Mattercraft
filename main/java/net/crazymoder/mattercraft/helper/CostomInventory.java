@@ -36,6 +36,19 @@ public class CostomInventory {
 		}
 	}
 	public ItemStack getNextItemStack(boolean simulate){
+		for(Entry<ItemStack, Integer> entry : inv.entrySet()) {
+			ItemStack is = entry.getKey();
+			int amount = entry.getValue();
+			ItemStack outStack = is.copy();
+			if(amount > 64)
+				outStack.stackSize = 64;
+			else
+				outStack.stackSize = amount;
+			if(!simulate)
+				amount -= outStack.stackSize;
+			entry.setValue(amount);
+			return outStack;
+		}
 		return null;
 	}
 	public ItemStack getItemStack(String unlocalizedName,int amount,boolean simulate){

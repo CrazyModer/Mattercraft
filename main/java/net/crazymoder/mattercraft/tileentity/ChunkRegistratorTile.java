@@ -224,8 +224,9 @@ public class ChunkRegistratorTile extends TileEntity{
 					Block block = worldObj.getBlock(i+x*16, k, j+z*16);
 					ItemStack stack = null;
 					if(toMine(worldObj.getBlock(i+x*16, k, j+z*16),popAbleBlock.getUnlocalizedName())){
+						int meta = worldObj.getBlockMetadata(i+x*16, k, j+z*16);
 						if(block.canSilkHarvest(worldObj, null, xCoord, yCoord, zCoord, worldObj.getBlockMetadata(xCoord, yCoord, zCoord))){
-							stack = new ItemStack(block);
+							stack = new ItemStack(block,1,meta);
 						}else{
 							Item item = block.getItemDropped(1, new Random(), worldObj.getBlockMetadata(xCoord, yCoord, zCoord));
 							stack = new ItemStack(item);

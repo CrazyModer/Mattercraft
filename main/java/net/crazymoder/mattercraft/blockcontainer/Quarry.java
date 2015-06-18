@@ -48,6 +48,15 @@ public class Quarry extends BlockContainer
 			world.setBlockMetadataWithNotify(x, y, z, 4, 2);
 		}
 	}
+	
+	@Override
+	public void onBlockClicked(World w, int x,int y, int z, EntityPlayer p) {
+		QuarryTile qt = (QuarryTile) w.getTileEntity(x, y, z);
+		System.out.println(p.inventory.getCurrentItem().getUnlocalizedName());
+		if(p.inventory.getCurrentItem().getUnlocalizedName().equals("item.mtc.chunkMemoryCard")){
+			
+		}
+	}
 	 
 	public void registerBlockIcons(IIconRegister reg) {	   
 		this.icons[0] = reg.registerIcon(this.textureName + "_T");

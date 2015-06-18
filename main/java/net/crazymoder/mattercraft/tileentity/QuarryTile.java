@@ -1,5 +1,7 @@
 package net.crazymoder.mattercraft.tileentity;
 
+import java.util.Random;
+
 import cofh.api.inventory.IInventoryConnection;
 import cofh.api.transport.IEnderItemHandler;
 import cofh.api.transport.IItemDuct;
@@ -15,6 +17,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
@@ -49,6 +52,9 @@ public class QuarryTile extends TileEntity implements IInventoryConnection , ISi
 	@Override
 	public void updateEntity() { 
 		if(!worldObj.isRemote){
+			if(inv.getItemCount() > 0 && currentStack == null){
+				System.out.println("X");
+			}
 		}
 	}
 
@@ -61,37 +67,47 @@ public class QuarryTile extends TileEntity implements IInventoryConnection , ISi
 	@Override
 	public int getSizeInventory() {
 		// TODO Auto-generated method stub
-		return 64;
+		return 1;
 	}
 
 	@Override
 	public ItemStack getStackInSlot(int p_70301_1_) {
 		// TODO Auto-generated method stub
+		if(p_70301_1_ == 0)return currentStack;
 		return null;
 	}
 
 	@Override
 	public ItemStack decrStackSize(int p_70298_1_, int p_70298_2_) {
-		// TODO Auto-generated method stub
-		return null;
+		if(p_70298_1_ != 0)return null;
+		if(p_70298_2_ >= currentStack.stackSize){
+			ItemStack rv = currentStack.copy();
+			currentStack = null;
+			return rv;
+		}
+		ItemStack rv = currentStack.copy();
+		rv.stackSize = p_70298_2_;
+		currentStack.stackSize -= p_70298_2_;
+		return rv;
 	}
 
 	@Override
 	public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
-		// TODO Auto-generated method stub
-		return null;
+		if(p_70304_1_ != 0)return null;
+		return currentStack;
 	}
 
 	@Override
 	public void setInventorySlotContents(int p_70299_1_, ItemStack p_70299_2_) {
-		// TODO Auto-generated method stub
+		if(p_70299_1_ == 0)
+			currentStack = p_70299_2_;
 		
 	}
 
 	@Override
 	public String getInventoryName() {
 		// TODO Auto-generated method stub
-		return "inv";
+		return "ItemProvider";
 	}
 
 	@Override
@@ -103,7 +119,7 @@ public class QuarryTile extends TileEntity implements IInventoryConnection , ISi
 	@Override
 	public int getInventoryStackLimit() {
 		// TODO Auto-generated method stub
-		return 64;
+		return 1;
 	}
 
 	@Override
@@ -147,8 +163,10 @@ public class QuarryTile extends TileEntity implements IInventoryConnection , ISi
 	@Override
 	public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_,
 			int p_102008_3_) {
-		// TODO Auto-generated method stub
-		return false;
+		if(p_102008_1_ != 0)return false;
+		if(!ItemStack.areItemStacksEqual(currentStack, p_102008_2_))return false;
+		if(p_102008_3_ > currentStack.stackSize)return false;
+		return true;
 	}
 	
 	
