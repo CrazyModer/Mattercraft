@@ -49,65 +49,9 @@ public class QuarryTile extends TileEntity implements IInventoryConnection , ISi
 	@Override
 	public void updateEntity() { 
 		if(!worldObj.isRemote){
-			put();
 		}
 	}
-	
-	private void put(){
-		if(currentStack != null){
-			TileEntity entity = worldObj.getTileEntity(xCoord, yCoord+1, zCoord);
-			if(entity instanceof IItemDuct){
-				IItemDuct itemDuct = (IItemDuct) entity;
-				currentStack = itemDuct.insertItem(ForgeDirection.DOWN, currentStack);
-			}else if(entity instanceof ISidedInventory){
-				System.out.println("A");
-				ISidedInventory iSidedInventory = (ISidedInventory) entity;
-				int[] slots = iSidedInventory.getAccessibleSlotsFromSide(0);
-				for (int i = slots.length-1;  i >= 0; i--) {
-					if(iSidedInventory.canInsertItem(i, currentStack, 0)){
-						ItemStack slotStack = iSidedInventory.getStackInSlot(i);
-						if(slotStack == null){
-							iSidedInventory.setInventorySlotContents(i, currentStack);
-							currentStack = null;
-						}else{
-							if(ItemStack.areItemStacksEqual(slotStack, currentStack)){
-								int itemcount = slotStack.stackSize + currentStack.stackSize;
-								if(itemcount <= slotStack.getMaxStackSize()){
-									slotStack.stackSize = itemcount;
-									currentStack = null;
-								}else{
-									slotStack.stackSize = slotStack.getMaxStackSize();
-									currentStack.stackSize = itemcount - slotStack.getMaxStackSize();
-								}
-							}
-						}
-					}else if(entity instanceof IInventory){
-						System.out.println("B");
-						IInventory iInventory = (IInventory) entity;
-						for (int j = getSizeInventory()-1;  j >= 0; j--) {
-							ItemStack slotStack = iInventory.getStackInSlot(j);
-							if(slotStack == null){
-								iInventory.setInventorySlotContents(j, currentStack);
-								currentStack = null;
-							}else{
-								if(ItemStack.areItemStacksEqual(slotStack, currentStack)){
-									int itemcount = slotStack.stackSize + currentStack.stackSize;
-									if(itemcount <= slotStack.getMaxStackSize()){
-										slotStack.stackSize = itemcount;
-										currentStack = null;
-									}else{
-										slotStack.stackSize = slotStack.getMaxStackSize();
-										currentStack.stackSize = itemcount - slotStack.getMaxStackSize();
-									}
-									iInventory.setInventorySlotContents(j, slotStack);
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+
 
 	@Override
 	public ConnectionType canConnectInventory(ForgeDirection from) {
