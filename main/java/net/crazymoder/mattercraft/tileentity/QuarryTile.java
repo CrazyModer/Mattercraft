@@ -39,94 +39,68 @@ import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidHandler;
 import net.minecraftforge.fluids.IFluidTank;
 
-public class QuarryTile extends TileEntity implements IInventoryConnection , ISidedInventory{
+public class QuarryTile extends TileEntity implements ISidedInventory{
 	
-	public CostomInventory inv;
-	public ItemStack currentStack;
+	ItemStack[] stacks; 
 	
+	public int demoval;
 	
 	public QuarryTile() {
-		inv  = new CostomInventory();
+	
 	}
 	
 	@Override
 	public void updateEntity() { 
 		if(!worldObj.isRemote){
-			if(currentStack != null && currentStack.stackSize != 0)System.out.println("SS: "+currentStack.stackSize);
-			if(inv.getItemCount() > 0 && (currentStack == null || currentStack.stackSize == 0)){
-				currentStack = inv.getNextItemStack(false);
-			}
+			
 		}
-	}
-
-
-	@Override
-	public ConnectionType canConnectInventory(ForgeDirection from) {
-		return ConnectionType.FORCE;
 	}
 
 	@Override
 	public int getSizeInventory() {
 		// TODO Auto-generated method stub
-		return 1;
+		return 60;
 	}
 
 	@Override
-	public ItemStack getStackInSlot(int p_70301_1_) {
-		// TODO Auto-generated method stub
-		if(p_70301_1_ == 0)return currentStack;
-		return null;
+	public ItemStack getStackInSlot(int slot) {
+		return stacks[slot];
 	}
 
 	@Override
 	public ItemStack decrStackSize(int p_70298_1_, int p_70298_2_) {
-		if(p_70298_1_ != 0)return null;
-		if(p_70298_2_ >= currentStack.stackSize){
-			ItemStack rv = currentStack.copy();
-			currentStack = null;
-			return rv;
-		}
-		ItemStack rv = currentStack.copy();
-		rv.stackSize = p_70298_2_;
-		currentStack.stackSize -= p_70298_2_;
-		return rv;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
-		if(p_70304_1_ != 0)return null;
-		return currentStack;
+	public ItemStack getStackInSlotOnClosing(int slot) {
+		return stacks[slot];
 	}
 
 	@Override
-	public void setInventorySlotContents(int p_70299_1_, ItemStack p_70299_2_) {
-		if(p_70299_1_ == 0)
-			currentStack = p_70299_2_;
-		
+	public void setInventorySlotContents(int slot, ItemStack is) {
+		stacks[slot] = is;
 	}
 
 	@Override
 	public String getInventoryName() {
-		// TODO Auto-generated method stub
-		return "ItemProvider";
+		return "";
 	}
 
 	@Override
 	public boolean hasCustomInventoryName() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public int getInventoryStackLimit() {
-		// TODO Auto-generated method stub
 		return 1;
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer p_70300_1_) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isUseableByPlayer(EntityPlayer player) {
+		return true;
 	}
 
 	@Override
@@ -142,49 +116,26 @@ public class QuarryTile extends TileEntity implements IInventoryConnection , ISi
 	}
 
 	@Override
-	public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
-		// TODO Auto-generated method stub
+	public boolean isItemValidForSlot(int slot, ItemStack p_94041_2_) {
+		if(stacks[slot] == null || stacks[slot].stackSize == 0)return true;
 		return false;
 	}
 
 	@Override
 	public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
-		// TODO Auto-generated method stub
-		int[] slots = {0};
+		int[] slots = {};
 		return slots;
 	}
 
 	@Override
-	public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_,
-			int p_102007_3_) {
-		// TODO Auto-generated method stub
+	public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_,int p_102007_3_) {
 		return false;
 	}
 
 	@Override
-	public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_,
-			int p_102008_3_) {
-		/*if(p_102008_1_ != 0)return false;
-		if(!ItemStack.areItemStacksEqual(currentStack, p_102008_2_))return false;
-		if(p_102008_3_ > currentStack.stackSize)return false;*/
-		return true;
+	public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_,int p_102008_3_) {
+		return false;
 	}
-	
-	@Override
-	public void writeToNBT(NBTTagCompound tag) {
-		CostomInventory sInv = new CostomInventory();
-		sInv.setMap((LinkedHashMap<ItemStack, Integer>) inv.getMap().clone());
-		if(currentStack != null)sInv.addItemStack(currentStack);
-		sInv.writeNBT(tag);
-		super.writeToNBT(tag);
-	}
-	
-	@Override
-	public void readFromNBT(NBTTagCompound tag) {
-		currentStack = null;
-		inv = new CostomInventory();
-		inv.readNBT(tag);
-		super.readFromNBT(tag);
-	}
+
 	
 }

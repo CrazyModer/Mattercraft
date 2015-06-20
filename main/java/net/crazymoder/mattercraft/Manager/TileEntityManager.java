@@ -1,6 +1,7 @@
 package net.crazymoder.mattercraft.manager;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.crazymoder.mattercraft.blockcontainer.MemoryCardReader;
 import net.crazymoder.mattercraft.tileentity.ChunkRegistratorTile;
 import net.crazymoder.mattercraft.tileentity.CoolerTile;
 import net.crazymoder.mattercraft.tileentity.CryotheumAcceptorTile;
@@ -9,6 +10,7 @@ import net.crazymoder.mattercraft.tileentity.HeatedCryotheumEjectorTile;
 import net.crazymoder.mattercraft.tileentity.HydrogenAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.ItemProviderTile;
 import net.crazymoder.mattercraft.tileentity.LiquidMatterAcceptorTile;
+import net.crazymoder.mattercraft.tileentity.MemoryCardReaderTile;
 import net.crazymoder.mattercraft.tileentity.PlasmaEjectorTile;
 import net.crazymoder.mattercraft.tileentity.QuarryTile;
 import net.crazymoder.mattercraft.tileentity.ReactorCoreTile;
@@ -41,5 +43,6 @@ public class TileEntityManager {
 		GameRegistry.registerTileEntity(QuarryTile.class, "mtc.quarryTile");
 		GameRegistry.registerTileEntity(ChunkRegistratorTile.class, "mtc.chunkRegistratorTile");
 		GameRegistry.registerTileEntity(ItemProviderTile.class, "mtc.itemProviderTile");
+		GameRegistry.registerTileEntity(MemoryCardReaderTile.class, "mtc.memoryCardReaderTile");
 	}
 }
