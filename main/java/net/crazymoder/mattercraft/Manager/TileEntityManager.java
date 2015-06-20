@@ -7,6 +7,7 @@ import net.crazymoder.mattercraft.tileentity.CryotheumAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.ElectrolizerTile;
 import net.crazymoder.mattercraft.tileentity.HeatedCryotheumEjectorTile;
 import net.crazymoder.mattercraft.tileentity.HydrogenAcceptorTile;
+import net.crazymoder.mattercraft.tileentity.ItemProviderTile;
 import net.crazymoder.mattercraft.tileentity.LiquidMatterAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.PlasmaEjectorTile;
 import net.crazymoder.mattercraft.tileentity.QuarryTile;
@@ -37,7 +38,8 @@ public class TileEntityManager {
 		GameRegistry.registerTileEntity(GeneratorControllerTile.class, "mtc.generatorControllerTile");
 		GameRegistry.registerTileEntity(GeneratorFluidPortTile.class, "mtc.generatorFluidPortTile");
 		GameRegistry.registerTileEntity(GeneratorEnergyPortTile.class, "mtc.generatorEnergyPortTile");
-		GameRegistry.registerTileEntity(QuarryTile.class, "mtc.quarryTil");
+		GameRegistry.registerTileEntity(QuarryTile.class, "mtc.quarryTile");
 		GameRegistry.registerTileEntity(ChunkRegistratorTile.class, "mtc.chunkRegistratorTile");
+		GameRegistry.registerTileEntity(ItemProviderTile.class, "mtc.itemProviderTile");
 	}
 }

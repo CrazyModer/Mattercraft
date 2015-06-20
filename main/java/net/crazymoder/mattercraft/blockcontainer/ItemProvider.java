@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.crazymoder.mattercraft.Mattercraft;
 import net.crazymoder.mattercraft.tileentity.ElectrolizerTile;
 import net.crazymoder.mattercraft.tileentity.CryotheumAcceptorTile;
+import net.crazymoder.mattercraft.tileentity.ItemProviderTile;
 import net.crazymoder.mattercraft.tileentity.QuarryTile;
 import net.crazymoder.mattercraft.tileentity.ReactorTerminalTile;
 import net.minecraft.block.BlockContainer;
@@ -14,23 +15,24 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class Quarry extends BlockContainer
+public class ItemProvider extends BlockContainer
 {	
 	public IIcon[] icons = new IIcon[4];
 	
-	public Quarry()
+	public ItemProvider()
 	{
 		super(Material.iron);
 	}
 
 	@Override
 	public TileEntity createNewTileEntity(World arg0, int arg1) {
-		return new QuarryTile();
+		return new ItemProviderTile();
 	}
 	
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemStack){
@@ -62,8 +64,11 @@ public class Quarry extends BlockContainer
 	}
 
 	public boolean onBlockActivated(World world, int x, int y, int z,EntityPlayer player, int arg5, float arg6, float arg7, float arg8) {
-		//player.openGui(Mattercraft.INSTANCE, 2, world, x, y, z);
-		return false;
+		if(!world.isRemote){
+			ItemProviderTile tile = (ItemProviderTile) world.getTileEntity(x, y, z);
+			player.addChatMessage(new ChatComponentText(tile.inv.getItemCount()+" Items of "+tile.inv.getTypeCount()+" Types in Buffer"));
+		}
+		return true;
 	}
 
 }

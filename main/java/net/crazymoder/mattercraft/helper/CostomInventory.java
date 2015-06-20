@@ -11,7 +11,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraftforge.common.util.Constants;
 
-public class CostomInventory {
+public class CostomInventory{
 	LinkedHashMap<ItemStack, Integer> inv;
 	public CostomInventory(){
 		inv = new LinkedHashMap<ItemStack, Integer>();
@@ -47,6 +47,10 @@ public class CostomInventory {
 			if(!simulate)
 				amount -= outStack.stackSize;
 			entry.setValue(amount);
+			if(entry.getValue() == 0){
+				if(inv.remove(entry.getKey()) == null)System.out.println("ERROR");;
+				
+			}
 			return outStack;
 		}
 		return null;

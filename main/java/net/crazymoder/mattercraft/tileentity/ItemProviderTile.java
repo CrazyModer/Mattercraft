@@ -39,31 +39,25 @@ import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidHandler;
 import net.minecraftforge.fluids.IFluidTank;
 
-public class QuarryTile extends TileEntity implements IInventoryConnection , ISidedInventory{
+public class ItemProviderTile extends TileEntity implements ISidedInventory{
 	
 	public CostomInventory inv;
 	public ItemStack currentStack;
 	
 	
-	public QuarryTile() {
+	public ItemProviderTile() {
 		inv  = new CostomInventory();
 	}
 	
 	@Override
 	public void updateEntity() { 
 		if(!worldObj.isRemote){
-			if(currentStack != null && currentStack.stackSize != 0)System.out.println("SS: "+currentStack.stackSize);
 			if(inv.getItemCount() > 0 && (currentStack == null || currentStack.stackSize == 0)){
 				currentStack = inv.getNextItemStack(false);
 			}
 		}
 	}
 
-
-	@Override
-	public ConnectionType canConnectInventory(ForgeDirection from) {
-		return ConnectionType.FORCE;
-	}
 
 	@Override
 	public int getSizeInventory() {
