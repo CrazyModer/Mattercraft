@@ -37,10 +37,10 @@ tile.mtc.reactorFrame.name=Reactor Frame
 tile.mtc.advancedReactorFrame.name=Advanced Reactor Frame
 tile.mtc.stoneWool.name=Stone Wool
 tile.mtc.matterBlock.name=Matter Block
-tile.mtc.commpressedMatterBlock.name=Commpressed Matterblock
-tile.mtc.doubleCommpressedMatterBlock.name=double commpressed Matterblock
-tile.mtc.tripleCommpressedMatterBlock.name=triple commpressed Matterblock
-tile.mtc.superCommpressedMatterBlock.name=super commpressed Matterblock
+tile.mtc.commpressedMatterBlock.name=Compressed Matterblock
+tile.mtc.doubleCommpressedMatterBlock.name=Double Compressed Matterblock
+tile.mtc.tripleCommpressedMatterBlock.name=Triple Compressed Matterblock
+tile.mtc.superCommpressedMatterBlock.name=Super Compressed Matterblock
 
 tile.mtc.quarry.name=Quarry
 tile.mtc.chunkRegistrator.name=ChunkRegistrator
