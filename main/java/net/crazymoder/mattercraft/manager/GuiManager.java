@@ -4,9 +4,11 @@ import net.crazymoder.mattercraft.blockcontainer.Electrolizer;
 import net.crazymoder.mattercraft.gui.CoolerGui;
 import net.crazymoder.mattercraft.gui.ElectrolizerGui;
 import net.crazymoder.mattercraft.gui.GeneratorControllerGui;
+import net.crazymoder.mattercraft.gui.QuarryGui;
 import net.crazymoder.mattercraft.gui.ReactorTerminalGui;
 import net.crazymoder.mattercraft.tileentity.CoolerTile;
 import net.crazymoder.mattercraft.tileentity.ElectrolizerTile;
+import net.crazymoder.mattercraft.tileentity.QuarryTile;
 import net.crazymoder.mattercraft.tileentity.ReactorTerminalTile;
 import net.crazymoder.mattercraft.tileentity.generator.GeneratorControllerTile;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,6 +19,10 @@ public class GuiManager implements IGuiHandler {
 
 	@Override
 	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
+		if(id == 4){
+			QuarryTile quarryTile = (QuarryTile) world.getTileEntity(x, y, z);
+			return new QuarryGui(player.inventory,quarryTile);
+		}
 		return null;
 	}
 
@@ -37,6 +43,10 @@ public class GuiManager implements IGuiHandler {
 		if(id == 3){
 			GeneratorControllerTile electrolizerTile = (GeneratorControllerTile) world.getTileEntity(x, y, z);
 			return new GeneratorControllerGui(electrolizerTile);
+		}
+		if(id == 4){
+			QuarryTile quarryTile = (QuarryTile) world.getTileEntity(x, y, z);
+			return new QuarryGui(player.inventory,quarryTile);
 		}
 		return null;
 	}

@@ -2,8 +2,7 @@ package net.crazymoder.mattercraft.tileentity;
 
 import java.util.ArrayList;
 
-import net.crazymoder.mattercraft.tileentity.core.GuiHandler;
-import net.crazymoder.mattercraft.tileentity.core.ReactorCoreTile;
+import net.crazymoder.mattercraft.helper.reactorcore.GuiHandler;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;

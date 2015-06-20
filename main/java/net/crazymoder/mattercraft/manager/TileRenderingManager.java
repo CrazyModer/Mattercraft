@@ -1,7 +1,7 @@
 package net.crazymoder.mattercraft.manager;
 
+import net.crazymoder.mattercraft.tileentity.ReactorCoreTile;
 import net.crazymoder.mattercraft.tileentity.ReactorTerminalTile;
-import net.crazymoder.mattercraft.tileentity.core.ReactorCoreTile;
 import net.crazymoder.mattercraft.tileentity.renderer.ReactorCoreTileRenderer;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.client.registry.ClientRegistry;

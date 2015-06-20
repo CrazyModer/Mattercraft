@@ -1,5 +1,6 @@
-package net.crazymoder.mattercraft.tileentity.core;
+package net.crazymoder.mattercraft.helper.reactorcore;
 
+import net.crazymoder.mattercraft.tileentity.ReactorCoreTile;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class GuiHandler {

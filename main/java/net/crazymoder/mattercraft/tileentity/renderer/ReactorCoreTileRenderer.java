@@ -9,8 +9,8 @@ import org.lwjgl.util.glu.GLU;
 import org.lwjgl.util.glu.Sphere;
 
 import cpw.mods.fml.client.FMLClientHandler;
-import net.crazymoder.mattercraft.tileentity.core.LogisticHandler;
-import net.crazymoder.mattercraft.tileentity.core.ReactorCoreTile;
+import net.crazymoder.mattercraft.helper.reactorcore.LogisticHandler;
+import net.crazymoder.mattercraft.tileentity.ReactorCoreTile;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;

@@ -3,10 +3,10 @@ package net.crazymoder.mattercraft.gui;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.crazymoder.mattercraft.helper.reactorcore.GuiHandler;
+import net.crazymoder.mattercraft.helper.reactorcore.LogisticHandler;
+import net.crazymoder.mattercraft.tileentity.ReactorCoreTile;
 import net.crazymoder.mattercraft.tileentity.ReactorTerminalTile;
-import net.crazymoder.mattercraft.tileentity.core.GuiHandler;
-import net.crazymoder.mattercraft.tileentity.core.LogisticHandler;
-import net.crazymoder.mattercraft.tileentity.core.ReactorCoreTile;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.util.ResourceLocation;

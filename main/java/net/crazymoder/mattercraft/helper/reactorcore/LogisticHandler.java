@@ -1,4 +1,4 @@
-package net.crazymoder.mattercraft.tileentity.core;
+package net.crazymoder.mattercraft.helper.reactorcore;
 
 import net.crazymoder.mattercraft.blockcontainer.CryotheumAcceptor;
 import net.crazymoder.mattercraft.tileentity.CryotheumAcceptorTile;
@@ -6,6 +6,7 @@ import net.crazymoder.mattercraft.tileentity.HeatedCryotheumEjectorTile;
 import net.crazymoder.mattercraft.tileentity.HydrogenAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.LiquidMatterAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.PlasmaEjectorTile;
+import net.crazymoder.mattercraft.tileentity.ReactorCoreTile;
 import net.crazymoder.mattercraft.tileentity.ReactorPowerAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.StabilizerAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.ToxicWasteEjectorTile;

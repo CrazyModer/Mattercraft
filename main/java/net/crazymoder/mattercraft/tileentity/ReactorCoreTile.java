@@ -1,4 +1,4 @@
-package net.crazymoder.mattercraft.tileentity.core;
+package net.crazymoder.mattercraft.tileentity;
 
 import java.util.ArrayList;
 import java.util.ListIterator;
@@ -6,7 +6,11 @@ import java.util.ListIterator;
 import org.lwjgl.Sys;
 
 import net.crazymoder.mattercraft.Mattercraft;
-import net.crazymoder.mattercraft.tileentity.ReactorTerminalTile;
+import net.crazymoder.mattercraft.helper.reactorcore.Calculator;
+import net.crazymoder.mattercraft.helper.reactorcore.GuiHandler;
+import net.crazymoder.mattercraft.helper.reactorcore.LogisticHandler;
+import net.crazymoder.mattercraft.helper.reactorcore.MultiBlockStructurManager;
+import net.crazymoder.mattercraft.helper.reactorcore.RenderingHandler;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayerMP;

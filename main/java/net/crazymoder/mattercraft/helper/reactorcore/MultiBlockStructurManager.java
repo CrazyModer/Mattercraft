@@ -1,4 +1,4 @@
-package net.crazymoder.mattercraft.tileentity.core;
+package net.crazymoder.mattercraft.helper.reactorcore;
 
 import scala.reflect.internal.Trees.This;
 import net.crazymoder.mattercraft.manager.ConfigurationManager;

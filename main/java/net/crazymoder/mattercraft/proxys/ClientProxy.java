@@ -1,7 +1,7 @@
 package net.crazymoder.mattercraft.proxys;
 
+import net.crazymoder.mattercraft.helper.reactorcore.ParticelRenderer;
 import net.crazymoder.mattercraft.manager.TileRenderingManager;
-import net.crazymoder.mattercraft.tileentity.core.ParticelRenderer;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
