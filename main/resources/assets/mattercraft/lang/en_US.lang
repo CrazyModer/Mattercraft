@@ -43,6 +43,8 @@ tile.mtc.tripleCommpressedMatterBlock.name=Triple Compressed Matterblock
 tile.mtc.superCommpressedMatterBlock.name=Super Compressed Matterblock
 
 tile.mtc.quarry.name=Quarry
+tile.mtc.itemProvider.name=ItemProvider
+tile.mtc.memoryCardReader.name=MemoryCardReader
 tile.mtc.chunkRegistrator.name=ChunkRegistrator
 tile.mtc.emptyChunkRegistrator.name=Empty ChunkRegistrator
 

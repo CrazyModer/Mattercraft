@@ -51,7 +51,7 @@ public class MemoryCardReaderTile extends TileEntity{
 	
 	public ItemStack itemStack;
 	public boolean renderItem;
-	public boolean renderBeam = false;
+	public boolean renderBeam = true;
 	
 	public MemoryCardReaderTile() {
 	}
@@ -60,6 +60,7 @@ public class MemoryCardReaderTile extends TileEntity{
 	public void updateEntity() { 
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		markDirty();
+		renderBeam = true;
 	}
 	
 	@Override
