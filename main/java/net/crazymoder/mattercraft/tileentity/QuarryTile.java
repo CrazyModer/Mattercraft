@@ -43,7 +43,8 @@ import net.minecraftforge.fluids.IFluidTank;
 
 public class QuarryTile extends TileEntity{
 	
-	MultiBlockStructurManager multiBlockStructurManager;
+	MultiBlockStructurManager mBSM = new MultiBlockStructurManager();
+	Random r = new Random();
 	boolean init = true;
 	int loop = 10;
 	
@@ -56,14 +57,27 @@ public class QuarryTile extends TileEntity{
 		if(!worldObj.isRemote){
 			if(init){
 				init = false;
-				multiBlockStructurManager.init(worldObj, xCoord, yCoord, zCoord);
+				mBSM.init(worldObj, xCoord, yCoord, zCoord);
 			}
 			loop--;
 			if(loop < 1){
 				loop = 10;
-				System.out.println("Quarry MBS State = " + multiBlockStructurManager.checkMBS());
+				System.out.println("Quarry MBS State = " + mBSM.checkMBS(true));
 			}
 		}
+		
+		
+	}
+	
+	private void moveinventory(){
+		int index = r.nextInt(mBSM.cardReaders.size());
+		int enerylevel = 10;
+		MemoryCardReaderTile cardReaderTile= mBSM.cardReaders.get(index);
+		if(cardReaderTile.itemStack != null && cardReaderTile.itemStack.stackSize > 0 && cardReaderTile.itemStack.hasTagCompound()){
+			mBSM.itemProviderTile.inv.readNBT(cardReaderTile.itemStack.stackTagCompound);
+			enerylevel = 1000;
+		}
+		mBSM.powerAcceptorTile.energyStorage.extractEnergy(enerylevel*100, false);
 	}
 	
 	@Override

@@ -47,6 +47,7 @@ tile.mtc.itemProvider.name=ItemProvider
 tile.mtc.memoryCardReader.name=MemoryCardReader
 tile.mtc.chunkRegistrator.name=ChunkRegistrator
 tile.mtc.emptyChunkRegistrator.name=Empty ChunkRegistrator
+tile.mtc.quarryPowerAcceptorTile.name=QuarryPowerAcceptorTile
 
 tile.mtc.ionizedPlasma.name=Ionized Plasma
 tile.mtc.toxicWaste.name=Toxic Waste

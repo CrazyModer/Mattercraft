@@ -12,6 +12,7 @@ import net.crazymoder.mattercraft.tileentity.ItemProviderTile;
 import net.crazymoder.mattercraft.tileentity.LiquidMatterAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.MemoryCardReaderTile;
 import net.crazymoder.mattercraft.tileentity.PlasmaEjectorTile;
+import net.crazymoder.mattercraft.tileentity.QuarryPowerAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.QuarryTile;
 import net.crazymoder.mattercraft.tileentity.ReactorCoreTile;
 import net.crazymoder.mattercraft.tileentity.ReactorPowerAcceptorTile;
@@ -44,5 +45,6 @@ public class TileEntityManager {
 		GameRegistry.registerTileEntity(ChunkRegistratorTile.class, "mtc.chunkRegistratorTile");
 		GameRegistry.registerTileEntity(ItemProviderTile.class, "mtc.itemProviderTile");
 		GameRegistry.registerTileEntity(MemoryCardReaderTile.class, "mtc.memoryCardReaderTile");
+		GameRegistry.registerTileEntity(QuarryPowerAcceptorTile.class, "mtc.quarryPowerAcceptorTile");
 	}
 }
