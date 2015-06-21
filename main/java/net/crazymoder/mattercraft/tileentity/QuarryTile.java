@@ -11,6 +11,7 @@ import com.sun.webkit.Utilities;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.crazymoder.mattercraft.helper.CostomInventory;
+import net.crazymoder.mattercraft.helper.quarry.MultiBlockStructurManager;
 import net.crazymoder.mattercraft.manager.ConfigurationManager;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -42,6 +43,10 @@ import net.minecraftforge.fluids.IFluidTank;
 
 public class QuarryTile extends TileEntity{
 	
+	MultiBlockStructurManager multiBlockStructurManager;
+	boolean init = true;
+	int loop = 10;
+	
 	public QuarryTile() {
 	
 	}
@@ -49,7 +54,15 @@ public class QuarryTile extends TileEntity{
 	@Override
 	public void updateEntity() { 
 		if(!worldObj.isRemote){
-			
+			if(init){
+				init = false;
+				multiBlockStructurManager.init(worldObj, xCoord, yCoord, zCoord);
+			}
+			loop--;
+			if(loop < 1){
+				loop = 10;
+				System.out.println("Quarry MBS State = " + multiBlockStructurManager.checkMBS());
+			}
 		}
 	}
 	
