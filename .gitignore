@@ -1,9 +1,0 @@
-main/resources/assets/mattercraft/textures/models/quarryTorusSegment.png
-*.png
-main/resources/assets/mattercraft/models/quarry.obj
-*.java
-*.java
-main/java/net/crazymoder/mattercraft/tileentity/renderer/MemoryCardReaderTileRenderer.java
-*.obj
-main/resources/assets/mattercraft/textures/blocks/memoryCardReader_T.png
-main/java/net/crazymoder/mattercraft/tileentity/renderer/QuarryTileRenderer.java
