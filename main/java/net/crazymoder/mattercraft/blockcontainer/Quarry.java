@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.crazymoder.mattercraft.Mattercraft;
 import net.crazymoder.mattercraft.tileentity.ElectrolizerTile;
 import net.crazymoder.mattercraft.tileentity.CryotheumAcceptorTile;
+import net.crazymoder.mattercraft.tileentity.ItemProviderTile;
 import net.crazymoder.mattercraft.tileentity.QuarryTile;
 import net.crazymoder.mattercraft.tileentity.ReactorTerminalTile;
 import net.minecraft.block.BlockContainer;
@@ -14,6 +15,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
@@ -62,6 +64,20 @@ public class Quarry extends BlockContainer
 	}
 
 	public boolean onBlockActivated(World world, int x, int y, int z,EntityPlayer player, int arg5, float arg6, float arg7, float arg8) {
+		if(!world.isRemote){
+			QuarryTile tile = (QuarryTile) world.getTileEntity(x, y, z);
+			String text = "Unknown Error";
+			switch (tile.tier) {
+			case -1: text = "Base incompleat!"; break;
+			case -2: text = "Area Check: Blocks in way!"; break;
+			case -3: text = "Can't find Memory Card Readers!"; break;
+			case 0: text = "Unknown Tier!"; break;
+			case 1: text = "OK Tier 1"; break;
+			case 2: text = "OK Tier 2"; break;
+			case 3: text = "OK Tier 3"; break;
+			}
+			player.addChatMessage(new ChatComponentText(text));
+		}
 		return true;
 	}
 

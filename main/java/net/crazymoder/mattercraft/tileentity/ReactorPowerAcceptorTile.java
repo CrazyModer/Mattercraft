@@ -33,7 +33,7 @@ public class ReactorPowerAcceptorTile extends TileEntity implements IEnergyRecei
 
 	@Override
 	public int getMaxEnergyStored(ForgeDirection from) {
-		return energyStorage.getEnergyStored();
+		return energyStorage.getMaxEnergyStored();
 	}
 	
 	public void readFromNBT(NBTTagCompound tag)

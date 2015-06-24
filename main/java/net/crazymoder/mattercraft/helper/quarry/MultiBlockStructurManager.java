@@ -93,10 +93,10 @@ public class MultiBlockStructurManager {
 	//-1 BaseERROR -2 AreaERROR -3 ReaderERROR 0 Tire ERROR 1-3 Tier
 	public int checkMBS(boolean air){
 		if(!checkBase())return -1;
-		if(air && !checkArea())return -2;
 		int tier = checkTier();
 		if(tier == 0)return 0;
 		if(!checkCardReaders(tier))return -3;
+		if(air && !checkArea())return -2;
 		return tier;
 	}
 	

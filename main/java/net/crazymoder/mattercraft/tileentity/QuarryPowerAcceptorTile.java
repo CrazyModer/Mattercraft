@@ -33,7 +33,7 @@ public class QuarryPowerAcceptorTile extends TileEntity implements IEnergyReceiv
 
 	@Override
 	public int getMaxEnergyStored(ForgeDirection from) {
-		return energyStorage.getEnergyStored();
+		return energyStorage.getMaxEnergyStored();
 	}
 	
 	public void readFromNBT(NBTTagCompound tag)
