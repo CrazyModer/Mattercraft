@@ -23,6 +23,7 @@ import net.crazymoder.mattercraft.blockcontainer.StabilizerAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.ToxicWasteEjector;
 import net.crazymoder.mattercraft.blockcontainer.WaterInjector;
 import net.crazymoder.mattercraft.blocks.BasicBlock;
+import net.crazymoder.mattercraft.blocks.FrontTextureBlock;
 import net.crazymoder.mattercraft.blocks.MultiTextureBlock;
 import net.crazymoder.mattercraft.tileentity.CryotheumAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.GeneratorEnergyPortTile;
@@ -89,7 +90,7 @@ public class BlockManager {
 		reinforcedPlating = new BasicBlock(Material.ground);
 		iridiumPalting = new BasicBlock(Material.iron);
 		osmiumPlating = new BasicBlock(Material.iron);
-		stabilizer = new BasicBlock(Material.piston);
+		stabilizer = new FrontTextureBlock(Material.piston);
 		forceFieldEmitter = new BasicBlock(Material.iron);
 		stabilizerPillar = new MultiTextureBlock(Material.iron);
 		plasmaExtractor = new MultiTextureBlock(Material.piston);

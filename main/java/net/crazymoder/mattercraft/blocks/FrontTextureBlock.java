@@ -52,6 +52,6 @@ public class FrontTextureBlock extends Block{
 	
 
 	public IIcon getIcon(int side, int meta) {
-		return side == 1 ? this.icons[0] : (side == 0 ? this.icons[1] : (side != meta ? this.icons[1] : this.icons[1]));
+		return side == 1 ? this.icons[0] : (side == 0 ? this.icons[0] : (side != meta ? this.icons[0] : this.icons[1]));
 	}
 }
