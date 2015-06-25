@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 
 public class ReactorTerminal extends BlockContainer{
 
-	public IIcon[] icons = new IIcon[4];
+	public IIcon[] icons = new IIcon[7];
 	
 	public ReactorTerminal() {
 		super(Material.iron);
@@ -67,7 +67,7 @@ public class ReactorTerminal extends BlockContainer{
 		
 
 	public IIcon getIcon(int side, int meta) {
-		return side == 1 ? this.icons[meta+3] : (side == 0 ? this.icons[0] : (side != meta ? this.icons[1] : this.icons[2]));
+		return side == 1 ? (meta < 6 ? this.icons[meta+1] : this.icons[0]) : (side == 0 ? this.icons[0] : (side != meta ? this.icons[1] : this.icons[2]));
 	}
 
 	@Override
