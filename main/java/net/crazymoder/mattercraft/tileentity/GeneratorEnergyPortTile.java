@@ -1,4 +1,4 @@
-package net.crazymoder.mattercraft.tileentity.generator;
+package net.crazymoder.mattercraft.tileentity;
 
 import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyReceiver;

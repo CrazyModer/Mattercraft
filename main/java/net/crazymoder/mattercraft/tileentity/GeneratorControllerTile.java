@@ -1,4 +1,4 @@
-package net.crazymoder.mattercraft.tileentity.generator;
+package net.crazymoder.mattercraft.tileentity;
 
 import cofh.api.energy.EnergyStorage;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -49,7 +49,8 @@ public class GeneratorControllerTile extends TileEntity{
 				fluidPortTile2.setMaster(this);
 				if(energyStorage.getEnergyStored() + 10000000< energyStorage.getMaxEnergyStored() && watertank.getFluidAmount() >= 2500 && plasmaTank.getFluidAmount() >= 2500){
 					productionRate = (int) (Math.min(watertank.getFluidAmount()/10f, plasmaTank.getFluidAmount())/10f);
-					energyStorage.receiveEnergy(productionRate * 1000, false);
+					System.out.println("ProductionRate: "+productionRate);
+					System.out.println("Output: "+energyStorage.receiveEnergy(productionRate * 1000, false));
 					watertank.drain(productionRate , true);
 					plasmaTank.drain(productionRate, true);
 				}else{

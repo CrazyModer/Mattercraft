@@ -22,6 +22,9 @@ import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
@@ -43,36 +46,49 @@ import net.minecraftforge.fluids.IFluidTank;
 
 public class QuarryTile extends TileEntity{
 	
-	MultiBlockStructurManager mbsm = new MultiBlockStructurManager();
-	Random r = new Random();
-	boolean init = true;
-	public int loop = 10;
+	public MultiBlockStructurManager mbsm = new MultiBlockStructurManager();
+	private Random r = new Random();
+	private boolean init = true;
+	public int loop = 00;
 	public int tier = 0;
 	public int lasttier = 0;
-	
+	public float relativEnergy = 0;
 	public QuarryTile() {
 	
 	}
 	
 	@Override
 	public void updateEntity() { 
+		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+		markDirty();
 		if(!worldObj.isRemote){
 			if(init){
-				init = false;
 				mbsm.init(worldObj, xCoord, yCoord, zCoord);
+				lasttier = mbsm.checkMBS(true);
+				tier = lasttier;
 			}
 			loop--;
 			if(loop < 1){
 				loop = 10;
 				tier = mbsm.checkMBS(true);
+				if(tier > 0){
+					for (MemoryCardReaderTile iterTile : mbsm.cardReaders) {
+						iterTile.cooldown = 20;
+						iterTile.renderBeam = true;
+					}
+				}
 			}else{
+				if(tier != -2)
 				tier = mbsm.checkMBS(false);
 			}
-			
-			if(tier > 0 && lasttier <= 0)activate();
-			if(lasttier > 0 && tier <= 0)deactivate();
+			if(tier > 0 && lasttier <= 0 && lasttier != tier)activate();
+			if(lasttier > 0 && tier <= 0 && lasttier != tier)deactivate();
 			if(lasttier != tier && tier > 0)change();
 			if(tier > 0)update();
+			if(init){
+				change();
+				init = false;
+			}
 			lasttier = tier;
 		}
 		
@@ -80,47 +96,63 @@ public class QuarryTile extends TileEntity{
 	}
 	
 	private void activate(){
-		System.out.println("Activate");
+		change();
 	}
 	
 	private void deactivate(){
-		System.out.println("Deactivate");
-		//worldObj.createExplosion(null, xCoord, yCoord+10, zCoord, 50f, false);
+		worldObj.createExplosion(null, xCoord, yCoord+10, zCoord, 50f, false);
 	}
 	
 	private void change(){
 		if(tier == 1){
 			mbsm.powerAcceptorTile.energyStorage.setCapacity(100000000);
-			mbsm.powerAcceptorTile.energyStorage.setMaxTransfer(50000);
+			mbsm.powerAcceptorTile.energyStorage.setMaxTransfer(10000);
 		}else if(tier == 2){
-			mbsm.powerAcceptorTile.energyStorage.setCapacity(200000000);
-			mbsm.powerAcceptorTile.energyStorage.setMaxTransfer(150000);
+			mbsm.powerAcceptorTile.energyStorage.setCapacity(300000000);
+			mbsm.powerAcceptorTile.energyStorage.setMaxTransfer(500000);
 		}else{
-			mbsm.powerAcceptorTile.energyStorage.setCapacity(400000000);
-			mbsm.powerAcceptorTile.energyStorage.setMaxTransfer(450000);
-		}
+			mbsm.powerAcceptorTile.energyStorage.setCapacity(1000000000);
+			mbsm.powerAcceptorTile.energyStorage.setMaxTransfer(1000000000);
+		}				
 	}
 	
 	private void update(){
-		float relativEnergy = 0;
-		if(mbsm.powerAcceptorTile.energyStorage.getMaxEnergyStored() > 0)relativEnergy = mbsm.powerAcceptorTile.energyStorage.getEnergyStored() / mbsm.powerAcceptorTile.energyStorage.getMaxEnergyStored();
-		System.out.println(relativEnergy);
+		if(mbsm.powerAcceptorTile.energyStorage.getMaxEnergyStored() > 0)relativEnergy = (float) mbsm.powerAcceptorTile.energyStorage.getEnergyStored() / mbsm.powerAcceptorTile.energyStorage.getMaxEnergyStored();
+		if(relativEnergy == 1 && mbsm.itemProviderTile.inv.getItemCount() == 0)moveinventory();
 	}
 	
 	private void moveinventory(){
 		int index = r.nextInt(mbsm.cardReaders.size());
-		int enerylevel = 10;
+		System.out.println("Size: "+mbsm.cardReaders.size());
 		MemoryCardReaderTile cardReaderTile= mbsm.cardReaders.get(index);
 		if(cardReaderTile.itemStack != null && cardReaderTile.itemStack.stackSize > 0 && cardReaderTile.itemStack.hasTagCompound()){
 			mbsm.itemProviderTile.inv.readNBT(cardReaderTile.itemStack.stackTagCompound);
-			enerylevel = 1000;
+			mbsm.powerAcceptorTile.energyStorage.setEnergyStored(0);
+		}else{
+			mbsm.powerAcceptorTile.energyStorage.setEnergyStored((int) (mbsm.powerAcceptorTile.energyStorage.getMaxEnergyStored()*0.9f));
 		}
-		mbsm.powerAcceptorTile.energyStorage.extractEnergy(enerylevel*100, false);
 	}
 	
 	@Override
 	public AxisAlignedBB getRenderBoundingBox() {
 		return INFINITE_EXTENT_AABB;
+	}
+	
+	@Override
+	public Packet getDescriptionPacket()
+	{
+		NBTTagCompound tagCompound = new NBTTagCompound();
+		tagCompound.setInteger("tier", tier);
+		tagCompound.setFloat("relativEnergy", relativEnergy);
+		return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, tagCompound);
+	}
+
+	@Override
+	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt)
+	{
+		NBTTagCompound tagCompound = pkt.func_148857_g();
+		tier = tagCompound.getInteger("tier");
+		relativEnergy = tagCompound.getFloat("relativEnergy");
 	}
 
 }

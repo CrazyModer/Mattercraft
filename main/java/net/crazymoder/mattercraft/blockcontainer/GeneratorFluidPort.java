@@ -1,6 +1,6 @@
 package net.crazymoder.mattercraft.blockcontainer;
 
-import net.crazymoder.mattercraft.tileentity.generator.GeneratorFluidPortTile;
+import net.crazymoder.mattercraft.tileentity.GeneratorFluidPortTile;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;

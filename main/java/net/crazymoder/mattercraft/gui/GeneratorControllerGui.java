@@ -5,7 +5,7 @@ import java.util.List;
 
 import net.crazymoder.mattercraft.helper.reactorcore.LogisticHandler;
 import net.crazymoder.mattercraft.tileentity.CoolerTile;
-import net.crazymoder.mattercraft.tileentity.generator.GeneratorControllerTile;
+import net.crazymoder.mattercraft.tileentity.GeneratorControllerTile;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.ResourceLocation;
 

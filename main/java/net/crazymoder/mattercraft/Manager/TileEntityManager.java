@@ -6,6 +6,9 @@ import net.crazymoder.mattercraft.tileentity.ChunkRegistratorTile;
 import net.crazymoder.mattercraft.tileentity.CoolerTile;
 import net.crazymoder.mattercraft.tileentity.CryotheumAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.ElectrolizerTile;
+import net.crazymoder.mattercraft.tileentity.GeneratorControllerTile;
+import net.crazymoder.mattercraft.tileentity.GeneratorEnergyPortTile;
+import net.crazymoder.mattercraft.tileentity.GeneratorFluidPortTile;
 import net.crazymoder.mattercraft.tileentity.HeatedCryotheumEjectorTile;
 import net.crazymoder.mattercraft.tileentity.HydrogenAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.ItemProviderTile;
@@ -19,9 +22,6 @@ import net.crazymoder.mattercraft.tileentity.ReactorPowerAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.ReactorTerminalTile;
 import net.crazymoder.mattercraft.tileentity.StabilizerAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.ToxicWasteEjectorTile;
-import net.crazymoder.mattercraft.tileentity.generator.GeneratorControllerTile;
-import net.crazymoder.mattercraft.tileentity.generator.GeneratorEnergyPortTile;
-import net.crazymoder.mattercraft.tileentity.generator.GeneratorFluidPortTile;
 
 
 public class TileEntityManager {

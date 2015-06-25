@@ -125,42 +125,30 @@ public class ItemProviderTile extends TileEntity implements ISidedInventory{
 
 	@Override
 	public void openInventory() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void closeInventory() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
-		// TODO Auto-generated method stub
 		int[] slots = {0};
 		return slots;
 	}
 
 	@Override
-	public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_,
-			int p_102007_3_) {
-		// TODO Auto-generated method stub
+	public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_,int p_102007_3_) {
 		return false;
 	}
 
 	@Override
-	public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_,
-			int p_102008_3_) {
-		/*if(p_102008_1_ != 0)return false;
-		if(!ItemStack.areItemStacksEqual(currentStack, p_102008_2_))return false;
-		if(p_102008_3_ > currentStack.stackSize)return false;*/
+	public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_,int p_102008_3_) {
 		return true;
 	}
 	

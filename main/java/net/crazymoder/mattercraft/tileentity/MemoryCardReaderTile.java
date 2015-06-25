@@ -49,9 +49,10 @@ import net.minecraftforge.fluids.IFluidTank;
 
 public class MemoryCardReaderTile extends TileEntity{
 	
+	public int cooldown = 0;
 	public ItemStack itemStack;
 	public boolean renderItem;
-	public boolean renderBeam = true;
+	public boolean renderBeam;
 	
 	public MemoryCardReaderTile() {
 	}
@@ -60,7 +61,10 @@ public class MemoryCardReaderTile extends TileEntity{
 	public void updateEntity() { 
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		markDirty();
-		renderBeam = true;
+		if(!worldObj.isRemote){
+			if(cooldown > 0)cooldown--;
+			if(cooldown == 0)renderBeam = false;
+		}
 	}
 	
 	@Override

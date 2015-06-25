@@ -76,6 +76,7 @@ public class Quarry extends BlockContainer
 			case 2: text = "OK Tier 2"; break;
 			case 3: text = "OK Tier 3"; break;
 			}
+			if(tile.tier > 0)text += " Energy level: "+((int)(tile.relativEnergy*100f))+"% "+tile.mbsm.itemProviderTile.inv.getItemCount()+ " Items in Buffer";
 			player.addChatMessage(new ChatComponentText(text));
 		}
 		return true;

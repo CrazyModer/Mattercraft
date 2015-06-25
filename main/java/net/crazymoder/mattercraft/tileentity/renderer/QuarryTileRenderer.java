@@ -44,14 +44,16 @@ public class QuarryTileRenderer extends TileEntitySpecialRenderer{
 	@Override
 	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float timeSinceLastTick) {
 		QuarryTile tile = (QuarryTile) te;
+		if(tile.tier <= 0)return;
 		double time = System.nanoTime();
 		double deltaTime = 0;
 		if(lastTime != 0)
 			deltaTime = time - lastTime;
 		lastTime = time;
-		
-	    rotation += (float) (deltaTime/10000000f);
-	    rotation2 += (float) (deltaTime/10000000f);
+		float rot = (float) (deltaTime/500000000f);
+		rot += rot*50*tile.relativEnergy;
+	    rotation += rot;
+	    rotation2 += rot;
 	    if(rotation > 100000000)
 	    	rotation = 0;
 	    	

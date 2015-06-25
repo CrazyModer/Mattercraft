@@ -1,4 +1,4 @@
-package net.crazymoder.mattercraft.tileentity.generator;
+package net.crazymoder.mattercraft.tileentity;
 
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
