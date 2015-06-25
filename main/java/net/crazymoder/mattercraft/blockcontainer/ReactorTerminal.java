@@ -56,15 +56,18 @@ public class ReactorTerminal extends BlockContainer{
 	    }
 	 
 	public void registerBlockIcons(IIconRegister reg) {	   
-		this.icons[0] = reg.registerIcon(this.textureName + "_T");
-		this.icons[1] = reg.registerIcon(this.textureName + "_B");
-		this.icons[2] = reg.registerIcon(this.textureName + "_S");
-		this.icons[3] = reg.registerIcon(this.textureName + "_F");
+		this.icons[0] = reg.registerIcon(this.textureName + "_B");
+		this.icons[1] = reg.registerIcon(this.textureName + "_S");
+		this.icons[2] = reg.registerIcon(this.textureName + "_F");
+		this.icons[3] = reg.registerIcon(this.textureName + "_T0");
+		this.icons[4] = reg.registerIcon(this.textureName + "_T1");
+		this.icons[5] = reg.registerIcon(this.textureName + "_T2");
+		this.icons[6] = reg.registerIcon(this.textureName + "_T3");
 	}
 		
 
 	public IIcon getIcon(int side, int meta) {
-		return side == 1 ? this.icons[0] : (side == 0 ? this.icons[1] : (side != meta ? this.icons[2] : this.icons[3]));
+		return side == 1 ? this.icons[meta+3] : (side == 0 ? this.icons[0] : (side != meta ? this.icons[1] : this.icons[2]));
 	}
 
 	@Override
