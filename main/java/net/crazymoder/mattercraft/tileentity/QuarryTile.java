@@ -14,6 +14,7 @@ import net.crazymoder.mattercraft.helper.CostomInventory;
 import net.crazymoder.mattercraft.helper.quarry.MultiBlockStructurManager;
 import net.crazymoder.mattercraft.manager.ConfigurationManager;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -119,6 +120,7 @@ public class QuarryTile extends TileEntity{
 	private void update(){
 		if(mbsm.powerAcceptorTile.energyStorage.getMaxEnergyStored() > 0)relativEnergy = (float) mbsm.powerAcceptorTile.energyStorage.getEnergyStored() / mbsm.powerAcceptorTile.energyStorage.getMaxEnergyStored();
 		if(relativEnergy == 1 && mbsm.itemProviderTile.inv.getItemCount() == 0)moveinventory();
+		worldObj.playSoundEffect((double) xCoord + 0.5D, (double) yCoord + 0.5D, (double) zCoord + 0.5D, "mattercraft:quarry_work", 1F, 0.1F);
 	}
 	
 	private void moveinventory(){

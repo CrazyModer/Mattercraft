@@ -1,0 +1,4 @@
+{
+    "quarry_work": {"category": "master","sounds": [{"name": "quarry_work","stream": false}]},
+    "quarry_mine": {"category": "master","sounds": [{"name": "quarry_mine","stream": false}]}
+}

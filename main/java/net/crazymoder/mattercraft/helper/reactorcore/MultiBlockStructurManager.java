@@ -225,19 +225,27 @@ public class MultiBlockStructurManager {
 		y = 12;
 		x = 11;
 		z = 0;
-		 if(!isBlock("tile.mtc.stabilizer"))return false;
+		if(!isBlock("tile.mtc.stabilizer"))return false;
+		if(w.getBlockMetadata(x + xC, y + yC, z + zC) != 4)
+			w.setBlockMetadataWithNotify(x + xC, y + yC, z + zC, 4, 2);
 		y = 12;
 		x = -11;
 		z = 0;
 		if(!isBlock("tile.mtc.stabilizer"))return false;
+		if(w.getBlockMetadata(x + xC, y + yC, z + zC) != 5)
+			w.setBlockMetadataWithNotify(x + xC, y + yC, z + zC, 5, 2);
 		y = 12;
 		x = 0;
 		z = 11;
 		if(!isBlock("tile.mtc.stabilizer"))return false;
+		if(w.getBlockMetadata(x + xC, y + yC, z + zC) != 2)
+			w.setBlockMetadataWithNotify(x + xC, y + yC, z + zC, 2, 2);
 		y = 12;
 		x = 0;
     	z = -11;
 		if(!isBlock("tile.mtc.stabilizer"))return false;
+		if(w.getBlockMetadata(x + xC, y + yC, z + zC) != 3)
+			w.setBlockMetadataWithNotify(x + xC, y + yC, z + zC, 3, 2);
 		//System.out.println("stabilizer");
 		y = 23;
 		x = 0;
