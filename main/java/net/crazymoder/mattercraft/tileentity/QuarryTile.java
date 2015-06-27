@@ -87,7 +87,8 @@ public class QuarryTile extends TileEntity{
 			if(lasttier != tier && tier > 0)change();
 			if(tier > 0)update();
 			if(init){
-				change();
+				if(tier > 0)
+					change();
 				init = false;
 			}
 			lasttier = tier;
