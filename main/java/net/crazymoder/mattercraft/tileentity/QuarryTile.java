@@ -91,9 +91,11 @@ public class QuarryTile extends TileEntity{
 				init = false;
 			}
 			lasttier = tier;
+		}else{
+			if(tier > 0){
+				worldObj.playSound(xCoord,yCoord,zCoord, "dig.cloth",1f, 1f, true);
+			}
 		}
-		
-		
 	}
 	
 	private void activate(){
@@ -120,7 +122,7 @@ public class QuarryTile extends TileEntity{
 	private void update(){
 		if(mbsm.powerAcceptorTile.energyStorage.getMaxEnergyStored() > 0)relativEnergy = (float) mbsm.powerAcceptorTile.energyStorage.getEnergyStored() / mbsm.powerAcceptorTile.energyStorage.getMaxEnergyStored();
 		if(relativEnergy == 1 && mbsm.itemProviderTile.inv.getItemCount() == 0)moveinventory();
-		worldObj.playSoundEffect((double) xCoord + 0.5D, (double) yCoord + 0.5D, (double) zCoord + 0.5D, "mattercraft:quarry_work", 1F, 0.1F);
+		//worldObj.playSoundEffect((double) xCoord + 0.5D, (double) yCoord + 0.5D, (double) zCoord + 0.5D, "mattercraft:quarry_work", 1F, 0.1F);
 	}
 	
 	private void moveinventory(){
