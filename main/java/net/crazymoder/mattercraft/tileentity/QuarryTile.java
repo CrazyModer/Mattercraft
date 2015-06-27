@@ -12,9 +12,13 @@ import com.sun.webkit.Utilities;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.crazymoder.mattercraft.helper.CostomInventory;
 import net.crazymoder.mattercraft.helper.quarry.MultiBlockStructurManager;
+import net.crazymoder.mattercraft.helper.sound.LoopableTileEntitySound;
+import net.crazymoder.mattercraft.interfaces.INoisyTileEntity;
 import net.crazymoder.mattercraft.manager.ConfigurationManager;
+import net.crazymoder.mattercraft.proxys.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.audio.ISound;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -45,7 +49,7 @@ import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidHandler;
 import net.minecraftforge.fluids.IFluidTank;
 
-public class QuarryTile extends TileEntity{
+public class QuarryTile extends TileEntity implements INoisyTileEntity{
 	
 	public MultiBlockStructurManager mbsm = new MultiBlockStructurManager();
 	private Random r = new Random();
@@ -93,8 +97,10 @@ public class QuarryTile extends TileEntity{
 			}
 			lasttier = tier;
 		}else{
-			if(tier > 0){
-				worldObj.playSound(xCoord,yCoord,zCoord, "dig.cloth",1f, 1f, true);
+			if(init){
+				init = false;
+				ISound eventHorizonSound = new LoopableTileEntitySound("step.wood", this, 1F, 1F);
+				Minecraft.getMinecraft().getSoundHandler().playSound(eventHorizonSound);
 			}
 		}
 	}
@@ -123,16 +129,15 @@ public class QuarryTile extends TileEntity{
 	private void update(){
 		if(mbsm.powerAcceptorTile.energyStorage.getMaxEnergyStored() > 0)relativEnergy = (float) mbsm.powerAcceptorTile.energyStorage.getEnergyStored() / mbsm.powerAcceptorTile.energyStorage.getMaxEnergyStored();
 		if(relativEnergy == 1 && mbsm.itemProviderTile.inv.getItemCount() == 0)moveinventory();
-		//worldObj.playSoundEffect((double) xCoord + 0.5D, (double) yCoord + 0.5D, (double) zCoord + 0.5D, "mattercraft:quarry_work", 1F, 0.1F);
 	}
 	
 	private void moveinventory(){
 		int index = r.nextInt(mbsm.cardReaders.size());
-		System.out.println("Size: "+mbsm.cardReaders.size());
 		MemoryCardReaderTile cardReaderTile= mbsm.cardReaders.get(index);
 		if(cardReaderTile.itemStack != null && cardReaderTile.itemStack.stackSize > 0 && cardReaderTile.itemStack.hasTagCompound()){
 			mbsm.itemProviderTile.inv.readNBT(cardReaderTile.itemStack.stackTagCompound);
 			mbsm.powerAcceptorTile.energyStorage.setEnergyStored(0);
+			worldObj.playSoundEffect((double) xCoord + 0.5D, (double) yCoord + 0.5D, (double) zCoord + 0.5D, "step.wood", 1F, 0.1F);
 		}else{
 			mbsm.powerAcceptorTile.energyStorage.setEnergyStored((int) (mbsm.powerAcceptorTile.energyStorage.getMaxEnergyStored()*0.9f));
 		}
@@ -158,6 +163,21 @@ public class QuarryTile extends TileEntity{
 		NBTTagCompound tagCompound = pkt.func_148857_g();
 		tier = tagCompound.getInteger("tier");
 		relativEnergy = tagCompound.getFloat("relativEnergy");
+	}
+
+	@Override
+	public boolean isplaying() {
+		return tier > 0;
+	}
+
+	@Override
+	public float getPitch() {
+		return 0.5f + (relativEnergy / 2f);
+	}
+
+	@Override
+	public float getVolume() {
+		return 1f;
 	}
 
 }
