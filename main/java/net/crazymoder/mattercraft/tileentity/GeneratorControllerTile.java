@@ -2,7 +2,11 @@ package net.crazymoder.mattercraft.tileentity;
 
 import cofh.api.energy.EnergyStorage;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.crazymoder.mattercraft.helper.sound.LoopableTileEntitySound;
+import net.crazymoder.mattercraft.interfaces.INoisyTileEntity;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.audio.ISound;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -11,7 +15,7 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.fluids.FluidTank;
 
-public class GeneratorControllerTile extends TileEntity{
+public class GeneratorControllerTile extends TileEntity implements INoisyTileEntity{
 	private boolean init = true;
 	private int a,b,y,x,z;
 	private int direction;
@@ -25,6 +29,7 @@ public class GeneratorControllerTile extends TileEntity{
 	public boolean showGuiDisplay = false;
 	
 	public int productionRate = 0;
+	private int playSound = 0;
 	
 	public FluidTank watertank = new FluidTank(250000);
 	public FluidTank plasmaTank = new FluidTank(250000);
@@ -62,6 +67,14 @@ public class GeneratorControllerTile extends TileEntity{
 			}else{
 				showGuiDisplay = false;
 			}
+		}else{
+			if(init){
+				init = false;
+				ISound eventHorizonSound = new LoopableTileEntitySound("mattercraft:quarry.work", this, 1F, 1F);
+				Minecraft.getMinecraft().getSoundHandler().playSound(eventHorizonSound);
+			}
+			if(productionRate > 0)playSound = 2;
+			if(playSound == 1 && productionRate <= 0)playSound = 0;
 		}
 	}
 	@Override
@@ -244,5 +257,29 @@ public class GeneratorControllerTile extends TileEntity{
 		Block block = worldObj.getBlock(x + xCoord, y + yCoord, z + zCoord);
 		//System.out.println(block.getUnlocalizedName());
 		return(block.getUnlocalizedName().equals(name));
+	}
+
+	@Override
+	public int[] getAudioOffsets() {
+		int[] off= {0,4,0};
+		return off;
+	}
+
+	@Override
+	public boolean isplaying() {
+		boolean rv = playSound > 0;
+		if(!showGuiDisplay)rv = false;
+		if(playSound == 2)playSound = 1;
+		return rv;
+	}
+
+	@Override
+	public float getPitch() {
+		return 1.4f;
+	}
+
+	@Override
+	public float getVolume() {
+		return 0.6f;
 	}
 }

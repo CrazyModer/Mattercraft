@@ -1,4 +1,5 @@
 {
     "quarry.work": {"category": "block","sounds": [{"name": "quarry.work","stream": false}]},
-    "reactor.work": {"category": "block","sounds": [{"name": "reactor.work","stream": false}]}
+    "reactor.work": {"category": "block","sounds": [{"name": "reactor.work","stream": false}]},
+    "generator.work": {"category": "block","sounds": [{"name": "generator.work","stream": false}]}
 }
