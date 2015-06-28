@@ -99,7 +99,7 @@ public class QuarryTile extends TileEntity implements INoisyTileEntity{
 		}else{
 			if(init){
 				init = false;
-				ISound eventHorizonSound = new LoopableTileEntitySound("step.wood", this, 1F, 1F);
+				ISound eventHorizonSound = new LoopableTileEntitySound("mattercraft:quarry.work", this, 1F, 1F);
 				Minecraft.getMinecraft().getSoundHandler().playSound(eventHorizonSound);
 			}
 		}
@@ -137,7 +137,9 @@ public class QuarryTile extends TileEntity implements INoisyTileEntity{
 		if(cardReaderTile.itemStack != null && cardReaderTile.itemStack.stackSize > 0 && cardReaderTile.itemStack.hasTagCompound()){
 			mbsm.itemProviderTile.inv.readNBT(cardReaderTile.itemStack.stackTagCompound);
 			mbsm.powerAcceptorTile.energyStorage.setEnergyStored(0);
-			worldObj.playSoundEffect((double) xCoord + 0.5D, (double) yCoord + 0.5D, (double) zCoord + 0.5D, "step.wood", 1F, 0.1F);
+			worldObj.playSoundEffect((double) xCoord + 0.5D, (double) yCoord + 0.5D, (double) zCoord + 0.5D, "dig.stone", 2.5F, 0.1F);
+			worldObj.playSoundEffect((double) xCoord + 0.5D, (double) yCoord + 0.5D, (double) zCoord + 0.5D, "dig.wood", 1F, 0.3F);
+			worldObj.playSoundEffect((double) xCoord + 0.5D, (double) yCoord + 0.5D, (double) zCoord + 0.5D, "dig.gravel", 0.3F, 0.2F);
 		}else{
 			mbsm.powerAcceptorTile.energyStorage.setEnergyStored((int) (mbsm.powerAcceptorTile.energyStorage.getMaxEnergyStored()*0.9f));
 		}
@@ -172,12 +174,18 @@ public class QuarryTile extends TileEntity implements INoisyTileEntity{
 
 	@Override
 	public float getPitch() {
-		return 0.5f + (relativEnergy / 2f);
+		return 0.7f + (relativEnergy / 3f);
 	}
 
 	@Override
 	public float getVolume() {
-		return 1f;
+		return 0.2f + (relativEnergy / 4f);
+	}
+
+	@Override
+	public int[] getAudioOffsets() {
+		int[] off = {0,5,0};
+		return off;
 	}
 
 }

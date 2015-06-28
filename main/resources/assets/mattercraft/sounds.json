@@ -1,4 +1,4 @@
 {
-    "mtc.quarry.work": {"category": "block","sounds": [{"name": "quarry_work","stream": false}]},
-    "mtc.quarry.mine": {"category": "block","sounds": [{"name": "quarry_mine","stream": false}]}
+    "quarry.work": {"category": "block","sounds": [{"name": "quarry.work","stream": false}]},
+    "reactor.work": {"category": "block","sounds": [{"name": "reactor.work","stream": false}]}
 }

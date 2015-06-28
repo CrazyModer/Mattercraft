@@ -18,9 +18,9 @@ public class LoopableTileEntitySound extends PositionedSound implements ITickabl
 		this.noisyTile = (INoisyTileEntity) tileEntity;
 		this.volume = volume;
 		this.field_147663_c = pitch;
-		this.xPosF = tileEntity.xCoord;
-		this.yPosF = tileEntity.yCoord;
-		this.zPosF = tileEntity.zCoord;
+		this.xPosF = tileEntity.xCoord + noisyTile.getAudioOffsets()[0];
+		this.yPosF = tileEntity.yCoord + noisyTile.getAudioOffsets()[1];
+		this.zPosF = tileEntity.zCoord + noisyTile.getAudioOffsets()[2];
 		this.field_147665_h = 0;
 	}
 	

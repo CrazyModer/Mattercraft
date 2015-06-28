@@ -11,8 +11,11 @@ import net.crazymoder.mattercraft.helper.reactorcore.GuiHandler;
 import net.crazymoder.mattercraft.helper.reactorcore.LogisticHandler;
 import net.crazymoder.mattercraft.helper.reactorcore.MultiBlockStructurManager;
 import net.crazymoder.mattercraft.helper.reactorcore.RenderingHandler;
+import net.crazymoder.mattercraft.helper.sound.LoopableTileEntitySound;
+import net.crazymoder.mattercraft.interfaces.INoisyTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.audio.ISound;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
@@ -25,7 +28,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class ReactorCoreTile extends TileEntity{
+public class ReactorCoreTile extends TileEntity implements INoisyTileEntity{
 
 		
 	//declaration
@@ -39,6 +42,9 @@ public class ReactorCoreTile extends TileEntity{
 		public int state;
 		public int oldstate;
 	//*****************
+		
+	//Client only 
+	boolean init = true;
 	private int updateMbsTick = 40;
 	
 	
@@ -83,6 +89,11 @@ public class ReactorCoreTile extends TileEntity{
 		}else{
 			if(renderingHandler.render)
 				Mattercraft.proxy.render(worldObj, xCoord, yCoord, zCoord);
+			if(init){
+				init = false;
+				ISound eventHorizonSound = new LoopableTileEntitySound("mattercraft:reactor.work", this, 1F, 1F);
+				Minecraft.getMinecraft().getSoundHandler().playSound(eventHorizonSound);
+			}
 		}
 	}
 	
@@ -165,6 +176,29 @@ public class ReactorCoreTile extends TileEntity{
 					player.setPositionAndUpdate(posX+12, 400, posZ+12);
 				}
 			}
+	}
+
+	@Override
+	public int[] getAudioOffsets() {
+		int[] off = {0,7,0};
+		return off;
+	}
+
+	@Override
+	public boolean isplaying() {
+		return renderingHandler.render;
+	}
+
+	@Override
+	public float getPitch() {
+		// TODO Auto-generated method stub
+		return 1f;
+	}
+
+	@Override
+	public float getVolume() {
+		// TODO Auto-generated method stub
+		return 1f;
 	}
 	
 }
