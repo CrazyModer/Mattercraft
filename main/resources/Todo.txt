@@ -1,8 +1,7 @@
 @Domi
-Absorber
-Absorbed Toxic Waste
-Stabilizer Dust
-Enriched Stabilizer Dust
+itemProvider
+memoryCardReader
+quarryPowerAcceptor
 
 @Sven
 Reactor Frame
