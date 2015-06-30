@@ -1,7 +1,4 @@
 @Domi
-itemProvider
-memoryCardReader
-quarryPowerAcceptor
 
 @Sven
 Reactor Frame
