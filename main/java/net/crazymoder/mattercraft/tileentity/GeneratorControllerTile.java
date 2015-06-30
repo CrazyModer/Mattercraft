@@ -1,19 +1,15 @@
 package net.crazymoder.mattercraft.tileentity;
 
-import cofh.api.energy.EnergyStorage;
-import cpw.mods.fml.common.registry.GameRegistry;
-import net.crazymoder.mattercraft.helper.sound.LoopableTileEntitySound;
+import net.crazymoder.mattercraft.Mattercraft;
 import net.crazymoder.mattercraft.interfaces.INoisyTileEntity;
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.audio.ISound;
-import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.fluids.FluidTank;
+import cofh.api.energy.EnergyStorage;
 
 public class GeneratorControllerTile extends TileEntity implements INoisyTileEntity{
 	private boolean init = true;
@@ -70,8 +66,7 @@ public class GeneratorControllerTile extends TileEntity implements INoisyTileEnt
 		}else{
 			if(init){
 				init = false;
-				ISound eventHorizonSound = new LoopableTileEntitySound("mattercraft:quarry.work", this, 1F, 1F);
-				Minecraft.getMinecraft().getSoundHandler().playSound(eventHorizonSound);
+				Mattercraft.proxy.initTileSound(this, "mattercraft:quarry.work");
 			}
 			if(productionRate > 0)playSound = 2;
 			if(playSound == 1 && productionRate <= 0)playSound = 0;

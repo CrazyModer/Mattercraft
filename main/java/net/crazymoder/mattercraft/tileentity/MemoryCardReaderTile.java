@@ -12,7 +12,7 @@ import cofh.api.transport.IItemDuct;
 import com.sun.webkit.Utilities;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import net.crazymoder.mattercraft.helper.CostomInventory;
+import net.crazymoder.mattercraft.helper.inventory.CostomInventory;
 import net.crazymoder.mattercraft.manager.AdvancedItemManager;
 import net.crazymoder.mattercraft.manager.ConfigurationManager;
 import net.crazymoder.mattercraft.manager.ItemManager;

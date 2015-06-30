@@ -1,9 +1,6 @@
 package net.crazymoder.mattercraft.tileentity;
 
-import java.util.ArrayList;
 import java.util.ListIterator;
-
-import org.lwjgl.Sys;
 
 import net.crazymoder.mattercraft.Mattercraft;
 import net.crazymoder.mattercraft.helper.reactorcore.Calculator;
@@ -11,22 +8,16 @@ import net.crazymoder.mattercraft.helper.reactorcore.GuiHandler;
 import net.crazymoder.mattercraft.helper.reactorcore.LogisticHandler;
 import net.crazymoder.mattercraft.helper.reactorcore.MultiBlockStructurManager;
 import net.crazymoder.mattercraft.helper.reactorcore.RenderingHandler;
-import net.crazymoder.mattercraft.helper.sound.LoopableTileEntitySound;
 import net.crazymoder.mattercraft.interfaces.INoisyTileEntity;
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.audio.ISound;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.MathHelper;
-import net.minecraft.world.World;
 
 public class ReactorCoreTile extends TileEntity implements INoisyTileEntity{
 
@@ -91,8 +82,7 @@ public class ReactorCoreTile extends TileEntity implements INoisyTileEntity{
 				Mattercraft.proxy.render(worldObj, xCoord, yCoord, zCoord);
 			if(init){
 				init = false;
-				ISound eventHorizonSound = new LoopableTileEntitySound("mattercraft:reactor.work", this, 1F, 1F);
-				Minecraft.getMinecraft().getSoundHandler().playSound(eventHorizonSound);
+				Mattercraft.proxy.initTileSound(this, "mattercraft:reactor.work");
 			}
 		}
 	}

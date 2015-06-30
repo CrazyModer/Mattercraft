@@ -21,9 +21,9 @@ public class IonizedPlasma {
 	public static Item ionizedPlasmaBucket;
 		public IonizedPlasma(){
 			ionizedPlasma = new Fluid("mtc.ionizedPlasma");
-			ionizedPlasma.setTemperature(100000).setDensity(1).setViscosity(100).setGaseous(true).setUnlocalizedName("mtc.ionizedPlasma");
+			ionizedPlasma.setTemperature(100000).setDensity(0).setViscosity(10).setGaseous(true).setUnlocalizedName("mtc.ionizedPlasma");
 			FluidRegistry.registerFluid(ionizedPlasma);
-			ionizedPlasmaBlock = new BasicFluidBlock(ionizedPlasma, Material.water, "mattercraft:ionizedPlasma");
+			ionizedPlasmaBlock = new BasicFluidBlock(ionizedPlasma, Material.lava, "mattercraft:ionizedPlasma");
 			ionizedPlasmaBlock.setBlockName("mtc.ionizedPlasma");
 			GameRegistry.registerBlock(ionizedPlasmaBlock, "mtc.ionizedPlasma");
 			ionizedPlasmaBucket = new ItemBucket(ionizedPlasmaBlock);

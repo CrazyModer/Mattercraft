@@ -12,6 +12,7 @@ import net.crazymoder.mattercraft.craftingmanager.SmeltingManager;
 import net.crazymoder.mattercraft.craftingmanager.StaticItemStacks;
 import net.crazymoder.mattercraft.craftingmanager.ThermalExpansionCraftingManager;
 import net.crazymoder.mattercraft.craftingmanager.VanillaCraftingManager;
+import net.crazymoder.mattercraft.interfaces.INoisyTileEntity;
 import net.crazymoder.mattercraft.manager.AdvancedItemManager;
 import net.crazymoder.mattercraft.manager.BlockManager;
 import net.crazymoder.mattercraft.manager.ConfigurationManager;
@@ -22,6 +23,7 @@ import net.crazymoder.mattercraft.manager.ItemManager;
 import net.crazymoder.mattercraft.manager.TileEntityManager;
 import net.crazymoder.mattercraft.manager.TileRenderingManager;
 import net.crazymoder.mattercraft.manager.WorldGenManager;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 public class CommonProxy {
@@ -37,6 +39,7 @@ public class CommonProxy {
     	GameRegistry.registerWorldGenerator(new WorldGenManager(), 0);
 	}
 	
+	
 	public void init(FMLInitializationEvent e){
 		NetworkRegistry.INSTANCE.registerGuiHandler(Mattercraft.INSTANCE, new GuiManager());
 	}
@@ -48,7 +51,9 @@ public class CommonProxy {
 		VanillaCraftingManager vanillaCraftingManager = new VanillaCraftingManager();
 		System.out.println("Mattercraft loaded!");
 	}
-	
+
 	public void render(World w,float x,float y,float z){}
+
+	public void initTileSound(TileEntity tile, String name) {}
 	
 }

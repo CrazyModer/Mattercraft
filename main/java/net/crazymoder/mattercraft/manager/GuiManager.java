@@ -4,6 +4,7 @@ import net.crazymoder.mattercraft.blockcontainer.Electrolizer;
 import net.crazymoder.mattercraft.gui.CoolerGui;
 import net.crazymoder.mattercraft.gui.ElectrolizerGui;
 import net.crazymoder.mattercraft.gui.GeneratorControllerGui;
+import net.crazymoder.mattercraft.gui.ManualGui;
 import net.crazymoder.mattercraft.gui.ReactorTerminalGui;
 import net.crazymoder.mattercraft.tileentity.CoolerTile;
 import net.crazymoder.mattercraft.tileentity.ElectrolizerTile;
@@ -38,6 +39,9 @@ public class GuiManager implements IGuiHandler {
 		if(id == 3){
 			GeneratorControllerTile electrolizerTile = (GeneratorControllerTile) world.getTileEntity(x, y, z);
 			return new GeneratorControllerGui(electrolizerTile);
+		}
+		if(id == 4){
+			return new ManualGui();
 		}
 		return null;
 	}

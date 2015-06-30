@@ -9,7 +9,7 @@ import com.sun.webkit.Utilities;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.ReflectionHelper;
-import net.crazymoder.mattercraft.helper.CostomInventory;
+import net.crazymoder.mattercraft.helper.inventory.CostomInventory;
 import net.crazymoder.mattercraft.items.BasicItem;
 import net.crazymoder.mattercraft.manager.AdvancedItemManager;
 import net.crazymoder.mattercraft.manager.BlockManager;

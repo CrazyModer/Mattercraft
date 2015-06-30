@@ -3,7 +3,9 @@ import net.crazymoder.mattercraft.blocks.BasicFluidBlock;
 import net.crazymoder.mattercraft.manager.BucketManager;
 import net.crazymoder.mattercraft.manager.CreativeTabManager;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -21,9 +23,9 @@ public class Hydrogen {
 	public static Item hydrogenBucket;
 		public Hydrogen(){
 			hydrogen = new Fluid("mtc.hydrogen");
-			hydrogen.setTemperature(372).setDensity(1).setViscosity(500).setGaseous(true).setUnlocalizedName("mtc.hydrogen");
+			hydrogen.setTemperature(372).setDensity(0).setViscosity(400).setGaseous(true).setUnlocalizedName("mtc.hydrogen");
 			FluidRegistry.registerFluid(hydrogen);
-			hydrogenBlock = new BasicFluidBlock(hydrogen, Material.water, "mattercraft:hydrogen");
+			hydrogenBlock = new BasicFluidBlock(hydrogen, new MaterialLiquid(MapColor.airColor), "mattercraft:hydrogen");
 			hydrogenBlock.setBlockName("mtc.hydrogen");
 			GameRegistry.registerBlock(hydrogenBlock, "mtc.hydrogen");
 			hydrogenBucket = new ItemBucket(hydrogenBlock);

@@ -2,6 +2,7 @@ package net.crazymoder.mattercraft.fluids;
 import net.crazymoder.mattercraft.blocks.BasicFluidBlock;
 import net.crazymoder.mattercraft.manager.BucketManager;
 import net.crazymoder.mattercraft.manager.CreativeTabManager;
+import net.crazymoder.mattercraft.material.FluidMaterial;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -21,9 +22,9 @@ public class ToxicWaste {
 		public static Item toxicWasteBucket;
 		public ToxicWaste(){
 			toxicWaste = new Fluid("mtc.toxicWaste");
-			toxicWaste.setTemperature(317).setDensity(1).setViscosity(5).setGaseous(false).setUnlocalizedName("mtc.toxicWaste");
+			toxicWaste.setTemperature(317).setDensity(1000).setViscosity(1000).setGaseous(false).setUnlocalizedName("mtc.toxicWaste");
 			FluidRegistry.registerFluid(toxicWaste);
-			toxicWasteBlock = new BasicFluidBlock(toxicWaste, Material.water, "mattercraft:toxicWaste");
+			toxicWasteBlock = new BasicFluidBlock(toxicWaste, Material.lava, "mattercraft:toxicWaste");
 			toxicWasteBlock.setBlockName("mtc.toxicWaste");
 			GameRegistry.registerBlock(toxicWasteBlock, "mtc.toxicWaste");
 			toxicWasteBucket = new ItemBucket(toxicWasteBlock);

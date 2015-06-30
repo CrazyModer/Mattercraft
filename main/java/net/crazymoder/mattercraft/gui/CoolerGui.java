@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.crazymoder.mattercraft.helper.reactorcore.LogisticHandler;
 import net.crazymoder.mattercraft.tileentity.CoolerTile;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.ResourceLocation;
 
@@ -56,5 +57,13 @@ public class CoolerGui extends GuiScreen{
 	@Override
 	public boolean doesGuiPauseGame() {
 		return false;
+	}
+	
+	@Override
+	protected void keyTyped(char par1, int par2)
+	{
+		if (par2 == 1 || par2 == this.mc.gameSettings.keyBindInventory.getKeyCode()){
+			this.mc.thePlayer.closeScreen();
+		}
 	}
 }

@@ -217,4 +217,12 @@ public class ReactorTerminalGui extends GuiScreen{
     		this.drawHoveringText(list, (int)x, (int)y, this.fontRendererObj);
     	}
 	}
+	
+	@Override
+	protected void keyTyped(char par1, int par2)
+	{
+		if (par2 == 1 || par2 == this.mc.gameSettings.keyBindInventory.getKeyCode()){
+			this.mc.thePlayer.closeScreen();
+		}
+	}
 }

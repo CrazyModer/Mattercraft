@@ -34,14 +34,14 @@ public class ItemBlockManager {
 	    superCommpressedMatterBlock = new BasicBlock(Material.ground);
 	    
 		
-		reactorFrame.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.reactorFrame").setCreativeTab(CreativeTabManager.tabItems).setHarvestLevel("pickaxe",3);
-		advancedReactorFrame.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.advancedReactorFrame").setCreativeTab(CreativeTabManager.tabItems).setHarvestLevel("pickaxe",3);
-		stoneWool.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.stoneWool").setCreativeTab(CreativeTabManager.tabItems).setHarvestLevel("pickaxe",3);
-		matterBlock.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.matterBlock").setCreativeTab(CreativeTabManager.tabItems).setHarvestLevel("pickaxe",3);
-		commpressedMatterBlock.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.commpressedMatterBlock").setCreativeTab(CreativeTabManager.tabItems).setHarvestLevel("pickaxe",3);
-		doubleCommpressedMatterBlock.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.doubleCommpressedMatterBlock").setCreativeTab(CreativeTabManager.tabItems).setHarvestLevel("pickaxe",3);
-		tripleCommpressedMatterBlock.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.tripleCommpressedMatterBlock").setCreativeTab(CreativeTabManager.tabItems).setHarvestLevel("pickaxe",3);
-		superCommpressedMatterBlock.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.superCommpressedMatterBlock").setCreativeTab(CreativeTabManager.tabItems).setHarvestLevel("pickaxe",3);
+		reactorFrame.setHardness(5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.reactorFrame").setCreativeTab(CreativeTabManager.tabItems).setHarvestLevel("pickaxe",0);
+		advancedReactorFrame.setHardness(5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.advancedReactorFrame").setCreativeTab(CreativeTabManager.tabItems).setHarvestLevel("pickaxe",0);
+		stoneWool.setHardness(5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.stoneWool").setCreativeTab(CreativeTabManager.tabItems).setHarvestLevel("pickaxe",0);
+		matterBlock.setHardness(5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.matterBlock").setCreativeTab(CreativeTabManager.tabItems).setHarvestLevel("pickaxe",0);
+		commpressedMatterBlock.setHardness(5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.commpressedMatterBlock").setCreativeTab(CreativeTabManager.tabItems).setHarvestLevel("pickaxe",0);
+		doubleCommpressedMatterBlock.setHardness(5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.doubleCommpressedMatterBlock").setCreativeTab(CreativeTabManager.tabItems).setHarvestLevel("pickaxe",0);
+		tripleCommpressedMatterBlock.setHardness(5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.tripleCommpressedMatterBlock").setCreativeTab(CreativeTabManager.tabItems).setHarvestLevel("pickaxe",0);
+		superCommpressedMatterBlock.setHardness(5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.superCommpressedMatterBlock").setCreativeTab(CreativeTabManager.tabItems).setHarvestLevel("pickaxe",0);
 		
 		reactorFrame.setBlockTextureName("mattercraft:reactorFrame");
 		advancedReactorFrame.setBlockTextureName("mattercraft:advancedReactorFrame");

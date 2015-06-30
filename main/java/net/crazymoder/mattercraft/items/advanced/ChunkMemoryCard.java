@@ -7,7 +7,7 @@ import java.util.Map.Entry;
 import java.util.function.BiConsumer;
 import java.util.Set;
 
-import net.crazymoder.mattercraft.helper.CostomInventory;
+import net.crazymoder.mattercraft.helper.inventory.CostomInventory;
 import net.crazymoder.mattercraft.manager.CreativeTabManager;
 import net.crazymoder.mattercraft.tileentity.ItemProviderTile;
 import net.crazymoder.mattercraft.tileentity.QuarryTile;

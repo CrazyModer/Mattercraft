@@ -13,7 +13,7 @@ public class CreativeTabManager {
 	};
 	public static CreativeTabs tabItems = new CreativeTabs("mtc.items") {
 	    public Item getTabIconItem() {
-	    	return GameRegistry.findItem("mattercraft", "mtc.ionizedPlasmaBucket");
+	    	return GameRegistry.findItem("mattercraft", "mtc.matterManual");
 	    }
 	};
 }

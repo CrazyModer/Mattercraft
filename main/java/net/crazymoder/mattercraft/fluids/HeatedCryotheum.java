@@ -21,9 +21,9 @@ public class HeatedCryotheum {
 	public static Item heatedCryotheumBucket;
 		public HeatedCryotheum(){
 			heatedCryotheum = new Fluid("mtc.heatedCryotheum");
-			heatedCryotheum.setTemperature(100000).setDensity(1).setViscosity(50).setGaseous(false).setUnlocalizedName("mtc.heatedCryotheum");
+			heatedCryotheum.setTemperature(100000).setDensity(1000).setViscosity(1000).setGaseous(false).setUnlocalizedName("mtc.heatedCryotheum");
 			FluidRegistry.registerFluid(heatedCryotheum);
-			heatedCryotheumBlock = new BasicFluidBlock(heatedCryotheum, Material.water, "mattercraft:heatedCryotheum");
+			heatedCryotheumBlock = new BasicFluidBlock(heatedCryotheum, Material.lava, "mattercraft:heatedCryotheum");
 			heatedCryotheumBlock.setBlockName("mtc.heatedCryotheum");
 			GameRegistry.registerBlock(heatedCryotheumBlock, "mtc.heatedCryotheum");
 			heatedCryotheumBucket = new ItemBucket(heatedCryotheumBlock);

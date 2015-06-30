@@ -45,9 +45,10 @@ tile.mtc.superCommpressedMatterBlock.name=Super Compressed Matterblock
 tile.mtc.quarry.name=Quarry
 tile.mtc.itemProvider.name=ItemProvider
 tile.mtc.memoryCardReader.name=MemoryCardReader
-tile.mtc.chunkRegistrator.name=ChunkRegistrator
-tile.mtc.emptyChunkRegistrator.name=Empty ChunkRegistrator
-tile.mtc.quarryPowerAcceptorTile.name=QuarryPowerAcceptorTile
+tile.mtc.chunkRegistrator.name=Chunk Registrator
+tile.mtc.emptyChunkRegistrator.name=Empty Chunk Registrator
+tile.mtc.quarryPowerAcceptor.name=Quarry Power Acceptor
+tile.mtc.infinityPlating.name=Infinity Plating
 
 tile.mtc.ionizedPlasma.name=Ionized Plasma
 tile.mtc.toxicWaste.name=Toxic Waste
@@ -78,8 +79,8 @@ item.mtc.stabilizerDust.name=Stabilizer Dust
 item.mtc.enrichedStabilizerDust.name=Enriched Stabilizer Dust 
 item.mtc.glasDust.name=Glass Dust
 
-item.mtc.chunkMemoryCard.name=ChunkMemoryCard
-
+item.mtc.chunkMemoryCard.name=Chunk Memory Card
+item.mtc.matterManual.name=Matter Manual
 
 itemGroup.mtc.blocks=Matter Blocks
 itemGroup.mtc.items=Matter Items

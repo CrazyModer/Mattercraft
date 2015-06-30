@@ -25,6 +25,7 @@ import net.crazymoder.mattercraft.blockcontainer.WaterInjector;
 import net.crazymoder.mattercraft.blocks.BasicBlock;
 import net.crazymoder.mattercraft.blocks.FrontTextureBlock;
 import net.crazymoder.mattercraft.blocks.MultiTextureBlock;
+import net.crazymoder.mattercraft.material.BlockMaterial;
 import net.crazymoder.mattercraft.tileentity.CryotheumAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.GeneratorEnergyPortTile;
 import net.crazymoder.mattercraft.tileentity.HeatedCryotheumEjectorTile;
@@ -58,6 +59,7 @@ public class BlockManager {
 	public static Block waterInjector;
 	public static Block plasmaInjector;
 	public static Block emptyChunkRegistrator;
+	public static Block infinityPlating;
 
 	
 	
@@ -86,26 +88,27 @@ public class BlockManager {
 	
 	public BlockManager(){
 		//Initialize Blocks
-		groundPlating = new BasicBlock(Material.ground);
-		reinforcedPlating = new BasicBlock(Material.ground);
-		iridiumPalting = new BasicBlock(Material.iron);
-		osmiumPlating = new BasicBlock(Material.iron);
-		stabilizer = new FrontTextureBlock(Material.piston);
-		forceFieldEmitter = new BasicBlock(Material.iron);
-		stabilizerPillar = new MultiTextureBlock(Material.iron);
-		plasmaExtractor = new MultiTextureBlock(Material.piston);
-		wormHoleStabilizer = new MultiTextureBlock(Material.piston);
-		matterInjector = new MultiTextureBlock(Material.piston);
-		osmiumOre = new BasicBlock(Material.iron);
-		iridiumOre =new BasicBlock(Material.iron);
-		unstableMatter = new BasicBlock(Material.iron);
-		generatorPlating = new BasicBlock(Material.iron);		
-		heatSink = new BasicBlock(Material.iron);
-		peltier = new MultiTextureBlock(Material.iron);
-		exhaustPipe = new MultiTextureBlock(Material.iron);
-		waterInjector = new MultiTextureBlock(Material.iron);
-		plasmaInjector = new MultiTextureBlock(Material.iron);
-		emptyChunkRegistrator = new MultiTextureBlock(Material.iron);
+		groundPlating = new BasicBlock(BlockMaterial.matter);
+		reinforcedPlating = new BasicBlock(BlockMaterial.matter);
+		iridiumPalting = new BasicBlock(BlockMaterial.matter);
+		osmiumPlating = new BasicBlock(BlockMaterial.matter);
+		stabilizer = new FrontTextureBlock(BlockMaterial.matter);
+		forceFieldEmitter = new BasicBlock(BlockMaterial.matter);
+		stabilizerPillar = new MultiTextureBlock(BlockMaterial.matter);
+		plasmaExtractor = new MultiTextureBlock(BlockMaterial.matter);
+		wormHoleStabilizer = new MultiTextureBlock(BlockMaterial.matter);
+		matterInjector = new MultiTextureBlock(BlockMaterial.matter);
+		osmiumOre = new BasicBlock(BlockMaterial.matter);
+		iridiumOre =new BasicBlock(BlockMaterial.matter);
+		unstableMatter = new BasicBlock(BlockMaterial.matter);
+		generatorPlating = new BasicBlock(BlockMaterial.matter);		
+		heatSink = new BasicBlock(BlockMaterial.matter);
+		peltier = new MultiTextureBlock(BlockMaterial.matter);
+		exhaustPipe = new MultiTextureBlock(BlockMaterial.matter);
+		waterInjector = new MultiTextureBlock(BlockMaterial.matter);
+		plasmaInjector = new MultiTextureBlock(BlockMaterial.matter);
+		emptyChunkRegistrator = new MultiTextureBlock(BlockMaterial.matter);
+		infinityPlating = new BasicBlock(BlockMaterial.matter);
 		
 		
 	    //Initialize Block Containers
@@ -131,48 +134,49 @@ public class BlockManager {
 		quarryPowerAcceptor = new QuarryPowerAcceptor();
 		
 		//Configure Blocks
-		groundPlating.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.groundPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		reinforcedPlating.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.reinforcedPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		iridiumPalting.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.iridiumPalting").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		osmiumPlating.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.osmiumPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		stabilizer.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.stabilizer").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		forceFieldEmitter.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.forceFieldEmitter").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		stabilizerPillar.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.stabilizerPillar").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		plasmaExtractor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.plasmaExtractor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		wormHoleStabilizer.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.wormHoleStabilizer").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		matterInjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.matterInjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		osmiumOre.setHardness(1.5F).setStepSound(Block.soundTypeStone).setBlockName("mtc.osmiumOre").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		iridiumOre.setHardness(1.5F).setStepSound(Block.soundTypeStone).setBlockName("mtc.iridiumOre").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		unstableMatter.setHardness(1.5F).setStepSound(Block.soundTypeStone).setBlockName("mtc.unstableMatter").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		generatorPlating.setHardness(3.0F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.generatorPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",4);
-		heatSink.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.heatSink").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		peltier.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.peltier").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		exhaustPipe.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.exhaustPipe").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		waterInjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.waterInjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		plasmaInjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.plasmaInjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		emptyChunkRegistrator.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.emptyChunkRegistrator").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);	
+		groundPlating.setHardness(15F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.groundPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		reinforcedPlating.setHardness(25F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.reinforcedPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		iridiumPalting.setHardness(40F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.iridiumPalting").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		osmiumPlating.setHardness(30F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.osmiumPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		stabilizer.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.stabilizer").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		forceFieldEmitter.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.forceFieldEmitter").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		stabilizerPillar.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.stabilizerPillar").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		plasmaExtractor.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.plasmaExtractor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		wormHoleStabilizer.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.wormHoleStabilizer").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		matterInjector.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.matterInjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		osmiumOre.setHardness(30F).setStepSound(Block.soundTypeStone).setBlockName("mtc.osmiumOre").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		iridiumOre.setHardness(40F).setStepSound(Block.soundTypeStone).setBlockName("mtc.iridiumOre").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		unstableMatter.setHardness(0.1F).setStepSound(Block.soundTypeStone).setBlockName("mtc.unstableMatter").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		generatorPlating.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.generatorPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",4);
+		heatSink.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.heatSink").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		peltier.setHardness(15F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.peltier").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		exhaustPipe.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.exhaustPipe").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		waterInjector.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.waterInjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		plasmaInjector.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.plasmaInjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		emptyChunkRegistrator.setHardness(5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.emptyChunkRegistrator").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);	
+		infinityPlating.setHardness(100F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.infinityPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);	
 		
 		//Configure Block Containers
-		cryotheumAcceptor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.cryotheumAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		hydrogenAcceptor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.hydrogenAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		stabilizerAcceptor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.stabilizerAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		liquidMatterAcceptor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.liquidMatterAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		plasmaEjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.plasmaEjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		toxicWasteEjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.toxicWasteEjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		heatedCryotheumEjector.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.heatedCryotheumEjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		reactorPowerAcceptor.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.reactorPowerAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		reactorTerminal.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.reactorTerminal").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		reactorCore.setHardness(1.5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.reactorCore").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		cooler.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.cooler").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		electrolizer.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.electrolizer").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		generatorController.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.generatorController").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		generatorEnergyPort.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.generatorEnergyPort").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		generatorFluidPort.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.generatorFluidPort").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		quarry.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.quarry").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		chunkRegistrator.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.chunkRegistrator").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		itemProvider.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.itemProvider").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		memoryCardReader.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.memoryCardReader").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
-		quarryPowerAcceptor.setHardness(2F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.quarryPowerAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",3);
+		cryotheumAcceptor.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.cryotheumAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		hydrogenAcceptor.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.hydrogenAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		stabilizerAcceptor.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.stabilizerAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		liquidMatterAcceptor.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.liquidMatterAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		plasmaEjector.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.plasmaEjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		toxicWasteEjector.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.toxicWasteEjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		heatedCryotheumEjector.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.heatedCryotheumEjector").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		reactorPowerAcceptor.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.reactorPowerAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		reactorTerminal.setHardness(4F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.reactorTerminal").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		reactorCore.setHardness(50F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.reactorCore").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		cooler.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.cooler").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		electrolizer.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.electrolizer").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		generatorController.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.generatorController").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		generatorEnergyPort.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.generatorEnergyPort").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		generatorFluidPort.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.generatorFluidPort").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		quarry.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.quarry").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		chunkRegistrator.setHardness(5F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.chunkRegistrator").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		itemProvider.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.itemProvider").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		memoryCardReader.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.memoryCardReader").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		quarryPowerAcceptor.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.quarryPowerAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
 		
 		//Single Texture Blocks
 		groundPlating.setBlockTextureName("mattercraft:groundPlating");
@@ -186,6 +190,7 @@ public class BlockManager {
 		unstableMatter.setBlockTextureName("mattercraft:unstableMatter");
 		generatorPlating.setBlockTextureName("mattercraft:generatorPlating");
 		heatSink.setBlockTextureName("mattercraft:heatSink");
+		infinityPlating.setBlockTextureName("mattercraft:infinityPlating");
 		
 		
 		
@@ -244,6 +249,7 @@ public class BlockManager {
 		GameRegistry.registerBlock(waterInjector, "mtc.waterInjector");
 		GameRegistry.registerBlock(plasmaInjector, "mtc.plasmaInjector");
 		GameRegistry.registerBlock(emptyChunkRegistrator, "mtc.emptyChunkRegistrator");
+		GameRegistry.registerBlock(infinityPlating, "mtc.infinityPlating");
 		
 		//Register Block Container
 		GameRegistry.registerBlock(cryotheumAcceptor, "mtc.cryotheumAcceptor");

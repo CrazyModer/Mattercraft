@@ -3,7 +3,9 @@ import net.crazymoder.mattercraft.blocks.BasicFluidBlock;
 import net.crazymoder.mattercraft.manager.BucketManager;
 import net.crazymoder.mattercraft.manager.CreativeTabManager;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -21,9 +23,9 @@ public class LiquidMatter {
 	public static Item liquidMatterBucket;
 	public LiquidMatter(){
 		liquidMatter = new Fluid("mtc.liquidMatter");
-		liquidMatter.setTemperature(100000).setDensity(1).setViscosity(50).setGaseous(false).setUnlocalizedName("mtc.liquidMatter");
+		liquidMatter.setTemperature(300).setDensity(10000).setViscosity(2000).setGaseous(false).setUnlocalizedName("mtc.liquidMatter");
 		FluidRegistry.registerFluid(liquidMatter);
-		liquidMatterBlock = new BasicFluidBlock(liquidMatter, Material.water, "mattercraft:liquidMatter");
+		liquidMatterBlock = new BasicFluidBlock(liquidMatter, new MaterialLiquid(MapColor.obsidianColor), "mattercraft:liquidMatter");
 		liquidMatterBlock.setBlockName("mtc.liquidMatter");
 		GameRegistry.registerBlock(liquidMatterBlock, "mtc.liquidMatter");
 		liquidMatterBucket = new ItemBucket(liquidMatterBlock);

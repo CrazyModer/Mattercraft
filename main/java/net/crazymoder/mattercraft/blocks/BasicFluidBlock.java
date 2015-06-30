@@ -56,5 +56,10 @@ public class BasicFluidBlock extends BlockFluidClassic {
     public IIcon getIcon2(){
     	return flowingIcon;
     }
-   
+    
+    @Override
+    public boolean canCollideCheck(int meta, boolean fullHit)
+    {
+        return false;
+    }
 }
