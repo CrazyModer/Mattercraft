@@ -59,21 +59,25 @@ public class LogisticHandler {
 	}
 	
 	private void move(){
-		//energy
-		energy_a += reactorPowerAcceptorTile.energyStorage.extractEnergy(energy_m - energy_a, false);
-		//import
-		if(cryotheumAcceptorTile.tank.getFluidAmount() > 0)
-		cryotheum_a += cryotheumAcceptorTile.tank.drain(cryotheum_m - cryotheum_a, true).amount;
-		if(hydrogenAcceptorTile.tank.getFluidAmount() > 0)
-		hydrogen_a += hydrogenAcceptorTile.tank.drain(hydrogen_m - hydrogen_a, true).amount;
-		if(stabilizerAcceptorTile.tank.getFluidAmount() > 0)
-		stabilizer_a += stabilizerAcceptorTile.tank.drain(stabilizer_m - stabilizer_a, true).amount;
-		if(liquidMatterAcceptorTile.tank.getFluidAmount() > 0)
-		liquidMatter_a += liquidMatterAcceptorTile.tank.drain(liquidMatter_m - liquidMatter_a, true).amount;
-		//export
-		plasma_a -= plasmaEjectorTile.tank.fill(new FluidStack(new Fluid("mtc.ionizedPlasma"),plasma_a), true);
-		heatedCryotheum_a -= heatedCryotheumEjectorTile.tank.fill(new FluidStack(new Fluid("mtc.heatedCryotheum"),heatedCryotheum_a), true);
-		toxicWaste_a -= toxicWasteEjectorTile.tank.fill(new FluidStack(new Fluid("mtc.toxicWaste"),toxicWaste_a), true);
+		try {
+			//energy
+			energy_a += reactorPowerAcceptorTile.energyStorage.extractEnergy(energy_m - energy_a, false);
+			//import
+			if(cryotheumAcceptorTile.tank.getFluidAmount() > 0)
+			cryotheum_a += cryotheumAcceptorTile.tank.drain(cryotheum_m - cryotheum_a, true).amount;
+			if(hydrogenAcceptorTile.tank.getFluidAmount() > 0)
+			hydrogen_a += hydrogenAcceptorTile.tank.drain(hydrogen_m - hydrogen_a, true).amount;
+			if(stabilizerAcceptorTile.tank.getFluidAmount() > 0)
+			stabilizer_a += stabilizerAcceptorTile.tank.drain(stabilizer_m - stabilizer_a, true).amount;
+			if(liquidMatterAcceptorTile.tank.getFluidAmount() > 0)
+			liquidMatter_a += liquidMatterAcceptorTile.tank.drain(liquidMatter_m - liquidMatter_a, true).amount;
+			//export
+			plasma_a -= plasmaEjectorTile.tank.fill(new FluidStack(new Fluid("mtc.ionizedPlasma"),plasma_a), true);
+			heatedCryotheum_a -= heatedCryotheumEjectorTile.tank.fill(new FluidStack(new Fluid("mtc.heatedCryotheum"),heatedCryotheum_a), true);
+			toxicWaste_a -= toxicWasteEjectorTile.tank.fill(new FluidStack(new Fluid("mtc.toxicWaste"),toxicWaste_a), true);
+		} catch (Exception e) {
+			System.out.println("Moving error replace core");
+		}
 	}
 	
 	private boolean checkexisting(){
