@@ -26,26 +26,26 @@ public class GeneratorControllerGui extends GuiScreen{
         mc.renderEngine.bindTexture(texture);
         this.drawTexturedModalRect(k, l, 0, 0, xSize, ySize);
         int temp;
-        temp = Math.round((coolerTile.tank1Display/250000f)*65f);
+        temp = Math.round((coolerTile.tank1Display/200000f)*65f);
         this.drawTexturedModalRect(k+15, l+80-temp, 15, 100, 20, temp);
-        temp = Math.round((coolerTile.tank2Display/250000f)*65f);
+        temp = Math.round((coolerTile.tank2Display/200000f)*65f);
         this.drawTexturedModalRect(k+42, l+80-temp, 42, 100, 21, temp);
         temp = Math.round((coolerTile.energyStorageDisplay/2000000000f)*65f);
         this.drawTexturedModalRect(k+70, l+80-temp, 70, 100, 20, temp);
 		String st = "Generator";
     	this.fontRendererObj.drawString(st, k+30, l + 5, 0);
-    	st = "Out: "+ coolerTile.productionRate+"kRF/t";
+    	st = "Out: "+ coolerTile.productionRate*2+"kRF/t";
     	this.fontRendererObj.drawString(st, k+25, l + 80, 0);
     	if(x > k+15 && y > l+15 && x < k+35 && y < l + 80){
     		List list = new ArrayList();
     		list.add("Water:");
-    		list.add(coolerTile.tank1Display/1000f+ "B/250.0B");
+    		list.add(coolerTile.tank1Display/1000f+ "B/200.0B");
     		this.drawHoveringText(list, (int)x, (int)y, this.fontRendererObj);
     	}
     	if(x > k+42 && y > l+15 && x < k+63 && y < l + 80){
     		List list = new ArrayList();
     		list.add("Plasma:");
-    		list.add(coolerTile.tank2Display/1000f+ "B/250.0B");
+    		list.add(coolerTile.tank2Display/1000f+ "B/200.0B");
     		this.drawHoveringText(list, (int)x, (int)y, this.fontRendererObj);
     	}
     	if(x > k+70 && y > l+15 && x < k+90 && y < l + 80){

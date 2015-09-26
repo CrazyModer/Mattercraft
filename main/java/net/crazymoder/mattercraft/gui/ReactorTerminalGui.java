@@ -189,13 +189,13 @@ public class ReactorTerminalGui extends GuiScreen{
         //status
     	this.fontRendererObj.drawString(statusString, (k + this.xSize / 2) - this.fontRendererObj.getStringWidth(statusString)/2, l - 75 + this.ySize/2, 0);
     	//power
-    	String st = topower/1000f + "kW > " + power/1000f + "kW";
+    	String st = topower/1000f + "GW > " + power/1000f + "GW";
     	this.fontRendererObj.drawString(st, k+12, l + 60, 0);
     	//matter
-    	st = "Matter: "+matter/1000f + "kU";
+    	st = "Matter: "+matter/1000f + "MU";
     	this.fontRendererObj.drawString(st, k+12, l + 43, 0);
     	//antiMatter
-    	st = "Antimatter: "+antiMatter/1000f + "kU";
+    	st = "Antimatter: "+antiMatter/1000f + "MU";
     	this.fontRendererObj.drawString(st, k+146, l + 43, 0);
     	//IOMatter
     	if(matterIO > 0)st = "+"; else st = "";

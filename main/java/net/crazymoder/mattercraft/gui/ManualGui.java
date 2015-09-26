@@ -40,13 +40,14 @@ public class ManualGui extends GuiScreen{
 	
 	@Override
 	public void initGui() {
+		page = ManualResources.index;
 		this.buttonList.clear();
 		int k = (this.width - this.xSize) / 2;
         int l = (this.height - this.ySize) / 2;
         
-		this.buttonList.add(new GuiButton(100, k+213, l+230, 12, 12, "<"));
-		this.buttonList.add(new GuiButton(101, k+225, l+230, 12, 12, "H"));
-		this.buttonList.add(new GuiButton(102, k+237, l+230, 12, 12, ">"));
+		this.buttonList.add(new GuiButton(100, k+213, l+237, 12, 12, "<"));
+		this.buttonList.add(new GuiButton(101, k+225, l+237, 12, 12, "H"));
+		this.buttonList.add(new GuiButton(102, k+237, l+237, 12, 12, ">"));
 		
 		background = pages.getRl(page);
 		pages.init(k, l, this.buttonList, page);
@@ -69,6 +70,7 @@ public class ManualGui extends GuiScreen{
 			break;
 		}
 		reinit = true;
+		ManualResources.index = page;
 	}
 	
 	
@@ -88,7 +90,7 @@ public class ManualGui extends GuiScreen{
         drawDefaultBackground(); 
         mc.renderEngine.bindTexture(background);
         drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
-        this.fontRendererObj.drawString("Page: " + page + "/" + maxPage, k+152, l+233, 0);
+        this.fontRendererObj.drawString("Page: " + page + "/" + maxPage, k+152, l+240, 0);
         pages.drawScreen(x, y, k, l, tick, this.fontRendererObj, page);
         super.drawScreen(x, y, tick);
 	}

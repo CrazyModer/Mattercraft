@@ -27,8 +27,8 @@ public class GeneratorControllerTile extends TileEntity implements INoisyTileEnt
 	public int productionRate = 0;
 	private int playSound = 0;
 	
-	public FluidTank watertank = new FluidTank(250000);
-	public FluidTank plasmaTank = new FluidTank(250000);
+	public FluidTank watertank = new FluidTank(200000);
+	public FluidTank plasmaTank = new FluidTank(200000);
 	public EnergyStorage energyStorage = new EnergyStorage(2000000000,10000000);
 	
 	public GeneratorControllerTile(){
@@ -48,9 +48,9 @@ public class GeneratorControllerTile extends TileEntity implements INoisyTileEnt
 				energyPortTile.setMaster(this);
 				fluidPortTile1.setMaster(this);
 				fluidPortTile2.setMaster(this);
-				if(energyStorage.getEnergyStored() + 10000000< energyStorage.getMaxEnergyStored() && watertank.getFluidAmount() >= 2500 && plasmaTank.getFluidAmount() >= 2500){
+				if(energyStorage.getEnergyStored() + 10000000< energyStorage.getMaxEnergyStored() && watertank.getFluidAmount() >= 2000 && plasmaTank.getFluidAmount() >= 2000){
 					productionRate = (int) (Math.min(watertank.getFluidAmount()/10f, plasmaTank.getFluidAmount())/10f);
-					energyStorage.receiveEnergy(productionRate * 1000, false);
+					energyStorage.receiveEnergy(productionRate * 2000, false);
 					watertank.drain(productionRate , true);
 					plasmaTank.drain(productionRate, true);
 				}else{

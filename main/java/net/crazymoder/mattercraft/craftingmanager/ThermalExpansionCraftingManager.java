@@ -18,23 +18,14 @@ public class ThermalExpansionCraftingManager {
 	public ThermalExpansionCraftingManager(){
 		
 		ThermalExpansionHelper.addPulverizerRecipe(1000,
-				new ItemStack(ItemBlockManager.stoneWool),
-				new ItemStack(ItemManager.absorber),
-				new ItemStack(Items.string),50);
-		
-		ThermalExpansionHelper.addPulverizerRecipe(1000,
 				new ItemStack(Blocks.glass_pane),
-				new ItemStack(ItemManager.glasDust));
+				new ItemStack(ItemManager.absorber));
+		
 		
 		ThermalExpansionHelper.addTransposerFill(1000,
 				new ItemStack(ItemManager.absorber),
 				new ItemStack(ItemManager.absorbedToxicWaste),
 				new FluidStack(ToxicWaste.toxicWaste, 1000), false);
-		
-		ThermalExpansionHelper.addTransposerFill(1000,
-				new ItemStack(ItemManager.glasDust),
-				new ItemStack(Items.glowstone_dust),
-				new FluidStack(IonizedPlasma.ionizedPlasma, 8000), false);
 		
 		ThermalExpansionHelper.addTransposerFill(1000,
 				new ItemStack(ItemBlockManager.tripleCommpressedMatterBlock),

@@ -152,7 +152,7 @@ public class MultiBlockStructurManager {
 		if(!blockName.equals(w.getBlock(xC - 1,yC -1,zC - 1).getUnlocalizedName()))return 0;
 		if(blockName.equals("tile.mtc.osmiumPlating"))return 1;
 		if(blockName.equals("tile.mtc.iridiumPalting"))return 2;
-		if(blockName.equals("tile.mtc.reinforcedPlating"))return 3;
+		if(blockName.equals("tile.mtc.infinityPlating"))return 3;
 		return 0;
 	}
 	

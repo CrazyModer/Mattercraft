@@ -37,14 +37,12 @@ public class Calculator {
 		antiMatterIO = log.antiMatter_a;
 		topower = (int) (1000000f * (1f - (float)(log.plasma_a)/log.plasma_m));
 		if(log.hydrogen_a < 10000)topower = 100;
-		int stab = 0;
 		int min = log.matter_a < log.antiMatter_a ? log.matter_a : log.antiMatter_a;
 		power = (int) (Math.pow(min/100d, 2));
 		if(power < topower){
 			if(log.matter_a > log.antiMatter_a){
 				if(log.antiMatter_a+1 < log.antiMatter_m){
 					antiMatterInjectionRate += 1;
-					stab = 1;
 				}
 			}else{
 				if(log.matter_a+1 < log.matter_m)
@@ -53,7 +51,6 @@ public class Calculator {
 		}else{
 			if(antiMatterInjectionRate - 1 > -1)
 			antiMatterInjectionRate -= 1;
-			stab = 2;
 		}
 		effitiency = 1;
 		if(log.antiMatter_a < log.matter_a && log.antiMatter_a > 0 && log.matter_a >0){
@@ -61,7 +58,7 @@ public class Calculator {
 		}
 		if(log.liquidMatter_a > matterInjectionRate/10f && log.matter_a + matterInjectionRate < log.matter_m){
 			log.matter_a += matterInjectionRate;
-			log.liquidMatter_a -= (matterInjectionRate/10f)*effitiency;
+			log.liquidMatter_a -= (matterInjectionRate/10f);
 		}else{
 			if(matterInjectionRate >= 10)
 			matterInjectionRate -= 5;
@@ -76,21 +73,18 @@ public class Calculator {
 		}else{
 			log.cryotheum_a-=30;
 			if(log.heatedCryotheum_a+30 < log.heatedCryotheum_m)
-				log.heatedCryotheum_a+=25;
-			if(log.toxicWaste_a + 5 < log.toxicWaste_m)
-				log.toxicWaste_a += 5;
+				log.heatedCryotheum_a+=30;
 		}
 		if(log.stabilizer_a < 1000){
 			core.deactivate();
 		}else{
-			log.stabilizer_a -= 4 + stab*10;
-			if(log.toxicWaste_a + 4 + stab*10 < log.toxicWaste_m)
-				log.toxicWaste_a += 4 + stab*10;
+			log.stabilizer_a -= (4f + 10f)*Math.pow(effitiency, 2);
+			if(log.toxicWaste_a + 4 + 10 < log.toxicWaste_m)
+				log.toxicWaste_a += 4 + 10;
 		}
 		if(log.energy_a > 1000000){
-			log.energy_a -= 20000;
+			log.energy_a -= 50000;
 			log.energy_a -= power/400f;
-			log.energy_a -= stab*20000;
 		}else{
 			core.deactivate();
 		}
