@@ -94,12 +94,8 @@ public class MemoryCardReader extends BlockContainer
 			else{
 				ItemStack playerStack = player.inventory.getCurrentItem();
 				if(playerStack == null){
-					if (Keyboard.isKeyDown(Keyboard.KEY_RSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)){
-						player.inventory.setInventorySlotContents(player.inventory.currentItem, tile.itemStack.copy());
-						tile.itemStack = null;
-					}else{
-						player.addChatMessage(new ChatComponentText("Card Loaded"));
-					}
+					player.inventory.setInventorySlotContents(player.inventory.currentItem, tile.itemStack.copy());
+					tile.itemStack = null;
 				}else{
 					player.addChatMessage(new ChatComponentText("Card Loaded"));
 				}
