@@ -16,6 +16,7 @@ import net.crazymoder.mattercraft.interfaces.INoisyTileEntity;
 import net.crazymoder.mattercraft.manager.AdvancedItemManager;
 import net.crazymoder.mattercraft.manager.BlockManager;
 import net.crazymoder.mattercraft.manager.ConfigurationManager;
+import net.crazymoder.mattercraft.manager.EventManager;
 import net.crazymoder.mattercraft.manager.FluidManager;
 import net.crazymoder.mattercraft.manager.GuiManager;
 import net.crazymoder.mattercraft.manager.ItemBlockManager;
@@ -42,6 +43,7 @@ public class CommonProxy {
 	
 	public void init(FMLInitializationEvent e){
 		NetworkRegistry.INSTANCE.registerGuiHandler(Mattercraft.INSTANCE, new GuiManager());
+		EventManager eventManager = new EventManager();
 	}
 	
 	public void postInit(FMLPostInitializationEvent e){
