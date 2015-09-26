@@ -90,8 +90,7 @@ public class ReactorCoreTile extends TileEntity implements INoisyTileEntity{
 	
 	private void activate(){
 		Block b1 = worldObj.getBlock(xCoord, yCoord+12, zCoord);
-		Block b2 = worldObj.getBlock(xCoord, yCoord+13, zCoord);
-		if(b1.getUnlocalizedName().equals("tile.mtc.unstableMatter")&&b2.getUnlocalizedName().equals("tile.fire")&&calculator.canactivate()){
+		if(b1.getUnlocalizedName().equals("tile.mtc.unstableMatter")&&calculator.canactivate()){
 			worldObj.setBlock(xCoord, yCoord+12, zCoord, Blocks.air);
 			state = 4;
 			calculator.activate();

@@ -125,7 +125,6 @@ public class MultiBlockStructurManager {
 		x = 3;
 		if(!isBlock("tile.mtc.osmiumPlating"))return false;
 		//System.out.println("Osmium");
-		//https://www.youtube.com/watch?v=8Nwh8yWh5WU
 		z = 0;
 		x = 4;
 		if(!isBlock("tile.mtc.forceFieldEmitter"))return false;

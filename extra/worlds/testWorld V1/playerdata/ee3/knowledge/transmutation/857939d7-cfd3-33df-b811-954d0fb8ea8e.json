@@ -1,0 +1,13 @@
+{
+    "canTransmuteEverything": false,
+    "knownTransmutations": [
+        {
+            "itemName": "EE3:alchemicalFuelBlock",
+            "itemDamage": 1
+        },
+        {
+            "itemName": "EE3:alchemicalFuelBlock",
+            "itemDamage": 2
+        }
+    ]
+}

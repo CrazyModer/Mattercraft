@@ -1,0 +1,77 @@
+{
+    "notLearnable": [
+        {
+            "type": "orestack",
+            "stackSize": 1,
+            "objectData": {
+                "oreName": "oreCoal",
+                "stackSize": 1
+            }
+        },
+        {
+            "type": "orestack",
+            "stackSize": 1,
+            "objectData": {
+                "oreName": "oreDiamond",
+                "stackSize": 1
+            }
+        },
+        {
+            "type": "orestack",
+            "stackSize": 1,
+            "objectData": {
+                "oreName": "oreEmerald",
+                "stackSize": 1
+            }
+        },
+        {
+            "type": "orestack",
+            "stackSize": 1,
+            "objectData": {
+                "oreName": "oreGold",
+                "stackSize": 1
+            }
+        },
+        {
+            "type": "orestack",
+            "stackSize": 1,
+            "objectData": {
+                "oreName": "oreIron",
+                "stackSize": 1
+            }
+        },
+        {
+            "type": "orestack",
+            "stackSize": 1,
+            "objectData": {
+                "oreName": "oreLapis",
+                "stackSize": 1
+            }
+        },
+        {
+            "type": "orestack",
+            "stackSize": 1,
+            "objectData": {
+                "oreName": "oreQuartz",
+                "stackSize": 1
+            }
+        },
+        {
+            "type": "orestack",
+            "stackSize": 1,
+            "objectData": {
+                "oreName": "oreRedstone",
+                "stackSize": 1
+            }
+        },
+        {
+            "type": "itemstack",
+            "stackSize": 1,
+            "objectData": {
+                "itemName": "minecraft:coal_ore",
+                "itemDamage": 0
+            }
+        }
+    ],
+    "notRecoverable": []
+}
