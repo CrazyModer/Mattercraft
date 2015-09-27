@@ -12,6 +12,7 @@ import net.crazymoder.mattercraft.blockcontainer.HydrogenAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.ItemProvider;
 import net.crazymoder.mattercraft.blockcontainer.LiquidMatterAcceptor;
 import net.crazymoder.mattercraft.blockcontainer.MemoryCardReader;
+import net.crazymoder.mattercraft.blockcontainer.MobCrafter;
 import net.crazymoder.mattercraft.blockcontainer.PlasmaEjector;
 import net.crazymoder.mattercraft.blockcontainer.PlasmaInjector;
 import net.crazymoder.mattercraft.blockcontainer.Quarry;
@@ -85,6 +86,7 @@ public class BlockManager {
 	public static Block itemProvider;
 	public static Block memoryCardReader;
 	public static Block quarryPowerAcceptor;
+	public static Block mobCrafter;
 	
 	public BlockManager(){
 		//Initialize Blocks
@@ -132,6 +134,7 @@ public class BlockManager {
 		itemProvider = new ItemProvider();
 		memoryCardReader = new MemoryCardReader();
 		quarryPowerAcceptor = new QuarryPowerAcceptor();
+		mobCrafter = new MobCrafter();
 		
 		//Configure Blocks
 		groundPlating.setHardness(15F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.groundPlating").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
@@ -177,6 +180,7 @@ public class BlockManager {
 		itemProvider.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.itemProvider").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
 		memoryCardReader.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.memoryCardReader").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
 		quarryPowerAcceptor.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.quarryPowerAcceptor").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
+		mobCrafter.setHardness(10F).setStepSound(Block.soundTypeMetal).setBlockName("mtc.mobCrafter").setCreativeTab(CreativeTabManager.tabBlocks).setHarvestLevel("pickaxe",0);
 		
 		//Single Texture Blocks
 		groundPlating.setBlockTextureName("mattercraft:groundPlating");
@@ -227,6 +231,7 @@ public class BlockManager {
 		itemProvider.setBlockTextureName("mattercraft:itemProvider");
 		memoryCardReader.setBlockTextureName("mattercraft:memoryCardReader");
 		quarryPowerAcceptor.setBlockTextureName("mattercraft:quarryPowerAcceptor");
+		mobCrafter.setBlockTextureName("mattercraft:mobCrafter");
 		
 		//Register Blocks
 		GameRegistry.registerBlock(groundPlating, "mtc.groundPlating");
@@ -272,6 +277,7 @@ public class BlockManager {
 		GameRegistry.registerBlock(itemProvider, "mtc.itemProvider");
 		GameRegistry.registerBlock(memoryCardReader, "mtc.memoryCardReader");
 		GameRegistry.registerBlock(quarryPowerAcceptor,"mtc.quarryPowerAcceptor");
+		GameRegistry.registerBlock(mobCrafter,"mtc.mobCrafter");
 	}
 }
 
