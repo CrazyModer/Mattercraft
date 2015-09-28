@@ -29,8 +29,7 @@ public class ItemManager {
 		stabilizerDust.setTextureName("mattercraft:stabilizerDust"); 
 		enrichedStabilizerDust.setTextureName("mattercraft:enrichedStabilizerDust");
 		glasDust.setTextureName("mattercraft:glasDust");
-		
-		
+			
 		//register
 		GameRegistry.registerItem(absorber, "mtc.absorber","mattercraft");
 		GameRegistry.registerItem(absorbedToxicWaste, "mtc.absorbedToxicWaste");

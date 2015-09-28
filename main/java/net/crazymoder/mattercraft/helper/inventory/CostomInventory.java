@@ -12,7 +12,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraftforge.common.util.Constants;
 
 public class CostomInventory{
-	LinkedHashMap<ItemStack, Integer> inv;
+	private LinkedHashMap<ItemStack, Integer> inv;
 	public CostomInventory(){
 		inv = new LinkedHashMap<ItemStack, Integer>();
 	}

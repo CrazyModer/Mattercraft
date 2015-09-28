@@ -2,6 +2,7 @@ package net.crazymoder.mattercraft.manager;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.crazymoder.mattercraft.blockcontainer.MemoryCardReader;
+import net.crazymoder.mattercraft.container.MobCrafterContainer;
 import net.crazymoder.mattercraft.tileentity.ChunkRegistratorTile;
 import net.crazymoder.mattercraft.tileentity.CoolerTile;
 import net.crazymoder.mattercraft.tileentity.CryotheumAcceptorTile;
@@ -14,6 +15,7 @@ import net.crazymoder.mattercraft.tileentity.HydrogenAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.ItemProviderTile;
 import net.crazymoder.mattercraft.tileentity.LiquidMatterAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.MemoryCardReaderTile;
+import net.crazymoder.mattercraft.tileentity.MobCrafterTile;
 import net.crazymoder.mattercraft.tileentity.PlasmaEjectorTile;
 import net.crazymoder.mattercraft.tileentity.QuarryPowerAcceptorTile;
 import net.crazymoder.mattercraft.tileentity.QuarryTile;
@@ -46,5 +48,6 @@ public class TileEntityManager {
 		GameRegistry.registerTileEntity(ItemProviderTile.class, "mtc.itemProviderTile");
 		GameRegistry.registerTileEntity(MemoryCardReaderTile.class, "mtc.memoryCardReaderTile");
 		GameRegistry.registerTileEntity(QuarryPowerAcceptorTile.class, "mtc.quarryPowerAcceptorTile");
+		GameRegistry.registerTileEntity(MobCrafterTile.class, "mtc.mobCrafterTile");
 	}
 }

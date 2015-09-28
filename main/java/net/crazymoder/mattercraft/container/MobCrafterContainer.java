@@ -1,5 +1,7 @@
 package net.crazymoder.mattercraft.container;
 
+import net.crazymoder.mattercraft.helper.inventory.MobCrafterSlot;
+import net.crazymoder.mattercraft.manager.AdvancedItemManager;
 import net.crazymoder.mattercraft.manager.BlockManager;
 import net.crazymoder.mattercraft.tileentity.MobCrafterTile;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,15 +24,15 @@ public class MobCrafterContainer extends Container{
 		crafterTile = (MobCrafterTile) world.getTileEntity(x, y, z);
 		worldObj = world;
 		posX=x; posY=y; posZ=z;
-		
-		this.addSlotToContainer(new Slot(crafterTile, 0, 120, 15));
-		this.addSlotToContainer(new Slot(crafterTile, 1, 120, 55));
+		Slot product = new Slot(crafterTile, 0, 140, 35);
+		this.addSlotToContainer(new MobCrafterSlot(true, crafterTile, 0, 140, 24));
+		this.addSlotToContainer(new MobCrafterSlot(true, crafterTile, 1, 140, 46));
 		
 		for (int l = 0; l < 3; ++l)
         {
             for (int i = 0; i < 3; ++i)
             {
-                this.addSlotToContainer(new Slot(crafterTile, i+l*3+2 , 30 + i * 18,  17 + l * 18));
+                this.addSlotToContainer(new MobCrafterSlot(false,crafterTile, i+l*3+2 , 30 + i * 18,  17 + l * 18));
             }
         }
 	
@@ -49,64 +51,48 @@ public class MobCrafterContainer extends Container{
 
 	}
 	
-	 public ItemStack transferStackInSlot(EntityPlayer p_82846_1_, int p_82846_2_)
-	    {
-		 return null;
-	        /*ItemStack itemstack = null;
-	        Slot slot = (Slot)this.inventorySlots.get(p_82846_2_);
+	@Override
+    public ItemStack transferStackInSlot(EntityPlayer player, int slot) {
+            ItemStack stack = null;
+            Slot slotObject = (Slot) inventorySlots.get(slot);
 
-	        if (slot != null && slot.getHasStack())
-	        {
-	            ItemStack itemstack1 = slot.getStack();
-	            itemstack = itemstack1.copy();
+            //null checks and checks if the item can be stacked (maxStackSize > 1)
+            if (slotObject != null && slotObject.getHasStack()) {
+                    ItemStack stackInSlot = slotObject.getStack();
+                    stack = stackInSlot.copy();
 
-	            if (p_82846_2_ == 0)
-	            {
-	                if (!this.mergeItemStack(itemstack1, 10, 46, true))
-	                {
-	                    return null;
-	                }
+                    //merges the item into player inventory since its in the tileEntity
+                    if (slot < crafterTile.getSizeInventory() + 1) {
+                            if (!this.mergeItemStack(stackInSlot, crafterTile.getSizeInventory(), 36+crafterTile.getSizeInventory(), true)) {
+                                    return null;
+                            }
+                    }
+                    //places it into the tileEntity is possible since its in the player inventory
+                    else if(stackInSlot.getItem().equals(AdvancedItemManager.mobSoul)&&stackInSlot.hasTagCompound()){
+                    	if (!this.mergeItemStack(stackInSlot, 2, 11, false)) {
+                            return null;
+                    	}
+                    }
 
-	                slot.onSlotChange(itemstack1, itemstack);
-	            }
-	            else if (p_82846_2_ >= 10 && p_82846_2_ < 37)
-	            {
-	                if (!this.mergeItemStack(itemstack1, 37, 46, false))
-	                {
-	                    return null;
-	                }
-	            }
-	            else if (p_82846_2_ >= 37 && p_82846_2_ < 46)
-	            {
-	                if (!this.mergeItemStack(itemstack1, 10, 37, false))
-	                {
-	                    return null;
-	                }
-	            }
-	            else if (!this.mergeItemStack(itemstack1, 10, 46, false))
-	            {
-	                return null;
-	            }
+                    if (stackInSlot.stackSize == 0) {
+                            slotObject.putStack(null);
+                    } else {
+                            slotObject.onSlotChanged();
+                    }
 
-	            if (itemstack1.stackSize == 0)
-	            {
-	                slot.putStack((ItemStack)null);
-	            }
-	            else
-	            {
-	                slot.onSlotChanged();
-	            }
-
-	            if (itemstack1.stackSize == itemstack.stackSize)
-	            {
-	                return null;
-	            }
-
-	            slot.onPickupFromSlot(p_82846_1_, itemstack1);
-	        }
-
-	        return itemstack;*/
-	    }
+                    if (stackInSlot.stackSize == stack.stackSize) {
+                            return null;
+                    }
+                    slotObject.onPickupFromSlot(player, stackInSlot);
+            }
+            return stack;
+    }
+	 
+	 @Override
+	public void detectAndSendChanges() {
+		// TODO Auto-generated method stub
+		super.detectAndSendChanges();
+	}
 	
 	public boolean canInteractWith(EntityPlayer p_75145_1_)
     {
