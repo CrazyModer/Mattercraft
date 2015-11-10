@@ -1,9 +1,11 @@
 package net.crazymoder.mattercraft.manager;
 
+import java.io.File;
 import java.util.HashMap;
 
 import com.typesafe.config.ConfigException.Parse;
 
+import net.crazymoder.mattercraft.helper.MobCrafter.MobCrafterConfiguration;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -21,12 +23,17 @@ public class ConfigurationManager {
 	}
 	
 	public ConfigurationManager(FMLPreInitializationEvent e){
+		File f = new File(e.getModConfigurationDirectory().getAbsolutePath() + "/matterCraftMobCrafter.cfg");
+		MobCrafterConfiguration mobCrafterConfiguration = new MobCrafterConfiguration(new Configuration(f));
 		Configuration configuration = new Configuration(e.getSuggestedConfigurationFile());
+		System.out.println(f.getAbsolutePath());
+		System.out.println(e.getSuggestedConfigurationFile().getAbsolutePath());
 		configuration.load();
 		populateableBlocks = configuration.get("Quarry", "PopulateableBlocks", populateableBlocks).getStringList();
 		multiblockAirBlocks = configuration.get("ReactorCore", "AirEqualBlocks", multiblockAirBlocks).getStringList();
 		configuration.save();
 	}
+	
 	
 	public static Block getPopulatable(int dim){
 		String name = "";

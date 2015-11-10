@@ -1,0 +1,25 @@
+        String[] mobs = {
+                "net.minecraft.entity.monster.EntityZombie",
+                "net.minecraft.entity.monster.EntityEnderman",
+                "cofh.thermalfoundation.entity.monster.EntityBlizz"
+        };
+        String[] names = {
+                "Zombie",
+                "Enderman",
+                "Blizz"
+        };
+        int[] probability = {
+                100,
+                50,
+                50
+        };
+        int[] plasma = {
+                100,
+                1000,
+                5000
+        };
+        int[] cooldown = {
+                1,
+                40,
+                40
+        };
