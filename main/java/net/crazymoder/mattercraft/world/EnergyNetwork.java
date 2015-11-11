@@ -12,7 +12,6 @@ public class EnergyNetwork {
 	}
 	
 	public void update(){
-		System.out.println("Hallo " + world.loadedEntityList.size());
-		System.out.println("Hallo " + world.provider.getSaveFolder());
+		
 	}
 }
